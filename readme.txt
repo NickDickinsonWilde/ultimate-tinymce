@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.1
+Stable tag: 1.2
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options: Emoticons, Tables, Styles, Advanced links, images, and drop-downs, too many features to list.
 
@@ -63,6 +63,7 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 == Features ==
 
+* Now includes an admin panel to choose which buttons you would like to show in your editor.
 * Complete control over custom CSS styles using drop-down lists.
 * Advanced link and image inserts, including mouseover and mouseout, and even open links in javascript windows... all without writing a single line of code.
 * Adds buttons for cut, copy, and paste.
@@ -77,6 +78,12 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 *Simply too many features to list!!
 
 == Changelog ==
+
+= 1.2 =
+* Added an admin control where you can choose which buttons you would like to display in the editor.
+* Adds an option menu in the admin panel under Settings -> Ultimate TinyMCE.
+* Simply select which buttons you would like to add to your editor.
+* Note: All buttons are selected by default.
 
 = 1.1 =
 * This plugin is exactly like my Ultimate Visual Editor Upgrade plugin; except this plugin does NOT include the 291 Google Webfonts.  I realized the increased load the fonts puts on the server because each font calls a separate HTML request.  So, I created this plugin to use in the mean time until I can figure out a better solution.
