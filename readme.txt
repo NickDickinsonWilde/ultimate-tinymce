@@ -60,6 +60,7 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 3. <strong>The attributes box showing the many different possible events you may add.</strong>
 4. <strong>Easily create gorgeous tables using only the visual editor.</strong>
 5. <strong>The advanced link box.  Here, you can have your links display as javascript popup windows; among other features.</strong>
+6. <strong>Shows the backend admin panel for selecting which buttons to show in your TinyMCE editor.
 
 == Features ==
 
