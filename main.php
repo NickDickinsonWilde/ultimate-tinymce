@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.2
+ * @version 1.3
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/11/adding-buttons-to-tinymce-in-wordpress/
 Description: Beef up your visual tinymce editor with a plethora of advanced options: Google Fonts, Emoticons, Tables, Styles, Advanced links, images, and drop-downs, too many features to list.
 Author: Josh Lobe
-Version: 1.2
+Version: 1.3
 Author URI: http://joshlobe.com
 
 */
@@ -59,18 +59,38 @@ add_action('admin_head', 'admin_register_head');
 	function jwl_options_page() {
 	?>
 	
-	<div>
+	<div class="wrap">
 		<h2>Ultimate TinyMCE Plugin Menu</h2>
 		Set your options for which buttons to show in the editor.
+            
 		<form action="options.php" method="post">
 				<?php settings_fields('jwl_options_group'); ?>
 				<?php do_settings_sections('ultimate-tinymce'); ?>
         <br />
-        <br />
-		
+       
+       
+              
+        
+		<!-- Save Button -->
         <input class="button-primary" type="submit" name="Save" value="<?php _e('Save Options'); ?>" id="submitbutton" />
  
 		</form>
+        <br />
+        <br />
+        
+        <div>
+        <p><strong>Even the smallest donations are gratefully accepted.</strong></p>
+        <!--  Donate Button -->
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="A9E5VNRBMVBCS">
+        <input type="image" src="http://www.joshlobe.com/images/donate.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+        </div>
+        <br />
+        <br />
+        
 	</div>
 	
 	<?php 
@@ -188,116 +208,143 @@ add_action('admin_head', 'admin_register_head');
  // creates a checkbox true/false option. Other types are surely possible
  //
  
- 
+
  // Callback Functions for Row 3 Buttons
  function jwl_fontselect_callback_function() {
- 	echo '<input name="jwl_fontselect_field_id" id="fontselect" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_fontselect_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_fontselect_field_id" id="fontselect" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_fontselect_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/fontselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
- 
+  
  function jwl_fontsizeselect_callback_function() {
- 	echo '<input name="jwl_fontsizeselect_field_id" id="fontsize" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_fontsizeselect_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_fontsizeselect_field_id" id="fontsize" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_fontsizeselect_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/fontsizeselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
- 
+
  function jwl_styleselect_callback_function() {
- 	echo '<input name="jwl_styleselect_field_id" id="styleselect" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_styleselect_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_styleselect_field_id" id="styleselect" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_styleselect_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/styleselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_cut_callback_function() {
- 	echo '<input name="jwl_cut_field_id" id="cut" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_cut_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_cut_field_id" id="cut" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_cut_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/cut.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_copy_callback_function() {
- 	echo '<input name="jwl_copy_field_id" id="copy" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_copy_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_copy_field_id" id="copy" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_copy_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/copy.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_paste_callback_function() {
- 	echo '<input name="jwl_paste_field_id" id="paste" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_paste_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_paste_field_id" id="paste" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_paste_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/paste.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_backcolorpicker_callback_function() {
- 	echo '<input name="jwl_backcolorpicker_field_id" id="backcolorpicker" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_backcolorpicker_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_backcolorpicker_field_id" id="backcolorpicker" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_backcolorpicker_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/backcolorpicker.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_forecolorpicker_callback_function() {
- 	echo '<input name="jwl_forecolorpicker_field_id" id="forecolorpicker" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_forecolorpicker_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_forecolorpicker_field_id" id="forecolorpicker" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_forecolorpicker_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/forecolorpicker.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_hr_callback_function() {
- 	echo '<input name="jwl_hr_field_id" id="hr" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_hr_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_hr_field_id" id="hr" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_hr_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/hr.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_visualaid_callback_function() {
- 	echo '<input name="jwl_visualaid_field_id" id="visualaid" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_visualaid_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_visualaid_field_id" id="visualaid" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_visualaid_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/visualaid.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_anchor_callback_function() {
- 	echo '<input name="jwl_anchor_field_id" id="anchor" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_anchor_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_anchor_field_id" id="anchor" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_anchor_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/anchor.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_sub_callback_function() {
- 	echo '<input name="jwl_sub_field_id" id="sub" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_sub_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_sub_field_id" id="sub" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_sub_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/sub.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_sup_callback_function() {
- 	echo '<input name="jwl_sup_field_id" id="sup" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_sup_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_sup_field_id" id="sup" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_sup_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/sup.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
   function jwl_search_callback_function() {
- 	echo '<input name="jwl_search_field_id" id="search" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_search_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_search_field_id" id="search" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_search_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/search.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
   function jwl_replace_callback_function() {
- 	echo '<input name="jwl_replace_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_replace_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_replace_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_replace_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/replace.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  
  // Callback Functions for Row 4 Buttons
  function jwl_tablecontrols_callback_function() {
- 	echo '<input name="jwl_tablecontrols_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_tablecontrols_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_tablecontrols_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_tablecontrols_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/tablecontrols.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_emotions_callback_function() {
- 	echo '<input name="jwl_emotions_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_emotions_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_emotions_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_emotions_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/emotions.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_image_callback_function() {
- 	echo '<input name="jwl_image_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_image_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_image_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_image_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/image.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_preview_callback_function() {
- 	echo '<input name="jwl_preview_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_preview_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_preview_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_preview_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/preview.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_cite_callback_function() {
- 	echo '<input name="jwl_cite_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_cite_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_cite_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_cite_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/cite.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_abbr_callback_function() {
- 	echo '<input name="jwl_abbr_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_abbr_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_abbr_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_abbr_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/abbr.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_acronym_callback_function() {
- 	echo '<input name="jwl_acronym_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_acronym_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_acronym_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_acronym_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/acronym.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_del_callback_function() {
- 	echo '<input name="jwl_del_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_del_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_del_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_del_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/del.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_ins_callback_function() {
- 	echo '<input name="jwl_ins_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_ins_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_ins_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_ins_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/ins.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_attribs_callback_function() {
- 	echo '<input name="jwl_attribs_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_attribs_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_attribs_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_attribs_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/attribs.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_styleprops_callback_function() {
- 	echo '<input name="jwl_styleprops_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_styleprops_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_styleprops_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_styleprops_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/styleprops.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_code_callback_function() {
- 	echo '<input name="jwl_code_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_code_field_id'), false ) . ' /> Explanation text';
+ 	echo '<input name="jwl_code_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_code_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/code.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  

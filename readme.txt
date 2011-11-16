@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.2
+Stable tag: 1.3
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options: Emoticons, Tables, Styles, Advanced links, images, and drop-downs, too many features to list.
 
@@ -60,7 +60,6 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 3. <strong>The attributes box showing the many different possible events you may add.</strong>
 4. <strong>Easily create gorgeous tables using only the visual editor.</strong>
 5. <strong>The advanced link box.  Here, you can have your links display as javascript popup windows; among other features.</strong>
-6. <strong>Shows the backend admin panel for selecting which buttons to show in your TinyMCE editor.
 
 == Features ==
 
@@ -79,6 +78,10 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 *Simply too many features to list!!
 
 == Changelog ==
+
+= 1.3 =
+* Replaced "Example Text" with small icons of each button.  Now you can visually see which button you are enabling or disabling.
+* Added a stylesheet for future upgrades.  This fixed a small bug where it was throwing an error.  I apologize if anyone was caught by this "speedbump".
 
 = 1.2 =
 * Added an admin control where you can choose which buttons you would like to display in the editor.
