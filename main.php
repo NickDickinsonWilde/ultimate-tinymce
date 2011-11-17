@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.3
+ * @version 1.4
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/11/adding-buttons-to-tinymce-in-wordpress/
 Description: Beef up your visual tinymce editor with a plethora of advanced options: Google Fonts, Emoticons, Tables, Styles, Advanced links, images, and drop-downs, too many features to list.
 Author: Josh Lobe
-Version: 1.3
+Version: 1.4
 Author URI: http://joshlobe.com
 
 */
@@ -30,12 +30,12 @@ Author URI: http://joshlobe.com
 */
 
 // Call our external stylesheet
-function admin_register_head() {
+function jwl_admin_register_head() {
     $siteurl = get_option('siteurl');
     $url = $siteurl . '/wp-content/plugins/' . basename(dirname(__FILE__)) . '/admin_panel.css';
     echo "<link rel='stylesheet' type='text/css' href='$url' />\n";
 }
-add_action('admin_head', 'admin_register_head');
+add_action('admin_head', 'jwl_admin_register_head');
 
 
 
@@ -64,33 +64,60 @@ add_action('admin_head', 'admin_register_head');
 		Set your options for which buttons to show in the editor.
             
 		<form action="options.php" method="post">
-				<?php settings_fields('jwl_options_group'); ?>
-				<?php do_settings_sections('ultimate-tinymce'); ?>
         <br />
-       
-       
-              
         
-		<!-- Save Button -->
-        <input class="button-primary" type="submit" name="Save" value="<?php _e('Save Options'); ?>" id="submitbutton" />
+            <div class="metabox-holder" style="width:65%; float:left; margin-right:10px;">
+                <div class="postbox">  
+                <div class="inside" style="padding:0px 0px 0px 0px;">
+                    <?php settings_fields('jwl_options_group'); ?>
+                    <?php do_settings_sections('ultimate-tinymce'); ?><br /><br />       
+                </div>
+                </div>
+                
+                <div class="postbox">
+                <div class="inside" style="padding:0px 0px 0px 0px;">
+                    <?php settings_fields('jwl_options_group2'); ?>
+                    <?php do_settings_sections('ultimate-tinymce2'); ?><br />    
+                </div>
+                </div>
+            </div>
  
-		</form>
-        <br />
-        <br />
+    	<div class="metabox-holder" style="width:30%; float:left;">
+ 
         
-        <div>
-        <p><strong>Even the smallest donations are gratefully accepted.</strong></p>
-        <!--  Donate Button -->
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-        <input type="hidden" name="cmd" value="_s-xclick">
-        <input type="hidden" name="hosted_button_id" value="A9E5VNRBMVBCS">
-        <input type="image" src="http://www.joshlobe.com/images/donate.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-        </form>
-        </div>
-        <br />
-        <br />
+            <div class="postbox">
+                <h3 style="cursor:default;">SAVE YOUR SETTINGS</h3>
+                <div class="inside" style="padding:6px 6px 6px 6px;"><center><strong>Don't forget to save your selections.<br /><br />&nbsp;</strong></center> 
+                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save Options'); ?>" id="submitbutton" /></center>
+                </div>
+            </div>
+    
+            <div class="postbox">
+                <h3 style="cursor:default;">Donations</h3>
+                <div class="inside" style="padding:0px 6px 6px 6px;">
+                <p><strong>&nbsp;&nbsp;Even the smallest donations are gratefully accepted.</strong></p>
+                        
+                <!--  Donate Button -->
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="A9E5VNRBMVBCS">
+                <center><input type="image" src="http://www.joshlobe.com/images/donate.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></center>
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+                </div>
+            </div>
+            
+            <div class="postbox">
+                <h3 style="cursor:default;">Resources</h3>
+                <div class="inside" style="padding:6px 6px 6px 6px;">
+                <a href="http://www.joshlobe.com/2011/10/ultimate-tinymce/" target="_blank">Get help from my personal blog.</a><br /><br />
+                <a href="http://wordpress.org/tags/ultimate-tinymce?forum_id=10#postform" target="_blank">Post a thread in the Wordpress Plugin Page.</a>
+                </div>
+            </div>
         
+              
+    	</div>
+               
 	</div>
 	
 	<?php 
@@ -107,8 +134,9 @@ add_action('admin_head', 'admin_register_head');
  function jwl_settings_api_init() {
  	// Add the section to ultimate-tinymce settings so we can add our
  	// fields to it
- 	add_settings_section('jwl_setting_section', 'Row 3 Button Settings', 'eg_setting_section_callback_function', 'ultimate-tinymce');
-	add_settings_section('jwl_setting_section2', 'Row 4 Button Settings', 'eg_setting_section_callback_function2', 'ultimate-tinymce');
+	
+ 	add_settings_section('jwl_setting_section', 'Row 3 Button Settings', 'jwl_setting_section_callback_function', 'ultimate-tinymce');
+	add_settings_section('jwl_setting_section2', 'Row 4 Button Settings', 'jwl_setting_section_callback_function2', 'ultimate-tinymce2');
  	
  	// Add the field with the names and function to use for our new
  	// settings, put it in our new section
@@ -131,18 +159,18 @@ add_action('admin_head', 'admin_register_head');
 	add_settings_field('jwl_replace_field_id', 'Replace Box', 'jwl_replace_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	
 	// These are the settings for Row 4
-	add_settings_field('jwl_tablecontrols_field_id', 'Table Controls Box', 'jwl_tablecontrols_callback_function', 'ultimate-tinymce', 'jwl_setting_section2');
-	add_settings_field('jwl_emotions_field_id', 'Emotions Box', 'jwl_emotions_callback_function', 'ultimate-tinymce', 'jwl_setting_section2');
-	add_settings_field('jwl_image_field_id', 'Advanced Image Box', 'jwl_image_callback_function', 'ultimate-tinymce', 'jwl_setting_section2');
-	add_settings_field('jwl_preview_field_id', 'Preview Box', 'jwl_preview_callback_function', 'ultimate-tinymce', 'jwl_setting_section2');
-	add_settings_field('jwl_cite_field_id', 'Citations Box', 'jwl_cite_callback_function', 'ultimate-tinymce', 'jwl_setting_section2');
-	add_settings_field('jwl_abbr_field_id', 'Abbreviations Box', 'jwl_abbr_callback_function', 'ultimate-tinymce', 'jwl_setting_section2');
-	add_settings_field('jwl_acronym_field_id', 'Acronym Box', 'jwl_acronym_callback_function', 'ultimate-tinymce', 'jwl_setting_section2');
-	add_settings_field('jwl_del_field_id', 'Delete Box', 'jwl_del_callback_function', 'ultimate-tinymce', 'jwl_setting_section2');
-	add_settings_field('jwl_ins_field_id', 'Insert Box', 'jwl_ins_callback_function', 'ultimate-tinymce', 'jwl_setting_section2');
-	add_settings_field('jwl_attribs_field_id', 'Attributes Box', 'jwl_attribs_callback_function', 'ultimate-tinymce', 'jwl_setting_section2');
-	add_settings_field('jwl_styleprops_field_id', 'Styleprops Box', 'jwl_styleprops_callback_function', 'ultimate-tinymce', 'jwl_setting_section2');
-	add_settings_field('jwl_code_field_id', 'HTML Code Box', 'jwl_code_callback_function', 'ultimate-tinymce', 'jwl_setting_section2');
+	add_settings_field('jwl_tablecontrols_field_id', 'Table Controls Box', 'jwl_tablecontrols_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_emotions_field_id', 'Emotions Box', 'jwl_emotions_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_image_field_id', 'Advanced Image Box', 'jwl_image_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_preview_field_id', 'Preview Box', 'jwl_preview_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_cite_field_id', 'Citations Box', 'jwl_cite_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_abbr_field_id', 'Abbreviations Box', 'jwl_abbr_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_acronym_field_id', 'Acronym Box', 'jwl_acronym_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_del_field_id', 'Delete Box', 'jwl_del_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_ins_field_id', 'Insert Box', 'jwl_ins_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_attribs_field_id', 'Attributes Box', 'jwl_attribs_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_styleprops_field_id', 'Styleprops Box', 'jwl_styleprops_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_code_field_id', 'HTML Code Box', 'jwl_code_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
  	
  	
 	// Register our setting so that $_POST handling is done for us and
@@ -167,18 +195,18 @@ add_action('admin_head', 'admin_register_head');
 	
 	
 	// Register settings for Row 4
-	register_setting('jwl_options_group','jwl_tablecontrols_field_id');
-	register_setting('jwl_options_group','jwl_emotions_field_id');
-	register_setting('jwl_options_group','jwl_image_field_id');
-	register_setting('jwl_options_group','jwl_preview_field_id');
-	register_setting('jwl_options_group','jwl_cite_field_id');
-	register_setting('jwl_options_group','jwl_abbr_field_id');
-	register_setting('jwl_options_group','jwl_acronym_field_id');
-	register_setting('jwl_options_group','jwl_del_field_id');
-	register_setting('jwl_options_group','jwl_ins_field_id');
-	register_setting('jwl_options_group','jwl_attribs_field_id');
-	register_setting('jwl_options_group','jwl_styleprops_field_id');
-	register_setting('jwl_options_group','jwl_code_field_id');
+	register_setting('jwl_options_group2','jwl_tablecontrols_field_id');
+	register_setting('jwl_options_group2','jwl_emotions_field_id');
+	register_setting('jwl_options_group2','jwl_image_field_id');
+	register_setting('jwl_options_group2','jwl_preview_field_id');
+	register_setting('jwl_options_group2','jwl_cite_field_id');
+	register_setting('jwl_options_group2','jwl_abbr_field_id');
+	register_setting('jwl_options_group2','jwl_acronym_field_id');
+	register_setting('jwl_options_group2','jwl_del_field_id');
+	register_setting('jwl_options_group2','jwl_ins_field_id');
+	register_setting('jwl_options_group2','jwl_attribs_field_id');
+	register_setting('jwl_options_group2','jwl_styleprops_field_id');
+	register_setting('jwl_options_group2','jwl_code_field_id');
 
  }
  
@@ -193,12 +221,12 @@ add_action('admin_head', 'admin_register_head');
  // will be run at the start of our section
  //
  
- function eg_setting_section_callback_function() {
- 	echo '<p>Here you can select which buttons to include in row 3 of the TinyMCE editor.</p>';
+ function jwl_setting_section_callback_function() {
+ 	echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;Here you can select which buttons to include in row 3 of the TinyMCE editor.</strong></p>';
  }
  
- function eg_setting_section_callback_function2() {
- 	echo '<p>Here you can select which buttons to include in row 4 of the TinyMCE editor.</p>';
+ function jwl_setting_section_callback_function2() {
+ 	echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;Here you can select which buttons to include in row 4 of the TinyMCE editor.</strong></p>';
  }
  
  // ------------------------------------------------------------------
