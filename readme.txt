@@ -53,6 +53,8 @@ This is a bug in the TinyMCE core software.  This bug, as far as I know, is only
 
 You may have to click the button titled "enable kitchen sink" from your top row.  This will expand the editor buttons.
 
+<strong>Update:</strong>This version now includes an admin panel.  All buttons are set to false as default.  To activate buttons, go to Settings -> Ultimate TinyMCE and tick the checkboxes for the buttons you would like to include in your editor.
+
 == Screenshots ==
 
 1. <strong>Shows the two button rows added to the visual editor.</strong>
