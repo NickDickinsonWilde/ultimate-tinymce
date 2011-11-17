@@ -24,7 +24,7 @@ Also, <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button
 
 <a href="http://www.youtube.com/watch?v=7thuFbZWniE">Screencast 1</a> - You can view my screencast showing the plugin in action; and detailing some of the functionality.  <strong>NOTE:</wtrong>  This screencast shows the google fonts.  The google fonts are NOT included in this plugin (see changelog for more info).
 
-You can use my webpage <a href="http://www.joshlobe.com/2011/11/adding-buttons-to-tinymce-in-wordpress/">Here</a> for expedited help and support with this plugin; or to suggest additional features for future updates.
+You can use my webpage <a href="http://www.joshlobe.com/2011/11/ultimate-tinymce/">Here</a> for expedited help and support with this plugin; or to suggest additional features for future updates.
 
 
 == Installation ==
