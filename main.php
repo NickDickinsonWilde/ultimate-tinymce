@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.4
+ * @version 1.5
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/11/adding-buttons-to-tinymce-in-wordpress/
 Description: Beef up your visual tinymce editor with a plethora of advanced options: Google Fonts, Emoticons, Tables, Styles, Advanced links, images, and drop-downs, too many features to list.
 Author: Josh Lobe
-Version: 1.4
+Version: 1.5
 Author URI: http://joshlobe.com
 
 */
@@ -61,37 +61,34 @@ add_action('admin_head', 'jwl_admin_register_head');
 	
 	<div class="wrap">
 		<h2>Ultimate TinyMCE Plugin Menu</h2>
-		Set your options for which buttons to show in the editor.
-            
-		<form action="options.php" method="post">
-        <br />
-        
+
             <div class="metabox-holder" style="width:65%; float:left; margin-right:10px;">
                 <div class="postbox">  
                 <div class="inside" style="padding:0px 0px 0px 0px;">
+                	<form action="options.php" method="post">
                     <?php settings_fields('jwl_options_group'); ?>
-                    <?php do_settings_sections('ultimate-tinymce'); ?><br /><br />       
+                    <?php do_settings_sections('ultimate-tinymce'); ?><br /><br />  
+                    <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save Options'); ?>" id="submitbutton" /></center>
+                    </form><br /><br />     
                 </div>
                 </div>
                 
                 <div class="postbox">
                 <div class="inside" style="padding:0px 0px 0px 0px;">
+                	<form action="options.php" method="post">
                     <?php settings_fields('jwl_options_group2'); ?>
-                    <?php do_settings_sections('ultimate-tinymce2'); ?><br />    
+                    <?php do_settings_sections('ultimate-tinymce2'); ?><br /> 
+                    <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save Options'); ?>" id="submitbutton" /></center>   
+                    </form><br /><br />
                 </div>
                 </div>
             </div>
+              
+            
  
-    	<div class="metabox-holder" style="width:30%; float:left;">
+    		<div class="metabox-holder" style="width:30%; float:left;">
  
-        
-            <div class="postbox">
-                <h3 style="cursor:default;">SAVE YOUR SETTINGS</h3>
-                <div class="inside" style="padding:6px 6px 6px 6px;"><center><strong>Don't forget to save your selections.<br /><br />&nbsp;</strong></center> 
-                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save Options'); ?>" id="submitbutton" /></center>
-                </div>
-            </div>
-    
+            
             <div class="postbox">
                 <h3 style="cursor:default;">Donations</h3>
                 <div class="inside" style="padding:0px 6px 6px 6px;">
@@ -119,6 +116,7 @@ add_action('admin_head', 'jwl_admin_register_head');
     	</div>
                
 	</div>
+    
 	
 	<?php 
 	}
