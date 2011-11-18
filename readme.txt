@@ -85,7 +85,7 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 == Changelog ==
 
-= 1.5.1
+= 1.5.1 =
 * Made some minor adjustments to code.  Renamed my functions to be more unique.
 * Noted the "save" buttons to make aware you must click the save button for each row accordingly.
 * Added "settings" link to the plugin page where plugins are listed.
