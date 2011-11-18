@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.5
+Stable tag: 1.5.1
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options: Emoticons, Tables, Styles, Advanced links, images, and drop-downs, too many features to list.
 
@@ -40,6 +40,10 @@ You can use my webpage <a href="http://www.joshlobe.com/2011/11/ultimate-tinymce
 
 
 == Frequently Asked Questions ==
+
+= The options to save my buttons is acting kind of funny. =
+
+Remember, you must save each row of buttons independently.  This is the only way I could get the code to work.  First select which buttons you would like to include in Row 3, and click Save Options for Row 3.  Then, select the buttons for Row 4 and click Save Options for Row 4.
 
 = The color picker feature always shows hex code #000000 regardless of what color I click. =
 
@@ -80,6 +84,13 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 *Simply too many features to list!!
 
 == Changelog ==
+
+= 1.5.1
+* Made some minor adjustments to code.  Renamed my functions to be more unique.
+* Noted the "save" buttons to make aware you must click the save button for each row accordingly.
+* Added "settings" link to the plugin page where plugins are listed.
+* Included a new set of BIG smilies.  These will surely draw some attention on your pages.
+* Added link to please vote for this plugin.
 
 = 1.5 =
 * Fixed bug where Row 3 buttons were not saving.

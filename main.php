@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.5
+ * @version 1.5.1
  */
 /*
 Plugin Name: Ultimate TinyMCE
-Plugin URI: http://www.joshlobe.com/2011/11/adding-buttons-to-tinymce-in-wordpress/
+Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options: Google Fonts, Emoticons, Tables, Styles, Advanced links, images, and drop-downs, too many features to list.
 Author: Josh Lobe
-Version: 1.5
+Version: 1.5.1
 Author URI: http://joshlobe.com
 
 */
@@ -28,6 +28,19 @@ Author URI: http://joshlobe.com
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+
+//  Add settings link to plugins page menu
+function add_ultimatetinymce_settings_link($links, $file) {
+static $this_plugin;
+if (!$this_plugin) $this_plugin = plugin_basename(__FILE__);
+ 
+if ($file == $this_plugin){
+$settings_link = '<a href="admin.php?page=ultimate-tinymce">'.__("Settings").'</a>';
+array_unshift($links, $settings_link);
+}
+return $links;
+}
+add_filter('plugin_action_links', 'add_ultimatetinymce_settings_link', 10, 2 );
 
 // Call our external stylesheet
 function jwl_admin_register_head() {
@@ -68,7 +81,7 @@ add_action('admin_head', 'jwl_admin_register_head');
                 	<form action="options.php" method="post">
                     <?php settings_fields('jwl_options_group'); ?>
                     <?php do_settings_sections('ultimate-tinymce'); ?><br /><br />  
-                    <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save Options'); ?>" id="submitbutton" /></center>
+                    <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save Options for Row 3'); ?>" id="submitbutton" /></center>
                     </form><br /><br />     
                 </div>
                 </div>
@@ -78,7 +91,7 @@ add_action('admin_head', 'jwl_admin_register_head');
                 	<form action="options.php" method="post">
                     <?php settings_fields('jwl_options_group2'); ?>
                     <?php do_settings_sections('ultimate-tinymce2'); ?><br /> 
-                    <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save Options'); ?>" id="submitbutton" /></center>   
+                    <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save Options for Row 4'); ?>" id="submitbutton" /></center>   
                     </form><br /><br />
                 </div>
                 </div>
@@ -105,10 +118,23 @@ add_action('admin_head', 'jwl_admin_register_head');
             </div>
             
             <div class="postbox">
-                <h3 style="cursor:default;">Resources</h3>
-                <div class="inside" style="padding:6px 6px 6px 6px;">
+                <h3 style="cursor:default;">Additional Resources</h3>
+                <div class="inside" style="padding:12px 12px 12px 12px;">
                 <a href="http://www.joshlobe.com/2011/10/ultimate-tinymce/" target="_blank">Get help from my personal blog.</a><br /><br />
-                <a href="http://wordpress.org/tags/ultimate-tinymce?forum_id=10#postform" target="_blank">Post a thread in the Wordpress Plugin Page.</a>
+                <a href="http://wordpress.org/tags/ultimate-tinymce?forum_id=10#postform" target="_blank">Post a thread in the Wordpress Plugin Page.</a><br /><br />
+                <a href="http://www.joshlobe.com/contact-me/" target="_blank">Email me directly using my contact form.</a><br /><br />
+                <a href="http://www.joshlobe.com/feed/" target="_blank">Subscribe to my RSS Feed.</a><br /><br />
+                Follow me on <a target="_blank" href="http://www.facebook.com/joshlobe">Facebook</a> and <a target="_blank" href="http://twitter.com/#!/joshlobe">Twitter</a>.<br />
+                               
+                </div>
+            </div>
+            
+            
+            <div class="postbox">
+                <h3 style="cursor:default;">Please VOTE and click WORKS.</h3>
+                <div class="inside" style="padding:12px 12px 12px 12px;">
+                <a href="http://wordpress.org/extend/plugins/ultimate-tinymce/" target="_blank">Click Here to Vote...</a><br /><br />Voting helps my plugin get more exposure and higher rankings on the searches.<br /><br />Please help spread this wonderful plugin by showing your support.  Thank you!
+                
                 </div>
             </div>
         
