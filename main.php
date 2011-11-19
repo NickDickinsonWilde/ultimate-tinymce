@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.5.1
+ * @version 1.5.2
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options: Google Fonts, Emoticons, Tables, Styles, Advanced links, images, and drop-downs, too many features to list.
 Author: Josh Lobe
-Version: 1.5.1
+Version: 1.5.2
 Author URI: http://joshlobe.com
 
 */
@@ -81,20 +81,22 @@ add_action('admin_head', 'jwl_admin_register_head');
                 	<form action="options.php" method="post">
                     <?php settings_fields('jwl_options_group'); ?>
                     <?php do_settings_sections('ultimate-tinymce'); ?><br /><br />  
-                    <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save Options for Row 3'); ?>" id="submitbutton" /></center>
-                    </form><br /><br />     
+                    
+                   <br /><br />     
                 </div>
                 </div>
                 
                 <div class="postbox">
                 <div class="inside" style="padding:0px 0px 0px 0px;">
-                	<form action="options.php" method="post">
-                    <?php settings_fields('jwl_options_group2'); ?>
+                	
+                    <?php settings_fields('jwl_options_group'); ?>
                     <?php do_settings_sections('ultimate-tinymce2'); ?><br /> 
-                    <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save Options for Row 4'); ?>" id="submitbutton" /></center>   
-                    </form><br /><br />
+                       
+                    <br /><br />
                 </div>
                 </div>
+                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save your Selection'); ?>" id="submitbutton" /></center>
+                </form>
             </div>
               
             
@@ -182,6 +184,8 @@ add_action('admin_head', 'jwl_admin_register_head');
 	add_settings_field('jwl_search_field_id', 'Search Box', 'jwl_search_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	add_settings_field('jwl_replace_field_id', 'Replace Box', 'jwl_replace_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	
+	add_settings_field('jwl_moods_field_id', 'Josh\'s Ultimate Moods Box', 'jwl_moods_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	
 	// These are the settings for Row 4
 	add_settings_field('jwl_tablecontrols_field_id', 'Table Controls Box', 'jwl_tablecontrols_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
 	add_settings_field('jwl_emotions_field_id', 'Emotions Box', 'jwl_emotions_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
@@ -217,20 +221,22 @@ add_action('admin_head', 'jwl_admin_register_head');
 	register_setting('jwl_options_group','jwl_search_field_id');
 	register_setting('jwl_options_group','jwl_replace_field_id');
 	
+	register_setting('jwl_options_group','jwl_moods_field_id');
+	
 	
 	// Register settings for Row 4
-	register_setting('jwl_options_group2','jwl_tablecontrols_field_id');
-	register_setting('jwl_options_group2','jwl_emotions_field_id');
-	register_setting('jwl_options_group2','jwl_image_field_id');
-	register_setting('jwl_options_group2','jwl_preview_field_id');
-	register_setting('jwl_options_group2','jwl_cite_field_id');
-	register_setting('jwl_options_group2','jwl_abbr_field_id');
-	register_setting('jwl_options_group2','jwl_acronym_field_id');
-	register_setting('jwl_options_group2','jwl_del_field_id');
-	register_setting('jwl_options_group2','jwl_ins_field_id');
-	register_setting('jwl_options_group2','jwl_attribs_field_id');
-	register_setting('jwl_options_group2','jwl_styleprops_field_id');
-	register_setting('jwl_options_group2','jwl_code_field_id');
+	register_setting('jwl_options_group','jwl_tablecontrols_field_id');
+	register_setting('jwl_options_group','jwl_emotions_field_id');
+	register_setting('jwl_options_group','jwl_image_field_id');
+	register_setting('jwl_options_group','jwl_preview_field_id');
+	register_setting('jwl_options_group','jwl_cite_field_id');
+	register_setting('jwl_options_group','jwl_abbr_field_id');
+	register_setting('jwl_options_group','jwl_acronym_field_id');
+	register_setting('jwl_options_group','jwl_del_field_id');
+	register_setting('jwl_options_group','jwl_ins_field_id');
+	register_setting('jwl_options_group','jwl_attribs_field_id');
+	register_setting('jwl_options_group','jwl_styleprops_field_id');
+	register_setting('jwl_options_group','jwl_code_field_id');
 
  }
  
@@ -335,6 +341,12 @@ add_action('admin_head', 'jwl_admin_register_head');
   function jwl_replace_callback_function() {
  	echo '<input name="jwl_replace_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_replace_field_id'), false ) . ' /> ';
 	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/replace.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+ }
+ 
+ 
+ function jwl_moods_callback_function() {
+ 	echo '<input name="jwl_moods_field_id" id="moods" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_moods_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/moods.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  
@@ -525,6 +537,15 @@ return $buttons;
 add_filter("mce_buttons_3", "tinymce_add_button_replace");
 
 
+function tinymce_add_button_moods($buttons) {
+$jwl_moods = get_option('jwl_moods_field_id');
+if ($jwl_moods == "1")
+$buttons[] = 'moods';
+return $buttons;
+}
+add_filter("mce_buttons_3", "tinymce_add_button_moods");
+
+
 // Functions for Getting Values for Row 4
 function tinymce_add_button_tablecontrols($buttons) {
 $jwl_tablecontrols = get_option('jwl_tablecontrols_field_id');
@@ -652,6 +673,8 @@ add_filter("mce_buttons_4", "tinymce_add_button_code");
 				$plugin_array['preview'] = plugin_dir_url(__FILE__) . 'preview/editor_plugin.js';
 				$plugin_array['xhtmlxtras'] = plugin_dir_url(__FILE__) . 'xhtmlxtras/editor_plugin.js';
 				$plugin_array['style'] = plugin_dir_url(__FILE__) . 'style/editor_plugin.js';
+				
+				$plugin_array['moods'] = plugin_dir_url(__FILE__) . 'moods/editor_plugin.js';
 				   
 				return $plugin_array;
 		}

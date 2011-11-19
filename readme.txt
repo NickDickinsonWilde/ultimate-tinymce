@@ -1,10 +1,10 @@
 === Ultimate TinyMCE ===
 Contributors: Josh Lobe 
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS
-Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful
+Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilies
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.5.1
+Stable tag: 1.5.2
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options: Emoticons, Tables, Styles, Advanced links, images, and drop-downs, too many features to list.
 
@@ -14,7 +14,7 @@ Are you a visual person?  Do the four letters "HTML" send you running for the hi
 <strong>Ultimate TinyMCE</strong> will expand the default array of buttons in the visual tinymce editor, giving you the power to visually create your pages and posts. No need for mucking about in HTML and CSS.
 
 <strong>Here are just a few features which make this plugin so powerful:</strong>
-<ul><li>Add, create, and manipulate as many tables as you like.</li><li>Add emoticons to express your mood as you are writing your posts/pages.</li><li>Now you can use subscript and superscript text.</li><li>Added advanced features for images (such as mouseover and mouseout).</li><li>Added advanced features for ordered and unordered drop-down lists.</li><li>Now features a search and replace tool.</li><li>Easily add page anchors to posts that become too long to scroll through all the content.</li><li>Added new feature to the "link" button now enabling you to open links in your own javascript popup windows, without writing a single line of code.  You can even control the size and position of your popup window.</li><li><strong>And much more... too many features to list.</strong></li><li>This plugin is in very active development, and new versions will be released adding even more customization and functionality.</li></ul>
+<ul><li><strong>NEW:</strong> Animated smilies!!</li><li>Add, create, and manipulate as many tables as you like.</li><li>Add emoticons to express your mood as you are writing your posts/pages.</li><li>Now you can use subscript and superscript text.</li><li>Added advanced features for images (such as mouseover and mouseout).</li><li>Added advanced features for ordered and unordered drop-down lists.</li><li>Now features a search and replace tool.</li><li>Easily add page anchors to posts that become too long to scroll through all the content.</li><li>Added new feature to the "link" button now enabling you to open links in your own javascript popup windows, without writing a single line of code.  You can even control the size and position of your popup window.</li><li><strong>And much more... too many features to list.</strong></li><li>This plugin is in very active development, and new versions will be released adding even more customization and functionality.</li></ul>
 
 If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "works" if you are indeed satisfied with the plugin.  Thank you.
 
@@ -37,6 +37,8 @@ You can use my webpage <a href="http://www.joshlobe.com/2011/11/ultimate-tinymce
 3. There is not an options menu; this is as simple as it gets.  The buttons are added automatically.  Just open any post or page in the visual editor to see your new buttons.
 
 4. If you are updating; no problem.  Just click the automatic update and everything will be done for you.  Since there are no settings to be saved, nothing gets lost.  After updating, the next time you open your editor you will immediately have the new functionality.
+
+5.  You will need to manually activate your buttons the first time you install.  You can do this by going to the admin panel, settings page, Ultimate TinyMCE.  Here, you can set your preferences.
 
 
 == Frequently Asked Questions ==
@@ -66,9 +68,12 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 3. <strong>The attributes box showing the many different possible events you may add.</strong>
 4. <strong>Easily create gorgeous tables using only the visual editor.</strong>
 5. <strong>The advanced link box.  Here, you can have your links display as javascript popup windows; among other features.</strong>
+6. <strong>Screenshot of my new Ultimate Moods editor button.  Insert over fifty different animated .gif's into your blog posts.</strong>
+7. <strong>The admin panel where you can select which buttons you would like to include in your editor.</strong>
 
 == Features ==
 
+* New animated smilies.  These will be sure to draw some pleasant attention to your blog.
 * Now includes an admin panel to choose which buttons you would like to show in your editor.
 * Complete control over custom CSS styles using drop-down lists.
 * Advanced link and image inserts, including mouseover and mouseout, and even open links in javascript windows... all without writing a single line of code.
@@ -84,6 +89,17 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 *Simply too many features to list!!
 
 == Changelog ==
+
+= 1.5.2 =
+* I've been working on this one for a while... You're going to love it!!  ULTIMATE MOODS.
+* Ultimate Moods will add a new button in your visual editor window.  You will have over fifty, nifty, thrifty little animated smilies to choose from and insert them directly into your posts/pages.
+* This little upgrade is sure to bring a new "look and feel" to your blogpages.  It's both FUN and FRESH!!
+* Remember you will need to enable the button in the admin panel settings page.
+* I'm thinking about working on a paid version which will include hundreds of new animated moods.  Please give me some feedback and let me know what you think.
+* Don't forget to <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS">donate</a> if you can spare a dollar or two ;)  This upgrade took some time, and I'm sure many of you will enjoy.
+
+* Fixed bug where having to save each row individually.  Now, you can make your changes to both rows, and save once.
+
 
 = 1.5.1 =
 * Made some minor adjustments to code.  Renamed my functions to be more unique.
@@ -108,7 +124,7 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Added an admin control where you can choose which buttons you would like to display in the editor.
 * Adds an option menu in the admin panel under Settings -> Ultimate TinyMCE.
 * Simply select which buttons you would like to add to your editor.
-* Note: All buttons are selected by default.
+* Note: All buttons are NOT selected by default on first install.
 
 = 1.1 =
 * This plugin is exactly like my Ultimate Visual Editor Upgrade plugin; except this plugin does NOT include the 291 Google Webfonts.  I realized the increased load the fonts puts on the server because each font calls a separate HTML request.  So, I created this plugin to use in the mean time until I can figure out a better solution.
