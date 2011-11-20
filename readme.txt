@@ -43,10 +43,6 @@ You can use my webpage <a href="http://www.joshlobe.com/2011/11/ultimate-tinymce
 
 == Frequently Asked Questions ==
 
-= The options to save my buttons is acting kind of funny. =
-
-Remember, you must save each row of buttons independently.  This is the only way I could get the code to work.  First select which buttons you would like to include in Row 3, and click Save Options for Row 3.  Then, select the buttons for Row 4 and click Save Options for Row 4.
-
 = The color picker feature always shows hex code #000000 regardless of what color I click. =
 
 This is a bug in the TinyMCE core software.  This bug, as far as I know, is only seen when using Mozilla Firefox version 7.  Until the good folks over at TinyMCE can provide an upgrade, the only solution right now is to use another browser.
