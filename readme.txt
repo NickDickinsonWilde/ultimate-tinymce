@@ -53,7 +53,7 @@ This is a bug in the TinyMCE core software.  This bug, as far as I know, is only
 
 = How do I use the Anchors button =
 
-<ol><li>Highlight the text, image, or other content where you would like to insert the anchor.</li><li>Click the anchor button and enter a unique name for the anchor.</li><li>Now, highlight the text where you want the user to click TO BE SENT to the anchor you created.<li><li>Click the Link button in the toolbar, and on the popup window click anchors and choose the name of your unique anchor you created.</li></ol>
+<ol><li>Highlight the text, image, or other content where you would like to insert the anchor.</li><li>Click the anchor button and enter a unique name for the anchor.</li><li>Now, highlight the text where you want the user to click TO BE SENT to the anchor you created.</li><li>Click the Link button in the toolbar, and on the popup window click anchors and choose the name of your unique anchor you created.</li></ol>
 
 = I still don't see my buttons after activating the plugin =
 
