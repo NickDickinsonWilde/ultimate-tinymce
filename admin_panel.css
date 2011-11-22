@@ -1,3 +1,35 @@
 @charset "utf-8";
+
 /* CSS Document */
 
+
+
+.inside2 {
+	background-color:#FCF0FC;
+	border-top:1px solid #F77CF3;
+}
+
+.postbox2 {
+	background-image: -ms-linear-gradient(top, #FDD1FF 0%, #EA58EF 100%);
+	background-image: -moz-linear-gradient(top, #FDD1FF 0%, #EA58EF 100%);
+	background-image: -o-linear-gradient(top, #FDD1FF 0%, #EA58EF 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FDD1FF), color-stop(1, #EA58EF));
+	background-image: -webkit-linear-gradient(top, #FDD1FF 0%, #EA58EF 100%);
+	background-image: linear-gradient(top, #FDD1FF 0%, #EA58EF 100%);
+	margin-top:20px;
+	border:1px solid #F77CF3;
+}
+
+.postbox2top {
+	background-image: -moz-linear-gradient(top, #FDD1FF 0%, #EA58EF 100%);
+	background-image: -o-linear-gradient(top, #FDD1FF 0%, #EA58EF 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FDD1FF), color-stop(1, #EA58EF));
+	background-image: -webkit-linear-gradient(top, #FDD1FF 0%, #EA58EF 100%);
+	background-image: linear-gradient(top, #FDD1FF 0%, #EA58EF 100%);
+	border:1px solid #F77CF3;
+}
+
+.boldred {
+ font-weight:bold;
+ color:#FF0000;
+}

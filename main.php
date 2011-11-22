@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.5.2
+ * @version 1.5.3
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options: Google Fonts, Emoticons, Tables, Styles, Advanced links, images, and drop-downs, too many features to list.
 Author: Josh Lobe
-Version: 1.5.2
+Version: 1.5.3
 Author URI: http://joshlobe.com
 
 */
@@ -52,6 +52,39 @@ add_action('admin_head', 'jwl_admin_register_head');
 
 
 
+// Add custom styles
+add_filter( 'tiny_mce_before_init', 'josh_mce_before_init' );
+
+function josh_mce_before_init( $settings ) {
+
+    $style_formats = array(
+    	//array( 'title' => 'Button', 'selector' => 'a', 'classes' => 'button' ),
+        //array( 'title' => 'Callout Box', 'block' => 'div', 'classes' => 'callout', 'wrapper' => true ),
+        array( 'title' => 'Bold Red Text', 'inline' => 'span', 'styles' => array( 'color' => '#FF0000', 'fontWeight' => 'bold' )),
+		array( 'title' => 'Bold Green Text', 'inline' => 'span', 'styles' => array( 'color' => '#00FF00', 'fontWeight' => 'bold' )),
+		array( 'title' => 'Bold Blue Text', 'inline' => 'span', 'styles' => array( 'color' => '#0000FF', 'fontWeight' => 'bold' )),
+		array( 'title' => ( 'Borders' )),
+		array( 'title' => 'Border Black', 'inline' => 'span', 'styles' => array( 'border' => '1px solid #000000', 'padding' => '2px' )),
+		array( 'title' => 'Border Red', 'inline' => 'span', 'styles' => array( 'border' => '1px solid #FF0000', 'padding' => '2px' )),
+		array( 'title' => 'Border Green', 'inline' => 'span', 'styles' => array( 'border' => '1px solid #00FF00', 'padding' => '2px' )),
+		array( 'title' => 'Border Blue', 'inline' => 'span', 'styles' => array( 'border' => '1px solid #0000FF', 'padding' => '2px' )),
+		array( 'title' => ( 'Float' )),
+		array( 'title' => 'Float Left', 'block' => 'span', 'styles' => array( 'float' => 'left' )),
+		array( 'title' => 'Float Right', 'block' => 'span', 'styles' => array( 'float' => 'right' )),
+		array( 'title' => ( 'Alerts' )),
+		array( 'title' => 'Normal Alert', 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #DEDEDE', 'background' => '#EFEFEF url(../../../../wp-content/plugins/ultimate-tinymce/img/normal.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
+		array( 'title' => 'Green Alert', 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #1EDB0D', 'background' => '#A9FCA2 url(../../../../wp-content/plugins/ultimate-tinymce/img/green.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
+		array( 'title' => 'Yellow Alert', 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #F5F531', 'background' => '#FAFAB9 url(../../../../wp-content/plugins/ultimate-tinymce/img/yellow.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
+		array( 'title' => 'Red Alert', 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #ED220C', 'background' => '#FABDB6 url(../../../../wp-content/plugins/ultimate-tinymce/img/red.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  ))
+    );
+
+    $settings['style_formats'] = json_encode( $style_formats );
+
+    return $settings;
+
+}
+// End custom styles
+
 // Add the admin options page
 
 	add_action('admin_menu', 'jwl_admin_add_page');
@@ -90,7 +123,7 @@ add_action('admin_head', 'jwl_admin_register_head');
                 <div class="inside" style="padding:0px 0px 0px 0px;">
                 	
                     <?php settings_fields('jwl_options_group'); ?>
-                    <?php do_settings_sections('ultimate-tinymce2'); ?><br /> 
+                    <?php do_settings_sections('ultimate-tinymce2'); ?><br /> <br />
                        
                     <br /><br />
                 </div>
@@ -104,10 +137,10 @@ add_action('admin_head', 'jwl_admin_register_head');
     		<div class="metabox-holder" style="width:30%; float:left;">
  
             
-            <div class="postbox">
+            <div class="postbox2top">
                 <h3 style="cursor:default;">Donations</h3>
-                <div class="inside" style="padding:0px 6px 6px 6px;">
-                <p><strong>&nbsp;&nbsp;Even the smallest donations are gratefully accepted.</strong></p>
+                <div class="inside2" style="padding:12px 12px 12px 12px;">
+                <p><strong>Even the smallest donations are gratefully accepted.</strong></p>
                         
                 <!--  Donate Button -->
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
@@ -119,9 +152,9 @@ add_action('admin_head', 'jwl_admin_register_head');
                 </div>
             </div>
             
-            <div class="postbox">
+            <div class="postbox2">
                 <h3 style="cursor:default;">Additional Resources</h3>
-                <div class="inside" style="padding:12px 12px 12px 12px;">
+                <div class="inside2" style="padding:12px 12px 12px 12px;">
                 <a href="http://www.joshlobe.com/2011/10/ultimate-tinymce/" target="_blank">Get help from my personal blog.</a><br /><br />
                 <a href="http://wordpress.org/tags/ultimate-tinymce?forum_id=10#postform" target="_blank">Post a thread in the Wordpress Plugin Page.</a><br /><br />
                 <a href="http://www.joshlobe.com/contact-me/" target="_blank">Email me directly using my contact form.</a><br /><br />
@@ -132,10 +165,20 @@ add_action('admin_head', 'jwl_admin_register_head');
             </div>
             
             
-            <div class="postbox">
+            <div class="postbox2">
                 <h3 style="cursor:default;">Please VOTE and click WORKS.</h3>
-                <div class="inside" style="padding:12px 12px 12px 12px;">
+                <div class="inside2" style="padding:12px 12px 12px 12px;">
                 <a href="http://wordpress.org/extend/plugins/ultimate-tinymce/" target="_blank">Click Here to Vote...</a><br /><br />Voting helps my plugin get more exposure and higher rankings on the searches.<br /><br />Please help spread this wonderful plugin by showing your support.  Thank you!
+                
+                </div>
+            </div>
+            
+            
+            <div class="postbox2">
+                <h3 style="cursor:default;">Feedback</h3>
+                <div class="inside2" style="padding:12px 12px 12px 12px;">
+                Please take a moment to complete the short feedback form below.  Your input is greatly appreciated.<br /><br />
+                <div style="border:1px solid #999999;"><script type="text/javascript" src="http://form.jotform.com/jsform/13245521214"></script></div>
                 
                 </div>
             </div>
@@ -200,6 +243,8 @@ add_action('admin_head', 'jwl_admin_register_head');
 	add_settings_field('jwl_styleprops_field_id', 'Styleprops Box', 'jwl_styleprops_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
 	add_settings_field('jwl_code_field_id', 'HTML Code Box', 'jwl_code_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
  	
+	add_settings_field('jwl_media_field_id', 'Insert Media Box', 'jwl_media_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	
  	
 	// Register our setting so that $_POST handling is done for us and
  	// our callback function just has to echo the <input>
@@ -237,6 +282,8 @@ add_action('admin_head', 'jwl_admin_register_head');
 	register_setting('jwl_options_group','jwl_attribs_field_id');
 	register_setting('jwl_options_group','jwl_styleprops_field_id');
 	register_setting('jwl_options_group','jwl_code_field_id');
+	
+	register_setting('jwl_options_group','jwl_media_field_id');
 
  }
  
@@ -409,6 +456,12 @@ add_action('admin_head', 'jwl_admin_register_head');
  function jwl_code_callback_function() {
  	echo '<input name="jwl_code_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_code_field_id'), false ) . ' /> ';
 	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/code.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+ }
+ 
+ 
+ function jwl_media_callback_function() {
+ 	echo '<input name="jwl_media_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_media_field_id'), false ) . ' /> ';
+	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/media.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  
@@ -644,6 +697,15 @@ return $buttons;
 add_filter("mce_buttons_4", "tinymce_add_button_code");
 
 
+function tinymce_add_button_media($buttons) {
+$jwl_media = get_option('jwl_media_field_id');
+if ($jwl_media == "1")
+$buttons[] = 'media';
+return $buttons;
+}
+add_filter("mce_buttons_4", "tinymce_add_button_media");
+
+
 	class mce_table_buttons
 	{
 		function __construct() 
@@ -675,6 +737,7 @@ add_filter("mce_buttons_4", "tinymce_add_button_code");
 				$plugin_array['style'] = plugin_dir_url(__FILE__) . 'style/editor_plugin.js';
 				
 				$plugin_array['moods'] = plugin_dir_url(__FILE__) . 'moods/editor_plugin.js';
+				$plugin_array['media'] = plugin_dir_url(__FILE__) . 'media/editor_plugin.js';
 				   
 				return $plugin_array;
 		}

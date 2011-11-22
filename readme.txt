@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilies
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.5.2
+Stable tag: 1.5.3
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options: Emoticons, Tables, Styles, Advanced links, images, and drop-downs, too many features to list.
 
@@ -43,13 +43,17 @@ You can use my webpage <a href="http://www.joshlobe.com/2011/11/ultimate-tinymce
 
 == Frequently Asked Questions ==
 
+= The options to save my buttons is acting kind of funny. =
+
+Remember, you must save each row of buttons independently.  This is the only way I could get the code to work.  First select which buttons you would like to include in Row 3, and click Save Options for Row 3.  Then, select the buttons for Row 4 and click Save Options for Row 4.
+
 = The color picker feature always shows hex code #000000 regardless of what color I click. =
 
 This is a bug in the TinyMCE core software.  This bug, as far as I know, is only seen when using Mozilla Firefox version 7.  Until the good folks over at TinyMCE can provide an upgrade, the only solution right now is to use another browser.
 
 = How do I use the Anchors button =
 
-<ol><li>Highlight the text, image, or other content where you would like to insert the anchor.</li><li>Click the anchor button and enter a unique name for the anchor.</li><li>Now, highlight the text where you want the user to click TO BE SENT to the anchor you created.</li><li>Click the Link button in the toolbar, and on the popup window click anchors and choose the name of your unique anchor you created.</li></ol>
+<ol><li>Highlight the text, image, or other content where you would like to insert the anchor.</li><li>Click the anchor button and enter a unique name for the anchor.</li><li>Now, highlight the text where you want the user to click TO BE SENT to the anchor you created.<li><li>Click the Link button in the toolbar, and on the popup window click anchors and choose the name of your unique anchor you created.</li></ol>
 
 = I still don't see my buttons after activating the plugin =
 
@@ -85,6 +89,11 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 *Simply too many features to list!!
 
 == Changelog ==
+
+= 1.5.3 =
+* Added a button for working with embedding audio, video, and flash files.
+* Added a custom styles drop-down list... with plans on adding more.  Please let me know what you would like included here.
+* Added a form to the admin settings page; please use this form to pass along your ideas to me.
 
 = 1.5.2 =
 * I've been working on this one for a while... You're going to love it!!  ULTIMATE MOODS.
