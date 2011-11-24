@@ -30,15 +30,10 @@ You can use my webpage <a href="http://www.joshlobe.com/2011/11/ultimate-tinymce
 == Installation ==
 
 1. Upload the plugin to your 'wp-content/plugins' directory, or download and install automatically through your admin panel.
-
      
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
-3. There is not an options menu; this is as simple as it gets.  The buttons are added automatically.  Just open any post or page in the visual editor to see your new buttons.
-
-4. If you are updating; no problem.  Just click the automatic update and everything will be done for you.  Since there are no settings to be saved, nothing gets lost.  After updating, the next time you open your editor you will immediately have the new functionality.
-
-5.  You will need to manually activate your buttons the first time you install.  You can do this by going to the admin panel, settings page, Ultimate TinyMCE.  Here, you can set your preferences.
+3.  You will need to manually activate your buttons the first time you install.  You can do this by going to the admin panel, settings page, Ultimate TinyMCE.  Here, you can set your preferences.
 
 
 == Frequently Asked Questions ==
