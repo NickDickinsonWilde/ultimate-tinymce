@@ -6,7 +6,7 @@
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
-Description: Beef up your visual tinymce editor with a plethora of advanced options: Google Fonts, Emoticons, Tables, Styles, Advanced links, images, and drop-downs, too many features to list.
+Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
 Version: 1.5.4
 Author URI: http://joshlobe.com

@@ -6,7 +6,7 @@ Requires at least: 3.2.1
 Tested up to: 3.3
 Stable tag: 1.5.4
 
-Description: Beef up your visual tinymce editor with a plethora of advanced options: Emoticons, Tables, Styles, Advanced links, images, and drop-downs, too many features to list.
+Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
 == Description ==
 Are you a visual person?  Do the four letters "HTML" send you running for the hills; but you still want to create beautiful blogs like the pros?  Then this is the plugin for you!
@@ -81,7 +81,7 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 == Changelog ==
 
-= 1.5.4 - =
+= 1.5.4 =
 * Added a couple of screencasts and a word document to help with how to use the TinyMCE.  These can be found in the admin panel settings page, under "Additional Resources".
 * Added a few advanced featuers to the HR button.  This button will again be un-selected by default.  You will need to re-enable the button in the admin panel.
 * Cleaned up some code, and reduced some of the functions into arrays.  This will have a pretty unnoticeable, yet still effective, decrease in tinymce loading time.
