@@ -13,6 +13,8 @@ Are you a visual person?  Do the four letters "HTML" send you running for the hi
 
 <img src="http://www.joshlobe.com/wp-content/images/forums/banner2.png" />
 
+![Alt text](http://www.joshlobe.com/wp-content/images/forums/banner2.png)
+
 <strong>Ultimate TinyMCE</strong> will expand the default array of buttons in the visual tinymce editor, giving you the power to visually create your pages and posts. No need for mucking about in HTML and CSS.
 
 <strong>Here are just a few features which make this plugin so powerful:</strong>
