@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.5.4
+ * @version 1.5.5
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.5.4
+Version: 1.5.5
 Author URI: http://joshlobe.com
 
 */
@@ -28,6 +28,37 @@ Author URI: http://joshlobe.com
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+
+// this function initializes the extended elements 
+/*
+function jwl_change_mce_options($initArray) {
+	// Comma separated string od extendes tags
+	// Command separated string of extended elements
+	$ext = 'pre[id|name|class|style],iframe[align|longdesc|name|width|height|frameborder|scrolling|marginheight|marginwidth|src],object[width|height|classid|codebase],param[name|value],embed[src|type|width|height|flashvars|wmode],a[class|name|href|target|title|onclick|rel],script[type|src],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name],hr[class|width|size|noshade]';
+	
+	if ( isset( $initArray['extended_valid_elements'] ) ) {
+		$initArray['extended_valid_elements'] .= ',' . $ext;
+	} else {
+		$initArray['extended_valid_elements'] = $ext;
+	}
+	// maybe; set tiny paramter verify_html
+	//$initArray['verify_html'] = false;
+	return $initArray;
+}
+add_filter('tiny_mce_before_init', 'jwl_change_mce_options');*/
+
+// set field names 
+function jwl_field_func($atts) {
+   global $post;
+   $name = $atts['name'];
+   if (empty($name)) return;
+
+   return get_post_meta($post->ID, $name, true);
+}
+
+add_shortcode('field', 'jwl_field_func');
+
+
 
 //  Add settings link to plugins page menu
 function add_ultimatetinymce_settings_link($links, $file) {
@@ -155,7 +186,7 @@ function josh_mce_before_init( $settings ) {
             <div class="postbox2">
                 <h3 style="cursor:default;">Additional Resources</h3>
                 <div class="inside2" style="padding:12px 12px 12px 12px;">
-                <a href="../../../wp-content/plugins/ultimate-tinymce/ultimate_tinymce.doc" target="_blank">View plugin documentation (opens in Word).</a><br /><br />
+                <a href="../wp-content/plugins/ultimate-tinymce/ultimate_tinymce.doc" target="_blank">View plugin documentation (opens in Word).</a><br /><br />
                 <a href="http://www.youtube.com/watch?v=fM3CUo9MxMc" target="_blank">Screencast part one</a><br /><br />
                 <a href="http://www.youtube.com/watch?v=5raIBxGP17g" target="_blank">Screencast part two</a><br /><br />
                 <a href="http://www.joshlobe.com/2011/10/ultimate-tinymce/" target="_blank">Get help from my personal blog.</a><br /><br />
@@ -695,26 +726,6 @@ return $buttons;
 }
 add_filter("mce_buttons_4", "tinymce_add_button_media");
 
-
-/**
- * Add to extended_valid_elements for TinyMCE
- */
-function jwl_advhr_change_mce_options( $init ) {
-    // Command separated string of extended elements
-    $ext = 'hr[class|width|size|noshade]';
-
-    // Add to extended_valid_elements if it alreay exists
-    if ( isset( $init['extended_valid_elements'] ) ) {
-        $init['extended_valid_elements'] .= ',' . $ext;
-    } else {
-        $init['extended_valid_elements'] = $ext;
-    }
-
-    // Super important: return $init!
-    return $init;
-}
-
-add_filter('tiny_mce_before_init', 'jwl_advhr_change_mce_options');
 
 
 

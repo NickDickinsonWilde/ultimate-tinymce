@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilies
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.5.4
+Stable tag: 1.5.5
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -81,28 +81,36 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 == Changelog ==
 
+= 1.5.5 =
+
+* Added functionality to create shortcodes for use within the editor. (Please see the Microsoft Word documentation on the plugin settings page in the admin panel for complete usage instructions).
+* Updated the Microsoft Word documentation to include support for iframe's.
+
 = 1.5.4 =
+
 * Added a couple of screencasts and a word document to help with how to use the TinyMCE.  These can be found in the admin panel settings page, under "Additional Resources".
 * Added a few advanced featuers to the HR button.  This button will again be un-selected by default.  You will need to re-enable the button in the admin panel.
 * Cleaned up some code, and reduced some of the functions into arrays.  This will have a pretty unnoticeable, yet still effective, decrease in tinymce loading time.
 
 = 1.5.3 =
+
 * Added a button for working with embedding audio, video, and flash files.
 * Added a custom styles drop-down list... with plans on adding more.  Please let me know what you would like included here.
 * Added a form to the admin settings page; please use this form to pass along your ideas to me.
 
 = 1.5.2 =
+
 * I've been working on this one for a while... You're going to love it!!  ULTIMATE MOODS.
 * Ultimate Moods will add a new button in your visual editor window.  You will have over fifty, nifty, thrifty little animated smilies to choose from and insert them directly into your posts/pages.
 * This little upgrade is sure to bring a new "look and feel" to your blogpages.  It's both FUN and FRESH!!
 * Remember you will need to enable the button in the admin panel settings page.
 * I'm thinking about working on a paid version which will include hundreds of new animated moods.  Please give me some feedback and let me know what you think.
 * Don't forget to <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS">donate</a> if you can spare a dollar or two ;)  This upgrade took some time, and I'm sure many of you will enjoy.
-
 * Fixed bug where having to save each row individually.  Now, you can make your changes to both rows, and save once.
 
 
 = 1.5.1 =
+
 * Made some minor adjustments to code.  Renamed my functions to be more unique.
 * Noted the "save" buttons to make aware you must click the save button for each row accordingly.
 * Added "settings" link to the plugin page where plugins are listed.
@@ -110,23 +118,28 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Added link to please vote for this plugin.
 
 = 1.5 =
+
 * Fixed bug where Row 3 buttons were not saving.
 
 = 1.4 =
+
 * Beautified the admin panel for button selection.
 * Renamed my functions so they will be unique.
 * Added resources tab in admin panel linking to help sections.
 
 = 1.3 =
+
 * Replaced "Example Text" with small icons of each button.  Now you can visually see which button you are enabling or disabling.
 * Added a stylesheet for future upgrades.  This fixed a small bug where it was throwing an error.  I apologize if anyone was caught by this "speedbump".
 
 = 1.2 =
+
 * Added an admin control where you can choose which buttons you would like to display in the editor.
 * Adds an option menu in the admin panel under Settings -> Ultimate TinyMCE.
 * Simply select which buttons you would like to add to your editor.
 * Note: All buttons are NOT selected by default on first install.
 
 = 1.1 =
+
 * This plugin is exactly like my Ultimate Visual Editor Upgrade plugin; except this plugin does NOT include the 291 Google Webfonts.  I realized the increased load the fonts puts on the server because each font calls a separate HTML request.  So, I created this plugin to use in the mean time until I can figure out a better solution.
 * Plugin was created.
