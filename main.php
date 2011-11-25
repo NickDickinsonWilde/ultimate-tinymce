@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.5.3
+ * @version 1.5.4
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options: Google Fonts, Emoticons, Tables, Styles, Advanced links, images, and drop-downs, too many features to list.
 Author: Josh Lobe
-Version: 1.5.3
+Version: 1.5.4
 Author URI: http://joshlobe.com
 
 */
@@ -155,6 +155,9 @@ function josh_mce_before_init( $settings ) {
             <div class="postbox2">
                 <h3 style="cursor:default;">Additional Resources</h3>
                 <div class="inside2" style="padding:12px 12px 12px 12px;">
+                <a href="../../../wp-content/plugins/ultimate-tinymce/ultimate_tinymce.doc" target="_blank">View plugin documentation (opens in Word).</a><br /><br />
+                <a href="http://www.youtube.com/watch?v=fM3CUo9MxMc" target="_blank">Screencast part one</a><br /><br />
+                <a href="http://www.youtube.com/watch?v=5raIBxGP17g" target="_blank">Screencast part two</a><br /><br />
                 <a href="http://www.joshlobe.com/2011/10/ultimate-tinymce/" target="_blank">Get help from my personal blog.</a><br /><br />
                 <a href="http://wordpress.org/tags/ultimate-tinymce?forum_id=10#postform" target="_blank">Post a thread in the Wordpress Plugin Page.</a><br /><br />
                 <a href="http://www.joshlobe.com/contact-me/" target="_blank">Email me directly using my contact form.</a><br /><br />
@@ -178,21 +181,14 @@ function josh_mce_before_init( $settings ) {
                 <h3 style="cursor:default;">Feedback</h3>
                 <div class="inside2" style="padding:12px 12px 12px 12px;">
                 Please take a moment to complete the short feedback form below.  Your input is greatly appreciated.<br /><br />
-                <div style="border:1px solid #999999;"><script type="text/javascript" src="http://form.jotform.com/jsform/13245521214"></script></div>
+                <div style="border:1px solid #999999;"><script type="text/javascript" src="http://form.jotform.com/jsform/13245521214"></script></script></div>
                 
                 </div>
-            </div>
-        
-              
-    	</div>
-               
+            </div>      
+    	</div>            
 	</div>
-    
-	
 	<?php 
 	}
-
-
 
 
 // ------------------------------------------------------------------
@@ -219,7 +215,7 @@ function josh_mce_before_init( $settings ) {
 	add_settings_field('jwl_paste_field_id', 'Paste Box', 'jwl_paste_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	add_settings_field('jwl_backcolorpicker_field_id', 'Background Color Picker Box', 'jwl_backcolorpicker_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	add_settings_field('jwl_forecolorpicker_field_id', 'Foreground Color Picker Box', 'jwl_forecolorpicker_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
-	add_settings_field('jwl_hr_field_id', 'Horizontal Row Box', 'jwl_hr_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_advhr_field_id', 'Horizontal Row Box', 'jwl_advhr_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	add_settings_field('jwl_visualaid_field_id', 'Visual Aid Box', 'jwl_visualaid_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	add_settings_field('jwl_anchor_field_id', 'Anchor Box', 'jwl_anchor_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	add_settings_field('jwl_sub_field_id', 'Subscript Box', 'jwl_sub_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
@@ -258,7 +254,7 @@ function josh_mce_before_init( $settings ) {
 	register_setting('jwl_options_group','jwl_paste_field_id');
 	register_setting('jwl_options_group','jwl_backcolorpicker_field_id');
 	register_setting('jwl_options_group','jwl_forecolorpicker_field_id');
-	register_setting('jwl_options_group','jwl_hr_field_id');
+	register_setting('jwl_options_group','jwl_advhr_field_id');
 	register_setting('jwl_options_group','jwl_visualaid_field_id');
 	register_setting('jwl_options_group','jwl_anchor_field_id');
 	register_setting('jwl_options_group','jwl_sub_field_id');
@@ -306,13 +302,7 @@ function josh_mce_before_init( $settings ) {
  	echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;Here you can select which buttons to include in row 4 of the TinyMCE editor.</strong></p>';
  }
  
- // ------------------------------------------------------------------
- // Callback function for our example setting
- // ------------------------------------------------------------------
- //
- // creates a checkbox true/false option. Other types are surely possible
- //
- 
+
 
  // Callback Functions for Row 3 Buttons
  function jwl_fontselect_callback_function() {
@@ -355,8 +345,8 @@ function josh_mce_before_init( $settings ) {
 	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/forecolorpicker.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
- function jwl_hr_callback_function() {
- 	echo '<input name="jwl_hr_field_id" id="hr" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_hr_field_id'), false ) . ' /> ';
+ function jwl_advhr_callback_function() {
+ 	echo '<input name="jwl_advhr_field_id" id="hr" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_advhr_field_id'), false ) . ' /> ';
 	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/hr.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
@@ -399,68 +389,68 @@ function josh_mce_before_init( $settings ) {
  
  // Callback Functions for Row 4 Buttons
  function jwl_tablecontrols_callback_function() {
- 	echo '<input name="jwl_tablecontrols_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_tablecontrols_field_id'), false ) . ' /> ';
+ 	echo '<input name="jwl_tablecontrols_field_id" id="tablecontrols" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_tablecontrols_field_id'), false ) . ' /> ';
 	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/tablecontrols.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_emotions_callback_function() {
- 	echo '<input name="jwl_emotions_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_emotions_field_id'), false ) . ' /> ';
+ 	echo '<input name="jwl_emotions_field_id" id="emotions" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_emotions_field_id'), false ) . ' /> ';
 	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/emotions.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_image_callback_function() {
- 	echo '<input name="jwl_image_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_image_field_id'), false ) . ' /> ';
+ 	echo '<input name="jwl_image_field_id" id="image" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_image_field_id'), false ) . ' /> ';
 	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/image.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_preview_callback_function() {
- 	echo '<input name="jwl_preview_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_preview_field_id'), false ) . ' /> ';
+ 	echo '<input name="jwl_preview_field_id" id="preview" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_preview_field_id'), false ) . ' /> ';
 	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/preview.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_cite_callback_function() {
- 	echo '<input name="jwl_cite_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_cite_field_id'), false ) . ' /> ';
+ 	echo '<input name="jwl_cite_field_id" id="cite" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_cite_field_id'), false ) . ' /> ';
 	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/cite.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_abbr_callback_function() {
- 	echo '<input name="jwl_abbr_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_abbr_field_id'), false ) . ' /> ';
+ 	echo '<input name="jwl_abbr_field_id" id="abbr" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_abbr_field_id'), false ) . ' /> ';
 	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/abbr.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_acronym_callback_function() {
- 	echo '<input name="jwl_acronym_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_acronym_field_id'), false ) . ' /> ';
+ 	echo '<input name="jwl_acronym_field_id" id="acronym" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_acronym_field_id'), false ) . ' /> ';
 	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/acronym.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_del_callback_function() {
- 	echo '<input name="jwl_del_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_del_field_id'), false ) . ' /> ';
+ 	echo '<input name="jwl_del_field_id" id="del" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_del_field_id'), false ) . ' /> ';
 	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/del.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_ins_callback_function() {
- 	echo '<input name="jwl_ins_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_ins_field_id'), false ) . ' /> ';
+ 	echo '<input name="jwl_ins_field_id" id="ins" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_ins_field_id'), false ) . ' /> ';
 	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/ins.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_attribs_callback_function() {
- 	echo '<input name="jwl_attribs_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_attribs_field_id'), false ) . ' /> ';
+ 	echo '<input name="jwl_attribs_field_id" id="attribs" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_attribs_field_id'), false ) . ' /> ';
 	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/attribs.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_styleprops_callback_function() {
- 	echo '<input name="jwl_styleprops_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_styleprops_field_id'), false ) . ' /> ';
+ 	echo '<input name="jwl_styleprops_field_id" id="styleprops" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_styleprops_field_id'), false ) . ' /> ';
 	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/styleprops.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_code_callback_function() {
- 	echo '<input name="jwl_code_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_code_field_id'), false ) . ' /> ';
+ 	echo '<input name="jwl_code_field_id" id="code" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_code_field_id'), false ) . ' /> ';
 	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/code.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  
  function jwl_media_callback_function() {
- 	echo '<input name="jwl_media_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_media_field_id'), false ) . ' /> ';
+ 	echo '<input name="jwl_media_field_id" id="media" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_media_field_id'), false ) . ' /> ';
 	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/media.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
@@ -533,13 +523,13 @@ return $buttons;
 }
 add_filter("mce_buttons_3", "tinymce_add_button_forecolorpicker");
 
-function tinymce_add_button_hr($buttons) {
-$jwl_hr = get_option('jwl_hr_field_id');
-if ($jwl_hr == "1")
-$buttons[] = 'hr';
+function tinymce_add_button_advhr($buttons) {
+$jwl_advhr = get_option('jwl_advhr_field_id');
+if ($jwl_advhr == "1")
+$buttons[] = 'advhr';
 return $buttons;
 }
-add_filter("mce_buttons_3", "tinymce_add_button_hr");
+add_filter("mce_buttons_3", "tinymce_add_button_advhr");
 
 function tinymce_add_button_visualaid($buttons) {
 $jwl_visualaid = get_option('jwl_visualaid_field_id');
@@ -706,6 +696,28 @@ return $buttons;
 add_filter("mce_buttons_4", "tinymce_add_button_media");
 
 
+/**
+ * Add to extended_valid_elements for TinyMCE
+ */
+function jwl_advhr_change_mce_options( $init ) {
+    // Command separated string of extended elements
+    $ext = 'hr[class|width|size|noshade]';
+
+    // Add to extended_valid_elements if it alreay exists
+    if ( isset( $init['extended_valid_elements'] ) ) {
+        $init['extended_valid_elements'] .= ',' . $ext;
+    } else {
+        $init['extended_valid_elements'] = $ext;
+    }
+
+    // Super important: return $init!
+    return $init;
+}
+
+add_filter('tiny_mce_before_init', 'jwl_advhr_change_mce_options');
+
+
+
 	class mce_table_buttons
 	{
 		function __construct() 
@@ -717,8 +729,7 @@ add_filter("mce_buttons_4", "tinymce_add_button_media");
 		function admin_init()
 		{
 			add_filter( 'mce_external_plugins', array( $this, 'mce_external_plugins' ) ); 
-			//add_filter( 'mce_buttons_4', array( $this, 'mce_buttons_4' ) );
-			//add_filter( 'theme_advanced_fonts', array( $this, 'theme_advanced_fonts' ) );
+
 		}
 		
 		function mce_external_plugins( $plugin_array )
@@ -738,38 +749,12 @@ add_filter("mce_buttons_4", "tinymce_add_button_media");
 				
 				$plugin_array['moods'] = plugin_dir_url(__FILE__) . 'moods/editor_plugin.js';
 				$plugin_array['media'] = plugin_dir_url(__FILE__) . 'media/editor_plugin.js';
+				$plugin_array['advhr'] = plugin_dir_url(__FILE__) . 'advhr/editor_plugin.js';
 				   
 				return $plugin_array;
 		}
 		
-		/*
-		function mce_buttons_4( $buttons )
-		{
-			array_push( $buttons, 'tablecontrols', '|', 'emotions', '|', 'image', '|', 'preview', '|','cite', 'abbr', 'acronym', 'del', 'ins', 'attribs', '|', 'styleprops', 'code');
-			return $buttons;
-		}
-		*/
-		
-		/*
-		function mce_buttons_4($buttons)
-		{
-		$buttons[] = 'tablecontrols';
-		$buttons[] = 'emotions';
-		$buttons[] = 'image';
-		$buttons[] = 'preview';
-		$buttons[] = 'cite';
-		$buttons[] = 'abbr';
-		$buttons[] = 'acronym';
-		$buttons[] = 'del';
-		$buttons[] = 'ins';
-		$buttons[] = 'attribs';
-		$buttons[] = 'styleprops';
-		$buttons[] = 'code';
-		
-		return $buttons;
-		}
-		*/
-		
+	
 		function content_save_pre( $content )
 		{
 			if ( substr( $content, -8 ) == '</table>' )

@@ -4,12 +4,14 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilies
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.5.3
+Stable tag: 1.5.4
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options: Emoticons, Tables, Styles, Advanced links, images, and drop-downs, too many features to list.
 
 == Description ==
 Are you a visual person?  Do the four letters "HTML" send you running for the hills; but you still want to create beautiful blogs like the pros?  Then this is the plugin for you!
+
+<img src="http://www.joshlobe.com/wp-content/images/forums/banner2.png" />
 
 <strong>Ultimate TinyMCE</strong> will expand the default array of buttons in the visual tinymce editor, giving you the power to visually create your pages and posts. No need for mucking about in HTML and CSS.
 
@@ -78,6 +80,11 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 *Simply too many features to list!!
 
 == Changelog ==
+
+= 1.5.4 - =
+* Added a couple of screencasts and a word document to help with how to use the TinyMCE.  These can be found in the admin panel settings page, under "Additional Resources".
+* Added a few advanced featuers to the HR button.  This button will again be un-selected by default.  You will need to re-enable the button in the admin panel.
+* Cleaned up some code, and reduced some of the functions into arrays.  This will have a pretty unnoticeable, yet still effective, decrease in tinymce loading time.
 
 = 1.5.3 =
 * Added a button for working with embedding audio, video, and flash files.
