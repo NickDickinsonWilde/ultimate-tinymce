@@ -345,151 +345,151 @@ function josh_mce_before_init( $settings ) {
  // Callback Functions for Row 3 Buttons
  function jwl_fontselect_callback_function() {
  	echo '<input name="jwl_fontselect_field_id" id="fontselect" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_fontselect_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/fontselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/fontselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
   
  function jwl_fontsizeselect_callback_function() {
  	echo '<input name="jwl_fontsizeselect_field_id" id="fontsize" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_fontsizeselect_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/fontsizeselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/fontsizeselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
 
  function jwl_styleselect_callback_function() {
  	echo '<input name="jwl_styleselect_field_id" id="styleselect" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_styleselect_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/styleselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/styleselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_cut_callback_function() {
  	echo '<input name="jwl_cut_field_id" id="cut" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_cut_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/cut.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/cut.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_copy_callback_function() {
  	echo '<input name="jwl_copy_field_id" id="copy" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_copy_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/copy.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/copy.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_paste_callback_function() {
  	echo '<input name="jwl_paste_field_id" id="paste" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_paste_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/paste.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/paste.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_backcolorpicker_callback_function() {
  	echo '<input name="jwl_backcolorpicker_field_id" id="backcolorpicker" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_backcolorpicker_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/backcolorpicker.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/backcolorpicker.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_forecolorpicker_callback_function() {
  	echo '<input name="jwl_forecolorpicker_field_id" id="forecolorpicker" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_forecolorpicker_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/forecolorpicker.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/forecolorpicker.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_advhr_callback_function() {
  	echo '<input name="jwl_advhr_field_id" id="hr" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_advhr_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/hr.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/hr.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_visualaid_callback_function() {
  	echo '<input name="jwl_visualaid_field_id" id="visualaid" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_visualaid_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/visualaid.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/visualaid.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_anchor_callback_function() {
  	echo '<input name="jwl_anchor_field_id" id="anchor" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_anchor_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/anchor.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/anchor.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_sub_callback_function() {
  	echo '<input name="jwl_sub_field_id" id="sub" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_sub_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/sub.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/sub.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_sup_callback_function() {
  	echo '<input name="jwl_sup_field_id" id="sup" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_sup_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/sup.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/sup.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
-  function jwl_search_callback_function() {
+ function jwl_search_callback_function() {
  	echo '<input name="jwl_search_field_id" id="search" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_search_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/search.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/search.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
-  function jwl_replace_callback_function() {
+ function jwl_replace_callback_function() {
  	echo '<input name="jwl_replace_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_replace_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/replace.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/replace.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  
  function jwl_moods_callback_function() {
  	echo '<input name="jwl_moods_field_id" id="moods" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_moods_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/moods.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/moods.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  
  // Callback Functions for Row 4 Buttons
  function jwl_tablecontrols_callback_function() {
  	echo '<input name="jwl_tablecontrols_field_id" id="tablecontrols" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_tablecontrols_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/tablecontrols.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/tablecontrols.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_emotions_callback_function() {
  	echo '<input name="jwl_emotions_field_id" id="emotions" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_emotions_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/emotions.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/emotions.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_image_callback_function() {
  	echo '<input name="jwl_image_field_id" id="image" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_image_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/image.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/image.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_preview_callback_function() {
  	echo '<input name="jwl_preview_field_id" id="preview" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_preview_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/preview.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/preview.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_cite_callback_function() {
  	echo '<input name="jwl_cite_field_id" id="cite" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_cite_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/cite.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/cite.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_abbr_callback_function() {
  	echo '<input name="jwl_abbr_field_id" id="abbr" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_abbr_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/abbr.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/abbr.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_acronym_callback_function() {
  	echo '<input name="jwl_acronym_field_id" id="acronym" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_acronym_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/acronym.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/acronym.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_del_callback_function() {
  	echo '<input name="jwl_del_field_id" id="del" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_del_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/del.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/del.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_ins_callback_function() {
  	echo '<input name="jwl_ins_field_id" id="ins" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_ins_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/ins.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/ins.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_attribs_callback_function() {
  	echo '<input name="jwl_attribs_field_id" id="attribs" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_attribs_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/attribs.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/attribs.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_styleprops_callback_function() {
  	echo '<input name="jwl_styleprops_field_id" id="styleprops" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_styleprops_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/styleprops.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/styleprops.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_code_callback_function() {
  	echo '<input name="jwl_code_field_id" id="code" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_code_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/code.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/code.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  
  function jwl_media_callback_function() {
  	echo '<input name="jwl_media_field_id" id="media" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_media_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/media.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/media.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  
