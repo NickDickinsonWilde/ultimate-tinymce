@@ -83,7 +83,7 @@ add_filter('plugin_action_links', 'add_ultimatetinymce_settings_link', 10, 2 );
 // Call our external stylesheet
 function jwl_admin_register_head() {
     $siteurl = get_option('siteurl');
-    $url = $siteurl . '/wp-content/plugins/' . basename(dirname(__FILE__)) . '/admin_panel.css';
+    $url = plugin_dir_url( __FILE__ ) . 'admin_panel.css';
     echo "<link rel='stylesheet' type='text/css' href='$url' />\n";
 }
 add_action('admin_head', 'jwl_admin_register_head');
@@ -110,10 +110,10 @@ function josh_mce_before_init( $settings ) {
 		array( 'title' => __('Float Left','jwl-ultimate-tinymce'), 'block' => 'span', 'styles' => array( 'float' => 'left' )),
 		array( 'title' => __('Float Right','jwl-ultimate-tinymce'), 'block' => 'span', 'styles' => array( 'float' => 'right' )),
 		array( 'title' => __('Alerts','jwl-ultimate-tinymce')),
-		array( 'title' => __('Normal Alert','jwl-ultimate-tinymce'), 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #DEDEDE', 'background' => '#EFEFEF url(../../../../wp-content/plugins/ultimate-tinymce/img/normal.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
-		array( 'title' => __('Green Alert','jwl-ultimate-tinymce'), 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #1EDB0D', 'background' => '#A9FCA2 url(../../../../wp-content/plugins/ultimate-tinymce/img/green.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
-		array( 'title' => __('Yellow Alert','jwl-ultimate-tinymce'), 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #F5F531', 'background' => '#FAFAB9 url(../../../../wp-content/plugins/ultimate-tinymce/img/yellow.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
-		array( 'title' => __('Red Alert','jwl-ultimate-tinymce'), 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #ED220C', 'background' => '#FABDB6 url(../../../../wp-content/plugins/ultimate-tinymce/img/red.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  ))
+		array( 'title' => __('Normal Alert','jwl-ultimate-tinymce'), 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #DEDEDE', 'background' => '#EFEFEF url('.plugin_dir_url( __FILE__ ).'img/normal.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
+		array( 'title' => __('Green Alert','jwl-ultimate-tinymce'), 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #1EDB0D', 'background' => '#A9FCA2 url('.plugin_dir_url( __FILE__ ).'img/green.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
+		array( 'title' => __('Yellow Alert','jwl-ultimate-tinymce'), 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #F5F531', 'background' => '#FAFAB9 url('.plugin_dir_url( __FILE__ ).'img/yellow.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
+		array( 'title' => __('Red Alert','jwl-ultimate-tinymce'), 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #ED220C', 'background' => '#FABDB6 url('.plugin_dir_url( __FILE__ ).'img/red.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  ))
     );
 
     $settings['style_formats'] = json_encode( $style_formats );
