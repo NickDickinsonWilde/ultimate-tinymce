@@ -82,7 +82,6 @@ add_filter('plugin_action_links', 'add_ultimatetinymce_settings_link', 10, 2 );
 
 // Call our external stylesheet
 function jwl_admin_register_head() {
-    $siteurl = get_option('siteurl');
     $url = plugin_dir_url( __FILE__ ) . 'admin_panel.css';
     echo "<link rel='stylesheet' type='text/css' href='$url' />\n";
 }
