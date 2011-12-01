@@ -47,6 +47,13 @@ function jwl_change_mce_options($initArray) {
 }
 add_filter('tiny_mce_before_init', 'jwl_change_mce_options');*/
 
+add_action( 'init', 'jwl_ultimate_tinymce' );
+
+function jwl_ultimate_tinymce() {
+ load_plugin_textdomain('jwl-ultimate-tinymce', false, basename( dirname( __FILE__ ) ) . '/languages' );
+ }
+
+
 // set field names 
 function jwl_field_func($atts) {
    global $post;
@@ -66,7 +73,7 @@ static $this_plugin;
 if (!$this_plugin) $this_plugin = plugin_basename(__FILE__);
  
 if ($file == $this_plugin){
-$settings_link = '<a href="admin.php?page=ultimate-tinymce">'.__("Settings").'</a>';
+$settings_link = '<a href="admin.php?page=ultimate-tinymce">'.__("Settings",'jwl-ultimate-tinymce').'</a>';
 array_unshift($links, $settings_link);
 }
 return $links;
@@ -75,8 +82,7 @@ add_filter('plugin_action_links', 'add_ultimatetinymce_settings_link', 10, 2 );
 
 // Call our external stylesheet
 function jwl_admin_register_head() {
-    $siteurl = get_option('siteurl');
-    $url = $siteurl . '/wp-content/plugins/' . basename(dirname(__FILE__)) . '/admin_panel.css';
+    $url = plugin_dir_url( __FILE__ ) . 'admin_panel.css';
     echo "<link rel='stylesheet' type='text/css' href='$url' />\n";
 }
 add_action('admin_head', 'jwl_admin_register_head');
@@ -91,22 +97,22 @@ function josh_mce_before_init( $settings ) {
     $style_formats = array(
     	//array( 'title' => 'Button', 'selector' => 'a', 'classes' => 'button' ),
         //array( 'title' => 'Callout Box', 'block' => 'div', 'classes' => 'callout', 'wrapper' => true ),
-        array( 'title' => 'Bold Red Text', 'inline' => 'span', 'styles' => array( 'color' => '#FF0000', 'fontWeight' => 'bold' )),
-		array( 'title' => 'Bold Green Text', 'inline' => 'span', 'styles' => array( 'color' => '#00FF00', 'fontWeight' => 'bold' )),
-		array( 'title' => 'Bold Blue Text', 'inline' => 'span', 'styles' => array( 'color' => '#0000FF', 'fontWeight' => 'bold' )),
-		array( 'title' => ( 'Borders' )),
-		array( 'title' => 'Border Black', 'inline' => 'span', 'styles' => array( 'border' => '1px solid #000000', 'padding' => '2px' )),
-		array( 'title' => 'Border Red', 'inline' => 'span', 'styles' => array( 'border' => '1px solid #FF0000', 'padding' => '2px' )),
-		array( 'title' => 'Border Green', 'inline' => 'span', 'styles' => array( 'border' => '1px solid #00FF00', 'padding' => '2px' )),
-		array( 'title' => 'Border Blue', 'inline' => 'span', 'styles' => array( 'border' => '1px solid #0000FF', 'padding' => '2px' )),
-		array( 'title' => ( 'Float' )),
-		array( 'title' => 'Float Left', 'block' => 'span', 'styles' => array( 'float' => 'left' )),
-		array( 'title' => 'Float Right', 'block' => 'span', 'styles' => array( 'float' => 'right' )),
-		array( 'title' => ( 'Alerts' )),
-		array( 'title' => 'Normal Alert', 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #DEDEDE', 'background' => '#EFEFEF url(../../../../wp-content/plugins/ultimate-tinymce/img/normal.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
-		array( 'title' => 'Green Alert', 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #1EDB0D', 'background' => '#A9FCA2 url(../../../../wp-content/plugins/ultimate-tinymce/img/green.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
-		array( 'title' => 'Yellow Alert', 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #F5F531', 'background' => '#FAFAB9 url(../../../../wp-content/plugins/ultimate-tinymce/img/yellow.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
-		array( 'title' => 'Red Alert', 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #ED220C', 'background' => '#FABDB6 url(../../../../wp-content/plugins/ultimate-tinymce/img/red.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  ))
+        array( 'title' => __('Bold Red Text','jwl-ultimate-tinymce'), 'inline' => 'span', 'styles' => array( 'color' => '#FF0000', 'fontWeight' => 'bold' )),
+		array( 'title' => __('Bold Green Text','jwl-ultimate-tinymce'), 'inline' => 'span', 'styles' => array( 'color' => '#00FF00', 'fontWeight' => 'bold' )),
+		array( 'title' => __('Bold Blue Text','jwl-ultimate-tinymce'), 'inline' => 'span', 'styles' => array( 'color' => '#0000FF', 'fontWeight' => 'bold' )),
+		array( 'title' => __('Borders','jwl-ultimate-tinymce')),
+		array( 'title' => __('Border Black','jwl-ultimate-tinymce'), 'inline' => 'span', 'styles' => array( 'border' => '1px solid #000000', 'padding' => '2px' )),
+		array( 'title' => __('Border Red','jwl-ultimate-tinymce'), 'inline' => 'span', 'styles' => array( 'border' => '1px solid #FF0000', 'padding' => '2px' )),
+		array( 'title' => __('Border Green','jwl-ultimate-tinymce'), 'inline' => 'span', 'styles' => array( 'border' => '1px solid #00FF00', 'padding' => '2px' )),
+		array( 'title' => __('Border Blue','jwl-ultimate-tinymce'), 'inline' => 'span', 'styles' => array( 'border' => '1px solid #0000FF', 'padding' => '2px' )),
+		array( 'title' => __('Float','jwl-ultimate-tinymce')),
+		array( 'title' => __('Float Left','jwl-ultimate-tinymce'), 'block' => 'span', 'styles' => array( 'float' => 'left' )),
+		array( 'title' => __('Float Right','jwl-ultimate-tinymce'), 'block' => 'span', 'styles' => array( 'float' => 'right' )),
+		array( 'title' => __('Alerts','jwl-ultimate-tinymce')),
+		array( 'title' => __('Normal Alert','jwl-ultimate-tinymce'), 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #DEDEDE', 'background' => '#EFEFEF url('.plugin_dir_url( __FILE__ ).'img/normal.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
+		array( 'title' => __('Green Alert','jwl-ultimate-tinymce'), 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #1EDB0D', 'background' => '#A9FCA2 url('.plugin_dir_url( __FILE__ ).'img/green.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
+		array( 'title' => __('Yellow Alert','jwl-ultimate-tinymce'), 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #F5F531', 'background' => '#FAFAB9 url('.plugin_dir_url( __FILE__ ).'img/yellow.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
+		array( 'title' => __('Red Alert','jwl-ultimate-tinymce'), 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #ED220C', 'background' => '#FABDB6 url('.plugin_dir_url( __FILE__ ).'img/red.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  ))
     );
 
     $settings['style_formats'] = json_encode( $style_formats );
@@ -124,7 +130,7 @@ function josh_mce_before_init( $settings ) {
 	
 		add_options_page(
 						   'Ultimate TinyMCE Plugin Page', 
-						   'Ultimate TinyMCE', 
+						   __('Ultimate TinyMCE','jwl-ultimate-tinymce'), 
 						   'manage_options', 
 						   'ultimate-tinymce', 
 						   'jwl_options_page'
@@ -137,7 +143,7 @@ function josh_mce_before_init( $settings ) {
 	?>
 	
 	<div class="wrap">
-		<h2>Ultimate TinyMCE Plugin Menu</h2>
+		<h2><?php _e('Ultimate TinyMCE Plugin Menu','jwl-ultimate-tinymce'); ?></h2>
 
             <div class="metabox-holder" style="width:65%; float:left; margin-right:10px;">
                 <div class="postbox">  
@@ -159,7 +165,7 @@ function josh_mce_before_init( $settings ) {
                     <br /><br />
                 </div>
                 </div>
-                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save your Selection'); ?>" id="submitbutton" /></center>
+                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save your Selection','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
                 </form>
             </div>
               
@@ -169,9 +175,9 @@ function josh_mce_before_init( $settings ) {
  
             
             <div class="postbox2top">
-                <h3 style="cursor:default;">Donations</h3>
+                <h3 style="cursor:default;"><?php _e('Donations','jwl-ultimate-tinymce'); ?></h3>
                 <div class="inside2" style="padding:12px 12px 12px 12px;">
-                <p><strong>Even the smallest donations are gratefully accepted.</strong></p>
+                <p><strong><?php _e('Even the smallest donations are gratefully accepted.','jwl-ultimate-tinymce'); ?></strong></p>
                         
                 <!--  Donate Button -->
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
@@ -184,34 +190,34 @@ function josh_mce_before_init( $settings ) {
             </div>
             
             <div class="postbox2">
-                <h3 style="cursor:default;">Additional Resources</h3>
+                <h3 style="cursor:default;"><?php _e('Additional Resources','jwl-ultimate-tinymce'); ?></h3>
                 <div class="inside2" style="padding:12px 12px 12px 12px;">
-                <a href="../wp-content/plugins/ultimate-tinymce/ultimate_tinymce.doc" target="_blank">View plugin documentation (opens in Word).</a><br /><br />
-                <a href="http://www.youtube.com/watch?v=fM3CUo9MxMc" target="_blank">Screencast part one</a><br /><br />
-                <a href="http://www.youtube.com/watch?v=5raIBxGP17g" target="_blank">Screencast part two</a><br /><br />
-                <a href="http://www.joshlobe.com/2011/10/ultimate-tinymce/" target="_blank">Get help from my personal blog.</a><br /><br />
-                <a href="http://wordpress.org/tags/ultimate-tinymce?forum_id=10#postform" target="_blank">Post a thread in the Wordpress Plugin Page.</a><br /><br />
-                <a href="http://www.joshlobe.com/contact-me/" target="_blank">Email me directly using my contact form.</a><br /><br />
-                <a href="http://www.joshlobe.com/feed/" target="_blank">Subscribe to my RSS Feed.</a><br /><br />
-                Follow me on <a target="_blank" href="http://www.facebook.com/joshlobe">Facebook</a> and <a target="_blank" href="http://twitter.com/#!/joshlobe">Twitter</a>.<br />
+                <a href="../wp-content/plugins/ultimate-tinymce/ultimate_tinymce.doc" target="_blank"><?php _e('View plugin documentation (opens in Word).','jwl-ultimate-tinymce'); ?></a><br /><br />
+                <a href="http://www.youtube.com/watch?v=fM3CUo9MxMc" target="_blank"><?php _e('Screencast part one','jwl-ultimate-tinymce'); ?></a><br /><br />
+                <a href="http://www.youtube.com/watch?v=5raIBxGP17g" target="_blank"><?php _e('Screencast part two','jwl-ultimate-tinymce'); ?></a><br /><br />
+                <a href="http://www.joshlobe.com/2011/10/ultimate-tinymce/" target="_blank"><?php _e('Get help from my personal blog.','jwl-ultimate-tinymce'); ?></a><br /><br />
+                <a href="http://wordpress.org/tags/ultimate-tinymce?forum_id=10#postform" target="_blank"><?php _e('Post a thread in the Wordpress Plugin Page.','jwl-ultimate-tinymce'); ?></a><br /><br />
+                <a href="http://www.joshlobe.com/contact-me/" target="_blank"><?php _e('Email me directly using my contact form.','jwl-ultimate-tinymce'); ?></a><br /><br />
+                <a href="http://www.joshlobe.com/feed/" target="_blank"><?php _e('Subscribe to my RSS Feed.','jwl-ultimate-tinymce'); ?></a><br /><br />
+                <?php _e('Follow me on ','jwl-ultimate-tinymce'); ?><a target="_blank" href="http://www.facebook.com/joshlobe"><?php _e('Facebook','jwl-ultimate-tinymce'); ?></a><?php _e(' and ','jwl-ultimate-tinymce'); ?><a target="_blank" href="http://twitter.com/#!/joshlobe"><?php _e('Twitter','jwl-ultimate-tinymce'); ?></a>.<br />
                                
                 </div>
             </div>
             
             
             <div class="postbox2">
-                <h3 style="cursor:default;">Please VOTE and click WORKS.</h3>
+                <h3 style="cursor:default;"><?php _e('Please VOTE and click WORKS.','jwl-ultimate-tinymce'); ?></h3>
                 <div class="inside2" style="padding:12px 12px 12px 12px;">
-                <a href="http://wordpress.org/extend/plugins/ultimate-tinymce/" target="_blank">Click Here to Vote...</a><br /><br />Voting helps my plugin get more exposure and higher rankings on the searches.<br /><br />Please help spread this wonderful plugin by showing your support.  Thank you!
+                <a href="http://wordpress.org/extend/plugins/ultimate-tinymce/" target="_blank"><?php _e('Click Here to Vote...','jwl-ultimate-tinymce'); ?></a><br /><br /><?php _e('Voting helps my plugin get more exposure and higher rankings on the searches.','jwl-ultimate-tinymce'); ?><br /><br /><?php _e('Please help spread this wonderful plugin by showing your support.  Thank you!','jwl-ultimate-tinymce'); ?>
                 
                 </div>
             </div>
             
             
             <div class="postbox2">
-                <h3 style="cursor:default;">Feedback</h3>
+                <h3 style="cursor:default;"><?php _e('Feedback','jwl-ultimate-tinymce'); ?></h3>
                 <div class="inside2" style="padding:12px 12px 12px 12px;">
-                Please take a moment to complete the short feedback form below.  Your input is greatly appreciated.<br /><br />
+                <?php _e('Please take a moment to complete the short feedback form below.  Your input is greatly appreciated.','jwl-ultimate-tinymce'); ?><br /><br />
                 <div style="border:1px solid #999999;"><script type="text/javascript" src="http://form.jotform.com/jsform/13245521214"></script></script></div>
                 
                 </div>
@@ -231,46 +237,46 @@ function josh_mce_before_init( $settings ) {
  	// Add the section to ultimate-tinymce settings so we can add our
  	// fields to it
 	
- 	add_settings_section('jwl_setting_section', 'Row 3 Button Settings', 'jwl_setting_section_callback_function', 'ultimate-tinymce');
-	add_settings_section('jwl_setting_section2', 'Row 4 Button Settings', 'jwl_setting_section_callback_function2', 'ultimate-tinymce2');
+ 	add_settings_section('jwl_setting_section', __('Row 3 Button Settings','jwl-ultimate-tinymce'), 'jwl_setting_section_callback_function', 'ultimate-tinymce');
+	add_settings_section('jwl_setting_section2', __('Row 4 Button Settings','jwl-ultimate-tinymce'), 'jwl_setting_section_callback_function2', 'ultimate-tinymce2');
  	
  	// Add the field with the names and function to use for our new
  	// settings, put it in our new section
 	
 	// These are the settings for Row 3
- 	add_settings_field('jwl_fontselect_field_id', 'Font Select Box', 'jwl_fontselect_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
-	add_settings_field('jwl_fontsizeselect_field_id', 'Font Size Box', 'jwl_fontsizeselect_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
-	add_settings_field('jwl_styleselect_field_id', 'Style Select Box', 'jwl_styleselect_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
-	add_settings_field('jwl_cut_field_id', 'Cut Box', 'jwl_cut_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
-	add_settings_field('jwl_copy_field_id', 'Copy Box', 'jwl_copy_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
-	add_settings_field('jwl_paste_field_id', 'Paste Box', 'jwl_paste_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
-	add_settings_field('jwl_backcolorpicker_field_id', 'Background Color Picker Box', 'jwl_backcolorpicker_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
-	add_settings_field('jwl_forecolorpicker_field_id', 'Foreground Color Picker Box', 'jwl_forecolorpicker_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
-	add_settings_field('jwl_advhr_field_id', 'Horizontal Row Box', 'jwl_advhr_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
-	add_settings_field('jwl_visualaid_field_id', 'Visual Aid Box', 'jwl_visualaid_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
-	add_settings_field('jwl_anchor_field_id', 'Anchor Box', 'jwl_anchor_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
-	add_settings_field('jwl_sub_field_id', 'Subscript Box', 'jwl_sub_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
-	add_settings_field('jwl_sup_field_id', 'Superscript Box', 'jwl_sup_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
-	add_settings_field('jwl_search_field_id', 'Search Box', 'jwl_search_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
-	add_settings_field('jwl_replace_field_id', 'Replace Box', 'jwl_replace_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+ 	add_settings_field('jwl_fontselect_field_id', __('Font Select Box','jwl-ultimate-tinymce'), 'jwl_fontselect_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_fontsizeselect_field_id', __('Font Size Box','jwl-ultimate-tinymce'), 'jwl_fontsizeselect_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_styleselect_field_id', __('Style Select Box','jwl-ultimate-tinymce'), 'jwl_styleselect_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_cut_field_id', __('Cut Box','jwl-ultimate-tinymce'), 'jwl_cut_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_copy_field_id', __('Copy Box','jwl-ultimate-tinymce'), 'jwl_copy_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_paste_field_id', __('Paste Box','jwl-ultimate-tinymce'), 'jwl_paste_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_backcolorpicker_field_id', __('Background Color Picker Box','jwl-ultimate-tinymce'), 'jwl_backcolorpicker_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_forecolorpicker_field_id', __('Foreground Color Picker Box','jwl-ultimate-tinymce'), 'jwl_forecolorpicker_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_advhr_field_id', __('Horizontal Row Box','jwl-ultimate-tinymce'), 'jwl_advhr_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_visualaid_field_id', __('Visual Aid Box','jwl-ultimate-tinymce'), 'jwl_visualaid_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_anchor_field_id', __('Anchor Box','jwl-ultimate-tinymce'), 'jwl_anchor_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_sub_field_id', __('Subscript Box','jwl-ultimate-tinymce'), 'jwl_sub_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_sup_field_id', __('Superscript Box','jwl-ultimate-tinymce'), 'jwl_sup_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_search_field_id', __('Search Box','jwl-ultimate-tinymce'), 'jwl_search_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_replace_field_id', __('Replace Box','jwl-ultimate-tinymce'), 'jwl_replace_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	
-	add_settings_field('jwl_moods_field_id', 'Josh\'s Ultimate Moods Box', 'jwl_moods_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_moods_field_id', __('Josh\'s Ultimate Moods Box','jwl-ultimate-tinymce'), 'jwl_moods_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	
 	// These are the settings for Row 4
-	add_settings_field('jwl_tablecontrols_field_id', 'Table Controls Box', 'jwl_tablecontrols_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_emotions_field_id', 'Emotions Box', 'jwl_emotions_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_image_field_id', 'Advanced Image Box', 'jwl_image_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_preview_field_id', 'Preview Box', 'jwl_preview_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_cite_field_id', 'Citations Box', 'jwl_cite_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_abbr_field_id', 'Abbreviations Box', 'jwl_abbr_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_acronym_field_id', 'Acronym Box', 'jwl_acronym_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_del_field_id', 'Delete Box', 'jwl_del_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_ins_field_id', 'Insert Box', 'jwl_ins_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_attribs_field_id', 'Attributes Box', 'jwl_attribs_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_styleprops_field_id', 'Styleprops Box', 'jwl_styleprops_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_code_field_id', 'HTML Code Box', 'jwl_code_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_tablecontrols_field_id', __('Table Controls Box','jwl-ultimate-tinymce'), 'jwl_tablecontrols_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_emotions_field_id', __('Emotions Box','jwl-ultimate-tinymce'), 'jwl_emotions_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_image_field_id', __('Advanced Image Box','jwl-ultimate-tinymce'), 'jwl_image_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_preview_field_id', __('Preview Box','jwl-ultimate-tinymce'), 'jwl_preview_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_cite_field_id', __('Citations Box','jwl-ultimate-tinymce'), 'jwl_cite_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_abbr_field_id', __('Abbreviations Box','jwl-ultimate-tinymce'), 'jwl_abbr_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_acronym_field_id', __('Acronym Box','jwl-ultimate-tinymce'), 'jwl_acronym_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_del_field_id', __('Delete Box','jwl-ultimate-tinymce'), 'jwl_del_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_ins_field_id', __('Insert Box','jwl-ultimate-tinymce'), 'jwl_ins_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_attribs_field_id', __('Attributes Box','jwl-ultimate-tinymce'), 'jwl_attribs_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_styleprops_field_id', __('Styleprops Box','jwl-ultimate-tinymce'), 'jwl_styleprops_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_code_field_id', __('HTML Code Box','jwl-ultimate-tinymce'), 'jwl_code_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
  	
-	add_settings_field('jwl_media_field_id', 'Insert Media Box', 'jwl_media_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_media_field_id', __('Insert Media Box','jwl-ultimate-tinymce'), 'jwl_media_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
 	
  	
 	// Register our setting so that $_POST handling is done for us and
@@ -326,11 +332,11 @@ function josh_mce_before_init( $settings ) {
  //
  
  function jwl_setting_section_callback_function() {
- 	echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;Here you can select which buttons to include in row 3 of the TinyMCE editor.</strong></p>';
+ 	_e('<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;Here you can select which buttons to include in row 3 of the TinyMCE editor.</strong></p>','jwl-ultimate-tinymce');
  }
  
  function jwl_setting_section_callback_function2() {
- 	echo '<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;Here you can select which buttons to include in row 4 of the TinyMCE editor.</strong></p>';
+ 	_e('<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;Here you can select which buttons to include in row 4 of the TinyMCE editor.</strong></p>','jwl-ultimate-tinymce');
  }
  
 
@@ -338,151 +344,151 @@ function josh_mce_before_init( $settings ) {
  // Callback Functions for Row 3 Buttons
  function jwl_fontselect_callback_function() {
  	echo '<input name="jwl_fontselect_field_id" id="fontselect" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_fontselect_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/fontselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/fontselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
   
  function jwl_fontsizeselect_callback_function() {
  	echo '<input name="jwl_fontsizeselect_field_id" id="fontsize" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_fontsizeselect_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/fontsizeselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/fontsizeselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
 
  function jwl_styleselect_callback_function() {
  	echo '<input name="jwl_styleselect_field_id" id="styleselect" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_styleselect_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/styleselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/styleselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_cut_callback_function() {
  	echo '<input name="jwl_cut_field_id" id="cut" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_cut_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/cut.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/cut.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_copy_callback_function() {
  	echo '<input name="jwl_copy_field_id" id="copy" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_copy_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/copy.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/copy.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_paste_callback_function() {
  	echo '<input name="jwl_paste_field_id" id="paste" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_paste_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/paste.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/paste.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_backcolorpicker_callback_function() {
  	echo '<input name="jwl_backcolorpicker_field_id" id="backcolorpicker" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_backcolorpicker_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/backcolorpicker.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/backcolorpicker.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_forecolorpicker_callback_function() {
  	echo '<input name="jwl_forecolorpicker_field_id" id="forecolorpicker" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_forecolorpicker_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/forecolorpicker.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/forecolorpicker.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_advhr_callback_function() {
  	echo '<input name="jwl_advhr_field_id" id="hr" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_advhr_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/hr.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/hr.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_visualaid_callback_function() {
  	echo '<input name="jwl_visualaid_field_id" id="visualaid" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_visualaid_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/visualaid.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/visualaid.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_anchor_callback_function() {
  	echo '<input name="jwl_anchor_field_id" id="anchor" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_anchor_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/anchor.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/anchor.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_sub_callback_function() {
  	echo '<input name="jwl_sub_field_id" id="sub" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_sub_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/sub.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/sub.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_sup_callback_function() {
  	echo '<input name="jwl_sup_field_id" id="sup" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_sup_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/sup.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/sup.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
-  function jwl_search_callback_function() {
+ function jwl_search_callback_function() {
  	echo '<input name="jwl_search_field_id" id="search" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_search_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/search.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/search.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
-  function jwl_replace_callback_function() {
+ function jwl_replace_callback_function() {
  	echo '<input name="jwl_replace_field_id" id="replace" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_replace_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/replace.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/replace.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  
  function jwl_moods_callback_function() {
  	echo '<input name="jwl_moods_field_id" id="moods" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_moods_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/moods.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/moods.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  
  // Callback Functions for Row 4 Buttons
  function jwl_tablecontrols_callback_function() {
  	echo '<input name="jwl_tablecontrols_field_id" id="tablecontrols" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_tablecontrols_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/tablecontrols.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/tablecontrols.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_emotions_callback_function() {
  	echo '<input name="jwl_emotions_field_id" id="emotions" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_emotions_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/emotions.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/emotions.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_image_callback_function() {
  	echo '<input name="jwl_image_field_id" id="image" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_image_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/image.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/image.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_preview_callback_function() {
  	echo '<input name="jwl_preview_field_id" id="preview" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_preview_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/preview.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/preview.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_cite_callback_function() {
  	echo '<input name="jwl_cite_field_id" id="cite" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_cite_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/cite.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/cite.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_abbr_callback_function() {
  	echo '<input name="jwl_abbr_field_id" id="abbr" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_abbr_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/abbr.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/abbr.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_acronym_callback_function() {
  	echo '<input name="jwl_acronym_field_id" id="acronym" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_acronym_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/acronym.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/acronym.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_del_callback_function() {
  	echo '<input name="jwl_del_field_id" id="del" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_del_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/del.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/del.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_ins_callback_function() {
  	echo '<input name="jwl_ins_field_id" id="ins" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_ins_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/ins.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/ins.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_attribs_callback_function() {
  	echo '<input name="jwl_attribs_field_id" id="attribs" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_attribs_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/attribs.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/attribs.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_styleprops_callback_function() {
  	echo '<input name="jwl_styleprops_field_id" id="styleprops" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_styleprops_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/styleprops.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/styleprops.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  function jwl_code_callback_function() {
  	echo '<input name="jwl_code_field_id" id="code" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_code_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/code.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/code.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  
  function jwl_media_callback_function() {
  	echo '<input name="jwl_media_field_id" id="media" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_media_field_id'), false ) . ' /> ';
-	?><img src="../../../../wp-content/plugins/ultimate-tinymce/img/media.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/media.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
  
  
