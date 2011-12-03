@@ -85,6 +85,11 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 == Changelog ==
 
+= 1.5.6 =
+
+* Changed all text strings to support language localization.  Please contact me if you would like to help with a translation.
+* Fixed image paths to support wordpress installations in subdirectories.  Thanks to Red Rocker - http://www.near-mint.com/blog/
+
 = 1.5.5 =
 
 * Added functionality to create shortcodes for use within the editor. (Please see the Microsoft Word documentation on the plugin settings page in the admin panel for complete usage instructions).
