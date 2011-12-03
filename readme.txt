@@ -88,7 +88,7 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 = 1.5.6 =
 
 * Changed all text strings to support language localization.  Please contact me if you would like to help with a translation.
-* Fixed image paths to support wordpress installations in subdirectories.  Thanks to Red Rocker - http://www.near-mint.com/blog/
+* Fixed image paths to support wordpress installations in subdirectories.  Thanks to Redcocker - http://www.near-mint.com/blog/
 
 = 1.5.5 =
 
