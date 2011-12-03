@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilies
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.5.5
+Stable tag: 1.5.6
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -84,6 +84,11 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 *Simply too many features to list!!
 
 == Changelog ==
+
+= 1.5.6 =
+
+* Changed all text strings to support language localization.  Please contact me if you would like to help with a translation.
+* Fixed image paths to support wordpress installations in subdirectories.  Thanks to Red Rocker - http://www.near-mint.com/blog/
 
 = 1.5.5 =
 
