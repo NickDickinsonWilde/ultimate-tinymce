@@ -1,0 +1,11 @@
+Bug Fixes:
+
+	redrocker - http://www.near-mint.com/blog/
+
+	* Fixed all relative image path calls.
+
+
+
+Language Translations:
+
+	Japanese:  redrocker - http://www.near-mint.com/blog/
