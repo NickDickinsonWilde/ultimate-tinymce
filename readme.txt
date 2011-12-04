@@ -4,16 +4,12 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilies
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.5.6
+Stable tag: 1.5.7
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
 == Description ==
 Are you a visual person?  Do the four letters "HTML" send you running for the hills; but you still want to create beautiful blogs like the pros?  Then this is the plugin for you!
-
-<img src="http://www.joshlobe.com/wp-content/images/forums/banner2.png" />
-
-![Alt text](http://www.joshlobe.com/wp-content/images/forums/banner2.png)
 
 [youtube http://www.youtube.com/watch?v=fM3CUo9MxMc]
 
@@ -28,7 +24,13 @@ Also, <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button
 
 <strong>Additional Plugin Resources:</strong>
 
-You can use my webpage <a href="http://www.joshlobe.com/2011/11/ultimate-tinymce/">Here</a> for expedited help and support with this plugin; or to suggest additional features for future updates.
+You can use my webpage <a href="http://www.joshlobe.com/2011/11/ultimate-tinymce/">Here</a> for expedited help and support with this plugin; or to suggest additional features for future updates.  This page also provides links to many additional resources.
+
+Be sure to follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> account to be notified about new video tutorials.
+
+<strong>Translations:</strong>
+
+Japanese: Redcocker http://www.near-mint.com/blog/
 
 
 == Installation ==
@@ -84,6 +86,10 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 *Simply too many features to list!!
 
 == Changelog ==
+
+= 1.5.7 =
+* Received a few messages regarding the buttons disappearing when activating the plugin.  This was caused by the __construct() function conflicting with other plugins using the same function.  I rewrote the code so the construct function is no longer needed.  This has helped speed up tinymce loading time significantly.
+* Added Japanese to the language translations.
 
 = 1.5.6 =
 

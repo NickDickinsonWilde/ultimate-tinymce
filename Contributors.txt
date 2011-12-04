@@ -7,3 +7,5 @@ Bug Fixes:
 
 
 Language Translations:
+
+	Japanese:  redrocker - http://www.near-mint.com/blog/

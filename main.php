@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.5.6
+ * @version 1.5.7
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.5.6
+Version: 1.5.7
 Author URI: http://joshlobe.com
 
 */
@@ -47,12 +47,11 @@ function jwl_change_mce_options($initArray) {
 }
 add_filter('tiny_mce_before_init', 'jwl_change_mce_options');*/
 
-add_action( 'init', 'jwl_ultimate_tinymce' );
-
+// Set our language localization folder
 function jwl_ultimate_tinymce() {
  load_plugin_textdomain('jwl-ultimate-tinymce', false, basename( dirname( __FILE__ ) ) . '/languages' );
- }
-
+}
+add_action( 'init', 'jwl_ultimate_tinymce' );
 
 // set field names 
 function jwl_field_func($atts) {
@@ -62,7 +61,6 @@ function jwl_field_func($atts) {
 
    return get_post_meta($post->ID, $name, true);
 }
-
 add_shortcode('field', 'jwl_field_func');
 
 
@@ -90,8 +88,6 @@ add_action('admin_head', 'jwl_admin_register_head');
 
 
 // Add custom styles
-add_filter( 'tiny_mce_before_init', 'josh_mce_before_init' );
-
 function josh_mce_before_init( $settings ) {
 
     $style_formats = array(
@@ -120,13 +116,12 @@ function josh_mce_before_init( $settings ) {
     return $settings;
 
 }
+add_filter( 'tiny_mce_before_init', 'josh_mce_before_init' );
 // End custom styles
 
 // Add the admin options page
 
-	add_action('admin_menu', 'jwl_admin_add_page');
-	
-	function jwl_admin_add_page() {
+function jwl_admin_add_page() {
 	
 		add_options_page(
 						   'Ultimate TinyMCE Plugin Page', 
@@ -136,7 +131,8 @@ function josh_mce_before_init( $settings ) {
 						   'jwl_options_page'
 						  );
 	
-	}
+}
+add_action('admin_menu', 'jwl_admin_add_page');
 
 // Display the admin options page
 	function jwl_options_page() {
@@ -233,7 +229,7 @@ function josh_mce_before_init( $settings ) {
  // ------------------------------------------------------------------
  //
  
- function jwl_settings_api_init() {
+function jwl_settings_api_init() {
  	// Add the section to ultimate-tinymce settings so we can add our
  	// fields to it
 	
@@ -318,9 +314,8 @@ function josh_mce_before_init( $settings ) {
 	
 	register_setting('jwl_options_group','jwl_media_field_id');
 
- }
- 
- add_action('admin_init', 'jwl_settings_api_init');  
+}
+add_action('admin_init', 'jwl_settings_api_init');  
  
   
  // ------------------------------------------------------------------
@@ -733,55 +728,24 @@ return $buttons;
 add_filter("mce_buttons_4", "tinymce_add_button_media");
 
 
-
-
-	class mce_table_buttons
-	{
-		function __construct() 
-		{
-			add_action( 'admin_init', array( $this, 'admin_init' ) );
-			add_action( 'content_save_pre', array( $this, 'content_save_pre'), 100 ); 
-		}
+// Add the plugin array for extra features
+function jwl_mce_external_plugins( $plugin_array ) {
+		$plugin_array['table'] = plugin_dir_url( __FILE__ ) . 'table/editor_plugin.js';
+		$plugin_array['emotions'] = plugin_dir_url(__FILE__) . 'emotions/editor_plugin.js';
+		$plugin_array['advlist'] = plugin_dir_url(__FILE__) . 'advlist/editor_plugin.js';
+		$plugin_array['advlink'] = plugin_dir_url(__FILE__) . 'advlink/editor_plugin.js';
+		$plugin_array['advimage'] = plugin_dir_url(__FILE__) . 'advimage/editor_plugin.js';
+		$plugin_array['searchreplace'] = plugin_dir_url(__FILE__) . 'searchreplace/editor_plugin.js';
+		$plugin_array['preview'] = plugin_dir_url(__FILE__) . 'preview/editor_plugin.js';
+		$plugin_array['xhtmlxtras'] = plugin_dir_url(__FILE__) . 'xhtmlxtras/editor_plugin.js';
+		$plugin_array['style'] = plugin_dir_url(__FILE__) . 'style/editor_plugin.js';
 		
-		function admin_init()
-		{
-			add_filter( 'mce_external_plugins', array( $this, 'mce_external_plugins' ) ); 
-
-		}
-		
-		function mce_external_plugins( $plugin_array )
-		{
-			if ( get_option('db_version') < 17056 )
-				$plugin_array['table'] = plugin_dir_url( __FILE__ ) . 'table-old/editor_plugin.js';
-			else 
-				$plugin_array['table'] = plugin_dir_url( __FILE__ ) . 'table/editor_plugin.js';
-				$plugin_array['emotions'] = plugin_dir_url(__FILE__) . 'emotions/editor_plugin.js';
-				$plugin_array['advlist'] = plugin_dir_url(__FILE__) . 'advlist/editor_plugin.js';
-				$plugin_array['advlink'] = plugin_dir_url(__FILE__) . 'advlink/editor_plugin.js';
-				$plugin_array['advimage'] = plugin_dir_url(__FILE__) . 'advimage/editor_plugin.js';
-				$plugin_array['searchreplace'] = plugin_dir_url(__FILE__) . 'searchreplace/editor_plugin.js';
-				$plugin_array['preview'] = plugin_dir_url(__FILE__) . 'preview/editor_plugin.js';
-				$plugin_array['xhtmlxtras'] = plugin_dir_url(__FILE__) . 'xhtmlxtras/editor_plugin.js';
-				$plugin_array['style'] = plugin_dir_url(__FILE__) . 'style/editor_plugin.js';
-				
-				$plugin_array['moods'] = plugin_dir_url(__FILE__) . 'moods/editor_plugin.js';
-				$plugin_array['media'] = plugin_dir_url(__FILE__) . 'media/editor_plugin.js';
-				$plugin_array['advhr'] = plugin_dir_url(__FILE__) . 'advhr/editor_plugin.js';
-				   
-				return $plugin_array;
-		}
-		
-	
-		function content_save_pre( $content )
-		{
-			if ( substr( $content, -8 ) == '</table>' )
-				$content = $content . "\n<br />";
-			
-			return $content;
-		}
-	}
-	
-	$mce_table_buttons = new mce_table_buttons;
-
+		$plugin_array['moods'] = plugin_dir_url(__FILE__) . 'moods/editor_plugin.js';
+		$plugin_array['media'] = plugin_dir_url(__FILE__) . 'media/editor_plugin.js';
+		$plugin_array['advhr'] = plugin_dir_url(__FILE__) . 'advhr/editor_plugin.js';
+		   
+		return $plugin_array;
+}
+add_filter( 'mce_external_plugins', 'jwl_mce_external_plugins' );
 
 ?>
