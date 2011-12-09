@@ -9,3 +9,6 @@ Bug Fixes:
 Language Translations:
 
 	Japanese:  redrocker - http://www.near-mint.com/blog/
+	Dutch:  keesiemeijer - http://codex.wordpress.org/User:Keesiemeijer
+	Finnish:  markku - 
+	
