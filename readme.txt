@@ -18,9 +18,12 @@ Are you a visual person?  Do the four letters "HTML" send you running for the hi
 <strong>Here are just a few features which make this plugin so powerful:</strong>
 <ul><li><strong>NEW:</strong> Animated smilies!!</li><li>Add, create, and manipulate as many tables as you like.</li><li>Add emoticons to express your mood as you are writing your posts/pages.</li><li>Now you can use subscript and superscript text.</li><li>Added advanced features for images (such as mouseover and mouseout).</li><li>Added advanced features for ordered and unordered drop-down lists.</li><li>Now features a search and replace tool.</li><li>Easily add page anchors to posts that become too long to scroll through all the content.</li><li>Added new feature to the "link" button now enabling you to open links in your own javascript popup windows, without writing a single line of code.  You can even control the size and position of your popup window.</li><li><strong>And much more... too many features to list.</strong></li><li>This plugin is in very active development, and new versions will be released adding even more customization and functionality.</li></ul>
 
-<Strong>Recent Updates:</strong>
-* Added support for PHP widgets.
-* Added signoff shortcodes to use in your posts.
+<Strong>Recent Updates:</strong><br />
+
+<ul>
+<li>Added support for PHP widgets.</li>
+<li>Added signoff shortcodes to use in your posts.</li>
+</ul>
 
 If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "works" if you are indeed satisfied with the plugin.  Thank you.
 
@@ -32,11 +35,13 @@ You can use my webpage <a href="http://www.joshlobe.com/2011/11/ultimate-tinymce
 
 Be sure to follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> account to be notified about new video tutorials.
 
-<strong>Translations:</strong>
+<strong>Translations:</strong><br />
 
-Japanese:   Redcocker    - http://www.near-mint.com/blog/
-Dutch:      keesiemeijer - http://codex.wordpress.org/User:Keesiemeijer
-Finnish:    markku       -
+<ul>
+<li>Japanese:   Redcocker    - http://www.near-mint.com/blog/ </li>
+<li>Dutch:      keesiemeijer - http://codex.wordpress.org/User:Keesiemeijer </li>
+<li>Finnish:    markku       - </li>
+<ul>
 
 (If you kindly help with a translation, I will list your name and website here).
 
