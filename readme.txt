@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.5.9
+Stable tag: 1.6.0
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -31,7 +31,9 @@ Also, <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button
 
 <strong>Additional Plugin Resources:</strong>
 
-You can use my webpage <a href="http://www.joshlobe.com/2011/11/ultimate-tinymce/">Here</a> for expedited help and support with this plugin; or to suggest additional features for future updates.  This page also provides links to many additional resources.
+Use my support forum <a href="http://www.forum.joshlobe.com">HERE</a> for questions, problems, and anything else.
+
+You can use my webpage <a href="http://www.joshlobe.com/2011/11/ultimate-tinymce/">Here</a> for some extra plugin info. This page also provides links to many additional resources.
 
 Be sure to follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> account to be notified about new video tutorials.
 
@@ -45,6 +47,12 @@ Be sure to follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> accoun
 
 (If you kindly help with a translation, I will list your name and website here).
 
+<strong>Blogger Buddies:</strong>
+
+Blog about this plugin and I will add your name and site here:
+
+Waiting...
+
 == Installation ==
 
 1. Upload the plugin to your 'wp-content/plugins' directory, or download and install automatically through your admin panel.
@@ -55,6 +63,10 @@ Be sure to follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> accoun
 
 
 == Frequently Asked Questions ==
+
+= Support Forum =
+
+Please use my support forum <a href="http://www.forum.joshlobe.com">HERE</a> for expedited help.
 
 = The color picker feature always shows hex code #000000 regardless of what color I click. =
 
@@ -100,6 +112,11 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 *Simply too many features to list!!
 
 == Changelog ==
+
+= 1.6.0 =
+* Added a community support forum for more concentrated and expedited help.  The links can be found in the Ultimate TiynMCE settings panel, or on the active plugins page under Ultimate TinyMCE.
+* Added a section in the settings page for bloggers.  Read the info, and follow along if you like this plugin.
+* Added code templates for my next few planned upgrades.
 
 = 1.5.9 =
 * Fixed bug where tinymce was adding crazy white space.  I thought my last release had fixed this issue, but apparently it's not ready.

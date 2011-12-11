@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.5.9
+ * @version 1.6.0
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.5.9
+Version: 1.6.0
 Author URI: http://joshlobe.com
 
 */
@@ -98,8 +98,9 @@ if (!$this_plugin) $this_plugin = plugin_basename(__FILE__);
  
 if ($file == $this_plugin){
 $settings_link = '<a href="admin.php?page=ultimate-tinymce">'.__("Settings",'jwl-ultimate-tinymce').'</a>';
+$settings_link2 = '<a href="http://www.forum.joshlobe.com">'.__("Support Forum",'jwl-ultimate-tinymce').'</a>';
 //$settings_link2 = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS" target="_blank">'.__("Donate",'jwl-ultimate-timymce').'</a>';
-array_unshift($links, $settings_link);
+array_unshift($links, $settings_link, $settings_link2);
 }
 return $links;
 }
@@ -225,6 +226,8 @@ add_action('admin_menu', 'jwl_admin_add_page');
             <div class="postbox2">
                 <h3 style="cursor:default;"><?php _e('Additional Resources','jwl-ultimate-tinymce'); ?></h3>
                 <div class="inside2" style="padding:12px 12px 12px 12px;">
+                <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/support.png" style="margin-bottom: -8px;" />
+                <a href="http://www.forum.joshlobe.com" target="_blank"><?php _e('Visit my Support Forum <strong>NEW</strong>.','jwl-ultimate-tinymce'); ?></a><br /><br />
                 <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/word.png" style="margin-bottom: -8px;" />
                 <a href="../wp-content/plugins/ultimate-tinymce/ultimate_tinymce.doc" target="_blank"><?php _e('View plugin documentation (opens in Word).','jwl-ultimate-tinymce'); ?></a><br /><br />
                 <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/screencast.png" style="margin-bottom: -8px;" />
@@ -251,6 +254,15 @@ add_action('admin_menu', 'jwl_admin_add_page');
                 <div class="inside2" style="padding:12px 12px 12px 12px;">
                 <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/vote.png" style="margin-bottom: -8px;" />
                 <a href="http://wordpress.org/extend/plugins/ultimate-tinymce/" target="_blank"><?php _e('Click Here to Vote...','jwl-ultimate-tinymce'); ?></a><br /><br /><?php _e('Voting helps my plugin get more exposure and higher rankings on the searches.','jwl-ultimate-tinymce'); ?><br /><br /><?php _e('Please help spread this wonderful plugin by showing your support.  Thank you!','jwl-ultimate-tinymce'); ?>
+                
+                </div>
+            </div>
+            
+            
+            <div class="postbox2">
+                <h3 style="cursor:default;"><?php _e('Bloggers !!','jwl-ultimate-tinymce'); ?></h3>
+                <div class="inside2" style="padding:12px 12px 12px 12px;">
+                <?php _e('Like this plugin?  Blog about it on your website, link to my plugin page on my website <a target="_blank" href="http://www.joshlobe.com/2011/10/ultimate-tinymce/">HERE</a>, and I will add your website link (along with a thanks) to all my plugin pages including this page, the wordpress plugin page, and my website page.<br /><br />  The external links will mutually benefit the two of us in regards to search engine rankings.','jwl-ultimate-tinymce'); ?>
                 
                 </div>
             </div>
