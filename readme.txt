@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.5.8
+Stable tag: 1.5.9
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -100,6 +100,10 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 *Simply too many features to list!!
 
 == Changelog ==
+
+= 1.5.9 =
+* Fixed bug where tinymce was adding crazy white space.  I thought my last release had fixed this issue, but apparently it's not ready.
+* I could use some extra testers for new versions.  If interested, please contact me using one of the methods on the plugin main download page.  Thanks.
 
 = 1.5.8 =
 * Working on ways to make formatting not get stripped by tinymce.  Added default ability of transforming use of the enter key into "&nbsp" characters.  This should help with line spacing when switching between Visual and HTML modes.
