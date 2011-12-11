@@ -41,7 +41,7 @@ Be sure to follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> accoun
 <li>Japanese:   Redcocker    - http://www.near-mint.com/blog/ </li>
 <li>Dutch:      keesiemeijer - http://codex.wordpress.org/User:Keesiemeijer </li>
 <li>Finnish:    markku       - </li>
-<ul>
+</ul>
 
 (If you kindly help with a translation, I will list your name and website here).
 
