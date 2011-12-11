@@ -48,7 +48,7 @@ function fb_change_mce_options($initArray) {
 */
 
 // Change our default Tinymce configuration values
-function jwl_change_mce_options($initArray) {
+//function jwl_change_mce_options($initArray) {
 
 	//$initArray['verify_html'] = false;
 	//$initArray['cleanup_on_startup'] = false;
@@ -61,17 +61,17 @@ function jwl_change_mce_options($initArray) {
 	//$initArray['force_br_newlines'] = false;
 	//$initArray['fix_table_elements'] = false;
 	//$initArray['extended_valid_elements'] = 'iframe[id|class|title|style|align|frameborder|height|longdesc|marginheight|marginwidth|name|scrolling|src|width]';
-	$initArray['extended_valid_elements'] = '*[*]';
-	$initArray['entities'] = '160,nbsp,38,amp,60,lt,62,gt';
-	$initArray['convert_newlines_to_brs'] = true;
-	$initArray['remove_redundant_brs'] = false;
-	$initArray['remove_linebreaks'] = false;
-	$initArray['paste_strip_class_attributes'] = 'none';
+	//$initArray['extended_valid_elements'] = '*[*]';
+	//$initArray['entities'] = '160,nbsp,38,amp,60,lt,62,gt';
+	//$initArray['convert_newlines_to_brs'] = true;
+	//$initArray['remove_redundant_brs'] = false;
+	//$initArray['remove_linebreaks'] = false;
+	//$initArray['paste_strip_class_attributes'] = 'none';
 
-	return $initArray;
-}
+	//return $initArray;
+//}
 
-add_filter('tiny_mce_before_init', 'jwl_change_mce_options');
+//add_filter('tiny_mce_before_init', 'jwl_change_mce_options');
 
 // Set our language localization folder
 function jwl_ultimate_tinymce() {
