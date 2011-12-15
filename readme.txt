@@ -53,7 +53,7 @@ Blog about this plugin and I will add your name and site here:
 
 Waiting...
 
-<strong>A Very Personal Special Thanks to:</strong>
+<strong>A Very Personal Special Thanks to:</strong><br />
 <a href="http://www.khairul-syahir.com/">Syahir Hakim</a> - Developer of the extremely powerful <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a>.
 
 <a href="http://blog.kjodle.net/">Kenneth John Odle</a> - <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a> Forum Moderator Comrad
