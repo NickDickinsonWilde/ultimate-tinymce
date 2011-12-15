@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.6.0
+Stable tag: 1.6.1
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -31,7 +31,7 @@ Also, <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button
 
 <strong>Additional Plugin Resources:</strong>
 
-Use my support forum <a href="http://www.forum.joshlobe.com">HERE</a> for questions, problems, and anything else.
+Use my support forum <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">HERE</a> for questions, problems, and anything else.
 
 You can use my webpage <a href="http://www.joshlobe.com/2011/11/ultimate-tinymce/">Here</a> for some extra plugin info. This page also provides links to many additional resources.
 
@@ -53,6 +53,13 @@ Blog about this plugin and I will add your name and site here:
 
 Waiting...
 
+<strong>A Very Personal Special Thanks to:</strong>
+<a href="http://www.khairul-syahir.com/">Syahir Hakim</a> - Developer of the extremely powerful <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a>.
+
+<a href="http://blog.kjodle.net/">Kenneth John Odle</a> - <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a> Forum Moderator Comrad
+
+<a href="http://www.prasannasp.net/">Prasanna SP</a> - Newfound friend from halfway around the globe.
+
 == Installation ==
 
 1. Upload the plugin to your 'wp-content/plugins' directory, or download and install automatically through your admin panel.
@@ -66,15 +73,18 @@ Waiting...
 
 = Support Forum =
 
-Please use my support forum <a href="http://www.forum.joshlobe.com">HERE</a> for expedited help.
+Please use my support forum <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">HERE</a> for expedited help.
+
+= The text doesn't wrap at the end of the window and keeps going, creating a slider across the bottom of the window. =
+I have found this to be because the line of text being entered has no spacing.  A single line of text, without any spacing, will cause the editor window to "grow".  Insert a space somewhere and the line will break to a new line.  
 
 = The color picker feature always shows hex code #000000 regardless of what color I click. =
 
-This is a bug in the TinyMCE core software.  This bug, as far as I know, is only seen when using Mozilla Firefox version 7.  Until the good folks over at TinyMCE can provide an upgrade, the only solution right now is to use another browser.
+This is a bug in the TinyMCE core software.  This bug, as far as I know, is only seen when using Mozilla Firefox version 7.  Until the good folks over at TinyMCE can provide an upgrade, the only solution right now is to use another browser if you want to use the colorpicker.
 
 = How do I use the Anchors button =
 
-<ol><li>Highlight the text, image, or other content where you would like to insert the anchor.</li><li>Click the anchor button and enter a unique name for the anchor.</li><li>Now, highlight the text where you want the user to click TO BE SENT to the anchor you created.<li><li>Click the Link button in the toolbar, and on the popup window click anchors and choose the name of your unique anchor you created.</li></ol>
+<ol><li>Highlight the text, image, or other content where you would like to insert the anchor.</li><li>Click the anchor button and enter a unique name for the anchor.</li><li>Now, highlight the text where you want the user to click TO BE SENT to the anchor you created.</li><li>Click the Link button in the toolbar, and on the popup window click anchors and choose the name of your unique anchor you created.</li></ol>
 
 = I still don't see my buttons after activating the plugin =
 
@@ -112,6 +122,13 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 *Simply too many features to list!!
 
 == Changelog ==
+
+= 1.6.1 =
+* Added a new options box on the settings page for enabling/disabling two of the advanced features; Advanced Link and Custom Styles.
+* These two features will be disabled by default when activating the upgrade.  If you use these features, you must "check" them in the admin panel settings page.
+* Leaving these boxes "unchecked" will restore the default WordPress functionality of the insert/edit link button and the styles dropdown list respectively.
+* My form only allows 100 submissions per month (free service).  So, if my feedback form doesn't show, you know why.
+* Additional testing for compatibility with WordPress 3.3.  No known issues at this time.
 
 = 1.6.0 =
 * Added a community support forum for more concentrated and expedited help.  The links can be found in the Ultimate TiynMCE settings panel, or on the active plugins page under Ultimate TinyMCE.
