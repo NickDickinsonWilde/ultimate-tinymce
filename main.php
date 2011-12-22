@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.6.1
+ * @version 1.6.2
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.6.1
+Version: 1.6.2
 Author URI: http://joshlobe.com
 
 */
@@ -42,13 +42,19 @@ Author URI: http://joshlobe.com
 	//$initArray['force_p_newlines'] = false;
 	//$initArray['force_br_newlines'] = false;
 	//$initArray['fix_table_elements'] = false;
-	//$initArray['extended_valid_elements'] = 'iframe[id|class|title|style|align|frameborder|height|longdesc|marginheight|marginwidth|name|scrolling|src|width]';
-	//$initArray['extended_valid_elements'] = '*[*]';
+	//$initArray['extended_valid_elements'] = ',*[*]';
 	//$initArray['entities'] = '160,nbsp,38,amp,60,lt,62,gt';
 	//$initArray['convert_newlines_to_brs'] = true;
 	//$initArray['remove_redundant_brs'] = false;
 	//$initArray['remove_linebreaks'] = false;
 	//$initArray['paste_strip_class_attributes'] = 'none';
+	// Don't remove line breaks
+	//$init['remove_linebreaks'] = false; 
+	// Convert newline characters to BR tags
+	//$init['convert_newlines_to_brs'] = true; 
+	// Preserve tab/space whitespace
+	//$init['preformatted'] = true;
+	//$init['remove_redundant_brs'] = false;
 
 	//return $initArray;
 //}
@@ -126,9 +132,9 @@ add_action('admin_menu', 'jwl_admin_add_page');
                 <div class="postbox">
                 <!-- <div class="inside" style="padding:0px 0px 0px 0px;"> -->
                 	
-                    <?php settings_fields('jwl_options_group'); ?>
-                    <?php do_settings_sections('ultimate-tinymce'); ?><br /><br />  
-                    
+					<?php do_settings_sections('ultimate-tinymce'); ?>
+                    <?php settings_fields('jwl_options_group'); ?><br /><br />  
+                   
                    <br /><br />     
                 <!-- </div> -->
                 </div>
@@ -147,7 +153,7 @@ add_action('admin_menu', 'jwl_admin_add_page');
                 <!-- <div class="inside" style="padding:0px 0px 0px 0px;"> -->
                 	
                     <?php settings_fields('jwl_options_group'); ?>
-                    <?php do_settings_sections('ultimate-tinymce3'); ?><br /> <br />
+                    <?php do_settings_sections('ultimate-tinymce4'); ?><br /> <br />
                        
                     <br /><br />
                 <!-- </div> -->
@@ -157,7 +163,7 @@ add_action('admin_menu', 'jwl_admin_add_page');
                 <!-- <div class="inside" style="padding:0px 0px 0px 0px;"> -->
                 	
                     <?php settings_fields('jwl_options_group'); ?>
-                    <?php do_settings_sections('ultimate-tinymce4'); ?><br /> <br />
+                    <?php do_settings_sections('ultimate-tinymce3'); ?><br /> <br />
                        
                     <br /><br />
                 <!-- </div> -->
@@ -172,9 +178,9 @@ add_action('admin_menu', 'jwl_admin_add_page');
     		<div class="metabox-holder" style="width:30%; float:left;">
  
             
-            <div class="postbox2top">
+            <div class="postbox2donate">
                 <h3 style="cursor:default;"><?php _e('Donations','jwl-ultimate-tinymce'); ?></h3>
-                <div class="inside2" style="padding:12px 12px 12px 12px;">
+                <div class="inside2donate" style="padding:12px 12px 12px 12px;">
                 <p><strong><?php _e('Even the smallest donations are gratefully accepted.','jwl-ultimate-tinymce'); ?></strong></p>
                         
                 <!--  Donate Button -->
@@ -187,9 +193,9 @@ add_action('admin_menu', 'jwl_admin_add_page');
                 </div>
             </div>
             
-            <div class="postbox2">
+            <div class="postbox2resources">
                 <h3 style="cursor:default;"><?php _e('Additional Resources','jwl-ultimate-tinymce'); ?></h3>
-                <div class="inside2" style="padding:12px 12px 12px 12px;">
+                <div class="inside2resources" style="padding:12px 12px 12px 12px;">
                 <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/support.png" style="margin-bottom: -8px;" />
                 <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1" target="_blank"><?php _e('Visit my Support Forum <strong>NEW</strong>.','jwl-ultimate-tinymce'); ?></a><br /><br />
                 <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/word.png" style="margin-bottom: -8px;" />
@@ -213,9 +219,9 @@ add_action('admin_menu', 'jwl_admin_add_page');
             </div>
             
             
-            <div class="postbox2">
+            <div class="postbox2vote">
                 <h3 style="cursor:default;"><?php _e('Please VOTE and click WORKS.','jwl-ultimate-tinymce'); ?></h3>
-                <div class="inside2" style="padding:12px 12px 12px 12px;">
+                <div class="inside2vote" style="padding:12px 12px 12px 12px;">
                 <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/vote.png" style="margin-bottom: -8px;" />
                 <a href="http://wordpress.org/extend/plugins/ultimate-tinymce/" target="_blank"><?php _e('Click Here to Vote...','jwl-ultimate-tinymce'); ?></a><br /><br /><?php _e('Voting helps my plugin get more exposure and higher rankings on the searches.','jwl-ultimate-tinymce'); ?><br /><br /><?php _e('Please help spread this wonderful plugin by showing your support.  Thank you!','jwl-ultimate-tinymce'); ?>
                 
@@ -223,18 +229,18 @@ add_action('admin_menu', 'jwl_admin_add_page');
             </div>
             
             
-            <div class="postbox2">
+            <div class="postbox2blog">
                 <h3 style="cursor:default;"><?php _e('Bloggers !!','jwl-ultimate-tinymce'); ?></h3>
-                <div class="inside2" style="padding:12px 12px 12px 12px;">
+                <div class="inside2blog" style="padding:12px 12px 12px 12px;">
                 <?php _e('Like this plugin?  Blog about it on your website, link to my plugin page on my website <a target="_blank" href="http://www.joshlobe.com/2011/10/ultimate-tinymce/">HERE</a>, and I will add your website link (along with a thanks) to all my plugin pages including this page, the wordpress plugin page, and my website page.<br /><br />  The external links will mutually benefit the two of us in regards to search engine rankings.','jwl-ultimate-tinymce'); ?>
                 
                 </div>
             </div>
             
             
-            <div class="postbox2">
+            <div class="postbox2feedback">
                 <h3 style="cursor:default;"><?php _e('Feedback','jwl-ultimate-tinymce'); ?></h3>
-                <div class="inside2" style="padding:12px 12px 12px 12px;">
+                <div class="inside2feedback" style="padding:12px 12px 12px 12px;">
                 <?php _e('Please take a moment to complete the short feedback form below.  Your input is greatly appreciated.','jwl-ultimate-tinymce'); ?><br /><br />
                 <div style="border:1px solid #999999;"><script type="text/javascript" src="http://form.jotform.com/jsform/13245521214"></script></script></div>
                 
@@ -306,6 +312,7 @@ function jwl_settings_api_init() {
 	// Settings for wordpress defaults
 	add_settings_field('jwl_defaults_field_id', __('Enable Advanced Insert/Edit Link','jwl-ultimate-tinymce'), 'jwl_defaults_callback_function', 'ultimate-tinymce4', 'jwl_setting_section4');
 	add_settings_field('jwl_custom_styles_field_id', __('Enable Advanced Custom Styles','jwl-ultimate-tinymce'), 'jwl_custom_styles_callback_function', 'ultimate-tinymce4', 'jwl_setting_section4');
+	add_settings_field('jwl_div_field_id', __('Enable "Div Clear" Ability','jwl-ultimate-tinymce'), 'jwl_div_callback_function', 'ultimate-tinymce4', 'jwl_setting_section4');
  	
 	// Register our setting so that $_POST handling is done for us and
  	// our callback function just has to echo the <input>
@@ -354,6 +361,7 @@ function jwl_settings_api_init() {
 	// Register Settings for wordpress defaults
 	register_setting('jwl_options_group','jwl_defaults_field_id');
 	register_setting('jwl_options_group','jwl_custom_styles_field_id');
+	register_setting('jwl_options_group','jwl_div_field_id');
 	
 
 }
@@ -388,10 +396,10 @@ add_action('admin_init', 'jwl_settings_api_init');
 
  // Callback Functions for Row 3 Buttons
  function jwl_fontselect_callback_function() {
- 	echo '<input name="jwl_fontselect_field_id" id="fontselect" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_fontselect_field_id'), false ) . ' /> ';
+    echo '<input name="jwl_fontselect_field_id" id="fontselect" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_fontselect_field_id'), false ) . ' /> ';
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/fontselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
  }
-  
+ 
  function jwl_fontsizeselect_callback_function() {
  	echo '<input name="jwl_fontsizeselect_field_id" id="fontsize" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_fontsizeselect_field_id'), false ) . ' /> ';
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/fontsizeselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
@@ -561,6 +569,11 @@ add_action('admin_init', 'jwl_settings_api_init');
  
  function jwl_custom_styles_callback_function() {
  	echo '<input name="jwl_custom_styles_field_id" id="custom_styles" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_custom_styles_field_id'), false ) . ' /> ';
+ }
+ 
+ function jwl_div_callback_function() {
+ 	echo '<input name="jwl_div_field_id" id="div" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_div_field_id'), false ) . ' /> ';
+	_e('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select this option to use "div clear" tags.<br />Selecting this option will add three new buttons to the top row of the visual editor.<br />These are "clear left", "clear right", and "clear both".');
  }
 
 // Functions for Getting Values for Row 3
@@ -832,10 +845,10 @@ if ($jwl_custom_styles == "1") {
 		array( 'title' => __('Float Left','jwl-ultimate-tinymce'), 'block' => 'span', 'styles' => array( 'float' => 'left' )),
 		array( 'title' => __('Float Right','jwl-ultimate-tinymce'), 'block' => 'span', 'styles' => array( 'float' => 'right' )),
 		array( 'title' => __('Alerts','jwl-ultimate-tinymce')),
-		array( 'title' => __('Normal Alert','jwl-ultimate-tinymce'), 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #DEDEDE', 'background' => '#EFEFEF url('.plugin_dir_url( __FILE__ ).'img/normal.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
-		array( 'title' => __('Green Alert','jwl-ultimate-tinymce'), 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #1EDB0D', 'background' => '#A9FCA2 url('.plugin_dir_url( __FILE__ ).'img/green.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
-		array( 'title' => __('Yellow Alert','jwl-ultimate-tinymce'), 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #F5F531', 'background' => '#FAFAB9 url('.plugin_dir_url( __FILE__ ).'img/yellow.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
-		array( 'title' => __('Red Alert','jwl-ultimate-tinymce'), 'block' => 'p', 'styles' => array( 'border' => 'solid 1px #ED220C', 'background' => '#FABDB6 url('.plugin_dir_url( __FILE__ ).'img/red.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  ))
+		array( 'title' => __('Normal Alert','jwl-ultimate-tinymce'), 'block' => 'div', 'styles' => array( 'border' => 'solid 1px #DEDEDE', 'background' => '#EFEFEF url('.plugin_dir_url( __FILE__ ).'img/normal.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
+		array( 'title' => __('Green Alert','jwl-ultimate-tinymce'), 'block' => 'div', 'styles' => array( 'border' => 'solid 1px #1EDB0D', 'background' => '#A9FCA2 url('.plugin_dir_url( __FILE__ ).'img/green.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
+		array( 'title' => __('Yellow Alert','jwl-ultimate-tinymce'), 'block' => 'div', 'styles' => array( 'border' => 'solid 1px #F5F531', 'background' => '#FAFAB9 url('.plugin_dir_url( __FILE__ ).'img/yellow.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
+		array( 'title' => __('Red Alert','jwl-ultimate-tinymce'), 'block' => 'div', 'styles' => array( 'border' => 'solid 1px #ED220C', 'background' => '#FABDB6 url('.plugin_dir_url( __FILE__ ).'img/red.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  ))
    	    );
 
     	$settings['style_formats'] = json_encode( $style_formats );
@@ -845,38 +858,15 @@ if ($jwl_custom_styles == "1") {
 		add_filter( 'tiny_mce_before_init', 'josh_mce_before_init' );
 }
 
-
-
-// Functions for added bonuses and features
-/*function jwl_tinymce_comment_form() {
-$jwl_comment_tinymce = get_option('jwl_comment_tinymce_field_id');
-if ($jwl_comment_tinymce == "1"){
-	?>
-    <script type="text/javascript" src="<?php echo bloginfo('wpurl') ?>/wp-includes/js/tinymce/tiny_mce.js"></script>
-    <script type="text/javascript" src="<?php echo bloginfo('wpurl') ?>/wp-includes/js/tinymce/langs/wp-langs-en.js"></script>
-    <script type="text/javascript" src="<?php echo bloginfo('wpurl') ?>/wp-includes/js/tinymce/utils/editable_selects.js"></script>
-    <script type="text/javascript" src="<?php echo bloginfo('wpurl') ?>/wp-includes/js/tinymce/utils/form_utils.js"></script>
-    <script type="text/javascript" src="<?php echo bloginfo('wpurl') ?>/wp-includes/js/tinymce/utils/mctabs.js"></script>
-    <script type="text/javascript" src="<?php echo bloginfo('wpurl') ?>/wp-includes/js/tinymce/utils/validate.js"></script>
-    <script type="text/javascript" src="<?php echo bloginfo('wpurl') ?>/wp-includes/js/tinymce/themes/advanced/editor_template.js"></script>
-    <script type="text/javascript">
-        tinyMCE.init({
-            theme : "advanced",
-            mode: "specific_textareas",
-            language: "",
-            skin: "default",
-            theme_advanced_buttons1: 'fontselect, fontsizeselect, bold, italic, underline, blockquote, strikethrough, bullist, numlist, undo, redo',
-            theme_advanced_buttons2: '',
-            theme_advanced_buttons3: '',
-            theme_advanced_buttons4: '',
-            elements: 'comment',
-            theme_advanced_toolbar_location : "top",
-        });
-    </script>
-<?php
+// Adding the clear div buttons in the visual editor
+function tinymce_add_button_div($buttons) {
+$jwl_div = get_option('jwl_div_field_id');
+if ($jwl_div == "1")
+array_push($buttons, "separator", "clearleft","clearright","clearboth");
+   return $buttons;
 }
-}
-add_action( 'comment_form_after', 'jwl_tinymce_comment_form' );*/
+add_filter("mce_buttons", "tinymce_add_button_div");
+
 
 // Add a signoff shortcode for tinymce visual editor
 function jwl_sign_off_text() {  
@@ -901,6 +891,8 @@ function jwl_mce_external_plugins( $plugin_array ) {
 		$plugin_array['moods'] = plugin_dir_url(__FILE__) . 'moods/editor_plugin.js';
 		$plugin_array['media'] = plugin_dir_url(__FILE__) . 'media/editor_plugin.js';
 		$plugin_array['advhr'] = plugin_dir_url(__FILE__) . 'advhr/editor_plugin.js';
+		
+		$plugin_array['clear'] = plugin_dir_url( __FILE__ ) . 'clear/editor_plugin.js';
 		   
 		return $plugin_array;
 }
@@ -971,7 +963,22 @@ function jwl_execphp_donate_link($links, $file) {
 	}
 	return $links;
 }
+}
 
+
+// Attempting to solve removal of <p> and <br /> tags
+add_filter('tiny_mce_before_init', 'jwl_tinymce_clear_buttons_before_init');
+function jwl_tinymce_clear_buttons_before_init( $init ) {
+    // do not remove empty divs
+    //$init['extended_valid_elements'] .= ',div[id|clear|style|class],iframe[id|class|title|style|align|frameborder|height|longdesc|marginheight|marginwidth|name|scrolling|src|width],object[width|height|classid|codebase],param[name|value],embed[src|type|width|height|flashvars|wmode],p[class]';
+	$init['extended_valid_elements'] .= ',div[*],iframe[*],object[*],param[*],embed[*],p[*],pre[*],br[*]';
+	//$init['valid_elements'] .= ",p";
+	$init['valid_elements'] .= ',*[*],br[*],p[*]';
+	$init['force_p_newlines'] .= false;
+	// More Possibilities following example above
+	// article[*],aside[*],audio[*],canvas[*],command[*],datalist[*],details[*],figcaption[*],figure[*],footer[*],header[*],hgroup[*],keygen[*],mark[*],meter[*],nav[*],output[*],progress[*],section[*],source[*],summary[*],time[*],video[*],wbr[*]
+
+    return $init;
 }
 
 ?>

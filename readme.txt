@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.6.1
+Stable tag: 1.6.2
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -13,51 +13,38 @@ Are you a visual person?  Do the four letters "HTML" send you running for the hi
 
 [youtube http://www.youtube.com/watch?v=fM3CUo9MxMc]
 
-<strong style="font-size:24px;text-decoration:underline;color:#009966;">Ultimate TinyMCE</strong> will expand the default array of buttons in the visual tinymce editor, giving you the power to visually create your pages and posts. No need for mucking about in HTML and CSS.
+<strong>Ultimate TinyMCE</strong> will expand the default array of buttons in the visual tinymce editor, giving you the power to visually create your pages and posts. No need for mucking about in HTML and CSS.
 
 <strong>Here are just a few features which make this plugin so powerful:</strong>
 <ul><li><strong>NEW:</strong> Animated smilies!!</li><li>Add, create, and manipulate as many tables as you like.</li><li>Add emoticons to express your mood as you are writing your posts/pages.</li><li>Now you can use subscript and superscript text.</li><li>Added advanced features for images (such as mouseover and mouseout).</li><li>Added advanced features for ordered and unordered drop-down lists.</li><li>Now features a search and replace tool.</li><li>Easily add page anchors to posts that become too long to scroll through all the content.</li><li>Added new feature to the "link" button now enabling you to open links in your own javascript popup windows, without writing a single line of code.  You can even control the size and position of your popup window.</li><li><strong>And much more... too many features to list.</strong></li><li>This plugin is in very active development, and new versions will be released adding further customization and functionality.</li></ul>
 
 <Strong>Recent Updates:</strong><br />
-
 <ul>
+<li>Retain div, iframe, embed, and object tags.</li>
 <li>Added support for PHP widgets.</li>
 <li>Added signoff shortcodes to use in your posts.</li>
 </ul>
 
 If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "works" if you are indeed satisfied with the plugin.  Thank you.
 
-Also, <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS">the smallest donations will be gratefully accepted if you wish to click here</a>.  <strong>Donations help to continue and support future upgrades and releases.</strong>  Please consider donating if you are extremely pleased with this plugin and will continue using it on your site; especially if you are operating a commercial website.  Thank you!
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS">The smallest donations will be gratefully accepted if you wish to click here</a>.  Donations help to continue and support future upgrades and releases.  Please consider donating if you are extremely pleased with this plugin and will continue using it on your site; especially if you are operating a commercial website.  Thank you!
 
 <strong>Additional Plugin Resources:</strong>
-
-Use my support forum <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">HERE</a> for questions, problems, and anything else.
-
-You can use my webpage <a href="http://www.joshlobe.com/2011/11/ultimate-tinymce/">Here</a> for some extra plugin info. This page also provides links to many additional resources.
-
-Be sure to follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> account to be notified about new video tutorials.
+<a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">Support Forum</a>
+<a href="http://www.joshlobe.com/2011/11/ultimate-tinymce/">Ultimate TinyMCE Plugin HomePage</a>
+Follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> to be notified of new video tutorials.
 
 <strong>Translations:</strong><br />
-
 <ul>
 <li>Japanese:   Redcocker    - http://www.near-mint.com/blog/ </li>
 <li>Dutch:      keesiemeijer - http://codex.wordpress.org/User:Keesiemeijer </li>
 <li>Finnish:    markku       - </li>
 </ul>
-
 (If you kindly help with a translation, I will list your name and website here).
-
-<strong>Blogger Buddies:</strong>
-
-Blog about this plugin and I will add your name and site here:
-
-Waiting...
 
 <strong>A Very Personal Special Thanks to:</strong><br />
 <a href="http://www.khairul-syahir.com/">Syahir Hakim</a> - Developer of the extremely powerful <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a>.
-
 <a href="http://blog.kjodle.net/">Kenneth John Odle</a> - <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a> Forum Moderator Comrad
-
 <a href="http://www.prasannasp.net/">Prasanna SP</a> - Newfound friend from halfway around the globe.
 
 == Installation ==
@@ -104,6 +91,8 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 == Features ==
 
+* Retain div tags, iframe tags, embed tags, object tags, and more.
+* Retain P and BR tags, by using a style. (See my support forum for more info).
 * Add PHP widgets, which will allow you to run custom PHP code in your widgets.
 * Signoff feature.  Do you always "sign" your posts with the same thing?  Now create it once, and insert it using a 7-letter shortcode.
 * New animated smilies.  These will be sure to draw some pleasant attention to your blog.
@@ -122,6 +111,14 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 *Simply too many features to list!!
 
 == Changelog ==
+
+= 1.6.2 =
+* Added support for div, iframe, object, param, embed, and pre tags.  You can now safely use these tags (and any attributes) while switching between Visual and HTML mode.  Also, they will not be stripped away when you publish a page.
+* Incorporated some of the functionality from "TinyMCE Clear".  This allows you to use "clear div" tags and elements.  This option will have to be selected in the admin panel "Ultimate TinyMCE" settings page.  It will also add three new buttons to row 1 of the editor in Visual mode.
+* You can now retain P and BR tags, if you use a style.  Please see my <a href="http://www.forum.joshlobe.com">FORUM</a> for more information about how to use this feature.
+* Be sure to check the <a href="http://www.forum.joshlobe.com">FORUM</a> anyway.  I have also added some news about newfound Keyboard Shortcuts.
+* If you're happy and you know it... please go back and click "works" again for the new version.
+
 
 = 1.6.1 =
 * Added a new options box on the settings page for enabling/disabling two of the advanced features; Advanced Link and Custom Styles.
