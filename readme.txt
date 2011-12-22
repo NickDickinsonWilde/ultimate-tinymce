@@ -19,20 +19,14 @@ Are you a visual person?  Do the four letters "HTML" send you running for the hi
 <ul><li><strong>NEW:</strong> Animated smilies!!</li><li>Add, create, and manipulate as many tables as you like.</li><li>Add emoticons to express your mood as you are writing your posts/pages.</li><li>Now you can use subscript and superscript text.</li><li>Added advanced features for images (such as mouseover and mouseout).</li><li>Added advanced features for ordered and unordered drop-down lists.</li><li>Now features a search and replace tool.</li><li>Easily add page anchors to posts that become too long to scroll through all the content.</li><li>Added new feature to the "link" button now enabling you to open links in your own javascript popup windows, without writing a single line of code.  You can even control the size and position of your popup window.</li><li><strong>And much more... too many features to list.</strong></li><li>This plugin is in very active development, and new versions will be released adding further customization and functionality.</li></ul>
 
 <Strong>Recent Updates:</strong><br />
-<ul>
-<li>Retain div, iframe, embed, and object tags.</li>
-<li>Added support for PHP widgets.</li>
-<li>Added signoff shortcodes to use in your posts.</li>
-</ul>
+<ul><li>Retain div, iframe, embed, and object tags.</li><li>Added support for PHP widgets.</li><li>Added signoff shortcodes to use in your posts.</li></ul>
 
 If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "works" if you are indeed satisfied with the plugin.  Thank you.
 
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS">The smallest donations will be gratefully accepted if you wish to click here</a>.  Donations help to continue and support future upgrades and releases.  Please consider donating if you are extremely pleased with this plugin and will continue using it on your site; especially if you are operating a commercial website.  Thank you!
 
-<strong>Additional Plugin Resources:</strong>
-<a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">Support Forum</a>
-<a href="http://www.joshlobe.com/2011/11/ultimate-tinymce/">Ultimate TinyMCE Plugin HomePage</a>
-Follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> to be notified of new video tutorials.
+<strong>Additional Plugin Resources:</strong><br />
+<ul><li><a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">Support Forum</a></li><li><a href="http://www.joshlobe.com/2011/11/ultimate-tinymce/">Ultimate TinyMCE Plugin HomePage</a></li><li>Follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> to be notified of new video tutorials.</li></ul>
 
 <strong>Translations:</strong><br />
 <ul>
@@ -43,9 +37,7 @@ Follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> to be notified of
 (If you will kindly help with a translation, I will list your name and website here).
 
 <strong>A Very Personal Special Thanks to:</strong><br />
-<a href="http://www.khairul-syahir.com/">Syahir Hakim</a> - Developer of the extremely powerful <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a>.
-<a href="http://blog.kjodle.net/">Kenneth John Odle</a> - <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a> Forum Moderator Comrad
-<a href="http://www.prasannasp.net/">Prasanna SP</a> - Newfound friend from halfway around the globe.
+<ul><li><a href="http://www.khairul-syahir.com/">Syahir Hakim</a> - Developer of the extremely powerful <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a>.</li><li><a href="http://blog.kjodle.net/">Kenneth John Odle</a> - <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a> Forum Moderator Comrad.</li><li><a href="http://www.prasannasp.net/">Prasanna SP</a> - Newfound friend from halfway around the globe.</li></ul>
 
 == Installation ==
 
