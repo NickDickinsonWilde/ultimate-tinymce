@@ -115,8 +115,8 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 = 1.6.2 =
 * Added support for div, iframe, object, param, embed, and pre tags.  You can now safely use these tags (and any attributes) while switching between Visual and HTML mode.  Also, they will not be stripped away when you publish a page.
 * Incorporated some of the functionality from "TinyMCE Clear".  This allows you to use "clear div" tags and elements.  This option will have to be selected in the admin panel "Ultimate TinyMCE" settings page.  It will also add three new buttons to row 1 of the editor in Visual mode.
-* You can now retain P and BR tags, if you use a style.  Please see my <a href="http://www.forum.joshlobe.com">FORUM</a> for more information about how to use this feature.
-* Be sure to check the <a href="http://www.forum.joshlobe.com">FORUM</a> anyway.  I have also added some news about newfound Keyboard Shortcuts.
+* You can now retain P and BR tags, if you use a style.  Please see my <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">FORUM</a> for more information about how to use this feature.
+* Be sure to check the <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">FORUM</a> anyway.  I have also added some news about newfound Keyboard Shortcuts.
 * If you're happy and you know it... please go back and click "works" again for the new version.
 
 
