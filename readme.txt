@@ -40,7 +40,7 @@ Follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> to be notified of
 <li>Dutch:      keesiemeijer - http://codex.wordpress.org/User:Keesiemeijer </li>
 <li>Finnish:    markku       - </li>
 </ul>
-(If you kindly help with a translation, I will list your name and website here).
+(If you will kindly help with a translation, I will list your name and website here).
 
 <strong>A Very Personal Special Thanks to:</strong><br />
 <a href="http://www.khairul-syahir.com/">Syahir Hakim</a> - Developer of the extremely powerful <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a>.
