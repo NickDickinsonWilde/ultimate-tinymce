@@ -1,0 +1,8 @@
+.fleft {
+ float:left;
+ margin-right:8px;
+ }
+ .fright {
+ float:right;
+ margin-left:8px;
+ }
