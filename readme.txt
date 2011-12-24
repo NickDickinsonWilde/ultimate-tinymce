@@ -1,10 +1,10 @@
 === Ultimate TinyMCE ===
 Contributors: Josh Lobe 
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS
-Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin
+Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.6.2
+Stable tag: 1.6.3
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -103,6 +103,15 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 *Simply too many features to list!!
 
 == Changelog ==
+
+= 1.6.3 =
+* Added a custom message box which will display on your register/login page. This is available from within the admin panel settings page. Simply "check" the box, enter your message, and it will magically be displayed on your register/login form just above the login box. This can, of course, be styled however you like.
+* Added an option to enable the tinymce editor within the post/page excerpt box. Now, you can create your custom excerpts using the power of Ultimate TinyMCE.
+* Added an option to show the post/page ID in the admin menu for posts and pages. This is extremely helpful if you are using plugins which require you to enter the post or page ID. A HUGE timesaver.
+* Added a few more "Save your Selection" buttons, so it's not just one button at the bottom of the page.  It doesn't matter which button your use, they all function the same.  It's more for convenience.
+* Be sure to visit my support forum to see usage examples of Ultimate TinyMCE.  It's the best way to follow along with updates, video and image turorials, and knowledgeable community members. http://forum.joshlobe.com/member.php?action=register&referrer=1
+* The direct URL for the new features included in this update is here:  http://www.forum.joshlobe.com/showthread.php?tid=19
+* As always, please go back and click "Works" again to help spread this plugin.
 
 = 1.6.2 =
 * Added support for div, iframe, object, param, embed, and pre tags.  You can now safely use these tags (and any attributes) while switching between Visual and HTML mode.  Also, they will not be stripped away when you publish a page.

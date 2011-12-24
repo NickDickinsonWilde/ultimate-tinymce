@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.6.2
+ * @version 1.6.3
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.6.2
+Version: 1.6.3
 Author URI: http://joshlobe.com
 
 */
@@ -60,7 +60,6 @@ Author URI: http://joshlobe.com
 //}
 
 //add_filter('tiny_mce_before_init', 'jwl_change_mce_options');
-
 
 // Set our language localization folder
 function jwl_ultimate_tinymce() {
@@ -138,7 +137,7 @@ add_action('admin_menu', 'jwl_admin_add_page');
                    <br /><br />     
                 <!-- </div> -->
                 </div>
-                
+                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save your Selection','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center><br /> <br />
                 <div class="postbox">
                 <!-- <div class="inside" style="padding:0px 0px 0px 0px;"> -->
                 	
@@ -148,7 +147,7 @@ add_action('admin_menu', 'jwl_admin_add_page');
                     <br /><br />
                 <!-- </div> -->
                 </div>
-                
+                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save your Selection','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center><br /> <br />
                 <div class="postbox">
                 <!-- <div class="inside" style="padding:0px 0px 0px 0px;"> -->
                 	
@@ -158,7 +157,7 @@ add_action('admin_menu', 'jwl_admin_add_page');
                     <br /><br />
                 <!-- </div> -->
                 </div>
-                
+                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save your Selection','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center><br /> <br />
                 <div class="postbox">
                 <!-- <div class="inside" style="padding:0px 0px 0px 0px;"> -->
                 	
@@ -305,9 +304,13 @@ function jwl_settings_api_init() {
 	add_settings_field('jwl_media_field_id', __('Insert Media Box','jwl-ultimate-tinymce'), 'jwl_media_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
 	
 	// Settings for added bonuses and features
+	add_settings_field('jwl_tinymce_excerpt_field_id', __('Add tinymce editor to excerpt area.','jwl-ultimate-tinymce'), 'jwl_tinymce_excerpt_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
+	add_settings_field('jwl_postid_field_id', __('Add ID Column to page/post admin list.','jwl-ultimate-tinymce'), 'jwl_postid_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	add_settings_field('jwl_php_widget_field_id', __('Use PHP Text Widget','jwl-ultimate-tinymce'), 'jwl_php_widget_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	//add_settings_field('jwl_comment_tinymce_field_id', __('Enable Stripped TinyMCE','jwl-ultimate-tinymce'), 'jwl_comment_tinymce_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	add_settings_field('jwl_signoff_field_id', __('Add a Signoff Shortcode','jwl-ultimate-tinymce'), 'jwl_signoff_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
+	add_settings_field('jwl_loginbox_field_id', __('Add a custom message box to your register/login page.','jwl-ultimate-tinymce'), 'jwl_loginbox_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
+	add_settings_field('jwl_loginboxtext_field_id', 'jwl_loginboxtext_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	
 	// Settings for wordpress defaults
 	add_settings_field('jwl_defaults_field_id', __('Enable Advanced Insert/Edit Link','jwl-ultimate-tinymce'), 'jwl_defaults_callback_function', 'ultimate-tinymce4', 'jwl_setting_section4');
@@ -354,9 +357,13 @@ function jwl_settings_api_init() {
 	register_setting('jwl_options_group','jwl_media_field_id');
 	
 	// Register Settings for bonuses and features
+	register_setting('jwl_options_group','jwl_tinymce_excerpt_field_id');
+	register_setting('jwl_options_group','jwl_postid_field_id');
 	register_setting('jwl_options_group','jwl_php_widget_field_id');
 	//register_setting('jwl_options_group','jwl_comment_tinymce_field_id');
 	register_setting('jwl_options_group','jwl_signoff_field_id');
+	register_setting('jwl_options_group','jwl_loginbox_field_id');
+	register_setting('jwl_options_group','jwl_loginboxtext_field_id');
 	
 	// Register Settings for wordpress defaults
 	register_setting('jwl_options_group','jwl_defaults_field_id');
@@ -545,9 +552,18 @@ add_action('admin_init', 'jwl_settings_api_init');
  }
  
  // Callback functions for bonuses and features
+ 
+ function jwl_tinymce_excerpt_callback_function() {
+ 	echo '<input name="jwl_tinymce_excerpt_field_id" id="tinymce_excerpt" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_tinymce_excerpt_field_id'), false ) . ' /> ';
+ }
+ 
+ function jwl_postid_callback_function() {
+ 	echo '<input name="jwl_postid_field_id" id="postid" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_postid_field_id'), false ) . ' /> ';
+ }
+ 
  function jwl_php_widget_callback_function() {
  	echo '<input name="jwl_php_widget_field_id" id="media" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_php_widget_field_id'), false ) . ' /> ';
-	_e('<br />This option will add a PHP widget in your admin panel widgets page.  You can use this widget to insert arbitrary PHP code.<br /><br />Note: After checking this option, de-checking it will remove the PHP widget from your page and the admin panel widget area.  Simply re-check this box to get them back.<br /><br />','jwl-ultimate-tinymce');
+	_e('<br />This option will add a PHP widget in your admin panel widgets page.  You can use this widget to insert arbitrary PHP code.<br />Note: After checking this option, de-checking it will remove the PHP widget from your page and the admin panel widget area.  Simply re-check this box to get them back.<br /><br />','jwl-ultimate-tinymce');
  }
  
  //function jwl_comment_tinymce_callback_function() {
@@ -558,8 +574,16 @@ add_action('admin_init', 'jwl_settings_api_init');
  function jwl_signoff_callback_function() {
  	echo '<textarea name="jwl_signoff_field_id" value=" rows="15" class="long-text" style="width:440px; height:100px;">';
 	echo get_option('jwl_signoff_field_id');
-	echo '</textarea><br /><br />';
-	_e('This option will allow you to enter any string of text into your editor using the [signoff] shortcode.  You may also use valid HTML elements.<br /><br />(Perfect if you always "sign" your posts at the end with the same text.)<br /><br />Just type [signoff] anywhere in your post/page editor screen to apply the text from above.','jwl-ultimate-tinymce');
+	echo '</textarea><br />';
+	_e('This option will allow you to enter any string of text into your editor using the [signoff] shortcode.  You may also use valid HTML elements.<br />(Perfect if you always "sign" your posts at the end with the same text.)<br />Just type [signoff] anywhere in your post/page editor screen to apply the text from above.','jwl-ultimate-tinymce');
+ }
+ 
+ function jwl_loginbox_callback_function() {
+ 	echo '<input name="jwl_loginbox_field_id" id="loginbox" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_loginbox_field_id'), false ) . ' /> ';
+	echo '<br /><textarea name="jwl_loginboxtext_field_id" value=" rows="15" class="long-text" style="width:440px; height:100px;">';
+	echo get_option('jwl_loginboxtext_field_id');
+	echo '</textarea><br />';
+	_e('Enter your custom message here.  (HTML is also allowed).','jwl-ultimate-tinymce');
  }
  
  // Callback functions for wordpress defaults
@@ -875,6 +899,15 @@ function jwl_sign_off_text() {
 } 
 add_shortcode('signoff', 'jwl_sign_off_text');
 
+// Add function for custom message box on login page
+$jwl_loginbox = get_option('jwl_loginbox_field_id');
+if ($jwl_loginbox == "1") {
+	function jwl_custom_login_message() {
+	$message = '<p class="message">' . get_option('jwl_loginboxtext_field_id') . '</p><br />';
+	return $message;
+	}
+	add_filter('login_message', 'jwl_custom_login_message');
+}
 
 // Add the plugin array for extra features
 function jwl_mce_external_plugins( $plugin_array ) {
@@ -897,6 +930,52 @@ function jwl_mce_external_plugins( $plugin_array ) {
 		return $plugin_array;
 }
 add_filter( 'mce_external_plugins', 'jwl_mce_external_plugins' );
+
+// Functions for added bonuses and features
+
+// Function for excerpt editor
+$jwl_tinymce_excerpt = get_option('jwl_tinymce_excerpt_field_id');
+if ($jwl_tinymce_excerpt == "1"){
+	function jwl_tinymce_excerpt_js(){ ?>
+		<script type="text/javascript">
+            jQuery(document).ready( tinymce_excerpt );
+                    function tinymce_excerpt() {
+                jQuery("#excerpt").addClass("mceEditor");
+                tinyMCE.execCommand("mceAddControl", false, "excerpt");
+                }
+        </script>
+    <?php }
+    add_action( 'admin_head-post.php', 'jwl_tinymce_excerpt_js');
+    add_action( 'admin_head-post-new.php', 'jwl_tinymce_excerpt_js');
+    function jwl_tinymce_css(){ ?>
+		<style type='text/css'>
+                #postexcerpt .inside{margin:0;padding:0;background:#fff;}
+                #postexcerpt .inside p{padding:0px 0px 5px 10px;}
+                #postexcerpt #excerpteditorcontainer { border-style: solid; padding: 0; }
+        </style>
+    <?php }
+    add_action( 'admin_head-post.php', 'jwl_tinymce_css');
+    add_action( 'admin_head-post-new.php', 'jwl_tinymce_css');
+}
+
+
+// Function to show post/page id in admin column area
+$jwl_postid = get_option('jwl_postid_field_id');
+if ($jwl_postid == "1"){
+   		function jwl_posts_columns_id($defaults){
+			$defaults['wps_post_id'] = __('ID');
+			return $defaults;
+		}
+		add_filter('manage_posts_columns', 'jwl_posts_columns_id', 5);
+		add_filter('manage_pages_columns', 'jwl_posts_columns_id', 5);
+		function jwl_posts_custom_id_columns($column_name, $id){
+			if($column_name === 'wps_post_id'){
+					echo $id;
+			}
+		}
+		add_action('manage_posts_custom_column', 'jwl_posts_custom_id_columns', 5, 2);
+    	add_action('manage_pages_custom_column', 'jwl_posts_custom_id_columns', 5, 2);
+}
 
 // Adding PHP text widgets
 $jwl_php_widget = get_option('jwl_php_widget_field_id');
@@ -980,5 +1059,4 @@ function jwl_tinymce_clear_buttons_before_init( $init ) {
 
     return $init;
 }
-
 ?>
