@@ -852,8 +852,9 @@ class jwl_PHP_Code_Widget extends WP_Widget {
 <?php
 	}
 }
-}
 add_action('widgets_init', create_function('', 'return register_widget("jwl_PHP_Code_Widget");'));
+}
+
 
 // User option for adding a signoff shortcode for tinymce visual editor (Goes with custom message box below)
 function jwl_sign_off_text() {  
