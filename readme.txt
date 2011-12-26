@@ -108,7 +108,7 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 = 1.6.4 =
 * Added support for shortcode usage in widget areas.  You can now use any shortcode available in your theme (or other plugins) in your widget areas.
-* In process of performing a HUGE contextual help system.  Each option now has a little "Help" icon, which when clicked will open a new window with help information specific to that option.
+* I'm In process of performing a HUGE contextual help system.  Each option now has a little "Help" icon, which when clicked will open a new window with help information specific to that option.
 * This will be a "work-in-progress" over the next few updates.
 * Switched my Feedback Form to another provider.  It should remain in working order from here on out.
 
