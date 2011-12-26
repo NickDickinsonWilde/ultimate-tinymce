@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.6.3
+Stable tag: 1.6.4
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -46,6 +46,8 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "w
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
 3.  You will need to manually activate your buttons the first time you install.  You can do this by going to the admin panel, settings page, Ultimate TinyMCE.  Here, you can set your preferences.
+
+Note:  This plugin is a little on the "heavy" side... (just under 9 megabytes).  This is primarily because of the custom moods (but they're so darn cute) and the microsoft word help document.  If space is a concern to you, please consider yourself warned.  For all others, please enjoy this feature-packed plugin!
 
 
 == Frequently Asked Questions ==
@@ -103,6 +105,12 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 *Simply too many features to list!!
 
 == Changelog ==
+
+= 1.6.4 =
+* Added support for shortcode usage in widget areas.  You can now use any shortcode available in your theme (or other plugins) in your widget areas.
+* In process of performing a HUGE contextual help system.  Each option now has a little "Help" icon, which when clicked will open a new window with help information specific to that option.
+* This will be a "work-in-progress" over the next few updates.
+* Switched my Feedback Form to another provider.  It should remain in working order from here on out.
 
 = 1.6.3 =
 * Added a custom message box which will display on your register/login page. This is available from within the admin panel settings page. Simply "check" the box, enter your message, and it will magically be displayed on your register/login form just above the login box. This can, of course, be styled however you like.
