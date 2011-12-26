@@ -292,7 +292,7 @@ add_action('admin_menu', 'jwl_admin_add_page');
 				</select>
 		</td></tr>
 		<tr><td valign="top"><strong>Please feel free to leave any additional feedback here...</strong></td></tr>
-        <tr><td valign="top"><textarea name="field-b0cb8c2a6a616ee" id="field-b0cb8c2a6a616ee" rows="6" cols="50"></textarea></td></tr>
+        <tr><td valign="top"><textarea name="field-b0cb8c2a6a616ee" id="field-b0cb8c2a6a616ee" rows="6" cols="40"></textarea></td></tr>
 		<tr><td colspan="2" align="center"><input type="submit" value=" Submit Form " /></td></tr>
 	</table>
 </form>
