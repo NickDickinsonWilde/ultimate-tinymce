@@ -105,7 +105,7 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Simply too many features to list!!
 
 == Changelog ==
-= 1.6.5
+= 1.6.5 =
 * Updated most of the contextual help sections.
 * Tables will have to wait until the next update (I want to be specific with this one).
 * Removed the Microsoft Word Help Document.  I will make this available as a download on my <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">Support Forum</a> for anyone interested.
