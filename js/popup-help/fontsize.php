@@ -23,6 +23,11 @@ This option will enable the Font Size Select Box.  This button will be added to 
 Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
 
 <br /><br />
+<img src="images/fontsizeselect.png" border="1px solid #000000" /><br />
+<em>The font size select dropdown box.</em><br /><br />
+
+The available font sizes are:
+<ul><li>1 = 8pt</li><li>2 = 10pt</li><li>3 = 12pt</li><li>4 = 14pt</li><li>5 = 18pt</li><li>6 = 24pt</li><li>7 = 36pt</li></ul><br /><br />
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

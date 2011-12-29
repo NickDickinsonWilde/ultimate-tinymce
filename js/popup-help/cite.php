@@ -14,13 +14,22 @@
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Citations Box:</strong></span>
 <br />
-This option will enable the Citations Box.  This button will be added to row three of the visual editor.
+This option will enable the Citations Box.  This button will be added to row four of the visual editor.
 
 <br /><br />
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Usage:</strong></span>
 <br />
-Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
+Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.<br /><br />
+I'm not too sure as to the functionality of this button.  As far as I can tell, the only thing it does is italicize the font and float it left.  In the screenshot below, you can see I added the same line of text over and over.  The results are not extremely pleasing.  This button wraps the selected text with the "cite" tag.<br /><br />
+
+The screenshot below also shows how you can add styles to some of the popup boxes.  Just enter your property, then a colon, followed by your value, and lastly a semi-colon.  You can repeat the process for mutliple properties and values.<br /><br />
+
+<img src="images/cite.png" border="1px solid #000000" /><br />
+<em>The popup box for adding a citation.</em><br /><br />
+
+<img src="images/cite2.png" border="1px solid #000000" /><br />
+<em>The results from the font-end.</em>
 
 <br /><br />
 </td></tr></table>

@@ -14,15 +14,21 @@
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Delete Box:</strong></span>
 <br />
-This option will enable the Delete Box.  This button will be added to row three of the visual editor.
+This option will enable the Delete Box.  This button will be added to row four of the visual editor.
 
 <br /><br />
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Usage:</strong></span>
 <br />
-Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
-
+Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.<br /><br />
+Deletion allows you to note changes to your posts.  Syntactically, it will add a strikethrough across the selected text.  It will also add a hover tooltip, with a description you enter.  Here is an example:
 <br /><br />
+<img src="images/deletion.png" border="1px solid #000000" /><br />
+<em>The popup box where you can enter your hover description (Title), any custom styling, and a note.</em><br /><br />
+
+<img src="images/deletion2.png" border="1px solid #000000" /><br />
+<em>How it displays on the front-end.</em><br /><br />
+
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

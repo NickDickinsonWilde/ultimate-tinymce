@@ -14,7 +14,7 @@
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Advanced Image Box:</strong></span>
 <br />
-This option will enable the Advanced Image Box.  This button will be added to row three of the visual editor.
+This option will enable the Advanced Image Box.  This button will be added to row four of the visual editor.
 
 <br /><br />
 
@@ -23,6 +23,15 @@ This option will enable the Advanced Image Box.  This button will be added to ro
 Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
 
 <br /><br />
+<img src="images/advimage.png" border="1px solid #000000" /><br />
+<em>Insert your image by calling it's URL on your server or another website.</em><br /><br />
+
+<img src="images/advimage2.png" border="1px solid #000000" /><br />
+<em>Adjust the properties of how your image will appear on the post/page.</em><br /><br />
+
+<img src="images/advimage3.png" border="1px solid #000000" /><br />
+<em>Use advanced features like mouserover and mouseout, and even image maps.</em><br /><br />
+For mouseover and mouseout, just enter the url's of each image, and tick the box.  Your mouseout image url should match the url entered on the "General" tab.<br /><br />
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

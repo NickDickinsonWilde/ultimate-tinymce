@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.6.4
+Stable tag: 1.6.5
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -102,9 +102,14 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Includes a grand total of 48 emoticons... and counting.  See them in both your admin panel AND your pages/posts.
 * Adds a new row for adding tables and manipulating their properties individually.  Add as many tables as you like, and change the properties of each, without affecting your other tables.
 
-*Simply too many features to list!!
+* Simply too many features to list!!
 
 == Changelog ==
+= 1.6.5
+* Updated most of the contextual help sections.
+* Tables will have to wait until the next update (I want to be specific with this one).
+* Removed the Microsoft Word Help Document.  I will make this available as a download on my <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">Support Forum</a> for anyone interested.
+* Fixed missing reference to stylesheet "pop-upstyle.css".
 
 = 1.6.4 =
 * Added support for shortcode usage in widget areas.  You can now use any shortcode available in your theme (or other plugins) in your widget areas.
@@ -124,7 +129,7 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 = 1.6.2 =
 * Added support for div, iframe, object, param, embed, and pre tags.  You can now safely use these tags (and any attributes) while switching between Visual and HTML mode.  Also, they will not be stripped away when you publish a page.
 * Incorporated some of the functionality from "TinyMCE Clear".  This allows you to use "clear div" tags and elements.  This option will have to be selected in the admin panel "Ultimate TinyMCE" settings page.  It will also add three new buttons to row 1 of the editor in Visual mode.
-* You can now retain P and BR tags, if you use a style.  Please see my <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">FORUM</a> for more information about how to use this feature.
+* You can now retain P and BR tags, if you use a style.  Please see my <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">SUPPORT FORUM</a> for more information about how to use this feature.
 * Be sure to check the <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">FORUM</a> anyway.  I have also added some news about newfound Keyboard Shortcuts.
 * If you're happy and you know it... please go back and click "works" again for the new version.
 

@@ -23,6 +23,10 @@ This option will enable the Superscript Box.  This button will be added to row t
 Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
 
 <br /><br />
+
+<img src="images/superscript.png" border="1px solid #000000" /><br />
+<em>Examples using the superscript option.</em><br /><br />
+
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

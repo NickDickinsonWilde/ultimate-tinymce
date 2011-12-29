@@ -14,15 +14,20 @@
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Preview Box:</strong></span>
 <br />
-This option will enable the Preview Box.  This button will be added to row three of the visual editor.
+This option will enable the Preview Box.  This button will be added to row four of the visual editor.
 
 <br /><br />
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Usage:</strong></span>
 <br />
-Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
+Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.</span>
+<br /><br />
+The preview box gives you a view of your content in a popup style window.  Why not just use the preview button included with WordPress you ask?  Well, I mainly use this button when "fine-tuning" a position or element in my post.  Instead of having to wait for the page to reload each time, I can click the button and the popup window loads super-fast.  I tweak my adjustments, then click the wordpress preview to view the final results.  It's a big time-saver in this sense.
 
 <br /><br />
+<img src="images/preview.png" border="1px solid #000000" /><br />
+<em>The preview popup with the formatting from the "Citations" example.  This shows the gray background with white text.</em><br /><br />
+
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

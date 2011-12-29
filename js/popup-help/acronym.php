@@ -14,15 +14,21 @@
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Acronym Box:</strong></span>
 <br />
-This option will enable the Acronym Box.  This button will be added to row three of the visual editor.
+This option will enable the Acronym Box.  This button will be added to row four of the visual editor.
 
 <br /><br />
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Usage:</strong></span>
 <br />
-Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
+Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.<br /><br />
+Again, we have a redundancy.  This button functions exactly like the Abbreviaton button.  I'm sure I'll remove one, and rename the other to include both.  Anyways, here's a screentshots.
 
 <br /><br />
+<img src="images/abbr2.png" border="1px solid #000000" /><br />
+<em>The popup window where you insert your text and style.</em><br /><br />
+
+<img src="images/abbr.png" border="1px solid #000000" /><br />
+<em>Shows the tooltip with the entered abbreviation.</em><br /><br />
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

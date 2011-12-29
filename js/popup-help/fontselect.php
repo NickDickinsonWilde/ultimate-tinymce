@@ -23,6 +23,12 @@ This option will enable the Font Select Box.  This button will be added to row t
 Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
 
 <br /><br />
+<img src="images/fontselect.png" border="1px solid #000000" /><br />
+<em>The font select dropdown in the visual editor.</em><br /><br />
+
+The available fonts in the dropdown are:
+<ul><li>Andale Mono</li><li>Arial</li><li>Arial Black</li><li>Book Antiqua</li><li>Comic Sans MS</li><li>Courier New</li><li>Georgia</li><li>Helvitica</li><li>Impact</li><li>Symbol</li><li>Tahoma</li><li>Terminal</li><li>Times New Roman</li><li>Trebuchet MS</li><li>Verdana</li><li>Webdings</li><li>Wingdings</li></ul><br /><br />
+
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

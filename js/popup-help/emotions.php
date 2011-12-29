@@ -14,15 +14,19 @@
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Emotions Box:</strong></span>
 <br />
-This option will enable the Emotions Box.  This button will be added to row three of the visual editor.
+This option will enable the Emotions Box.  This button will be added to row four of the visual editor.
 
 <br /><br />
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Usage:</strong></span>
 <br />
-Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
+Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.<br /><br />
+I may have gone a little overboard with the emotions... feel free to leave me a comment in my feedback form with your thoughts.
 
 <br /><br />
+<img src="images/emotions.png" border="1px solid #000000" /><br />
+<em>The popup emotions box.  Just click one to insert into your post/page.</em><br /><br />
+
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

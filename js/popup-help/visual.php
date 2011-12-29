@@ -20,7 +20,9 @@ This option will enable the Visual Aid Box.  This button will be added to row th
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Usage:</strong></span>
 <br />
-Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
+Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.<br /><br />
+
+This option is still rather confusing to me.  The only purpose I see is that it adds little gray borders around the table area when inserting a table with tinymce.  It is buggy (at best) across browsers, but it can aid a little with placement and content.  I will update this as I get time to play around with the option.
 
 <br /><br />
 </td></tr></table>

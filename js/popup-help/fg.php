@@ -20,9 +20,15 @@ This option will enable the Foreground Color Box.  This button will be added to 
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Usage:</strong></span>
 <br />
-Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
+Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.  This option is basically a color changer for the text color.  It will apply your chosen color to the highlighted text.
 
 <br /><br />
+<img src="images/background.png" border="1px solid #000000" /><br />
+<em>An image of the color picker (buggy in Mozilla Firefox).</em><br /><br />
+
+<img src="images/foreground.png" border="1px solid #000000" /><br />
+<em>Applies the foreground (text) color to an inline span tag.</em><br /><br />
+
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

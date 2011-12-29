@@ -3,7 +3,7 @@
 
 
 function popcontact(URL) {
-var popup_width = 600
+var popup_width = 860
 var popup_height = 400
 day = new Date();
 id = day.getTime();

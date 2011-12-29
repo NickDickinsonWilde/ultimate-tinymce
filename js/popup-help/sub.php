@@ -23,6 +23,10 @@ This option will enable the Subscript Box.  This button will be added to row thr
 Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
 
 <br /><br />
+
+<img src="images/subscript.png" border="1px solid #000000" /><br />
+<em>Examples using the subscript option.</em><br /><br />
+
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

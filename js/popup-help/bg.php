@@ -23,6 +23,12 @@ This option will enable the Background Color Box.  This button will be added to 
 Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
 
 <br /><br />
+<img src="images/background.png" border="1px solid #000000" /><br />
+<em>An image of the color picker (buggy in Mozilla Firefox).</em><br /><br />
+
+<img src="images/background2.png" border="1px solid #000000" /><br />
+<em>Applies the background color to an inline span tag.</em><br /><br />
+
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

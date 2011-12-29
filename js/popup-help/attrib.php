@@ -14,7 +14,7 @@
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Attributes Box:</strong></span>
 <br />
-This option will enable the Attributes Box.  This button will be added to row three of the visual editor.
+This option will enable the Attributes Box.  This button will be added to row four of the visual editor.
 
 <br /><br />
 
@@ -23,6 +23,13 @@ This option will enable the Attributes Box.  This button will be added to row th
 Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
 
 <br /><br />
+I'm not exactly sure as to the full functionality of this setting.  It can handle some javascript calls, and it can also handle styles, titles, classes and id's.  Feel free to use my <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1" target="_blank">Support Forum</a> if you find out more usage about this feature.
+<br /><br />
+<img src="images/attrib.png" border="1px solid #000000" /><br />
+<em>The Attributes popup screen.</em><br /><br />
+
+<img src="images/attrib2.png" border="1px solid #000000" /><br />
+<em>The Attributes Events Tab... Where you can enter javascript handlers.</em><br /><br />
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

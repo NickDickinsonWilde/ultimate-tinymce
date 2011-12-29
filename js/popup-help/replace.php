@@ -20,9 +20,16 @@ This option will enable the Replace Box.  This button will be added to row three
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Usage:</strong></span>
 <br />
-Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
+Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.<br /><br />
+Yes, this button functions the exact same as the Search (Find) button.  Seems kind of redundant to me...
 
 <br /><br />
+<img src="images/search.png" border="1px solid #000000" /><br />
+<em>Highlight your text, and click the button.</em><br /><br />
+
+<img src="images/replace.png" border="1px solid #000000" /><br />
+<em>You can also click the "Replace" tab, for even more options.</em><br /><br />
+
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

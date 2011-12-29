@@ -23,6 +23,13 @@ This option will enable the Horizontal Rule Box.  This button will be added to r
 Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
 
 <br /><br />
+<img src="images/hr.png" border="1px solid #000000" /><br />
+<em>The popup box to define width, height and shadow.</em><br /><br />
+
+<img src="images/hr2.png" border="1px solid #000000" /><br />
+<em>Adds the HR into the document.</em><br /><br />
+
+Note:  This can be a very useful feature when separating content on a post or using it as a divider between topics.  With a little CSS adjustment, we can change this to float left or right, and position it at a specific location.<br /><br />
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

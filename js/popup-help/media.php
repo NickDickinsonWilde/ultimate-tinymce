@@ -14,7 +14,7 @@
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Advanced Media Box:</strong></span>
 <br />
-This option will enable the Advanced Media Box.  This button will be added to row three of the visual editor.
+This option will enable the Advanced Media Box.  This button will be added to row four of the visual editor.
 
 <br /><br />
 
@@ -23,6 +23,15 @@ This option will enable the Advanced Media Box.  This button will be added to ro
 Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
 
 <br /><br />
+<img src="images/insertmediageneral.png" border="1px solid #000000" /><br />
+<em>The general options (if you have a direct URL), the type, and the dimensions.</em><br /><br />
+
+<img src="images/insertmediaadvanced.png" border="1px solid #000000" /><br />
+<em>The advanced options.</em><br /><br />
+
+<img src="images/insertmediasource.png" border="1px solid #000000" /><br />
+<em>The source code (if you are embedding).</em><br /><br />
+
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.6.4
+ * @version 1.6.5
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.6.4
+Version: 1.6.5
 Author URI: http://joshlobe.com
 
 */
@@ -99,10 +99,8 @@ function jwl_execphp_donate_link($links, $file) { if ($file == plugin_basename(_
 function jwl_admin_register_head() {
     $url = plugin_dir_url( __FILE__ ) . 'admin_panel.css';  // Added for admin panel css styles
 	$url2 = plugin_dir_url( __FILE__ ) . 'js/pop-up.js';  // Added for popup help javascript
-	$url3 = plugin_dir_url( __FILE__ ) . 'js/pop-upstyle.css';  // Added for popup help css styles
     echo "<link rel='stylesheet' type='text/css' href='$url' />\n";  // Added for admin panel css styles
 	echo "<script language='JavaScript' type='text/javascript' src='$url2'></script>\n";  // Added for popup help javascript
-	echo "<link rel='stylesheet' type='text/css' href='$url3' />\n";  // Added for popup help css styles
 }
 add_action('admin_head', 'jwl_admin_register_head');
 
@@ -189,8 +187,6 @@ add_action('admin_menu', 'jwl_admin_add_page');
                 <div class="inside2resources" style="padding:12px 12px 12px 12px;">
                 <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/support.png" style="margin-bottom: -8px;" />
                 <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1" target="_blank"><?php _e('Visit my Support Forum <strong>NEW</strong>.','jwl-ultimate-tinymce'); ?></a><br /><br />
-                <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/word.png" style="margin-bottom: -8px;" />
-                <a href="../wp-content/plugins/ultimate-tinymce/ultimate_tinymce.doc" target="_blank"><?php _e('View plugin documentation (opens in Word).','jwl-ultimate-tinymce'); ?></a><br /><br />
                 <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/screencast.png" style="margin-bottom: -8px;" />
                 <a href="http://www.youtube.com/watch?v=fM3CUo9MxMc" target="_blank"><?php _e('Screencast part one','jwl-ultimate-tinymce'); ?></a><br /><br />
                 <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/screencast.png" style="margin-bottom: -8px;" />
@@ -327,7 +323,7 @@ function jwl_settings_api_init() {
 	add_settings_field('jwl_paste_field_id', __('Paste Box','jwl-ultimate-tinymce'), 'jwl_paste_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	add_settings_field('jwl_backcolorpicker_field_id', __('Background Color Picker Box','jwl-ultimate-tinymce'), 'jwl_backcolorpicker_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	add_settings_field('jwl_forecolorpicker_field_id', __('Foreground Color Picker Box','jwl-ultimate-tinymce'), 'jwl_forecolorpicker_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
-	add_settings_field('jwl_advhr_field_id', __('Horizontal Row Box','jwl-ultimate-tinymce'), 'jwl_advhr_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_advhr_field_id', __('Horizontal Rule Box','jwl-ultimate-tinymce'), 'jwl_advhr_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	add_settings_field('jwl_visualaid_field_id', __('Visual Aid Box','jwl-ultimate-tinymce'), 'jwl_visualaid_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	add_settings_field('jwl_anchor_field_id', __('Anchor Box','jwl-ultimate-tinymce'), 'jwl_anchor_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	add_settings_field('jwl_sub_field_id', __('Subscript Box','jwl-ultimate-tinymce'), 'jwl_sub_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
@@ -904,6 +900,6 @@ function jwl_mce_external_plugins( $plugin_array ) {
 }
 add_filter( 'mce_external_plugins', 'jwl_mce_external_plugins' );
 
-// Scripts for Tooltip
+
 
 ?>

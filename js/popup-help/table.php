@@ -14,7 +14,7 @@
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Table Controls Box:</strong></span>
 <br />
-This option will enable the Table Controls Box.  This button will be added to row three of the visual editor.
+This option will enable the Table Controls Box.  This button will be added to row four of the visual editor.
 
 <br /><br />
 
@@ -23,6 +23,7 @@ This option will enable the Table Controls Box.  This button will be added to ro
 Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
 
 <br /><br />
+<strong>More on tables coming soon.</strong>
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

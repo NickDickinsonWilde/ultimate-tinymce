@@ -23,6 +23,12 @@ This option will enable the Moods Box.  This button will be added to row three o
 Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
 
 <br /><br />
+<img src="images/ultimatemoods.png" border="1px solid #000000" /><br />
+<em>Over 15 different categories of moods (Over 50 different moods).</em><br /><br />
+
+<img src="images/ultimatemoods2.png" border="1px solid #000000" /><br />
+<em>Inserts the chosen animated smiley into your preview and live site.</em><br /><br />
+
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

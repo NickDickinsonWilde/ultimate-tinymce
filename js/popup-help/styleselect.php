@@ -20,9 +20,25 @@ This option will enable the Style Select Box.  This button will be added to row 
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Usage:</strong></span>
 <br />
-Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
-
+Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.<br /><br />
+NOTE: This button is required to be enabled if you are using the advanced custom styles option below.  If this option is not enabled, you will not see the styles drowdown box when using the advanced custom styles option below.
 <br /><br />
+
+<span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>If NOT using Advanced Custom Styles Option:</strong></span><br /><br />
+
+<img src="images/custom-styles.png" border="1px solid #000000" /><br />
+<em>The default wordpress styles dropdown box.</em><br /><br />
+
+The available default styles are:
+<ul><li>wpGallery</li><li>wp-oembed</li><li>aligncenter</li><li>alignleft</li><li>alignright</li><li>wp-caption</li><li>wp-caption-dd</li><li>wp-caption-text</li><li>wp-smiley</li></ul><br /><br />
+
+<span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Using Advanced Custom Styles Option:</strong></span><br /><br />
+
+<img src="images/custom-styles2.png" border="1px solid #000000" /><br />
+<em>The advanced custom styles dropdown box.</em><br /><br />
+
+The available advanced custom styles are:
+<ul><li>Bold Red Text</li><li>Bold Green Text</li><li>Bold Blue Text</li><li>Border Black</li><li>Border Red</li><li>Border Green</li><li>Border Blue</li><li>Float Left</li><li>Float Right</li><li>Normal Alert</li><li>Green Alert</li><li>Yellow Alert</li><li>Red ALert</li></ul><br /><br />
 </td></tr></table>
 <!-- CONTENT TABLE -->
 
