@@ -1,5 +1,5 @@
 <html><head>
-<title>Table Controls Box</title>
+<title>Image Map Editor Box</title>
 <link rel=StyleSheet href="pop-upstyle.css" type="text/css" media="screen">
 </head>
 
@@ -12,20 +12,21 @@
 <TABLE cellpadding=0 cellspacing=0 border="0" bordercolor="666666" width="80%"><tr><td ALIGN="left" VALIGN="TOP">
 <br>
 
-<span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Table Controls Box:</strong></span>
+<span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Image Map Editor Box:</strong></span>
 <br />
-This option will enable the Table Controls Box.  This button will be added to row four of the visual editor.
+This option will enable the Image Map Editor Box.  This button will be added to row four of the visual editor.
 
 <br /><br />
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Usage:</strong></span>
 <br />
 Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.<br /><br />
-
-You probably want to consider using the next option down, the "Table Controls Dropdown Box".  This is a new feature, and lists all the table buttons in a dropdown list, rather than buttons that are side by side.  This saves a TON of space in the visual editor.  These two Table's options function EXACTLY the same.  It's just the button layout that differs.
+Image Maps are a great, fun, and interactive way to enhance images.  You can create shapes to place over your images, which will link to other content.  You can have multiple "maps" on one image, and each part of the image can contain a separate link.  Check the screenshot below for an example...
 
 <br /><br />
-<strong>More on tables coming soon.</strong>
+<img src="images/imgmap.png" border="1px solid #000000" /><br />
+<em>Add unlimited image maps to one image.</em><br /><br />
+
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

@@ -1,5 +1,5 @@
 <html><head>
-<title>Table Controls Box</title>
+<title>Youtube Box</title>
 <link rel=StyleSheet href="pop-upstyle.css" type="text/css" media="screen">
 </head>
 
@@ -12,20 +12,21 @@
 <TABLE cellpadding=0 cellspacing=0 border="0" bordercolor="666666" width="80%"><tr><td ALIGN="left" VALIGN="TOP">
 <br>
 
-<span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Table Controls Box:</strong></span>
+<span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Youtube Box:</strong></span>
 <br />
-This option will enable the Table Controls Box.  This button will be added to row four of the visual editor.
+This option will enable the Youtube Box.  This button will be added to row four of the visual editor.
 
 <br /><br />
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Usage:</strong></span>
 <br />
 Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.<br /><br />
-
-You probably want to consider using the next option down, the "Table Controls Dropdown Box".  This is a new feature, and lists all the table buttons in a dropdown list, rather than buttons that are side by side.  This saves a TON of space in the visual editor.  These two Table's options function EXACTLY the same.  It's just the button layout that differs.
+The youtube box gives you a one click feature for adding your favorite YouTube videos.  Simply copy and paste the video ID into the popup box, and the editor will do the rest.
 
 <br /><br />
-<strong>More on tables coming soon.</strong>
+<img src="images/youtube.png" border="1px solid #000000" /><br />
+<em>A view of the YouTube Box in action.</em><br /><br />
+
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

@@ -1,5 +1,5 @@
 <html><head>
-<title>Table Controls Box</title>
+<title>Table Dropdown Controls Box</title>
 <link rel=StyleSheet href="pop-upstyle.css" type="text/css" media="screen">
 </head>
 
@@ -14,18 +14,22 @@
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Table Controls Box:</strong></span>
 <br />
-This option will enable the Table Controls Box.  This button will be added to row four of the visual editor.
+This option will enable the Table Dropdown Controls Box.  This button will be added to row four of the visual editor.
 
 <br /><br />
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Usage:</strong></span>
 <br />
-Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.<br /><br />
-
-You probably want to consider using the next option down, the "Table Controls Dropdown Box".  This is a new feature, and lists all the table buttons in a dropdown list, rather than buttons that are side by side.  This saves a TON of space in the visual editor.  These two Table's options function EXACTLY the same.  It's just the button layout that differs.
+Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.
 
 <br /><br />
+This button functions the exact same as the Table Controls Button above; however this option adds only one primary button, with the sub-buttons shown as a list.  This is great because it saves on real estate within the editor.  Check out the screenshot below to see:
+
+<br /><br />
+<img src="images/tableDropdown.png" border="1px solid #000000" /><br />
+<em>Shows the table dropdown in a list format.  A HUGE space saver.</em><br /><br />
 <strong>More on tables coming soon.</strong>
+<br /><br />
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

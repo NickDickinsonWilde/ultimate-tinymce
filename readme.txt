@@ -1,10 +1,10 @@
 === Ultimate TinyMCE ===
 Contributors: Josh Lobe 
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS
-Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page
+Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.6.5
+Stable tag: 1.6.6
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -34,10 +34,29 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "w
 <li>Dutch:      keesiemeijer - http://codex.wordpress.org/User:Keesiemeijer </li>
 <li>Finnish:    markku       - </li>
 </ul>
-(If you will kindly help with a translation, I will list your name and website here).
+
+<strong>Bloggers:</strong> (Blog about my plugin and get listed here)<br />
+<ul>
+<li>Tam - http://www.buzzing-t.nl/</li>
+</ul>
 
 <strong>A Very Personal Special Thanks to:</strong><br />
 <ul><li><a href="http://www.khairul-syahir.com/">Syahir Hakim</a> - Developer of the extremely powerful <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a>.</li><li><a href="http://blog.kjodle.net/">Kenneth John Odle</a> - <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a> Forum Moderator Comrad.</li><li><a href="http://www.prasannasp.net/">Prasanna SP</a> - Newfound friend from halfway around the globe.</li></ul>
+
+Test Table
+<TABLE BORDER="7" CELLPADDING="7" CELLSPACING="10">
+ <TR BGCOLOR="#00FF00">
+ <TD>A green row.</TD>
+ <TD BGCOLOR="#FFFF00">This cell should be yellow, overriding the row color.</TD> <TD>Back to the row color.</TD>
+ <TR BGCOLOR="#0000FF">
+ <TD>A blue row.</TD>
+ <TD><PRE> </PRE></TD>
+ <TD ROWSPAN="2">This cell takes the color of the topmost row that it spans</TD>
+ </TR>
+ <TR BGCOLOR="#FF0000">
+ <TD>A red row.</TD>
+ </TR>
+ </TABLE>
 
 == Installation ==
 
@@ -105,6 +124,16 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 1.6.6 =
+* Implemented a new dropdown table buttons feature.  Instead of having 11 buttons side by side, taking up valuable real estate, this new option will add a dropdown list for the different buttons.  A HUGE space saver!
+* Implemented a new HTML viewer button.  This one is Awesome!!  Complete with syntax highlighter, line numbers, auto-complete, and undo,redo history.
+* Added a YouTube button.  This will allow you to simply enter the video id and the plugin does the rest, embedding the video directly into your post/page.
+* Added a cool feature using Image Maps.  You can create basic shapes like circles, rectangles, and polygons; and insert them over an image, and they will each link to a separate place or content.
+* Designed a toggle switch that will "hide" and "show" all the rows of the editor.
+* I moved a lot of the CSS files around and made them easier for me to navigate while continuing plugin development.  If some of your CSS doesn't load properly, make sure to empty any cache you are using on your website; clear your browsers cache; and reload the page.
+
+
 = 1.6.5 =
 * Updated most of the contextual help sections.
 * Tables will have to wait until the next update (I want to be specific with this one).
