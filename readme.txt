@@ -11,7 +11,7 @@ Description: Beef up your visual tinymce editor with a plethora of advanced opti
 == Description ==
 Are you a visual person?  Do the four letters "HTML" send you running for the hills; but you still want to create beautiful blogs like the pros?  Then this is the plugin for you!
 
-[youtube http://www.youtube.com/watch?v=fM3CUo9MxMc]
+[youtube http://www.youtube.com/watch?v=01reHnBCAIA]
 
 <strong>Ultimate TinyMCE</strong> will expand the default array of buttons in the visual tinymce editor, giving you the power to visually create your pages and posts. No need for mucking about in HTML and CSS.
 
