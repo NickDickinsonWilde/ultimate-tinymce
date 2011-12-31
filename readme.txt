@@ -43,13 +43,6 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "w
 <strong>A Very Personal Special Thanks to:</strong><br />
 <ul><li><a href="http://www.khairul-syahir.com/">Syahir Hakim</a> - Developer of the extremely powerful <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a>.</li><li><a href="http://blog.kjodle.net/">Kenneth John Odle</a> - <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a> Forum Moderator Comrad.</li><li><a href="http://www.prasannasp.net/">Prasanna SP</a> - Newfound friend from halfway around the globe.</li></ul>
 
-Test Table
-<table>
-    <tr>
-        <td style="background-color:#FF0000">Foo</td>
-    </tr>
-</table>
-
 == Installation ==
 
 1. Upload the plugin to your 'wp-content/plugins' directory, or download and install automatically through your admin panel.
