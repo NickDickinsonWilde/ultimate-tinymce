@@ -38,6 +38,7 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "W
 <strong>Bloggers:</strong> (Blog about my plugin and get listed here)<br />
 <ul>
 <li>Tam - http://www.buzzing-t.nl/</li>
+<li>Axel - http://onewhole.eu/</li>
 </ul>
 
 <strong>A Very Personal Special Thanks to:</strong><br />
