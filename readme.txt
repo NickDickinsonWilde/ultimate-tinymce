@@ -79,13 +79,20 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 == Screenshots ==
 
-1. <strong>Shows the two button rows added to the visual editor.</strong>
-2. <strong>The visual edit style CSS box.  Easily edit your CSS styles from a visual mode, without any need to know CSS or HTML.</strong>
-3. <strong>The attributes box showing the many different possible events you may add.</strong>
-4. <strong>Easily create gorgeous tables using only the visual editor.</strong>
-5. <strong>The advanced link box.  Here, you can have your links display as javascript popup windows; among other features.</strong>
-6. <strong>Screenshot of my new Ultimate Moods editor button.  Insert over fifty different animated .gif's into your blog posts.</strong>
-7. <strong>The admin panel where you can select which buttons you would like to include in your editor.</strong>
+1. <strong>Shows all of the available buttons added to the visual editor.</strong>
+2. <strong>Just a small sample of what can be done with this plugin.</strong>
+3. <strong>The front end view of the last screenshot.</strong>
+4. <strong>Easily insert YouTube videos with just the link url.</strong>
+5. <strong>Image Mapping is a fun way to make images more interactive.</strong>
+6. <strong>Over 50 different animated moods to add to your blog.</strong>
+7. <strong>Another front-end example of the tables feature.</strong>
+8. <strong>Have precision power with a visual GUI to style your elements.</strong>
+9. <strong>Easily insert javascript popups on your page.</strong>
+10. <strong>Syntax Highlighter will bring your code to life (supports PHP, JS, CSS, and others).  Also includes numbered lines.</strong>
+11. <strong>Design a custom message box for your register/login page.  You can even include links, images, and videos.</strong>
+12. <strong>Admin settings page, screenshot 1.</strong>
+13. <strong>Admin settings page, screenshot 2.</strong>
+14. <strong>Admin settings page, screenshot 3.</strong>
 
 == Features ==
 
