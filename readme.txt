@@ -50,7 +50,7 @@ Test Table
  <TD BGCOLOR="#FFFF00">This cell should be yellow, overriding the row color.</TD> <TD>Back to the row color.</TD>
  <TR BGCOLOR="#0000FF">
  <TD>A blue row.</TD>
- <TD><PRE> </PRE></TD>
+ <TD>Another Row</TD>
  <TD ROWSPAN="2">This cell takes the color of the topmost row that it spans</TD>
  </TR>
  <TR BGCOLOR="#FF0000">
