@@ -46,7 +46,7 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "w
 Test Table
 <table>
     <tr>
-        <td>Foo</td>
+        <td style="background-color:#FF0000">Foo</td>
     </tr>
 </table>
 
