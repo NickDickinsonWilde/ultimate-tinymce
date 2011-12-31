@@ -1,5 +1,5 @@
 === Ultimate TinyMCE ===
-Contributors: Josh Lobe 
+Contributors: josh401 
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.2.1
@@ -11,19 +11,19 @@ Description: Beef up your visual tinymce editor with a plethora of advanced opti
 == Description ==
 Are you a visual person?  Do the four letters "HTML" send you running for the hills; but you still want to create beautiful blogs like the pros?  Then this is the plugin for you!
 
-[youtube http://www.youtube.com/watch?v=fM3CUo9MxMc]
+[youtube http://www.youtube.com/watch?v=01reHnBCAIA]
 
 <strong>Ultimate TinyMCE</strong> will expand the default array of buttons in the visual tinymce editor, giving you the power to visually create your pages and posts. No need for mucking about in HTML and CSS.
 
 <strong>Here are just a few features which make this plugin so powerful:</strong>
-<ul><li><strong>NEW:</strong> Animated smilies!!</li><li>Add, create, and manipulate as many tables as you like.</li><li>Add emoticons to express your mood as you are writing your posts/pages.</li><li>Now you can use subscript and superscript text.</li><li>Added advanced features for images (such as mouseover and mouseout).</li><li>Added advanced features for ordered and unordered drop-down lists.</li><li>Now features a search and replace tool.</li><li>Easily add page anchors to posts that become too long to scroll through all the content.</li><li>Added new feature to the "link" button now enabling you to open links in your own javascript popup windows, without writing a single line of code.  You can even control the size and position of your popup window.</li><li><strong>And much more... too many features to list.</strong></li><li>This plugin is in very active development, and new versions will be released adding further customization and functionality.</li></ul>
+<ul><li>Add, create, and manipulate as many tables as you like.  You can use these to create the effect of a two or three column layout within your post content.  (See screenshots for example).</li><li>Add emoticons or animated smilies to express your mood as you are writing your posts/pages.</li><li>Tons of text formatting options.</li><li>Advanced features for images (such as mouseover and mouseout).</li><li>Advanced features for ordered and unordered drop-down lists.</li><li>Easily add page anchors to posts that become too long to scroll through all the content.</li><li>Open links in your own javascript popup windows, without writing a single line of code.  You can even control the size and position of your popup window.</li><li><strong>And much more... too many features to list.</strong></li><li>This plugin is in very active development, and new versions will be released adding further customization and functionality.</li></ul>
 
-<Strong>Recent Updates:</strong><br />
-<ul><li>Retain div, iframe, embed, and object tags.</li><li>Added support for PHP widgets.</li><li>Added signoff shortcodes to use in your posts.</li></ul>
+<strong>Still reading??  How about some of these cool features?</strong>
+<ul><li>Use image mapping to create separate links over the same image.  Great for using photoshop images as navigation.</li><li>Design a custom message box for your register/login page.  You can even include links, images, and video.</li><li>Do you always end your posts with the same text or image?  Use the "signoff" shortcode to add your custom code at any time.</li><li>A very active support forum.</li><li>A huge contextual help system accompanies this plugin.  Each option has it's very own help icon which will open a popup giving specific help messages and screenshots.</li><li>Toggle the option to enable shortcodes in your widget areas.</li><li>This plugin is very stable and works extremely well on the current version of wordpress and across multiple themes (both free and paid); and with other plugins.</li></ul>
 
-If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "works" if you are indeed satisfied with the plugin.  Thank you.
+If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "Works" if you are satisfied with the plugin.
 
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS">The smallest donations will be gratefully accepted if you wish to click here</a>.  Donations help to continue and support future upgrades and releases.  Please consider donating if you are extremely pleased with this plugin and will continue using it on your site; especially if you are operating a commercial website.  Thank you!
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS">The smallest donations will be gratefully accepted if you wish to click here</a>.  Countless late-night hours have been poured into the development of this plugin; which requires a whole lot of Big Red and M&M's.  Please consider donating if you are extremely pleased with this plugin and will continue using it on your site.  
 
 <strong>Additional Plugin Resources:</strong><br />
 <ul><li><a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">Support Forum</a></li><li><a href="http://www.joshlobe.com/2011/11/ultimate-tinymce/">Ultimate TinyMCE Plugin HomePage</a></li><li>Follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> to be notified of new video tutorials.</li></ul>
@@ -38,25 +38,11 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "w
 <strong>Bloggers:</strong> (Blog about my plugin and get listed here)<br />
 <ul>
 <li>Tam - http://www.buzzing-t.nl/</li>
+<li>Axel - http://onewhole.eu/</li>
 </ul>
 
 <strong>A Very Personal Special Thanks to:</strong><br />
 <ul><li><a href="http://www.khairul-syahir.com/">Syahir Hakim</a> - Developer of the extremely powerful <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a>.</li><li><a href="http://blog.kjodle.net/">Kenneth John Odle</a> - <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a> Forum Moderator Comrad.</li><li><a href="http://www.prasannasp.net/">Prasanna SP</a> - Newfound friend from halfway around the globe.</li></ul>
-
-Test Table
-<TABLE BORDER="7" CELLPADDING="7" CELLSPACING="10">
- <TR BGCOLOR="#00FF00">
- <TD>A green row.</TD>
- <TD BGCOLOR="#FFFF00">This cell should be yellow, overriding the row color.</TD> <TD>Back to the row color.</TD>
- <TR BGCOLOR="#0000FF">
- <TD>A blue row.</TD>
- <TD><PRE> </PRE></TD>
- <TD ROWSPAN="2">This cell takes the color of the topmost row that it spans</TD>
- </TR>
- <TR BGCOLOR="#FF0000">
- <TD>A red row.</TD>
- </TR>
- </TABLE>
 
 == Installation ==
 
@@ -94,13 +80,20 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 == Screenshots ==
 
-1. <strong>Shows the two button rows added to the visual editor.</strong>
-2. <strong>The visual edit style CSS box.  Easily edit your CSS styles from a visual mode, without any need to know CSS or HTML.</strong>
-3. <strong>The attributes box showing the many different possible events you may add.</strong>
-4. <strong>Easily create gorgeous tables using only the visual editor.</strong>
-5. <strong>The advanced link box.  Here, you can have your links display as javascript popup windows; among other features.</strong>
-6. <strong>Screenshot of my new Ultimate Moods editor button.  Insert over fifty different animated .gif's into your blog posts.</strong>
-7. <strong>The admin panel where you can select which buttons you would like to include in your editor.</strong>
+1. <strong>Shows all of the available buttons added to the visual editor.</strong>
+2. <strong>Just a small sample of what can be done with this plugin.</strong>
+3. <strong>The front end view of the last screenshot.</strong>
+4. <strong>Easily insert YouTube videos with just the link url.</strong>
+5. <strong>Image Mapping is a fun way to make images more interactive.</strong>
+6. <strong>Over 50 different animated moods to add to your blog.</strong>
+7. <strong>Another front-end example of the tables feature.</strong>
+8. <strong>Have precision power with a visual GUI to style your elements.</strong>
+9. <strong>Easily insert javascript popups on your page.</strong>
+10. <strong>Syntax Highlighter will bring your code to life (supports PHP, JS, CSS, and others).  Also includes numbered lines.</strong>
+11. <strong>Design a custom message box for your register/login page.  You can even include links, images, and videos.</strong>
+12. <strong>Admin settings page, screenshot 1.</strong>
+13. <strong>Admin settings page, screenshot 2.</strong>
+14. <strong>Admin settings page, screenshot 3.</strong>
 
 == Features ==
 
