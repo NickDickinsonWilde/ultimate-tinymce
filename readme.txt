@@ -44,19 +44,11 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "w
 <ul><li><a href="http://www.khairul-syahir.com/">Syahir Hakim</a> - Developer of the extremely powerful <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a>.</li><li><a href="http://blog.kjodle.net/">Kenneth John Odle</a> - <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a> Forum Moderator Comrad.</li><li><a href="http://www.prasannasp.net/">Prasanna SP</a> - Newfound friend from halfway around the globe.</li></ul>
 
 Test Table
-<TABLE BORDER="7" CELLPADDING="7" CELLSPACING="10">
- <TR BGCOLOR="#00FF00">
- <TD>A green row.</TD>
- <TD BGCOLOR="#FFFF00">This cell should be yellow, overriding the row color.</TD> <TD>Back to the row color.</TD>
- <TR BGCOLOR="#0000FF">
- <TD>A blue row.</TD>
- <TD>Another Row</TD>
- <TD ROWSPAN="2">This cell takes the color of the topmost row that it spans</TD>
- </TR>
- <TR BGCOLOR="#FF0000">
- <TD>A red row.</TD>
- </TR>
- </TABLE>
+<table>
+    <tr>
+        <td>Foo</td>
+    </tr>
+</table>
 
 == Installation ==
 
