@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.2.1
 Tested up to: 3.3
-Stable tag: 1.6.6
+Stable tag: 1.6.7
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -117,6 +117,14 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 1.6.7 =
+* Added more to the contextual help sections.
+* Removed the toggle switch, as it was not compatible across browsers.  I will tweak some more and add again in a future update.
+* Tweaked the editor button popup windows with some custom css.  Trying to make them a little more "pleasing" on the eyes.
+* Insert and Cancel buttons in the popups are now colorized.
+* Working on implementing yet another settings section, which will allow fine-tuning over the tinymce initialization process.  I have most of the code in place, but still working out the last few bugs.  This should be fully operational in my next update.
+
 
 = 1.6.6 =
 * Implemented a new dropdown table buttons feature.  Instead of having 11 buttons side by side, taking up valuable real estate, this new option will add a dropdown list for the different buttons.  A HUGE space saver!

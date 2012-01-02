@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.6.6
+ * @version 1.6.7
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.6.6
+Version: 1.6.7
 Author URI: http://joshlobe.com
 
 */
@@ -30,36 +30,34 @@ Author URI: http://joshlobe.com
 */
 
 // Change our default Tinymce configuration values
-//function jwl_change_mce_options($initArray) {
+function jwl_change_mce_options($initArray) {
 
 	//$initArray['verify_html'] = false;
 	//$initArray['cleanup_on_startup'] = false;
 	//$initArray['cleanup'] = false;
+		// Removes the "Double Line Breaking" in the visual editor.  All line breaks will be a single line space.
 	//$initArray['forced_root_block'] = false;
+	$initArray['popup_css'] = plugin_dir_url( __FILE__ ) . 'css/popup.css';
+	//$initArray['valid_elements'] = '*[*]';
+	//$initArray['extended_valid_elements'] = '*[*]';
 	//$initArray['validate_children'] = false;
-	//$initArray['remove_redundant_brs'] = false;
-	//$initArray['remove_linebreaks'] = false;
 	//$initArray['force_p_newlines'] = false;
 	//$initArray['force_br_newlines'] = false;
 	//$initArray['fix_table_elements'] = false;
-	//$initArray['extended_valid_elements'] = ',*[*]';
 	//$initArray['entities'] = '160,nbsp,38,amp,60,lt,62,gt';
-	//$initArray['convert_newlines_to_brs'] = true;
-	//$initArray['remove_redundant_brs'] = false;
-	//$initArray['remove_linebreaks'] = false;
 	//$initArray['paste_strip_class_attributes'] = 'none';
-	// Don't remove line breaks
-	//$init['remove_linebreaks'] = false; 
-	// Convert newline characters to BR tags
-	//$init['convert_newlines_to_brs'] = true; 
-	// Preserve tab/space whitespace
-	//$init['preformatted'] = true;
-	//$init['remove_redundant_brs'] = false;
+		// Don't remove line breaks ??
+	//$initArray['remove_linebreaks'] = false; 
+		// Convert newline characters to BR tags ??
+	//$initArray['convert_newlines_to_brs'] = true; 
+		// Preserve tab/space whitespace ??
+	//$initArray['preformatted'] = true;
+	//$initArray['remove_redundant_brs'] = false;
 
-	//return $initArray;
-//}
+	return $initArray;
+}
 
-//add_filter('tiny_mce_before_init', 'jwl_change_mce_options');
+add_filter('tiny_mce_before_init', 'jwl_change_mce_options');
 
 // Set our language localization folder (used for adding translations)
 function jwl_ultimate_tinymce() {
@@ -353,7 +351,6 @@ function jwl_settings_api_init() {
 	add_settings_field('jwl_imgmap_field_id', __('Image Map Editor Box','jwl-ultimate-tinymce'), 'jwl_imgmap_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
 	
 	// Settings for added bonuses and features
-	add_settings_field('jwl_toggle_field_id', __('Enable Show/Hide Toggle Switch.','jwl-ultimate-tinymce'), 'jwl_toggle_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	add_settings_field('jwl_tinymce_excerpt_field_id', __('Add tinymce editor to excerpt area.','jwl-ultimate-tinymce'), 'jwl_tinymce_excerpt_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	add_settings_field('jwl_postid_field_id', __('Add ID Column to page/post admin list.','jwl-ultimate-tinymce'), 'jwl_postid_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	add_settings_field('jwl_shortcode_field_id', __('Allow shortcode usage in widget text areas.','jwl-ultimate-tinymce'), 'jwl_shortcode_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
@@ -406,7 +403,6 @@ function jwl_settings_api_init() {
 	register_setting('jwl_options_group','jwl_imgmap_field_id');
 	
 	// Register Settings for bonuses and features
-	register_setting('jwl_options_group','jwl_toggle_field_id');
 	register_setting('jwl_options_group','jwl_tinymce_excerpt_field_id');
 	register_setting('jwl_options_group','jwl_postid_field_id');
 	register_setting('jwl_options_group','jwl_shortcode_field_id');
@@ -608,11 +604,6 @@ add_action('admin_init', 'jwl_settings_api_init');
  
  // Callback functions for bonuses and features
  
- function jwl_toggle_callback_function() {
- 	echo '<input name="jwl_toggle_field_id" id="toggle" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_toggle_field_id'), false ) . ' /> ';
-	?><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/toggle.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-left:10px;margin-bottom:-5px;" title="New Feature." /><?php
- }
- 
  function jwl_tinymce_excerpt_callback_function() {
  	echo '<input name="jwl_tinymce_excerpt_field_id" id="tinymce_excerpt" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_tinymce_excerpt_field_id'), false ) . ' /> ';
 	?><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/excerpt.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><?php
@@ -787,17 +778,6 @@ array_push($buttons, "separator", "clearleft","clearright","clearboth");
 add_filter("mce_buttons", "tinymce_add_button_div");
 
 // Functions for added bonuses and features
-
-// Functions for Toggle Switch
-$jwl_toggle = get_option('jwl_toggle_field_id');
-if ($jwl_toggle == "1"){
-	function jwl_toggle(){
-		$plugin_array['toggletoolbars'] = plugin_dir_url( __FILE__ ) . 'toggletoolbars/editor_plugin.js';
-		return $plugin_array;
-	}
-add_filter( 'mce_external_plugins', 'jwl_toggle' );
-}
-	
 // Function for excerpt editor
 $jwl_tinymce_excerpt = get_option('jwl_tinymce_excerpt_field_id');
 if ($jwl_tinymce_excerpt == "1"){
@@ -923,15 +903,15 @@ if ($jwl_loginbox == "1") {
 
 // Wrapping it up.... and new test features.
 // Attempting to solve removal of <p> and <br /> tags
-add_filter('tiny_mce_before_init', 'jwl_tinymce_clear_buttons_before_init');
-function jwl_tinymce_clear_buttons_before_init( $init ) {
-	$init['extended_valid_elements'] .= ',*[*],div[*],iframe[*],object[*],param[*],embed[*],p[*],pre[*],br[*]';
-	$init['valid_elements'] .= ',*[*],br[*],p[*]';
-	$init['force_p_newlines'] .= false;
+//add_filter('tiny_mce_before_init', 'jwl_tinymce_clear_buttons_before_init');
+//function jwl_tinymce_clear_buttons_before_init( $init ) {
+	//$init['extended_valid_elements'] .= ',*[*],div[*],iframe[*],object[*],param[*],embed[*],p[*],pre[*],br[*]';
+	//$init['valid_elements'] .= ',*[*],br[*],p[*]';
+	//$init['force_p_newlines'] .= false;
 	// More Possibilities following example above
 	// article[*],aside[*],audio[*],canvas[*],command[*],datalist[*],details[*],figcaption[*],figure[*],footer[*],header[*],hgroup[*],keygen[*],mark[*],meter[*],nav[*],output[*],progress[*],section[*],source[*],summary[*],time[*],video[*],wbr[*]
-    return $init;
-}
+    //return $init;
+//}
 
 // Add the plugin array for extra features
 function jwl_mce_external_plugins( $plugin_array ) {

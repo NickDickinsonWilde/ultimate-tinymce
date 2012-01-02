@@ -26,6 +26,8 @@ Selecting this option will add the visual tinymce editor to the excerpt area in 
 <img src="images/excerpt.png" border="1px solid #000000" /><br />
 <em>View of the TinyMCE Editor in the Excerpt Box.</em><br /><br />
 
+<b>BUG:</b> There is a known bug when using this option.  Please view my support forum thread <a href="http://www.forum.joshlobe.com/showthread.php?tid=51">HERE</a> to read more.<br /><br />
+
 </td></tr></table>
 <!-- CONTENT TABLE -->
 
