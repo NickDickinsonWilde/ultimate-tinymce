@@ -26,7 +26,7 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "W
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS">The smallest donations will be gratefully accepted if you wish to click here</a>.  Countless late-night hours have been poured into the development of this plugin; which requires a whole lot of Big Red and M&M's.  Please consider donating if you are extremely pleased with this plugin and will continue using it on your site.  
 
 <strong>Additional Plugin Resources:</strong><br />
-<ul><li><a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">Support Forum</a></li><li><a href="http://www.joshlobe.com/2011/11/ultimate-tinymce/">Ultimate TinyMCE Plugin HomePage</a></li><li>Follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> to be notified of new video tutorials.</li></ul>
+<ul><li><a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">Support Forum</a></li><li><a href="http://www.joshlobe.com/2011/10/ultimate-tinymce/">Ultimate TinyMCE Plugin HomePage</a></li><li>Follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> to be notified of new video tutorials.</li></ul>
 
 <strong>Translations:</strong><br />
 <ul>
