@@ -40,6 +40,7 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "W
 <li>Tam - http://www.buzzing-t.nl/</li>
 <li>Axel - http://onewhole.eu/</li>
 <li>Vanessa - http://www.vanytastisch.ch/</li>
+<li>Nadav - http://animereviews.co</li>
 <li>Blogigs - http://blogigs.com/how-to-make-a-attractive-blog-post/</li>
 <li>Untethered Income - http://www.untetheredincome.com/articles/wordpress/best-wordpress-plugins-2012/</li>
 </ul>
