@@ -91,4 +91,36 @@
 	border:1px solid #F77CF3;
 }
 
+.postbox2poll {
+	background-image: -ms-linear-gradient(top, #D1FFD4 0%, #64EF5B 100%);
+	background-image: -moz-linear-gradient(top, #D1FFD4 0%, #64EF5B 100%);
+	background-image: -o-linear-gradient(top, #D1FFD4 0%, #64EF5B 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #D1FFD4), color-stop(1, #64EF5B));
+	background-image: -webkit-linear-gradient(top, #D1FFD4 0%, #64EF5B 100%);
+	background-image: linear-gradient(top, #D1FFD4 0%, #64EF5B 100%);
+	margin-top:20px;
+	border:1px solid #08D147;
+}
+
+.inside2poll {
+	background-color:#DEF4D9;
+	border-top:1px solid #90F779;
+}
+
+.postbox2firefox {
+	background-image: -ms-linear-gradient(top, #B8D5DD 0%, #5CA7ED 100%);
+	background-image: -moz-linear-gradient(top, #B8D5DD 0%, #5CA7ED 100%);
+	background-image: -o-linear-gradient(top, #B8D5DD 0%, #5CA7ED 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #B8D5DD), color-stop(1, #5CA7ED));
+	background-image: -webkit-linear-gradient(top, #B8D5DD 0%, #5CA7ED 100%);
+	background-image: linear-gradient(top, #B8D5DD 0%, #5CA7ED 100%);
+	margin-top:20px;
+	border:1px solid #085ACE;
+}
+
+.inside2firefox {
+	background-color:#EDEEF2;
+	border-top:1px solid #7795F4;
+}
+
 /* CSS for tooltips */

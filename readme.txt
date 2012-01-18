@@ -3,8 +3,8 @@ Contributors: josh401
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.2.1
-Tested up to: 3.3
-Stable tag: 1.6.7
+Tested up to: 3.3.1
+Stable tag: 1.6.8
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -16,7 +16,7 @@ Are you a visual person?  Do the four letters "HTML" send you running for the hi
 <strong>Ultimate TinyMCE</strong> will expand the default array of buttons in the visual tinymce editor, giving you the power to visually create your pages and posts. No need for mucking about in HTML and CSS.
 
 <strong>Here are just a few features which make this plugin so powerful:</strong>
-<ul><li>Add, create, and manipulate as many tables as you like.  You can use these to create the effect of a two or three column layout within your post content.  (See screenshots for example).</li><li>Add emoticons or animated smilies to express your mood as you are writing your posts/pages.</li><li>Tons of text formatting options.</li><li>Advanced features for images (such as mouseover and mouseout).</li><li>Advanced features for ordered and unordered drop-down lists.</li><li>Easily add page anchors to posts that become too long to scroll through all the content.</li><li>Open links in your own javascript popup windows, without writing a single line of code.  You can even control the size and position of your popup window.</li><li><strong>And much more... too many features to list.</strong></li><li>This plugin is in very active development, and new versions will be released adding further customization and functionality.</li></ul>
+<ul><li>Create Page Breaks and split your post into multiple pages.</li><li>Insert YouTube videos by simply pasting the "share" link inside the popup window.</li><li>Format selected text using the subscript and superscript options.</li><li>Add, create, and manipulate as many tables as you like.  You can use these to create the effect of a two or three column layout within your post content.  (See the screenshots section for a visual example).</li><li>Add emoticons or animated smilies to your posts/pages.</li><li>Tons of text formatting options.</li><li>Advanced features for images (such as mouseover and mouseout).</li><li>Advanced features for ordered and unordered drop-down lists.</li><li>Easily add page anchors to posts that become too long to scroll through all the content.</li><li>Open links in your own javascript popup windows, without writing a single line of code.  You can even control the size and position of your popup window.</li><li><strong>And much more... too many features to list.</strong></li><li>This plugin is in very active development, and new versions will be released adding further customization and functionality.</li></ul>
 
 <strong>Still reading??  How about some of these cool features?</strong>
 <ul><li>Use image mapping to create separate links over the same image.  Great for using photoshop images as navigation.</li><li>Design a custom message box for your register/login page.  You can even include links, images, and video.</li><li>Do you always end your posts with the same text or image?  Use the "signoff" shortcode to add your custom code at any time.</li><li>A very active support forum.</li><li>A huge contextual help system accompanies this plugin.  Each option has it's very own help icon which will open a popup giving specific help messages and screenshots.</li><li>Toggle the option to enable shortcodes in your widget areas.</li><li>This plugin is very stable and works extremely well on the current version of wordpress and across multiple themes (both free and paid); and with other plugins.</li></ul>
@@ -121,6 +121,19 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 1.6.8 =
+* Removed the old tables option and replaced it with a new drop-down box table button.  This consolidated all the table buttons into a nicely organized drop-down list.  You still have the exact same options.
+* Added a "Next Page" feature.  This will allow you to use the wordpress page break to "break" your post into multiple pages.  Click the help icon in the admin settings page for more information and examples.
+* Added additional font sizes.  The drop-down list will look a little "funny", but if you hover over the font, it will tell you the size.
+* Removed the custom register/login box option.  I have created a different plugin with this feature.  If you liked it, please download the plugin <a href="http://wordpress.org/extend/plugins/custom-welcome-messages/">HERE</a>.
+* Moved the 'styles' button to the first position in row 4 of the editor.  This helped with spacing issues.
+* Made a few width and height adjustments in the 'emotions' and 'youtube' popup windows.
+* Updated Bloggers section.
+* Slightly modified the feedback form.
+* Added a "Plugin Poll" to find out the demand for newer features.
+* Added a Mozilla Firefox box and link to admin settings page.  In my opinion, Firefox is the best browser to use with the visual tinymce editor.
+* Removed some miscellaneous junk files and code.
 
 = 1.6.7 =
 * Added more to the contextual help sections.
