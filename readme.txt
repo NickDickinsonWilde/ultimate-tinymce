@@ -28,6 +28,9 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "W
 <strong>Additional Plugin Resources:</strong><br />
 <ul><li><a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">Support Forum</a></li><li><a href="http://www.joshlobe.com/2011/10/ultimate-tinymce/">Ultimate TinyMCE Plugin HomePage</a></li><li>Follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> to be notified of new video tutorials.</li></ul>
 
+<strong>Other Plugins by Josh:</strong><br />
+<ul><li><a href="http://wordpress.org/extend/plugins/custom-welcome-messages/">Custom Welcome Messages</a> - Create custom login and logout pages.  Change the default wordpress login image, title, and link.</li></ul>
+
 <strong>Translations:</strong><br />
 <ul>
 <li>Japanese:   Redcocker    - http://www.near-mint.com/blog/ </li>
@@ -56,7 +59,7 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "W
 
 3.  You will need to manually activate your buttons the first time you install.  You can do this by going to the admin panel, settings page, Ultimate TinyMCE.  Here, you can set your preferences.
 
-Note:  This plugin is a little on the "heavy" side... (just under 9 megabytes).  This is primarily because of the custom moods (but they're so darn cute) and the microsoft word help document.  If space is a concern to you, please consider yourself warned.  For all others, please enjoy this feature-packed plugin!
+Note:  This plugin is a little on the "heavy" side... (just under 8 megabytes).  This is primarily because of the custom moods (but they're so darn cute) and contextual help system.  If space is a concern to you, please consider yourself warned.  For all others, please enjoy this feature-packed plugin!
 
 
 == Frequently Asked Questions ==
