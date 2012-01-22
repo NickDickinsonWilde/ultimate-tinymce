@@ -32,8 +32,9 @@
 			});
 
 			// Register buttons
-			ed.addButton('link', {
-				title : 'advlink.link_desc',
+			ed.addButton('advlink', {
+				title : 'Advanced Insert/Edit Link',
+				image : url+'/advlink.png',
 				cmd : 'mceAdvLink'
 			});
 

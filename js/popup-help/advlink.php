@@ -14,17 +14,19 @@
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Advanced Insert/Edit Link:</strong></span>
 <br />
-This option will enable the Advanced Insert/Edit Link.
+This option will enable the Advanced Insert/Edit Link.  <strong>UPDATE:</strong> I have changed the functionality of this option.  Please read below.
 
 <br /><br />
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Usage:</strong></span>
 <br />
-Checking this option will replace the original default wordpress functionality of the insert/edit link box.  Unchecking this option will restore the default wordpress functionality.<br /><br />
-The advanced version gives you many more options for your links.  You can create javascripts, mouseovers and mouseouts, and plenty of other advanced options.  This is all done through a nifty GUI experience.
+I decided it was better to have separate buttons for the default wordpress insert/edit link button and the plugins advanced insert/edit link button.  So, enabling this option will add a new button for the "advanced insert/edit link", and position it in row 1 of the editor just to the right of the default wordpress "link" and "unlink" buttons.<br /><br />
+Please feel free to use my support forum or my contact form if you experience any bugs with this... but I think it's pretty strong.
 
 <br /><br />
 
+<img src="images/advlink.png" border="1px solid #000000" /><br />
+<em>The new button added to row 1 of the editor.</em><br /><br />
 <img src="images/advanced-link-enabled.png" border="1px solid #000000" /><br />
 <em>View of advanced insert/edit link box.</em><br /><br />
 <img src="images/advanced-link-disabled.png" border="1px solid #000000" /><br />

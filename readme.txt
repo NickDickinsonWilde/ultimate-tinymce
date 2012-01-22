@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.2.1
 Tested up to: 3.3.1
-Stable tag: 1.6.8
+Stable tag: 1.6.9
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -124,6 +124,14 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 1.6.9 =
+* Added a separate button for the "Advanced Insert/Edit Link" feature.  Now, you have a new button next to the wordpress buttons for linking and unlinking.  No more having to go back and forth to the plugin settings page.  Check the help file in the plugin settings page for more info.
+* Updated my documentation to help with the link features.  Please let me know if you spot any inconsistencies.
+* Added a button for turning on/off Visual Characters.
+* Added a button which allows you to print your post from the editor.
+* Added a button for automatically inserting the date or the time.  Let me know if this feature is useful, and if so, I can add some custom options allowing you to set how you want your date or time to be displayed.
+* I am seriously considering removing the "Animated Moods" feature.  This would free up about 5 megabytes of space to allow for newer features.  I'm already nearing 10 megabytes on the plugin now.  So, if this is of dire need to you, please use my forum or my contact form to voice your opinion.
 
 = 1.6.8 =
 * Removed the old tables option and replaced it with a new drop-down box table button.  This consolidated all the table buttons into a nicely organized drop-down list.  You still have the exact same options.
