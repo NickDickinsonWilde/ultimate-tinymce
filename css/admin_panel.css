@@ -123,4 +123,19 @@
 	border-top:1px solid #7795F4;
 }
 
+.postbox2addons {
+	background-image: -moz-linear-gradient(top, #D1FFF7 0%, #57EDCF 100%);
+	background-image: -o-linear-gradient(top, #D1FFF7 0%, #57EDCF 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #D1FFF7), color-stop(1, #57EDCF));
+	background-image: -webkit-linear-gradient(top, #D1FFF7 0%, #57EDCF 100%);
+	background-image: linear-gradient(top, #D1FFF7 0%, #57EDCF 100%);
+	margin-top:20px;
+	border:1px solid #7CF4D2;
+}
+
+.inside2addons {
+	background-color:#EFF9F6;
+	border-top:1px solid #7CF4D2;
+}
+
 /* CSS for tooltips */

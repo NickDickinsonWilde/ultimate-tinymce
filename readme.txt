@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.2.1
 Tested up to: 3.3.1
-Stable tag: 1.6.9
+Stable tag: 1.7.0
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -29,7 +29,7 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "W
 <ul><li><a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">Support Forum</a></li><li><a href="http://www.joshlobe.com/2011/10/ultimate-tinymce/">Ultimate TinyMCE Plugin HomePage</a></li><li>Follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> to be notified of new video tutorials.</li></ul>
 
 <strong>Other Plugins by Josh:</strong><br />
-<ul><li><a href="http://wordpress.org/extend/plugins/custom-welcome-messages/">Custom Welcome Messages</a> - Create custom login and logout pages.  Change the default wordpress login image, title, and link.</li></ul>
+<ul><li><a href="http://wordpress.org/extend/plugins/custom-welcome-messages/">Custom Welcome Messages</a> - Create custom login and logout pages.  Change the default wordpress login image, title, and link.</li><li><a href="http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/">Ultimate Moods Addon</a> - Add over 50 animated mood smilies to your content.</li></ul>
 
 <strong>Translations:</strong><br />
 <ul>
@@ -58,8 +58,6 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "W
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
 3.  You will need to manually activate your buttons the first time you install.  You can do this by going to the admin panel, settings page, Ultimate TinyMCE.  Here, you can set your preferences.
-
-Note:  This plugin is a little on the "heavy" side... (just under 8 megabytes).  This is primarily because of the custom moods (but they're so darn cute) and contextual help system.  If space is a concern to you, please consider yourself warned.  For all others, please enjoy this feature-packed plugin!
 
 
 == Frequently Asked Questions ==
@@ -124,6 +122,15 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 1.7.0 =
+* I decided to remove the animated mood smilies from the plugin.  The plugin now weighs a lean 2.78 megabytes.
+* The animated moods is now available as an addon plugin, and can be downloaded here:<br />http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/
+* If you have inserted any moods into your content, please check to ensure they still display properly.  Since the images will have been moved to another folder, it's possible they won't be displayed.  You may need to go back and re-insert them again with the new addon.  I apologize for any inconvenience.
+* Added a new box in the admin settings page for showing available addon plugins, and whether or not they are installed and activated.
+* I figure this sort of option may be useful in the future when developing additional addons.
+* Added a shortcode useage for line breaks in the editor.  By simply typing the shortcode <strong>[break]</strong>, you can insert line breaks in your post/page content that are safe while switching views and saving.  See the associated help file for more information on usage.
+* Added column support.  Now you can split your post/page content into multiple columns.<br /><br />Example usage:  [two_third]This content would be in a  column two-thirds of the page width.[/two_third][one_third_last]This is the last one-third of the width.[/one_third_last]<br /><br />See the associated help file for more information.
 
 = 1.6.9 =
 * Added a separate button for the "Advanced Insert/Edit Link" feature.  Now, you have a new button next to the wordpress buttons for linking and unlinking.  No more having to go back and forth to the plugin settings page.  Check the help file in the plugin settings page for more info.
