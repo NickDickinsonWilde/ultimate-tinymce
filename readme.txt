@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.2.1
 Tested up to: 3.3.1
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -32,10 +32,12 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "W
 <ul><li><a href="http://wordpress.org/extend/plugins/custom-welcome-messages/">Custom Welcome Messages</a> - Create custom login and logout pages.  Change the default wordpress login image, title, and link.</li><li><a href="http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/">Ultimate Moods Addon</a> - Add over 50 animated mood smilies to your content.</li></ul>
 
 <strong>Translations:</strong><br />
+Translating a plugin takes a lot of time, effort, and patience.  Especially with a plugin like Ultimate TinyMCE where there is a large admin panel options page with lots of text.  I really appreciate the hard work from these contributors.<br />
 <ul>
+<li>Italian:    David        - http://www.davidpesarin@wordpress.com </li>
 <li>Japanese:   Redcocker    - http://www.near-mint.com/blog/ </li>
 <li>Dutch:      keesiemeijer - http://codex.wordpress.org/User:Keesiemeijer </li>
-<li>Finnish:    markku       - </li>
+<li>Finnish:    markku</li>
 </ul>
 
 <strong>Bloggers:</strong> (Blog about my plugin and get listed here)<br />
@@ -122,6 +124,15 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 1.7.1 =
+* Fixed bug with the "Advanced Insert/Edit Link" button where NextGen Gallery button (and others) were not being displayed properly.
+* Fixed bug with the column shortcode usage.  (Was generating a warning, rendering certain code inoperable).
+* Fixed bug where the moods addon plugin was not showing as installed.  (Was always showing Inactive)
+* Added a couple of additional options with inserting YouTube videos.
+* Moved the animated moods button (when installed and activated) to row 2 of the editor.
+* Added Italian translation files.  Thanks <a href="http://www.davidpesarin@wordpress.com">David</a>.
+
 
 = 1.7.0 =
 * I decided to remove the animated mood smilies from the plugin.  The plugin now weighs a lean 2.78 megabytes.

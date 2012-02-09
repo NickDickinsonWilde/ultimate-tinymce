@@ -7,6 +7,10 @@ tinyMCE.addI18n('en.youtube_dlg',{
     autoplay: "Autoplay",
     relvideo: "Related videos",
     hd:"Watch in HD",
+	controls:"Show Controls",
+	showinfo:"Show Info",
+	autohide:"Fade Controls",
+	fade:"Fade",
     yes:"Yes",
     no:"No"
 });

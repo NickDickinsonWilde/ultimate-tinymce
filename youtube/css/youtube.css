@@ -22,3 +22,5 @@ table tr td{vertical-align:top;}
 .youtube-table-child tr td{
 	width:100px;
 }
+
+tr .space{height:20px;}

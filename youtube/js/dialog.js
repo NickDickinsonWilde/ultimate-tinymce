@@ -68,6 +68,26 @@ var YouTubeDialog = {
 	        	options += '&amp;hd=1';
             break;
 		}
+		//SELECT ShowInfo
+		//var showinfo = document.getElementById("youtubeshowinfo");
+		switch (f.youtubeshowinfo.value){
+	        case '0':
+	        	options += '';
+	        break;
+	        case '1':
+	        	options += '&amp;showinfo=0';
+            break;
+		}
+		//SELECT AutoHide
+		//var autohide = document.getElementById("youtubeautohide");
+		switch (f.youtubeautohide.value){
+	        case '0':
+	        	options += '';
+	        break;
+	        case '1':
+	        	options += '&amp;autohide=1';
+            break;
+		}
 		//Config Size Video
 		if(f.youtubeWidth.value != ''){
 			domSize += 'width: ' + f.youtubeWidth.value + ';';
