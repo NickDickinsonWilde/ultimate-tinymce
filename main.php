@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.7.1
+ * @version 1.7.2
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.7.1
+Version: 1.7.2
 Author URI: http://joshlobe.com
 
 */
@@ -261,7 +261,7 @@ add_action('admin_menu', 'jwl_admin_add_page');
             <div class="postbox2blog">
                 <h3 style="cursor:default;"><?php _e('Bloggers !!','jwl-ultimate-tinymce'); ?></h3>
                 <div class="inside2blog" style="padding:12px 12px 12px 12px;">
-                <?php _e('Like this plugin?  Blog about it on your website, link to my plugin page on my website <a target="_blank" href="http://www.joshlobe.com/2011/10/ultimate-tinymce/">HERE</a>, and I will add your website link (along with a thanks) to all my plugin pages including this page, the wordpress plugin page, and my website page.<br /><br />  The external links will mutually benefit the two of us in regards to search engine rankings.','jwl-ultimate-tinymce'); _e('<br /><br /><strong>Special Thanks to these bloggers:</strong><br /><ul><li><u>Tam</u> - <a href="http://www.buzzing-t.nl/" target="_blank">Buzzing-t.nl</a></li><li><u>Axel</u> - <a href="http://onewhole.eu/" target="_blank">Onewhole.eu</a></li><li><u>Vanessa</u> - <a href="http://www.vanytastisch.ch/" target="_blank">Vanytastisch.ch</a></li><li><u>Nadav</u> - <a href="http://animereviews.co" target="_blank">Animereviews.co</a></li><li><a href="http://blogigs.com/how-to-make-a-attractive-blog-post/" target="_blank">Blogigs</a></li><li><a href="http://www.untetheredincome.com/articles/wordpress/best-wordpress-plugins-2012/" target="_blank">Untethered Income</a></li></ul>', 'jwl-ultimate-tinymce'); ?>
+                <?php _e('Like this plugin?  Blog about it on your website, link to my plugin page on my website <a target="_blank" href="http://www.joshlobe.com/2011/10/ultimate-tinymce/">HERE</a>, and I will add your website link (along with a thanks) to all my plugin pages including this page, the wordpress plugin page, and my website page.<br /><br />  The external links will mutually benefit the two of us in regards to search engine rankings.','jwl-ultimate-tinymce'); _e('<br /><br /><strong>Special Thanks to these bloggers:</strong><br /><ul><li><u>Tam</u> - <a href="http://www.buzzing-t.nl/" target="_blank">Buzzing-t.nl</a></li><li><u>Axel</u> - <a href="http://onewhole.eu/" target="_blank">Onewhole.eu</a></li><li><u>Vanessa</u> - <a href="http://www.vanytastisch.ch/" target="_blank">Vanytastisch.ch</a></li><li><u>Nadav</u> - <a href="http://animereviews.co" target="_blank">Animereviews.co</a></li><li><a href="http://blogigs.com/how-to-make-a-attractive-blog-post/" target="_blank">Blogigs</a></li><li><a href="http://www.untetheredincome.com/articles/wordpress/best-wordpress-plugins-2012/" target="_blank">Untethered Income</a></li><li><u>Al Lamb</u> - <a href="http://www.bowierocks.com" target="_blank">BowieRocks</a></li></ul>', 'jwl-ultimate-tinymce'); ?>
                 
                 </div>
             </div>
@@ -703,12 +703,12 @@ add_action('admin_init', 'jwl_settings_api_init');
  
  function jwl_linebreak_callback_function() {
  	echo '<input name="jwl_linebreak_field_id" id="linebreak" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_linebreak_field_id'), false ) . ' /> ';
-	?><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/linebreak.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-left:10px;margin-bottom:-5px;" title="New Feature." /><span style="padding-left:10px;">Simply use the <b>[break]</b> shortcode<?php
+	?><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/linebreak.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-left:10px;margin-bottom:-5px;" title="New Feature." /><span style="padding-left:10px;"><?php _e('Simply use the <b>[break]</b> shortcode');
  }
  
  function jwl_columns_callback_function() {
  	echo '<input name="jwl_columns_field_id" id="columns" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_columns_field_id'), false ) . ' /> ';
-	?><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/columns.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-left:10px;margin-bottom:-5px;" title="New Feature." /><span style="padding-left:10px;">Ex. <b>[one-half]</b>This is the left column.<b>[/one-half]</b> <b>[one_half_last]</b>This is the right column.<b>[/one_half_last]</b><?php
+	?><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/columns.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-left:10px;margin-bottom:-5px;" title="New Feature." /><span style="padding-left:10px;"><?php _e('Ex. <b>[one_half]</b>This is the left column.<b>[/one_half]</b> <b>[one_half_last]</b>This is the right column.<b>[/one_half_last]</b>');
  }
  
  function jwl_signoff_callback_function() {
@@ -716,7 +716,7 @@ add_action('admin_init', 'jwl_settings_api_init');
 	echo get_option('jwl_signoff_field_id');
 	echo '</textarea>';
 	?><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/signoff.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><?php
-	echo '<br />Insert the above code using the <b>[signoff]</b> shortcode within your post.';
+	_e('<br />Insert the above code using the <b>[signoff]</b> shortcode within your post.');
  }
  
  // Callback functions for Advanced TinyMCE Features
@@ -1068,7 +1068,7 @@ function jwl_include_style_if_needed($posts) {
 	    wp_enqueue_style("jwl-column-style", $style);
 	} 
 	return $posts;
-
+}
 
 // These are the functions creating the shortcodes for column breaks.
 function jwl_one_third( $atts, $content = null ) { return '<div class="one_third">' . do_shortcode($content) . '</div>'; }
@@ -1102,6 +1102,5 @@ function jwl_make_shortcodes() {
 };
 
 jwl_make_shortcodes();
-}
 }
 ?>

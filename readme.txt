@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.2.1
 Tested up to: 3.3.1
-Stable tag: 1.7.1
+Stable tag: 1.7.2
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -34,7 +34,7 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "W
 <strong>Translations:</strong><br />
 Translating a plugin takes a lot of time, effort, and patience.  Especially with a plugin like Ultimate TinyMCE where there is a large admin panel options page with lots of text.  I really appreciate the hard work from these contributors.<br />
 <ul>
-<li>Italian:    David        - http://www.davidpesarin@wordpress.com </li>
+<li>Italian:    David        - http://www.davidpesarin.wordpress.com </li>
 <li>Japanese:   Redcocker    - http://www.near-mint.com/blog/ </li>
 <li>Dutch:      keesiemeijer - http://codex.wordpress.org/User:Keesiemeijer </li>
 <li>Finnish:    markku</li>
@@ -48,6 +48,7 @@ Translating a plugin takes a lot of time, effort, and patience.  Especially with
 <li>Nadav - http://animereviews.co</li>
 <li>Blogigs - http://blogigs.com/how-to-make-a-attractive-blog-post/</li>
 <li>Untethered Income - http://www.untetheredincome.com/articles/wordpress/best-wordpress-plugins-2012/</li>
+<li>Al Lamb - http://www.bowierocks.com</li>
 </ul>
 
 <strong>A Very Personal Special Thanks to:</strong><br />
@@ -125,13 +126,19 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 == Changelog ==
 
+= 1.7.2 =
+* Fixed bug with column shortcodes. (Seriously, this time ;)
+* Added a few translation strings from the admin panel, which were not previously available for translation.
+* Corrected David's website; in appreciation for Italian translation.
+* Fixed example with column shortcodes.  I accidentally used a hypen in the example rather than an underscore.  So, when using any column shortcode, you should ALWAYS use underscores.  For example, <strong>[one_half]</strong>Example COntent<strong>[/one_half]</strong>
+
 = 1.7.1 =
 * Fixed bug with the "Advanced Insert/Edit Link" button where NextGen Gallery button (and others) were not being displayed properly.
 * Fixed bug with the column shortcode usage.  (Was generating a warning, rendering certain code inoperable).
 * Fixed bug where the moods addon plugin was not showing as installed.  (Was always showing Inactive)
 * Added a couple of additional options with inserting YouTube videos.
 * Moved the animated moods button (when installed and activated) to row 2 of the editor.
-* Added Italian translation files.  Thanks <a href="http://www.davidpesarin@wordpress.com">David</a>.
+* Added Italian translation files.  Thanks <a href="http://www.davidpesarin.wordpress.com">David</a>.
 
 
 = 1.7.0 =
