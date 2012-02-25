@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.7.2
+ * @version 1.7.3
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.7.2
+Version: 1.7.3
 Author URI: http://joshlobe.com
 
 */
@@ -32,26 +32,10 @@ Author URI: http://joshlobe.com
 // Change our default Tinymce configuration values
 function jwl_change_mce_options($initArray) {
 
-	//$initArray['verify_html'] = false;
-	//$initArray['cleanup_on_startup'] = false;
-	//$initArray['cleanup'] = false;
-		// Removes the "Double Line Breaking" in the visual editor.  All line breaks will be a single line space.
-	//$initArray['forced_root_block'] = false;
+	
 	$initArray['popup_css'] = plugin_dir_url( __FILE__ ) . 'css/popup.css';
 	$initArray['theme_advanced_font_sizes'] = '6px=6px,8px=8px,10px=10px,12px=12px,14px=14px,16px=16px,18px=18px,20px=20px,22px=22px,24px=24px,28px=28px,32px=32px,36px=36px,40px=40px,44px=44px,48px=48px,52px=52px,62px=62px,72px=72px';
-	//$initArray['valid_elements'] = '*[*]';
-	//$initArray['extended_valid_elements'] = '*[*]';
-	//$initArray['validate_children'] = false;
-	//$initArray['force_p_newlines'] = false;
-	//$initArray['force_br_newlines'] = false;
-	//$initArray['fix_table_elements'] = false;
-	//$initArray['entities'] = '160,nbsp,38,amp,60,lt,62,gt';
-	//$initArray['paste_strip_class_attributes'] = 'none';
-		// Don't remove line breaks ??
-	//$initArray['remove_linebreaks'] = false;
-		// Preserve tab/space whitespace ??
-	//$initArray['preformatted'] = true;
-	//$initArray['remove_redundant_brs'] = false;
+	
 	$initArray['plugin_insertdate_dateFormat'] = '%B %d, %Y';  // added for inserttimedate proper format
 	$initArray['plugin_insertdate_timeFormat'] = '%I:%M:%S %p';  // added for inserttimedate proper format
 
@@ -60,15 +44,6 @@ function jwl_change_mce_options($initArray) {
 
 add_filter('tiny_mce_before_init', 'jwl_change_mce_options');
 
-
-// Testing extended tinymce element controls
-function test_tiny($Array) {
-  //$Array['convert_newlines_to_brs'] = true;  // saves line breaks only when saving... not when switching from visual to html, and back to visual.
-  //$Array['force_p_newlines'] = false;
-  
-  return $Array;
-}
-add_filter('tiny_mce_before_init', 'test_tiny');
 
 // Set our language localization folder (used for adding translations)
 function jwl_ultimate_tinymce() {
@@ -133,7 +108,7 @@ add_action('admin_menu', 'jwl_admin_add_page');
 					<?php do_settings_sections('ultimate-tinymce'); ?>
                     <?php settings_fields('jwl_options_group'); ?><br /><br />
                    
-                   <br /><br />     
+                   <br /><br /> 
                 <!-- </div> -->
                 </div>
                 <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save your Selection','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center><br /> <br />
@@ -167,7 +142,9 @@ add_action('admin_menu', 'jwl_admin_add_page');
                 <!-- </div> -->
                 </div>
                 
-                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save your Selection','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
+                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save your Selection','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center><br /><br />
+                
+                
                 </form>
             </div>
               
@@ -198,6 +175,34 @@ add_action('admin_menu', 'jwl_admin_add_page');
 				<?php _e('These addons provide additional features for Ultimate TinyMCE.  Click the title to view the download page.','jwl-ultimate-tinymce');
                 echo '<br /><br /><a target="_blank" title="Add over 50 animated smilies to your content." href="http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/">Ultimate Moods Addon</a> - ';
 				if (is_plugin_active('moods-addon-for-ultimate-tinymce/main.php')) {
+				echo '<span style="color:green;padding-left:15px;">Activated</span>';
+				?>
+				<img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has been installed and activated successfully." />
+                <?php
+				}
+				else {
+				echo '<span style="color:red;padding-left:15px;">Not Activated</span>';
+				?>
+				<img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has NOT been activated." />
+                <?php
+				}
+				
+				echo '<br /><br /><a target="_blank" title="Easily Integrate Google Webfonts into your Website." href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/">Ultimate Google Webfonts</a> - ';
+				if (is_plugin_active('ultimate_tinymce_google_webfonts_addon/main.php')) {
+				echo '<span style="color:green;padding-left:15px;">Activated</span>';
+				?>
+				<img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has been installed and activated successfully." />
+                <?php
+				}
+				else {
+				echo '<span style="color:red;padding-left:15px;">Not Activated</span>';
+				?>
+				<img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has NOT been activated." />
+                <?php
+				}
+				
+				echo '<br /><br /><a target="_blank" title="Easily add custom styles to your content." href="http://www.plugins.joshlobe.com/ultimate-tinymce-custom-styles/">Ultimate Custom Styles</a> - ';
+				if (is_plugin_active('ultimate_tinymce_custom_styles_addon/main.php')) {
 				echo '<span style="color:green;padding-left:15px;">Activated</span>';
 				?>
 				<img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has been installed and activated successfully." />
@@ -332,7 +337,7 @@ add_action('admin_menu', 'jwl_admin_add_page');
                 <input type="checkbox" name="field-2a733a58a89d340[]" id="field-2a733a58a89d340_2" value="&quot;Help&quot; Popups" /> &quot;Help&quot; Popups<br/>
 		</td></tr>
 		<tr><td valign="top"><strong>Please feel free to leave any additional feedback here...</strong></td></tr>
-        <tr><td valign="top"><textarea name="field-b0cb8c2a6a616ee" id="field-b0cb8c2a6a616ee" rows="6" cols="40"></textarea></td></tr>
+        <tr><td valign="top"><textarea name="field-b0cb8c2a6a616ee" id="field-b0cb8c2a6a616ee" rows="6" cols="35"></textarea></td></tr>
 		<tr><td colspan="2" align="center"><input type="submit" value=" Submit Form " /></td></tr>
 	</table>
 </form>
@@ -350,7 +355,7 @@ add_action('admin_menu', 'jwl_admin_add_page');
                 
                 <!-- // Begin Pollhost.com Poll Code // -->
 <div style="border:1px solid black;">
-<form method=post action=http://poll.pollhost.com/vote.cgi><table border=0 width=297 bgcolor=#EEEEEE cellspacing=0 cellpadding=2><tr><td colspan=2><font face="Verdana" size=-1 color="#000000"><b>Which feature would you like to see?</b></font></td></tr><tr><td width=5><input type=radio name=answer value=1></td><td><font face="Verdana" size=-1 color="#000000">Better Tables Control and Usage</font></td></tr><tr><td width=5><input type=radio name=answer value=2></td><td><font face="Verdana" size=-1 color="#000000">Better Cross-Browser Compatibility</font></td></tr><tr><td width=5><input type=radio name=answer value=3></td><td><font face="Verdana" size=-1 color="#000000">More examples in the Help Popups</font></td></tr><tr><td width=5><input type=radio name=answer value=4></td><td><font face="Verdana" size=-1 color="#000000">A Shortcodes Manager</font></td></tr><tr><td width=5><input type=radio name=answer value=5></td><td><font face="Verdana" size=-1 color="#000000">A Custom Styles Manager</font></td></tr><tr><td colspan=2><input type=hidden name=config value="am9zaDQwMQkxMzI2NjkxMDQ5CUVFRUVFRQkwMDAwMDAJVmVyZGFuYQlBc3NvcnRlZA"><center><input type=submit value=Vote>&nbsp;&nbsp;<input type=submit name=view value=View></center></td></tr><tr><td bgcolor=#FFFFFF colspan=2 align=right><font face="Verdana" size=-2 color="#000000"><a href=http://www.pollhost.com/><font color=#000099>Free polls from Pollhost.com</font></a></font></td></tr></table></form>
+<form method=post action=http://poll.pollhost.com/vote.cgi><table border=0 width=260 bgcolor=#EEEEEE cellspacing=0 cellpadding=2><tr><td colspan=2><font face="Verdana" size=-1 color="#000000"><b>Which feature would you like to see?</b></font></td></tr><tr><td width=5><input type=radio name=answer value=1></td><td><font face="Verdana" size=-1 color="#000000">Better Tables Control and Usage</font></td></tr><tr><td width=5><input type=radio name=answer value=2></td><td><font face="Verdana" size=-1 color="#000000">Better Cross-Browser Compatibility</font></td></tr><tr><td width=5><input type=radio name=answer value=3></td><td><font face="Verdana" size=-1 color="#000000">More examples in the Help Popups</font></td></tr><tr><td width=5><input type=radio name=answer value=4></td><td><font face="Verdana" size=-1 color="#000000">A Shortcodes Manager</font></td></tr><tr><td width=5><input type=radio name=answer value=5></td><td><font face="Verdana" size=-1 color="#000000">A Custom Styles Manager</font></td></tr><tr><td colspan=2><input type=hidden name=config value="am9zaDQwMQkxMzI2NjkxMDQ5CUVFRUVFRQkwMDAwMDAJVmVyZGFuYQlBc3NvcnRlZA"><center><input type=submit value=Vote>&nbsp;&nbsp;<input type=submit name=view value=View></center></td></tr><tr><td bgcolor=#FFFFFF colspan=2 align=right><font face="Verdana" size=-2 color="#000000"><a href=http://www.pollhost.com/><font color=#000099>Free polls from Pollhost.com</font></a></font></td></tr></table></form>
 </div>
 <!-- // End Pollhost.com Poll Code // -->
 
@@ -372,6 +377,7 @@ function jwl_settings_api_init() {
 	add_settings_section('jwl_setting_section2', __('Row 4 Button Settings','jwl-ultimate-tinymce'), 'jwl_setting_section_callback_function2', 'ultimate-tinymce2');
 	add_settings_section('jwl_setting_section3', __('Miscellaneous Options and Features','jwl-ultimate-tinymce'), 'jwl_setting_section_callback_function3', 'ultimate-tinymce3');
 	add_settings_section('jwl_setting_section4', __('Enable Advanced TinyMCE Features','jwl-ultimate-tinymce'), 'jwl_setting_section_callback_function4', 'ultimate-tinymce4');
+
  	
  	// This adds our individual settings to each option group defined above.	
 	// These are the settings for Row 3
@@ -390,6 +396,7 @@ function jwl_settings_api_init() {
 	add_settings_field('jwl_search_field_id', __('Search Box','jwl-ultimate-tinymce'), 'jwl_search_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	add_settings_field('jwl_replace_field_id', __('Replace Box','jwl-ultimate-tinymce'), 'jwl_replace_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	add_settings_field('jwl_datetime_field_id', __('Insert Date/Time Box','jwl-ultimate-tinymce'), 'jwl_datetime_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	add_settings_field('jwl_googlemaps_field_id', __('Insert Google Maps Box','jwl-ultimate-tinymce'), 'jwl_googlemaps_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	
 	// These are the settings for Row 4
 	add_settings_field('jwl_styleselect_field_id', __('Style Select Box','jwl-ultimate-tinymce'), 'jwl_styleselect_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
@@ -411,8 +418,10 @@ function jwl_settings_api_init() {
 	add_settings_field('jwl_imgmap_field_id', __('Image Map Editor Box','jwl-ultimate-tinymce'), 'jwl_imgmap_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
 	add_settings_field('jwl_visualchars_field_id', __('Toggle Visual Characters Box','jwl-ultimate-tinymce'), 'jwl_visualchars_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
 	add_settings_field('jwl_print_field_id', __('Print Box','jwl-ultimate-tinymce'), 'jwl_print_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_shortcodes_field_id', __('Shortcodes Select Box','jwl-ultimate-tinymce'), 'jwl_shortcodes_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
 	
 	// Settings for miscellaneous options and features
+	add_settings_field('jwl_tinycolor_css_field_id', __('Change the color of the Editor.','jwl-ultimate-tinymce'), 'jwl_tinycolor_css_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	add_settings_field('jwl_tinymce_nextpage_field_id', __('Enable NextPage (PageBreak) Feature.','jwl-ultimate-tinymce'), 'jwl_tinymce_nextpage_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	add_settings_field('jwl_tinymce_excerpt_field_id', __('Add tinymce editor to excerpt area.','jwl-ultimate-tinymce'), 'jwl_tinymce_excerpt_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	add_settings_field('jwl_postid_field_id', __('Add ID Column to page/post admin list.','jwl-ultimate-tinymce'), 'jwl_postid_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
@@ -426,6 +435,8 @@ function jwl_settings_api_init() {
 	add_settings_field('jwl_defaults_field_id', __('Enable Advanced Insert/Edit Link','jwl-ultimate-tinymce'), 'jwl_defaults_callback_function', 'ultimate-tinymce4', 'jwl_setting_section4');
 	add_settings_field('jwl_custom_styles_field_id', __('Enable Advanced Custom Styles','jwl-ultimate-tinymce'), 'jwl_custom_styles_callback_function', 'ultimate-tinymce4', 'jwl_setting_section4');
 	add_settings_field('jwl_div_field_id', __('Enable "Div Clear" Ability','jwl-ultimate-tinymce'), 'jwl_div_callback_function', 'ultimate-tinymce4', 'jwl_setting_section4');
+	add_settings_field('jwl_autop_field_id', __('Remove <b>p</b> and <b>br</b> tags','jwl-ultimate-tinymce'), 'jwl_autop_callback_function', 'ultimate-tinymce4', 'jwl_setting_section4');
+	
  	
 	// Register our settings so that $_POST handling is done for us and our callback function just has to echo the <input>.
 	// Register settings for Row 3
@@ -444,6 +455,7 @@ function jwl_settings_api_init() {
 	register_setting('jwl_options_group','jwl_search_field_id');
 	register_setting('jwl_options_group','jwl_replace_field_id');
 	register_setting('jwl_options_group','jwl_datetime_field_id');
+	register_setting('jwl_options_group','jwl_googlemaps_field_id');
 	
 	// Register settings for Row 4
 	register_setting('jwl_options_group','jwl_styleselect_field_id');
@@ -465,8 +477,10 @@ function jwl_settings_api_init() {
 	register_setting('jwl_options_group','jwl_imgmap_field_id');
 	register_setting('jwl_options_group','jwl_visualchars_field_id');
 	register_setting('jwl_options_group','jwl_print_field_id');
+	register_setting('jwl_options_group','jwl_shortcodes_field_id');
 	
 	// Register Settings for miscellaneous options and features
+	register_setting('jwl_options_group','jwl_tinycolor_css_field_id');
 	register_setting('jwl_options_group','jwl_tinymce_nextpage_field_id');
 	register_setting('jwl_options_group','jwl_tinymce_excerpt_field_id');
 	register_setting('jwl_options_group','jwl_postid_field_id');
@@ -480,6 +494,8 @@ function jwl_settings_api_init() {
 	register_setting('jwl_options_group','jwl_defaults_field_id');
 	register_setting('jwl_options_group','jwl_custom_styles_field_id');
 	register_setting('jwl_options_group','jwl_div_field_id');
+	register_setting('jwl_options_group','jwl_autop_field_id');
+	
 }
 add_action('admin_init', 'jwl_settings_api_init');  
  
@@ -576,6 +592,11 @@ add_action('admin_init', 'jwl_settings_api_init');
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/datetime.png" style="margin-left:10px;margin-bottom:-5px;" /><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/datetime.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:32px;margin-bottom:-5px;" title="Click for Help" /></a><?php
  }
  
+ function jwl_googlemaps_callback_function() {
+ 	echo '<input name="jwl_googlemaps_field_id" id="googlemaps" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_googlemaps_field_id'), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/googlemaps.png" style="margin-left:10px;margin-bottom:-5px;" /><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/googlemaps.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:66px;margin-bottom:-5px;" title="Click for Help" /></a><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-left:10px;margin-bottom:-5px;" title="New Feature." /><?php
+ }
+ 
 // Begin Callback functions for each individual setting registered in code above.
 // Callback Functions for Row 4 Buttons
  
@@ -586,7 +607,7 @@ add_action('admin_init', 'jwl_settings_api_init');
  
  function jwl_tableDropdown_callback_function() {
  	echo '<input name="jwl_tableDropdown_field_id" id="tableDropdown" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_tableDropdown_field_id'), false ) . ' /> ';
-	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/tableDropdown.png" style="margin-left:10px;margin-bottom:-5px;" /><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/tableDropdown.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:67px;margin-bottom:-5px;" title="Click for Help" /></a><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-left:10px;margin-bottom:-5px;" title="New Feature." /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/tableDropdown.png" style="margin-left:10px;margin-bottom:-5px;" /><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/tableDropdown.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:67px;margin-bottom:-5px;" title="Click for Help" /></a><?php
  }
  
  function jwl_emotions_callback_function() {
@@ -674,11 +695,39 @@ add_action('admin_init', 'jwl_settings_api_init');
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/print.png" style="margin-left:10px;margin-bottom:-5px;" /><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/print.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:66px;margin-bottom:-5px;" title="Click for Help" /></a><?php
  }
  
+ function jwl_shortcodes_callback_function() {
+ 	echo '<input name="jwl_shortcodes_field_id" id="shortcodes" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_shortcodes_field_id'), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/shortcodes.png" style="margin-left:10px;margin-bottom:-5px;" /><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/shortcodes.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-left:10px;margin-bottom:-5px;" title="New Feature." /><?php
+ }
+ 
+ 
+ 
  // Callback functions for miscellaneous options and features
+ // Function and Settings for Tinymce editor color changes
+ function jwl_tinycolor_css_callback_function() {
+	$options = get_option('jwl_tinycolor_css_field_id');
+	$items = array("Default", "Pink", "Green", "Dark&Green", "Dark&Pink", "Rainbow", "Steel");
+	echo "<select id='tinycolor' name='jwl_tinycolor_css_field_id[tinycolor]'>";
+	foreach($items as $item) {
+		$selected = ($options['tinycolor']==$item) ? 'selected="selected"' : '';
+		echo "<option value='$item' $selected>$item</option>";
+	}
+	echo "</select>";
+	?><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/tinycolor.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-left:10px;margin-bottom:-5px;" title="New Feature." /><?php
+ }
+ 
+ function change_mce_colors() {
+   $options2 = get_option('jwl_tinycolor_css_field_id');
+   $current_option = strtolower($options2['tinycolor']);
+   $colorurl = plugin_dir_url( __FILE__ ) . 'css/change_mce_'.$current_option.'.css';  // Color Options
+   wp_register_style('tiny_color_mce', $colorurl, '', 1.0, 'screen');
+   wp_enqueue_style('tiny_color_mce');
+ }
+ add_action('admin_head', 'change_mce_colors');
  
  function jwl_tinymce_nextpage_callback_function() {
  	echo '<input name="jwl_tinymce_nextpage_field_id" id="tinymce_nextpage" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_tinymce_nextpage_field_id'), false ) . ' /> ';
-	?><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/nextpage.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-left:10px;margin-bottom:-5px;" title="New Feature." /><?php
+	?><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/nextpage.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><?php
  }
  
  function jwl_tinymce_excerpt_callback_function() {
@@ -703,12 +752,12 @@ add_action('admin_init', 'jwl_settings_api_init');
  
  function jwl_linebreak_callback_function() {
  	echo '<input name="jwl_linebreak_field_id" id="linebreak" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_linebreak_field_id'), false ) . ' /> ';
-	?><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/linebreak.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-left:10px;margin-bottom:-5px;" title="New Feature." /><span style="padding-left:10px;"><?php _e('Simply use the <b>[break]</b> shortcode');
+	?><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/linebreak.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><span style="padding-left:10px;"><?php _e('Simply use the <b>[break]</b> shortcode');
  }
  
  function jwl_columns_callback_function() {
  	echo '<input name="jwl_columns_field_id" id="columns" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_columns_field_id'), false ) . ' /> ';
-	?><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/columns.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-left:10px;margin-bottom:-5px;" title="New Feature." /><span style="padding-left:10px;"><?php _e('Ex. <b>[one_half]</b>This is the left column.<b>[/one_half]</b> <b>[one_half_last]</b>This is the right column.<b>[/one_half_last]</b>');
+	?><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/columns.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><span style="padding-left:10px;"><?php _e('Ex. <b>[one_half]</b>This is the left column.<b>[/one_half]</b> <b>[one_half_last]</b>This is the right column.<b>[/one_half_last]</b>');
  }
  
  function jwl_signoff_callback_function() {
@@ -722,7 +771,7 @@ add_action('admin_init', 'jwl_settings_api_init');
  // Callback functions for Advanced TinyMCE Features
  function jwl_defaults_callback_function() {
  	echo '<input name="jwl_defaults_field_id" id="defaults" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_defaults_field_id'), false ) . ' /> ';
-	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>advlink/advlink.png" style="margin-left:10px;margin-bottom:-5px;" /><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/advlink.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-left:10px;margin-bottom:-5px;" title="New Feature." /><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>advlink/advlink.png" style="margin-left:10px;margin-bottom:-5px;" /><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/advlink.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><?php
  }
  
  function jwl_custom_styles_callback_function() {
@@ -734,6 +783,12 @@ add_action('admin_init', 'jwl_settings_api_init');
  	echo '<input name="jwl_div_field_id" id="div" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_div_field_id'), false ) . ' /> ';
 	?><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/divclear.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><?php
  }
+ 
+ function jwl_autop_callback_function() {
+ 	echo '<input name="jwl_autop_field_id" id="autop" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_autop_field_id'), false ) . ' /> ';
+	?><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/autop.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:10px;margin-bottom:-5px;" title="Click for Help" /></a><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-left:10px;margin-bottom:-5px;" title="New Feature." /><span style="margin-left:15px;"><?php _e('(Disable wpautop) - <b>Read the help file first</b>.'); ?></span><?php 
+ }
+ 
 
 // Finally, our custom functions for how we want the options to work.
 // Functions for Row 3
@@ -768,6 +823,8 @@ function tinymce_add_button_search($buttons) { $jwl_search = get_option('jwl_sea
 function tinymce_add_button_replace($buttons) { $jwl_replace = get_option('jwl_replace_field_id'); if ($jwl_replace == "1") $buttons[] = 'replace'; return $buttons; } add_filter("mce_buttons_3", "tinymce_add_button_replace");
 
 function tinymce_add_button_datetime($buttons) { $jwl_datetime = get_option('jwl_datetime_field_id'); if ($jwl_datetime == "1") $buttons[] = 'insertdate,inserttime'; return $buttons; } add_filter("mce_buttons_3", "tinymce_add_button_datetime");
+
+function tinymce_add_button_googlemaps($buttons) { $jwl_googlemaps = get_option('jwl_googlemaps_field_id'); if ($jwl_googlemaps == "1") $buttons[] = 'googlemaps'; return $buttons; } add_filter("mce_buttons_3", "tinymce_add_button_googlemaps");
 
 // Functions for Row 4
 function tinymce_add_button_styleselect($buttons) { $jwl_styleselect = get_option('jwl_styleselect_field_id'); if ($jwl_styleselect == "1") $buttons[] = 'styleselect'; return $buttons; } add_filter("mce_buttons_4", "tinymce_add_button_styleselect");
@@ -843,6 +900,9 @@ if ($jwl_custom_styles == "1") {
         array( 'title' => __('Bold Red Text','jwl-ultimate-tinymce'), 'inline' => 'span', 'styles' => array( 'color' => '#FF0000', 'fontWeight' => 'bold' )),
 		array( 'title' => __('Bold Green Text','jwl-ultimate-tinymce'), 'inline' => 'span', 'styles' => array( 'color' => '#00FF00', 'fontWeight' => 'bold' )),
 		array( 'title' => __('Bold Blue Text','jwl-ultimate-tinymce'), 'inline' => 'span', 'styles' => array( 'color' => '#0000FF', 'fontWeight' => 'bold' )),
+		array( 'title' => __('Italic Red Text','jwl-ultimate-tinymce'), 'inline' => 'span', 'styles' => array( 'color' => '#FF0000', 'font-style' => 'italic' )),
+		array( 'title' => __('Italic Green Text','jwl-ultimate-tinymce'), 'inline' => 'span', 'styles' => array( 'color' => '#00FF00', 'font-style' => 'italic' )),
+		array( 'title' => __('Italic Blue Text','jwl-ultimate-tinymce'), 'inline' => 'span', 'styles' => array( 'color' => '#0000FF', 'font-style' => 'italic' )),
 		array( 'title' => __('Borders','jwl-ultimate-tinymce')),
 		array( 'title' => __('Border Black','jwl-ultimate-tinymce'), 'inline' => 'span', 'styles' => array( 'border' => '1px solid #000000', 'padding' => '2px' )),
 		array( 'title' => __('Border Red','jwl-ultimate-tinymce'), 'inline' => 'span', 'styles' => array( 'border' => '1px solid #FF0000', 'padding' => '2px' )),
@@ -852,10 +912,10 @@ if ($jwl_custom_styles == "1") {
 		array( 'title' => __('Float Left','jwl-ultimate-tinymce'), 'block' => 'span', 'styles' => array( 'float' => 'left' )),
 		array( 'title' => __('Float Right','jwl-ultimate-tinymce'), 'block' => 'span', 'styles' => array( 'float' => 'right' )),
 		array( 'title' => __('Alerts','jwl-ultimate-tinymce')),
-		array( 'title' => __('Normal Alert','jwl-ultimate-tinymce'), 'block' => 'div', 'styles' => array( 'border' => 'solid 1px #DEDEDE', 'background' => '#EFEFEF url('.plugin_dir_url( __FILE__ ).'img/normal.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
-		array( 'title' => __('Green Alert','jwl-ultimate-tinymce'), 'block' => 'div', 'styles' => array( 'border' => 'solid 1px #1EDB0D', 'background' => '#A9FCA2 url('.plugin_dir_url( __FILE__ ).'img/green.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
-		array( 'title' => __('Yellow Alert','jwl-ultimate-tinymce'), 'block' => 'div', 'styles' => array( 'border' => 'solid 1px #F5F531', 'background' => '#FAFAB9 url('.plugin_dir_url( __FILE__ ).'img/yellow.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
-		array( 'title' => __('Red Alert','jwl-ultimate-tinymce'), 'block' => 'div', 'styles' => array( 'border' => 'solid 1px #ED220C', 'background' => '#FABDB6 url('.plugin_dir_url( __FILE__ ).'img/red.png) 8px 4px no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  ))
+		array( 'title' => __('Normal Alert','jwl-ultimate-tinymce'), 'block' => 'div', 'styles' => array( 'border' => 'solid 1px #DEDEDE', 'background' => '#EFEFEF url('.plugin_dir_url( __FILE__ ).'img/normal.png) 8px 4px no-repeat', 'background-repeat' => 'no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
+		array( 'title' => __('Green Alert','jwl-ultimate-tinymce'), 'block' => 'div', 'styles' => array( 'border' => 'solid 1px #1EDB0D', 'background' => '#A9FCA2 url('.plugin_dir_url( __FILE__ ).'img/green.png) 8px 4px no-repeat', 'background-repeat' => 'no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
+		array( 'title' => __('Yellow Alert','jwl-ultimate-tinymce'), 'block' => 'div', 'styles' => array( 'border' => 'solid 1px #F5F531', 'background' => '#FAFAB9 url('.plugin_dir_url( __FILE__ ).'img/yellow.png) 8px 4px no-repeat', 'background-repeat' => 'no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  )),
+		array( 'title' => __('Red Alert','jwl-ultimate-tinymce'), 'block' => 'div', 'styles' => array( 'border' => 'solid 1px #ED220C', 'background' => '#FABDB6 url('.plugin_dir_url( __FILE__ ).'img/red.png) 8px 4px no-repeat', 'background-repeat' => 'no-repeat', 'color' => '#222222' , 'padding' => '4px 4px 4px 30px' , 'text-align' => 'left'  ))
    	    );
 
     	$settings['style_formats'] = json_encode( $style_formats );
@@ -871,7 +931,13 @@ if ($jwl_div == "1")
 array_push($buttons, "separator", "clearleft","clearright","clearboth");
    return $buttons;
 }
-add_filter("mce_buttons", "tinymce_add_button_div");
+add_filter('mce_buttons', 'tinymce_add_button_div');
+
+// Function to remove wpautop
+$jwl_autop = get_option('jwl_autop_field_id');
+if ($jwl_autop == "1"){
+	remove_filter ('the_content', 'wpautop');
+}
 
 // Functions for miscellaneous options and features
 // Function for NextPage Feature
@@ -1019,31 +1085,32 @@ add_shortcode('signoff', 'jwl_sign_off_text');
 
 
 // Add the plugin array for extra features
-function jwl_mce_external_plugins( $plugin_array ) {
-		$plugin_array['table'] = plugin_dir_url( __FILE__ ) . 'table/editor_plugin.js';
-		$plugin_array['emotions'] = plugin_dir_url(__FILE__) . 'emotions/editor_plugin.js';
-		$plugin_array['advlist'] = plugin_dir_url(__FILE__) . 'advlist/editor_plugin.js';
-		$plugin_array['advimage'] = plugin_dir_url(__FILE__) . 'advimage/editor_plugin.js';
-		$plugin_array['searchreplace'] = plugin_dir_url(__FILE__) . 'searchreplace/editor_plugin.js';
-		$plugin_array['preview'] = plugin_dir_url(__FILE__) . 'preview/editor_plugin.js';
-		$plugin_array['xhtmlxtras'] = plugin_dir_url(__FILE__) . 'xhtmlxtras/editor_plugin.js';
-		$plugin_array['style'] = plugin_dir_url(__FILE__) . 'style/editor_plugin.js';
-		$plugin_array['media'] = plugin_dir_url(__FILE__) . 'media/editor_plugin.js';
-		$plugin_array['advhr'] = plugin_dir_url(__FILE__) . 'advhr/editor_plugin.js';
-		$plugin_array['clear'] = plugin_dir_url( __FILE__ ) . 'clear/editor_plugin.js';
-		$plugin_array['tableDropdown'] = plugin_dir_url( __FILE__ ) . 'tableDropdown/editor_plugin.js';
-		$plugin_array['codemagic'] = plugin_dir_url( __FILE__ ) . 'codemagic/editor_plugin.js';
-		$plugin_array['youtube'] = plugin_dir_url( __FILE__ ) . 'youtube/editor_plugin.js';
-		$plugin_array['imgmap'] = plugin_dir_url( __FILE__ ) . 'imgmap/editor_plugin.js';
-		$plugin_array['visualchars'] = plugin_dir_url( __FILE__ ) . 'visualchars/editor_plugin.js';
-		$plugin_array['print'] = plugin_dir_url( __FILE__ ) . 'print/editor_plugin.js';
-		$plugin_array['insertdatetime'] = plugin_dir_url( __FILE__ ) . 'insertdatetime/editor_plugin.js';
+function jwl_mce_external_plugins( $jwl_plugin_array ) {
+		$jwl_plugin_array['table'] = plugin_dir_url( __FILE__ ) . 'table/editor_plugin.js';
+		$jwl_plugin_array['emotions'] = plugin_dir_url(__FILE__) . 'emotions/editor_plugin.js';
+		$jwl_plugin_array['advlist'] = plugin_dir_url(__FILE__) . 'advlist/editor_plugin.js';
+		$jwl_plugin_array['advimage'] = plugin_dir_url(__FILE__) . 'advimage/editor_plugin.js';
+		$jwl_plugin_array['searchreplace'] = plugin_dir_url(__FILE__) . 'searchreplace/editor_plugin.js';
+		$jwl_plugin_array['preview'] = plugin_dir_url(__FILE__) . 'preview/editor_plugin.js';
+		$jwl_plugin_array['xhtmlxtras'] = plugin_dir_url(__FILE__) . 'xhtmlxtras/editor_plugin.js';
+		$jwl_plugin_array['style'] = plugin_dir_url(__FILE__) . 'style/editor_plugin.js';
+		$jwl_plugin_array['media'] = plugin_dir_url(__FILE__) . 'media/editor_plugin.js';
+		$jwl_plugin_array['advhr'] = plugin_dir_url(__FILE__) . 'advhr/editor_plugin.js';
+		$jwl_plugin_array['clear'] = plugin_dir_url( __FILE__ ) . 'clear/editor_plugin.js';
+		$jwl_plugin_array['tableDropdown'] = plugin_dir_url( __FILE__ ) . 'tableDropdown/editor_plugin.js';
+		$jwl_plugin_array['codemagic'] = plugin_dir_url( __FILE__ ) . 'codemagic/editor_plugin.js';
+		$jwl_plugin_array['youtube'] = plugin_dir_url( __FILE__ ) . 'youtube/editor_plugin.js';
+		$jwl_plugin_array['imgmap'] = plugin_dir_url( __FILE__ ) . 'imgmap/editor_plugin.js';
+		$jwl_plugin_array['visualchars'] = plugin_dir_url( __FILE__ ) . 'visualchars/editor_plugin.js';
+		$jwl_plugin_array['print'] = plugin_dir_url( __FILE__ ) . 'print/editor_plugin.js';
+		$jwl_plugin_array['insertdatetime'] = plugin_dir_url( __FILE__ ) . 'insertdatetime/editor_plugin.js';
+		$jwl_plugin_array['googlemaps'] = plugin_dir_url( __FILE__ ) . 'googlemaps/editor_plugin.js';
 		   
-		return $plugin_array;
+		return $jwl_plugin_array;
 }
 add_filter( 'mce_external_plugins', 'jwl_mce_external_plugins' );
 
-//function tinymce_add_button_keywordextractor($buttons) { $buttons[] = 'keywordextractor'; return $buttons; } add_filter("mce_buttons_4", "tinymce_add_button_keywordextractor");
+//function tinymce_add_button_googlemaps($buttons) { $buttons[] = 'googlemaps'; return $buttons; } add_filter("mce_buttons_4", "tinymce_add_button_googlemaps");
 
 // Add column shortcodes for tinymce editor
 $jwl_columns = get_option('jwl_columns_field_id');
@@ -1069,6 +1136,7 @@ function jwl_include_style_if_needed($posts) {
 	} 
 	return $posts;
 }
+
 
 // These are the functions creating the shortcodes for column breaks.
 function jwl_one_third( $atts, $content = null ) { return '<div class="one_third">' . do_shortcode($content) . '</div>'; }
@@ -1102,5 +1170,48 @@ function jwl_make_shortcodes() {
 };
 
 jwl_make_shortcodes();
+}
+
+// Functions for shortcodes dropdown in editor
+$jwl_shortcodes = get_option('jwl_shortcodes_field_id');
+if ($jwl_shortcodes == "1") {
+
+if(!class_exists('ShortcodesEditorSelector')):
+ 
+class ShortcodesEditorSelector{
+	var $buttonName = 'ShortcodeSelector';
+	function addSelector(){
+		// Don't bother doing this stuff if the current user lacks permissions
+		if ( ! current_user_can('edit_posts') && ! current_user_can('edit_pages') )
+			return;
+ 
+	   // Add only in Rich Editor mode
+	    if ( get_user_option('rich_editing') == 'true') {
+	      add_filter('mce_external_plugins', array($this, 'registerTmcePlugin'));
+	      //you can use the filters mce_buttons_2, mce_buttons_3 and mce_buttons_4 
+	      //to add your button to other toolbars of your tinymce
+	      add_filter('mce_buttons_4', array($this, 'registerButton'));
+	    }
+	}
+ 
+	function registerButton($buttons){
+		array_push($buttons, $this->buttonName);
+		return $buttons;
+	}
+ 
+	function registerTmcePlugin($plugin_array_shortcodes){
+		$plugin_array_shortcodes[$this->buttonName] = plugin_dir_url( __FILE__ ) . 'shortcodes-editor-selector/editor_plugin.js.php';
+		if ( get_user_option('rich_editing') == 'true') 
+		 	//var_dump($plugin_array_shortcodes);
+		return $plugin_array_shortcodes;
+	}
+}
+ 
+endif;
+ 
+if(!isset($shortcodesES)){
+	$shortcodesES = new ShortcodesEditorSelector();
+	add_action('admin_head', array($shortcodesES, 'addSelector'));
+}
 }
 ?>
