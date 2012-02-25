@@ -33,7 +33,7 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "W
 <ul><li><a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">Support Forum</a></li><li><a href="http://www.joshlobe.com/2011/10/ultimate-tinymce/">Ultimate TinyMCE Plugin HomePage</a></li><li>Follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> to be notified of new video tutorials.</li></ul>
 
 <strong>Other Plugins by Josh:</strong><br />
-<ul><li><a href="http://wordpress.org/extend/plugins/custom-welcome-messages/">Custom Welcome Messages</a> - Create custom login and logout pages.  Change the default wordpress login image, title, and link.</li><li><a href="http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/">Ultimate Moods Addon</a> - Add over 50 animated mood smilies to your content.</li></ul>
+<ul><li><a href="http://wordpress.org/extend/plugins/custom-welcome-messages/">Custom Welcome Messages</a> - Create custom login and logout pages.  Change the default wordpress login image, title, and link.</li><li><a href="http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/">Ultimate Moods Addon</a> - Add over 50 animated mood smilies to your content.</li><li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/">Ultimate Google Webfonts Addon</a> - Easily add any combination of Google Webfonts to your website without compromising page loading time.</li></ul>
 
 <strong>Translations:</strong><br />
 Translating a plugin takes a lot of time, effort, and patience.  Especially with a plugin like Ultimate TinyMCE where there is a large admin panel options page with lots of text.  I really appreciate the hard work from these contributors.<br />
