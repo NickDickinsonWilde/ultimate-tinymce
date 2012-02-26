@@ -1,17 +1,22 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.7.3
+ * @version 1.7.3.1
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.7.3
+Version: 1.7.3.1
 Author URI: http://joshlobe.com
 
 */
+
+add_action('activated_plugin','save_error');
+function save_error(){
+    update_option('plugin_error',  ob_get_contents());
+}
 
 /*  Copyright 2011  Josh Lobe  (email : joshlobe@joshlobe.com)
 
@@ -106,7 +111,7 @@ add_action('admin_menu', 'jwl_admin_add_page');
                 <!-- <div class="inside" style="padding:0px 0px 0px 0px;"> -->
                 	
 					<?php do_settings_sections('ultimate-tinymce'); ?>
-                    <?php settings_fields('jwl_options_group'); ?><br /><br />
+                    <?php settings_fields('jwl_options_group'); echo get_option('plugin_error'); ?><br /><br />
                    
                    <br /><br /> 
                 <!-- </div> -->
@@ -396,7 +401,7 @@ function jwl_settings_api_init() {
 	add_settings_field('jwl_search_field_id', __('Search Box','jwl-ultimate-tinymce'), 'jwl_search_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	add_settings_field('jwl_replace_field_id', __('Replace Box','jwl-ultimate-tinymce'), 'jwl_replace_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	add_settings_field('jwl_datetime_field_id', __('Insert Date/Time Box','jwl-ultimate-tinymce'), 'jwl_datetime_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
-	add_settings_field('jwl_googlemaps_field_id', __('Insert Google Maps Box','jwl-ultimate-tinymce'), 'jwl_googlemaps_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
+	//add_settings_field('jwl_googlemaps_field_id', __('Insert Google Maps Box','jwl-ultimate-tinymce'), 'jwl_googlemaps_callback_function', 'ultimate-tinymce', 'jwl_setting_section');
 	
 	// These are the settings for Row 4
 	add_settings_field('jwl_styleselect_field_id', __('Style Select Box','jwl-ultimate-tinymce'), 'jwl_styleselect_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
@@ -455,7 +460,7 @@ function jwl_settings_api_init() {
 	register_setting('jwl_options_group','jwl_search_field_id');
 	register_setting('jwl_options_group','jwl_replace_field_id');
 	register_setting('jwl_options_group','jwl_datetime_field_id');
-	register_setting('jwl_options_group','jwl_googlemaps_field_id');
+	//register_setting('jwl_options_group','jwl_googlemaps_field_id');
 	
 	// Register settings for Row 4
 	register_setting('jwl_options_group','jwl_styleselect_field_id');
@@ -592,10 +597,12 @@ add_action('admin_init', 'jwl_settings_api_init');
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/datetime.png" style="margin-left:10px;margin-bottom:-5px;" /><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/datetime.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:32px;margin-bottom:-5px;" title="Click for Help" /></a><?php
  }
  
+ /*
  function jwl_googlemaps_callback_function() {
  	echo '<input name="jwl_googlemaps_field_id" id="googlemaps" type="checkbox" value="1" class="code" ' . checked( 1, get_option('jwl_googlemaps_field_id'), false ) . ' /> ';
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/googlemaps.png" style="margin-left:10px;margin-bottom:-5px;" /><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/googlemaps.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:66px;margin-bottom:-5px;" title="Click for Help" /></a><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-left:10px;margin-bottom:-5px;" title="New Feature." /><?php
  }
+ */
  
 // Begin Callback functions for each individual setting registered in code above.
 // Callback Functions for Row 4 Buttons
@@ -704,6 +711,7 @@ add_action('admin_init', 'jwl_settings_api_init');
  
  // Callback functions for miscellaneous options and features
  // Function and Settings for Tinymce editor color changes
+ 
  function jwl_tinycolor_css_callback_function() {
 	$options = get_option('jwl_tinycolor_css_field_id');
 	$items = array("Default", "Pink", "Green", "Dark&Green", "Dark&Pink", "Rainbow", "Steel");
@@ -1104,7 +1112,7 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['visualchars'] = plugin_dir_url( __FILE__ ) . 'visualchars/editor_plugin.js';
 		$jwl_plugin_array['print'] = plugin_dir_url( __FILE__ ) . 'print/editor_plugin.js';
 		$jwl_plugin_array['insertdatetime'] = plugin_dir_url( __FILE__ ) . 'insertdatetime/editor_plugin.js';
-		$jwl_plugin_array['googlemaps'] = plugin_dir_url( __FILE__ ) . 'googlemaps/editor_plugin.js';
+		//$jwl_plugin_array['googlemaps'] = plugin_dir_url( __FILE__ ) . 'googlemaps/editor_plugin.js';
 		   
 		return $jwl_plugin_array;
 }
@@ -1115,103 +1123,105 @@ add_filter( 'mce_external_plugins', 'jwl_mce_external_plugins' );
 // Add column shortcodes for tinymce editor
 $jwl_columns = get_option('jwl_columns_field_id');
 if ($jwl_columns == "1"){
+	
+	function jwl_one_third( $atts, $content = null ) { return '<div class="one_third">' . do_shortcode($content) . '</div>'; }
+	add_shortcode('one_third', 'jwl_one_third');
+	function jwl_one_third_last( $atts, $content = null ) { return '<div class="one_third last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	add_shortcode('one_third_last', 'jwl_one_third_last');
+	function jwl_two_third( $atts, $content = null ) { return '<div class="two_third">' . do_shortcode($content) . '</div>'; }
+	add_shortcode('two_third', 'jwl_two_third');
+	function jwl_two_third_last( $atts, $content = null ) { return '<div class="two_third last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	add_shortcode('two_third_last', 'jwl_two_third_last');
+	function jwl_one_half( $atts, $content = null ) { return '<div class="one_half">' . do_shortcode($content) . '</div>'; }
+	add_shortcode('one_half', 'jwl_one_half');
+	function jwl_one_half_last( $atts, $content = null ) { return '<div class="one_half last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	add_shortcode('one_half_last', 'jwl_one_half_last');
+	function jwl_one_fourth( $atts, $content = null ) { return '<div class="one_fourth">' . do_shortcode($content) . '</div>'; }
+	add_shortcode('one_fourth', 'jwl_one_fourth');
+	function jwl_one_fourth_last( $atts, $content = null ) { return '<div class="one_fourth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	add_shortcode('one_fourth_last', 'jwl_one_fourth_last');
+	function jwl_three_fourth( $atts, $content = null ) { return '<div class="three_fourth">' . do_shortcode($content) . '</div>'; }
+	add_shortcode('three_fourth', 'jwl_three_fourth');
+	function jwl_three_fourth_last( $atts, $content = null ) { return '<div class="three_fourth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	add_shortcode('three_fourth_last', 'jwl_three_fourth_last');
+	function jwl_one_fifth( $atts, $content = null ) { return '<div class="one_fifth">' . do_shortcode($content) . '</div>'; }
+	add_shortcode('one_fifth', 'jwl_one_fifth');
+	function jwl_one_fifth_last( $atts, $content = null ) { return '<div class="one_fifth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	add_shortcode('one_fifth_last', 'jwl_one_fifth_last');
+	function jwl_two_fifth( $atts, $content = null ) { return '<div class="two_fifth">' . do_shortcode($content) . '</div>'; }
+	add_shortcode('two_fifth', 'jwl_two_fifth');
+	function jwl_two_fifth_last( $atts, $content = null ) { return '<div class="two_fifth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	add_shortcode('two_fifth_last', 'jwl_two_fifth_last');
+	function jwl_three_fifth( $atts, $content = null ) { return '<div class="three_fifth">' . do_shortcode($content) . '</div>'; }
+	add_shortcode('three_fifth', 'jwl_three_fifth');
+	function jwl_three_fifth_last( $atts, $content = null ) { return '<div class="three_fifth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	add_shortcode('three_fifth_last', 'jwl_three_fifth_last');
+	function jwl_four_fifth( $atts, $content = null ) { return '<div class="four_fifth">' . do_shortcode($content) . '</div>'; }
+	add_shortcode('four_fifth', 'jwl_four_fifth');
+	function jwl_four_fifth_last( $atts, $content = null ) { return '<div class="four_fifth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	add_shortcode('four_fifth_last', 'jwl_four_fifth_last');
+	function jwl_one_sixth( $atts, $content = null ) { return '<div class="one_sixth">' . do_shortcode($content) . '</div>'; }
+	add_shortcode('one_sixth', 'jwl_one_sixth');
+	function jwl_one_sixth_last( $atts, $content = null ) { return '<div class="one_sixth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	add_shortcode('one_sixth_last', 'jwl_one_sixth_last');
+	function jwl_five_sixth( $atts, $content = null ) { return '<div class="five_sixth">' . do_shortcode($content) . '</div>'; }
+	add_shortcode('five_sixth', 'jwl_five_sixth');
+	function jwl_five_sixth_last( $atts, $content = null ) { return '<div class="five_sixth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	add_shortcode('five_sixth_last', 'jwl_five_sixth_last');
 
-$jwlcodes = array('one_third', 'one_third_last', 'two_third', 'two_third_last', 'one_half', 'one_half_last', 'one_fourth', 'three_fourth', 'three_fourth_last', 'one_fifth', 'one_fifth_last', 'two_fifth', 'two_fifth_last', 'three_fifth', 'three_fifth_last', 'four_fifth', 'four_fifth_last', 'one_sixth', 'one_sixth_last', 'five_sixth', 'five_sixth_last');
-
-add_filter('the_posts', 'jwl_include_style_if_needed');
-function jwl_include_style_if_needed($posts) {
-	if (empty($posts)) return $posts;
-	$jwl_style_required = false;
-	foreach ($posts as $post) {
-		foreach ($GLOBALS["jwlcodes"] as $jwlcode) {
-			if (stripos($post->post_content, $jwlcode)) {
-				$jwl_style_required = true;
-				break;
-			}
+	function jwl_column_stylesheet() {
+		$my_style_url = WP_PLUGIN_URL . '/ultimate-tinymce/css/column-style.css';
+		$my_style_file = WP_PLUGIN_DIR . '/ultimate-tinymce/css/column-style.css';
+	
+		if ( file_exists($my_style_file) ) {
+			wp_register_style('column-styles', $my_style_url);
+			wp_enqueue_style('column-styles');
 		}
 	}
-	if ($jwl_style_required) {
-		$style = plugins_url('/css/column-style.css', __FILE__);
-	    wp_enqueue_style("jwl-column-style", $style);
-	} 
-	return $posts;
-}
-
-
-// These are the functions creating the shortcodes for column breaks.
-function jwl_one_third( $atts, $content = null ) { return '<div class="one_third">' . do_shortcode($content) . '</div>'; }
-function jwl_one_third_last( $atts, $content = null ) { return '<div class="one_third column-last">' . do_shortcode($content) . '</div><div class="clear"></div>'; }
-function jwl_two_third( $atts, $content = null ) { return '<div class="two_third">' . do_shortcode($content) . '</div>'; }
-function jwl_two_third_last( $atts, $content = null ) { return '<div class="two_third column-last">' . do_shortcode($content) . '</div><div class="clear"></div>'; }
-function jwl_one_half( $atts, $content = null ) { return '<div class="one_half">' . do_shortcode($content) . '</div>'; }
-function jwl_one_half_last( $atts, $content = null ) { return '<div class="one_half column-last">' . do_shortcode($content) . '</div><div class="clear"></div>'; }
-function jwl_one_fourth( $atts, $content = null ) { return '<div class="one_fourth">' . do_shortcode($content) . '</div>'; }
-function jwl_one_fourth_last( $atts, $content = null ) { return '<div class="one_fourth column-last">' . do_shortcode($content) . '</div><div class="clear"></div>'; }
-function jwl_three_fourth( $atts, $content = null ) { return '<div class="three_fourth">' . do_shortcode($content) . '</div>'; }
-function jwl_three_fourth_last( $atts, $content = null ) { return '<div class="three_fourth column-last">' . do_shortcode($content) . '</div><div class="clear"></div>'; }
-function jwl_one_fifth( $atts, $content = null ) { return '<div class="one_fifth">' . do_shortcode($content) . '</div>'; }
-function jwl_one_fifth_last( $atts, $content = null ) { return '<div class="one_fifth column-last">' . do_shortcode($content) . '</div><div class="clear"></div>'; }
-function jwl_two_fifth( $atts, $content = null ) { return '<div class="two_fifth">' . do_shortcode($content) . '</div>'; }
-function jwl_two_fifth_last( $atts, $content = null ) { return '<div class="two_fifth column-last">' . do_shortcode($content) . '</div><div class="clear"></div>'; }
-function jwl_three_fifth( $atts, $content = null ) { return '<div class="three_fifth">' . do_shortcode($content) . '</div>'; }
-function jwl_three_fifth_last( $atts, $content = null ) { return '<div class="three_fifth column-last">' . do_shortcode($content) . '</div><div class="clear"></div>'; }
-function jwl_four_fifth( $atts, $content = null ) { return '<div class="four_fifth">' . do_shortcode($content) . '</div>'; }
-function jwl_four_fifth_last( $atts, $content = null ) { return '<div class="four_fifth column-last">' . do_shortcode($content) . '</div><div class="clear"></div>'; }
-function jwl_one_sixth( $atts, $content = null ) { return '<div class="one_sixth">' . do_shortcode($content) . '</div>'; }
-function jwl_one_sixth_last( $atts, $content = null ) { return '<div class="one_sixth column-last">' . do_shortcode($content) . '</div><div class="clear"></div>'; }
-function jwl_five_sixth( $atts, $content = null ) { return '<div class="five_sixth">' . do_shortcode($content) . '</div>'; }
-function jwl_five_sixth_last( $atts, $content = null ) { return '<div class="five_sixth column-last">' . do_shortcode($content) . '</div><div class="clear"></div>'; }
-
-function jwl_make_shortcodes() {
-	foreach ($GLOBALS["jwlcodes"] as $jwlcode) {		
-		$function_name = "jwl_" . $jwlcode;
-		add_shortcode($jwlcode, $function_name);
-	}
-};
-
-jwl_make_shortcodes();
+	add_action('wp_print_styles', 'jwl_column_stylesheet');
 }
 
 // Functions for shortcodes dropdown in editor
 $jwl_shortcodes = get_option('jwl_shortcodes_field_id');
 if ($jwl_shortcodes == "1") {
 
-if(!class_exists('ShortcodesEditorSelector')):
+	if(!class_exists('ShortcodesEditorSelector')):
  
-class ShortcodesEditorSelector{
-	var $buttonName = 'ShortcodeSelector';
-	function addSelector(){
-		// Don't bother doing this stuff if the current user lacks permissions
-		if ( ! current_user_can('edit_posts') && ! current_user_can('edit_pages') )
-			return;
+		class ShortcodesEditorSelector{
+			var $buttonName = 'ShortcodeSelector';
+			function addSelector(){
+				// Don't bother doing this stuff if the current user lacks permissions
+				if ( ! current_user_can('edit_posts') && ! current_user_can('edit_pages') )
+					return;
+		 
+			   // Add only in Rich Editor mode
+				if ( get_user_option('rich_editing') == 'true') {
+				  add_filter('mce_external_plugins', array($this, 'registerTmcePlugin'));
+				  //you can use the filters mce_buttons_2, mce_buttons_3 and mce_buttons_4 
+				  //to add your button to other toolbars of your tinymce
+				  add_filter('mce_buttons_4', array($this, 'registerButton'));
+				}
+			}
+		 
+			function registerButton($buttons){
+				array_push($buttons, $this->buttonName);
+				return $buttons;
+			}
+		 
+			function registerTmcePlugin($plugin_array_shortcodes){
+				$plugin_array_shortcodes[$this->buttonName] = plugin_dir_url( __FILE__ ) . 'shortcodes-editor-selector/editor_plugin.js.php';
+				if ( get_user_option('rich_editing') == 'true') 
+					//var_dump($plugin_array_shortcodes);
+				return $plugin_array_shortcodes;
+			}
+		}
  
-	   // Add only in Rich Editor mode
-	    if ( get_user_option('rich_editing') == 'true') {
-	      add_filter('mce_external_plugins', array($this, 'registerTmcePlugin'));
-	      //you can use the filters mce_buttons_2, mce_buttons_3 and mce_buttons_4 
-	      //to add your button to other toolbars of your tinymce
-	      add_filter('mce_buttons_4', array($this, 'registerButton'));
-	    }
-	}
+	endif;
  
-	function registerButton($buttons){
-		array_push($buttons, $this->buttonName);
-		return $buttons;
-	}
- 
-	function registerTmcePlugin($plugin_array_shortcodes){
-		$plugin_array_shortcodes[$this->buttonName] = plugin_dir_url( __FILE__ ) . 'shortcodes-editor-selector/editor_plugin.js.php';
-		if ( get_user_option('rich_editing') == 'true') 
-		 	//var_dump($plugin_array_shortcodes);
-		return $plugin_array_shortcodes;
+	if(!isset($shortcodesES)){
+		$shortcodesES = new ShortcodesEditorSelector();
+		add_action('admin_head', array($shortcodesES, 'addSelector'));
 	}
 }
- 
-endif;
- 
-if(!isset($shortcodesES)){
-	$shortcodesES = new ShortcodesEditorSelector();
-	add_action('admin_head', array($shortcodesES, 'addSelector'));
-}
-}
+
 ?>

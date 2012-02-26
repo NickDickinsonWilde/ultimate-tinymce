@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.2.1
 Tested up to: 3.3.1
-Stable tag: 1.7.3
+Stable tag: 1.7.3.1
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -129,6 +129,10 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 1.7.3.1 =
+* I had to temporarily remove the Google Maps feature, as it was causing conflicts with other buttons (inserting and saving emoticons, some popups not opening, etc.).  I'll continue to work on this, and reimplement it in a future release.
+* Fixed warning message about "Plugin generated xxx characters of unexpected output".  This was due to an improper usage of the `foreach` php code.  The code has been rewritten and is valid.
 
 = 1.7.3 =
 * Added Google Maps button and plugin; giving a graphical interface for inserting Google Maps.
