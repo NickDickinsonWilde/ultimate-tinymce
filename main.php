@@ -1,22 +1,18 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.7.3.1
+ * @version 1.7.4
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.7.3.1
+Version: 1.7.4
 Author URI: http://joshlobe.com
 
 */
 
-add_action('activated_plugin','save_error');
-function save_error(){
-    update_option('plugin_error',  ob_get_contents());
-}
 
 /*  Copyright 2011  Josh Lobe  (email : joshlobe@joshlobe.com)
 
@@ -33,6 +29,104 @@ function save_error(){
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+
+// Added for jquery slider of options panels
+wp_enqueue_style('dashboard');
+wp_enqueue_script('dashboard');
+
+
+/* Added by Josh for uninstalling all database values.  3-3-12
+   This function will remove all database entries created by the plugin.
+   This action is permenant, so I included an option so no information is lost accidentally.
+*/
+
+if ( isset( $_POST['uninstall'], $_POST['uninstall_confirm'] ) ) {
+    ultimate_tinymce_uninstall();
+}
+
+function ultimate_tinymce_uninstall() {
+	
+	delete_option('jwl_fontselect_field_id');
+	delete_option('jwl_fontsizeselect_field_id');
+	delete_option('jwl_cut_field_id');
+	delete_option('jwl_copy_field_id');
+	delete_option('jwl_paste_field_id');
+	delete_option('jwl_backcolorpicker_field_id');
+	delete_option('jwl_forecolorpicker_field_id');
+	delete_option('jwl_advhr_field_id');
+	delete_option('jwl_visualaid_field_id');
+	delete_option('jwl_anchor_field_id');
+	delete_option('jwl_sub_field_id');
+	delete_option('jwl_sup_field_id');
+	delete_option('jwl_search_field_id');
+	delete_option('jwl_replace_field_id');
+	delete_option('jwl_datetime_field_id');
+
+	delete_option('jwl_styleselect_field_id');
+	delete_option('jwl_tableDropdown_field_id');
+	delete_option('jwl_emotions_field_id');
+	delete_option('jwl_image_field_id');
+	delete_option('jwl_preview_field_id');
+	delete_option('jwl_cite_field_id');
+	delete_option('jwl_abbr_field_id');
+	delete_option('jwl_acronym_field_id');
+	delete_option('jwl_del_field_id');
+	delete_option('jwl_ins_field_id');
+	delete_option('jwl_attribs_field_id');
+	delete_option('jwl_styleprops_field_id');
+	delete_option('jwl_code_field_id');
+	delete_option('jwl_codemagic_field_id');
+	delete_option('jwl_media_field_id');
+	delete_option('jwl_youtube_field_id');
+	delete_option('jwl_imgmap_field_id');
+	delete_option('jwl_visualchars_field_id');
+	delete_option('jwl_print_field_id');
+	delete_option('jwl_shortcodes_field_id');
+	
+	delete_option('jwl_tinycolor_css_field_id');
+	delete_option('jwl_tinymce_nextpage_field_id');
+	delete_option('jwl_tinymce_excerpt_field_id');
+	delete_option('jwl_postid_field_id');
+	delete_option('jwl_shortcode_field_id');
+	delete_option('jwl_php_widget_field_id');
+	delete_option('jwl_linebreak_field_id');
+	delete_option('jwl_columns_field_id');
+	delete_option('jwl_signoff_field_id');
+	
+	delete_option('jwl_defaults_field_id');
+	delete_option('jwl_custom_styles_field_id');
+	delete_option('jwl_div_field_id');
+	delete_option('jwl_autop_field_id');
+ 
+        // Do not change (this deactivates the plugin)
+    $current = get_settings('active_plugins');
+    array_splice($current, array_search( $_POST['plugin'], $current), 1 ); // Array-function!
+    update_option('active_plugins', $current);
+    header('Location: plugins.php?deactivate=true');
+}
+
+function jwl_ultimate_tinymce_form_uninstall() {
+	?>
+    <form method="post">
+	<input id="plugin" name="plugin" type="hidden" value="ultimate-tinymce/main.php" /> <?php  // The value must match the folder/file of the plugin.
+    if ( isset( $_POST['uninstall'] ) && ! isset( $_POST['uninstall_confirm'] ) ) { 
+	?><div id="message" class="error">
+  			<p>
+    		You must also check the confirm box before options will be uninstalled and deleted.
+  			</p>
+		</div>
+ 	  <?php
+    }
+ 	?>
+	The options for this plugin are not removed upon deactivation to ensure that no data is lost unintentionally.<br /><br />
+	If you wish to remove all plugin information from your database be sure to run this uninstall utility first.<br /><br />
+    This option is NOT reversible.<br /><br />
+	<input name="uninstall_confirm" type="checkbox" value="1" /> Please confirm before proceeding<br /><br />
+	<input class="button-secondary" name="uninstall" type="submit" value="Uninstall" />
+	</form>
+<?php
+}
+/* End Uninstalling Database Values */
 
 // Change our default Tinymce configuration values
 function jwl_change_mce_options($initArray) {
@@ -100,63 +194,68 @@ function jwl_admin_add_page() {
 add_action('admin_menu', 'jwl_admin_add_page');
 
 // Display the admin options page
-	function jwl_options_page() {
+function jwl_options_page() {
 	?>
 	<div class="wrap">
 		<h2><?php _e('Ultimate TinyMCE Plugin Menu','jwl-ultimate-tinymce'); ?></h2>
 
             <div class="metabox-holder" style="width:65%; float:left; margin-right:10px;">
-            <form action="options.php" method="post">
+            <form action="options.php" method="post" name="jwl_main_options">
                 <div class="postbox">
-                <!-- <div class="inside" style="padding:0px 0px 0px 0px;"> -->
+                <h3>Row 3 Button Settings</h3>
+                <div class="inside" style="padding:0px 0px 0px 0px;">
                 	
 					<?php do_settings_sections('ultimate-tinymce'); ?>
                     <?php settings_fields('jwl_options_group'); echo get_option('plugin_error'); ?><br /><br />
                    
-                   <br /><br /> 
-                <!-- </div> -->
+                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save your Selection','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
                 </div>
-                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save your Selection','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center><br /> <br />
+                </div>
+                
                 <div class="postbox">
-                <!-- <div class="inside" style="padding:0px 0px 0px 0px;"> -->
+                <h3>Row 4 Button Settings</h3>
+                <div class="inside" style="padding:0px 0px 0px 0px;">
                 	
                     <?php settings_fields('jwl_options_group'); ?>
                     <?php do_settings_sections('ultimate-tinymce2'); ?><br /> <br />
                        
-                    <br /><br />
-                <!-- </div> -->
+                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save your Selection','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
                 </div>
-                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save your Selection','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center><br /> <br />
+                </div>
+                
                 <div class="postbox">
-                <!-- <div class="inside" style="padding:0px 0px 0px 0px;"> -->
+                <h3>Enable Advanced TinyMCE Features</h3>
+                <div class="inside" style="padding:0px 0px 0px 0px;">
                 	
                     <?php settings_fields('jwl_options_group'); ?>
                     <?php do_settings_sections('ultimate-tinymce4'); ?><br /> <br />
                        
-                    <br /><br />
-                <!-- </div> -->
+                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save your Selection','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
                 </div>
-                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save your Selection','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center><br /> <br />
+                </div>
+                
                 <div class="postbox">
-                <!-- <div class="inside" style="padding:0px 0px 0px 0px;"> -->
+                <h3>Miscellaneous Options and Features</h3>
+                <div class="inside" style="padding:0px 0px 0px 0px;">
                 	
                     <?php settings_fields('jwl_options_group'); ?>
                     <?php do_settings_sections('ultimate-tinymce3'); ?><br /> <br />
                        
-                    <br /><br />
-                <!-- </div> -->
+                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save your Selection','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
                 </div>
-                
-                <center><input class="button-primary" type="submit" name="Save" value="<?php _e('Save your Selection','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center><br /><br />
-                
-                
+                </div>
                 </form>
+                
+                <div class="postbox">
+                    <h3>Delete Database Entries and Values</h3>
+                    <div class="inside">
+                    <?php jwl_ultimate_tinymce_form_uninstall(); ?>
+                    <br /><br />
+                    </div>
+                </div>
             </div>
-              
-            
- 
-    		<div class="metabox-holder" style="width:30%; float:left;">
- 
+
+    		<div class="metabox-holder" style="width:30%; float:left;"> 
             
             <div class="postbox2donate">
                 <h3 style="cursor:default;"><?php _e('Donations','jwl-ultimate-tinymce'); ?></h3>
@@ -362,26 +461,22 @@ add_action('admin_menu', 'jwl_admin_add_page');
 <div style="border:1px solid black;">
 <form method=post action=http://poll.pollhost.com/vote.cgi><table border=0 width=260 bgcolor=#EEEEEE cellspacing=0 cellpadding=2><tr><td colspan=2><font face="Verdana" size=-1 color="#000000"><b>Which feature would you like to see?</b></font></td></tr><tr><td width=5><input type=radio name=answer value=1></td><td><font face="Verdana" size=-1 color="#000000">Better Tables Control and Usage</font></td></tr><tr><td width=5><input type=radio name=answer value=2></td><td><font face="Verdana" size=-1 color="#000000">Better Cross-Browser Compatibility</font></td></tr><tr><td width=5><input type=radio name=answer value=3></td><td><font face="Verdana" size=-1 color="#000000">More examples in the Help Popups</font></td></tr><tr><td width=5><input type=radio name=answer value=4></td><td><font face="Verdana" size=-1 color="#000000">A Shortcodes Manager</font></td></tr><tr><td width=5><input type=radio name=answer value=5></td><td><font face="Verdana" size=-1 color="#000000">A Custom Styles Manager</font></td></tr><tr><td colspan=2><input type=hidden name=config value="am9zaDQwMQkxMzI2NjkxMDQ5CUVFRUVFRQkwMDAwMDAJVmVyZGFuYQlBc3NvcnRlZA"><center><input type=submit value=Vote>&nbsp;&nbsp;<input type=submit name=view value=View></center></td></tr><tr><td bgcolor=#FFFFFF colspan=2 align=right><font face="Verdana" size=-2 color="#000000"><a href=http://www.pollhost.com/><font color=#000099>Free polls from Pollhost.com</font></a></font></td></tr></table></form>
 </div>
-<!-- // End Pollhost.com Poll Code // -->
-
-                
+<!-- // End Pollhost.com Poll Code // -->               
                 </div>
             </div>
-            
-             
     	</div>            
 	</div>
 	<?php 
-	}
+}
 
 
 // Add ALL our settings
 function jwl_settings_api_init() {
  	// This creates each settings option group.  These are used as headers in our admin panel settings page.	
- 	add_settings_section('jwl_setting_section', __('Row 3 Button Settings','jwl-ultimate-tinymce'), 'jwl_setting_section_callback_function', 'ultimate-tinymce');
-	add_settings_section('jwl_setting_section2', __('Row 4 Button Settings','jwl-ultimate-tinymce'), 'jwl_setting_section_callback_function2', 'ultimate-tinymce2');
-	add_settings_section('jwl_setting_section3', __('Miscellaneous Options and Features','jwl-ultimate-tinymce'), 'jwl_setting_section_callback_function3', 'ultimate-tinymce3');
-	add_settings_section('jwl_setting_section4', __('Enable Advanced TinyMCE Features','jwl-ultimate-tinymce'), 'jwl_setting_section_callback_function4', 'ultimate-tinymce4');
+ 	add_settings_section('jwl_setting_section', '', 'jwl_setting_section_callback_function', 'ultimate-tinymce');
+	add_settings_section('jwl_setting_section2', '', 'jwl_setting_section_callback_function2', 'ultimate-tinymce2');
+	add_settings_section('jwl_setting_section3', '', 'jwl_setting_section_callback_function3', 'ultimate-tinymce3');
+	add_settings_section('jwl_setting_section4', '', 'jwl_setting_section_callback_function4', 'ultimate-tinymce4');
 
  	
  	// This adds our individual settings to each option group defined above.	
@@ -832,7 +927,7 @@ function tinymce_add_button_replace($buttons) { $jwl_replace = get_option('jwl_r
 
 function tinymce_add_button_datetime($buttons) { $jwl_datetime = get_option('jwl_datetime_field_id'); if ($jwl_datetime == "1") $buttons[] = 'insertdate,inserttime'; return $buttons; } add_filter("mce_buttons_3", "tinymce_add_button_datetime");
 
-function tinymce_add_button_googlemaps($buttons) { $jwl_googlemaps = get_option('jwl_googlemaps_field_id'); if ($jwl_googlemaps == "1") $buttons[] = 'googlemaps'; return $buttons; } add_filter("mce_buttons_3", "tinymce_add_button_googlemaps");
+//function tinymce_add_button_googlemaps($buttons) { $jwl_googlemaps = get_option('jwl_googlemaps_field_id'); if ($jwl_googlemaps == "1") $buttons[] = 'googlemaps'; return $buttons; } add_filter("mce_buttons_3", "tinymce_add_button_googlemaps");
 
 // Functions for Row 4
 function tinymce_add_button_styleselect($buttons) { $jwl_styleselect = get_option('jwl_styleselect_field_id'); if ($jwl_styleselect == "1") $buttons[] = 'styleselect'; return $buttons; } add_filter("mce_buttons_4", "tinymce_add_button_styleselect");

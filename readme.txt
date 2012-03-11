@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.2.1
 Tested up to: 3.3.1
-Stable tag: 1.7.3.1
+Stable tag: 1.7.4
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -38,9 +38,10 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "W
 <strong>Translations:</strong><br />
 Translating a plugin takes a lot of time, effort, and patience.  Especially with a plugin like Ultimate TinyMCE where there is a large admin panel options page with lots of text.  I really appreciate the hard work from these contributors.<br />
 <ul>
-<li>Italian:    David        - http://www.davidpesarin.wordpress.com </li>
-<li>Japanese:   Redcocker    - http://www.near-mint.com/blog/ </li>
-<li>Dutch:      keesiemeijer - http://codex.wordpress.org/User:Keesiemeijer </li>
+<li>Turkish:    Münip Öniz   - <a href="www.literaturaktuel.com">www.literaturaktuel.com</a></li>
+<li>Italian:    David        - <a href="http://www.davidpesarin.wordpress.com">http://www.davidpesarin.wordpress.com</a></li>
+<li>Japanese:   Redcocker    - <a href="http://www.near-mint.com/blog/">http://www.near-mint.com/blog/</a></li>
+<li>Dutch:      keesiemeijer - <a href="http://codex.wordpress.org/User:Keesiemeijer">http://codex.wordpress.org/User:Keesiemeijer</a></li>
 <li>Finnish:    markku</li>
 </ul>
 
@@ -129,6 +130,14 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 1.7.4 =
+* 03-10-2012
+* Beginning a dating sequence for plugin updates.
+* Added Turkish translation.  Thanks Münip Öniz !!
+* Added option to remove all database entries when deactivating the plugin.
+* Added jquery to the main options panels.  This will allow you to expand/collapse the title bars.
+* Removed a function I forgot to delete after testing purposes.
 
 = 1.7.3.1 =
 * I had to temporarily remove the Google Maps feature, as it was causing conflicts with other buttons (inserting and saving emoticons, some popups not opening, etc.).  I'll continue to work on this, and reimplement it in a future release.

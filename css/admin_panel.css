@@ -138,4 +138,19 @@
 	border-top:1px solid #7CF4D2;
 }
 
+.postbox2uninstall {
+	background-image: -moz-linear-gradient(top, #FFD1D1 0%, #EA5668 100%);
+	background-image: -o-linear-gradient(top, #FFD1D1 0%, #EA5668 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFD1D1), color-stop(1, #EA5668));
+	background-image: -webkit-linear-gradient(top, #FFD1D1 0%, #EA5668 100%);
+	background-image: linear-gradient(top, #FFD1D1 0%, #EA5668 100%);
+	margin-top:20px;
+	border:1px solid #F27B85;
+}
+
+.inside2uninstall {
+	background-color:#F7EDED;
+	border-top:1px solid #F27B7F;
+}
+
 /* CSS for tooltips */
