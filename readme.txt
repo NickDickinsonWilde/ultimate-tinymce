@@ -131,7 +131,7 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 == Changelog ==
 
-= 1.7.4.1
+= 1.7.4.1 =
 * Removed jquery causing issues throughout admin panel.  I will write my own jquery for the toggles.
 
 = 1.7.4 =
