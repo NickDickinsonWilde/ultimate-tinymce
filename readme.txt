@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.2.1
 Tested up to: 3.3.1
-Stable tag: 1.7.4.1
+Stable tag: 1.7.5
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -131,7 +131,17 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 == Changelog ==
 
+= 1.7.5 =
+* 03-23-12
+* Completely overhauled the admin panel settings page.  
+* ---> Now you can drag/drop, open/close, and sort whichever metboxes you like.
+* ---> Visit the "Screen Options" tab in the top right corner for even more customization.
+* ---> Follow this <a href="http://youtu.be/-Y76wqkRMWk">SCREENCAST</a> to watch a short video explaining the new interface.
+* Added functionality to select which row each button will appear in the editor.
+* Added a check all/uncheck all option when choosing buttons.
+
 = 1.7.4.1 =
+* 03-12-12
 * Removed jquery causing issues throughout admin panel.  I will write my own jquery for the toggles.
 
 = 1.7.4 =
@@ -213,7 +223,7 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 = 1.6.6 =
 * Implemented a new dropdown table buttons feature.  Instead of having 11 buttons side by side, taking up valuable real estate, this new option will add a dropdown list for the different buttons.  A HUGE space saver!
 * Implemented a new HTML viewer button.  This one is Awesome!!  Complete with syntax highlighter, line numbers, auto-complete, and undo,redo history.
-* Added a YouTube button.  This will allow you to simply enter the video id and the plugin does the rest, embedding the video directly into your post/page.
+* Added a YouTube button.  This will allow you to simply enter the video ID and the plugin does the rest, embedding the video directly into your post/page.
 * Added a cool feature using Image Maps.  You can create basic shapes like circles, rectangles, and polygons; and insert them over an image, and they will each link to a separate place or content.
 * Designed a toggle switch that will "hide" and "show" all the rows of the editor.
 * I moved a lot of the CSS files around and made them easier for me to navigate while continuing plugin development.  If some of your CSS doesn't load properly, make sure to empty any cache you are using on your website; clear your browsers cache; and reload the page.
@@ -265,7 +275,7 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * I could use some extra testers for new versions.  If interested, please contact me using one of the methods on the plugin main download page.  Thanks.
 
 = 1.5.8 =
-* Working on ways to make formatting not get stripped by tinymce.  Added default ability of transforming use of the enter key into "&nbsp" characters.  This should help with line spacing when switching between Visual and HTML modes.
+* Working on ways to make formatting to not get stripped by tinymce.  Added default ability of transforming use of the enter key into "&nbsp" characters.  This should help with line spacing when switching between Visual and HTML modes.
 * Adjusted various default behaviors of the tinymce initialization process.
 * Added Dutch and Finnish Translations.
 

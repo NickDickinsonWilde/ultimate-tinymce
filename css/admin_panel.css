@@ -2,6 +2,26 @@
 
 /* CSS Document */
 
+#postbox_donate, #postbox_addons, #postbox_resources, #postbox_firefox, #postbox_vote, #postbox_blog, #postbox_feedback, #postbox_poll, #postbox_transfer {
+	background-color:#EAFFEE;
+}
+
+.donations {
+	display:block;
+	border:1px solid black;
+	padding:10px;
+	background-color: #DFFFDF;
+	margin-bottom:20px;
+}
+
+.plugin_addons {
+	background-color:#CFF;
+	color:#009;
+	border:1px solid #36F;
+	padding:5px;
+	display:block;
+}
+
 .postbox2donate {
 	background-image: -moz-linear-gradient(top, #FDD1FF 0%, #EA58EF 100%);
 	background-image: -o-linear-gradient(top, #FDD1FF 0%, #EA58EF 100%);

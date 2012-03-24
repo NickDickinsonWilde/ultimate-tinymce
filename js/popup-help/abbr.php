@@ -1,10 +1,9 @@
 <html><head>
-<title>Abbreviations Box</title>
+<title></title>
 <link rel=StyleSheet href="pop-upstyle.css" type="text/css" media="screen">
 </head>
 
 <BODY BGCOLOR="#F2F9FA" TEXT="#000000" LINK="#99CCFF" VLINK="#99CCFF" ALINK="#99CCFF" leftmargin=0 rightmargin=0 topmargin=0 bottommargin=0 marginheight=0 marginwidth=0>
-
 <!-- OUTER TABLE-->
 <TABLE cellpadding=0 cellspacing=0 border="0" bordercolor="666666" width="100%" height="100%"><tr><td ALIGN="CENTER" VALIGN="TOP">
 
