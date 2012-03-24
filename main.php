@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.7.5
+ * @version 1.7.5.1
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.7.5
+Version: 1.7.5.1
 Author URI: http://joshlobe.com
 
 */
@@ -980,12 +980,12 @@ if ($jwl_cut_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_bu
 if ($jwl_cut_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_cut"); }
 
 function tinymce_add_button_copy($buttons) { $jwl_copy = get_option('jwl_copy_field_id'); if ($jwl_copy == "1") $buttons[] = 'copy'; return $buttons; } 
-$jwl_cut_dropdown = get_option('jwl_cut_dropdown');
-$jwl_cut_dropdown2 = $jwl_cut_dropdown['row'];
-if ($jwl_cut_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_cut"); } 
-if ($jwl_cut_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_cut"); } 
-if ($jwl_cut_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_cut"); }
-if ($jwl_cut_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_cut"); }
+$jwl_copy_dropdown = get_option('jwl_copy_dropdown');
+$jwl_copy_dropdown2 = $jwl_copy_dropdown['row'];
+if ($jwl_copy_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_copy"); } 
+if ($jwl_copy_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_copy"); } 
+if ($jwl_copy_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_copy"); }
+if ($jwl_copy_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_copy"); }
 
 function tinymce_add_button_paste($buttons) { $jwl_paste = get_option('jwl_paste_field_id'); if ($jwl_paste == "1") $buttons[] = 'paste'; return $buttons; } 
 $jwl_paste_dropdown = get_option('jwl_paste_dropdown');
@@ -1075,13 +1075,13 @@ if ($jwl_datetime_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_a
 if ($jwl_datetime_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_datetime"); }
 if ($jwl_datetime_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_datetime"); }
 
-function tinymce_add_button_googlemaps($buttons) { $jwl_datetime = get_option('jwl_googlemaps_field_id'); if ($jwl_datetime == "1") $buttons[] = 'googlemaps'; return $buttons; } 
-$jwl_datetime_dropdown = get_option('jwl_googlemaps_dropdown');
-$jwl_datetime_dropdown2 = $jwl_datetime_dropdown['row'];
-if ($jwl_datetime_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_googlemaps"); } 
-if ($jwl_datetime_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_googlemaps"); } 
-if ($jwl_datetime_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_googlemaps"); }
-if ($jwl_datetime_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_googlemaps"); }
+function tinymce_add_button_googlemaps($buttons) { $jwl_googlemaps = get_option('jwl_googlemaps_field_id'); if ($jwl_googlemaps == "1") $buttons[] = 'googlemaps'; return $buttons; } 
+$jwl_googlemaps_dropdown = get_option('jwl_googlemaps_dropdown');
+$jwl_googlemaps_dropdown2 = $jwl_googlemaps_dropdown['row'];
+if ($jwl_googlemaps_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_googlemaps"); } 
+if ($jwl_googlemaps_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_googlemaps"); } 
+if ($jwl_googlemaps_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_googlemaps"); }
+if ($jwl_googlemaps_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_googlemaps"); }
 
 // Functions for Row 4
 function tinymce_add_button_styleselect($buttons) { $jwl_styleselect = get_option('jwl_styleselect_field_id'); if ($jwl_styleselect == "1") $buttons[] = 'styleselect'; return $buttons; } 
