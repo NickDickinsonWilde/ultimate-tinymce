@@ -54,6 +54,7 @@ function ultimate_tinymce_uninstall() {
 	delete_option('jwl_search_field_id');
 	delete_option('jwl_replace_field_id');
 	delete_option('jwl_datetime_field_id');
+	delete_option('jwl_googlemaps_field_id');
 	delete_option('jwl_fontselect_dropdown');
 	delete_option('jwl_fontsizeselect_dropdown');
 	delete_option('jwl_cut_dropdown');
@@ -69,6 +70,7 @@ function ultimate_tinymce_uninstall() {
 	delete_option('jwl_search_dropdown');
 	delete_option('jwl_replace_dropdown');
 	delete_option('jwl_datetime_dropdown');
+	delete_option('jwl_googlemaps_dropdown');
 
 	delete_option('jwl_styleselect_field_id');
 	delete_option('jwl_tableDropdown_field_id');
@@ -237,7 +239,7 @@ function jwl_settings_api_init() {
 	add_settings_field('jwl_search_field_id', __('Search Box','jwl-ultimate-tinymce'), 'jwl_search_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
 	add_settings_field('jwl_replace_field_id', __('Replace Box','jwl-ultimate-tinymce'), 'jwl_replace_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
 	add_settings_field('jwl_datetime_field_id', __('Insert Date/Time Box','jwl-ultimate-tinymce'), 'jwl_datetime_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	//add_settings_field('jwl_googlemaps_field_id', __('Insert Google Maps Box','jwl-ultimate-tinymce'), 'jwl_googlemaps_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
+	add_settings_field('jwl_googlemaps_field_id', __('Insert Google Maps Box','jwl-ultimate-tinymce'), 'jwl_googlemaps_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
 	
 	// These are the settings for Row 4
 	add_settings_field('jwl_styleselect_field_id', __('Style Select Box','jwl-ultimate-tinymce'), 'jwl_styleselect_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
@@ -311,7 +313,8 @@ function jwl_settings_api_init() {
 	register_setting('jwl_options_group1','jwl_replace_dropdown');
 	register_setting('jwl_options_group1','jwl_datetime_field_id');
 	register_setting('jwl_options_group1','jwl_datetime_dropdown');
-	//register_setting('jwl_options_group1','jwl_googlemaps_field_id');
+	register_setting('jwl_options_group1','jwl_googlemaps_field_id');
+	register_setting('jwl_options_group1','jwl_googlemaps_dropdown');
 	
 	// Register settings for Row 4
 	register_setting('jwl_options_group2','jwl_styleselect_field_id');
@@ -582,6 +585,18 @@ add_action('admin_init', 'jwl_settings_api_init');
 			foreach($items_datetime as $item_datetime) {
 				$selected_datetime = ($options_datetime['row']==$item_datetime) ? 'selected="selected"' : '';
 				echo "<option value='$item_datetime' $selected_datetime>$item_datetime</option>";
+			}
+			echo "</select>";
+ }
+ function jwl_googlemaps_callback_function() {
+ 	echo '<input name="jwl_googlemaps_field_id" id="googlemaps" type="checkbox" value="1" class="one" ' . checked( 1, get_option('jwl_googlemaps_field_id'), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/googlemaps.png" style="margin-left:10px;margin-bottom:-5px;" /><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/googlemaps.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-left:66px;margin-bottom:-5px;" title="Click for Help" /></a><?php
+			$options_googlemaps = get_option('jwl_googlemaps_dropdown');
+			$items_googlemaps = array("Row 1", "Row 2", "Row 3", "Row 4");
+			echo "<select id='row' style='width:80px;margin-left:27px;' name='jwl_googlemaps_dropdown[row]'>";
+			foreach($items_googlemaps as $item_googlemaps) {
+				$selected_googlemaps = ($options_googlemaps['row']==$item_googlemaps) ? 'selected="selected"' : '';
+				echo "<option value='$item_googlemaps' $selected_googlemaps>$item_googlemaps</option>";
 			}
 			echo "</select>";
  }
@@ -1060,6 +1075,14 @@ if ($jwl_datetime_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_a
 if ($jwl_datetime_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_datetime"); }
 if ($jwl_datetime_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_datetime"); }
 
+function tinymce_add_button_googlemaps($buttons) { $jwl_datetime = get_option('jwl_googlemaps_field_id'); if ($jwl_datetime == "1") $buttons[] = 'googlemaps'; return $buttons; } 
+$jwl_datetime_dropdown = get_option('jwl_googlemaps_dropdown');
+$jwl_datetime_dropdown2 = $jwl_datetime_dropdown['row'];
+if ($jwl_datetime_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_googlemaps"); } 
+if ($jwl_datetime_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_googlemaps"); } 
+if ($jwl_datetime_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_googlemaps"); }
+if ($jwl_datetime_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_googlemaps"); }
+
 // Functions for Row 4
 function tinymce_add_button_styleselect($buttons) { $jwl_styleselect = get_option('jwl_styleselect_field_id'); if ($jwl_styleselect == "1") $buttons[] = 'styleselect'; return $buttons; } 
 $jwl_styleselect_dropdown = get_option('jwl_styleselect_dropdown');
@@ -1212,6 +1235,32 @@ if ($jwl_print_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_bu
 if ($jwl_print_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_print"); } 
 if ($jwl_print_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_print"); }
 if ($jwl_print_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_print"); }
+
+// Add the plugin array for extra features
+function jwl_mce_external_plugins( $jwl_plugin_array ) {
+		$jwl_plugin_array['table'] = plugin_dir_url( __FILE__ ) . 'table/editor_plugin.js';
+		$jwl_plugin_array['emotions'] = plugin_dir_url(__FILE__) . 'emotions/editor_plugin.js';
+		$jwl_plugin_array['advlist'] = plugin_dir_url(__FILE__) . 'advlist/editor_plugin.js';
+		$jwl_plugin_array['advimage'] = plugin_dir_url(__FILE__) . 'advimage/editor_plugin.js';
+		$jwl_plugin_array['searchreplace'] = plugin_dir_url(__FILE__) . 'searchreplace/editor_plugin.js';
+		$jwl_plugin_array['preview'] = plugin_dir_url(__FILE__) . 'preview/editor_plugin.js';
+		$jwl_plugin_array['xhtmlxtras'] = plugin_dir_url(__FILE__) . 'xhtmlxtras/editor_plugin.js';
+		$jwl_plugin_array['style'] = plugin_dir_url(__FILE__) . 'style/editor_plugin.js';
+		$jwl_plugin_array['media'] = plugin_dir_url(__FILE__) . 'media/editor_plugin.js';
+		$jwl_plugin_array['advhr'] = plugin_dir_url(__FILE__) . 'advhr/editor_plugin.js';
+		$jwl_plugin_array['clear'] = plugin_dir_url( __FILE__ ) . 'clear/editor_plugin.js';
+		$jwl_plugin_array['tableDropdown'] = plugin_dir_url( __FILE__ ) . 'tableDropdown/editor_plugin.js';
+		$jwl_plugin_array['codemagic'] = plugin_dir_url( __FILE__ ) . 'codemagic/editor_plugin.js';
+		$jwl_plugin_array['youtube'] = plugin_dir_url( __FILE__ ) . 'youtube/editor_plugin.js';
+		$jwl_plugin_array['imgmap'] = plugin_dir_url( __FILE__ ) . 'imgmap/editor_plugin.js';
+		$jwl_plugin_array['visualchars'] = plugin_dir_url( __FILE__ ) . 'visualchars/editor_plugin.js';
+		$jwl_plugin_array['print'] = plugin_dir_url( __FILE__ ) . 'print/editor_plugin.js';
+		$jwl_plugin_array['insertdatetime'] = plugin_dir_url( __FILE__ ) . 'insertdatetime/editor_plugin.js';
+		$jwl_plugin_array['googlemaps'] = plugin_dir_url( __FILE__ ) . 'googlemaps/editor_plugin.js';
+		   
+		return $jwl_plugin_array;
+}
+add_filter( 'mce_external_plugins', 'jwl_mce_external_plugins' );
 
 // Functions for Advanced TinyMCE Features
 // Add button and array for advanced insert/edit link button.
@@ -1426,32 +1475,6 @@ function jwl_sign_off_text() {
     return $jwl_signoff;  
 } 
 add_shortcode('signoff', 'jwl_sign_off_text');
-
-
-// Add the plugin array for extra features
-function jwl_mce_external_plugins( $jwl_plugin_array ) {
-		$jwl_plugin_array['table'] = plugin_dir_url( __FILE__ ) . 'table/editor_plugin.js';
-		$jwl_plugin_array['emotions'] = plugin_dir_url(__FILE__) . 'emotions/editor_plugin.js';
-		$jwl_plugin_array['advlist'] = plugin_dir_url(__FILE__) . 'advlist/editor_plugin.js';
-		$jwl_plugin_array['advimage'] = plugin_dir_url(__FILE__) . 'advimage/editor_plugin.js';
-		$jwl_plugin_array['searchreplace'] = plugin_dir_url(__FILE__) . 'searchreplace/editor_plugin.js';
-		$jwl_plugin_array['preview'] = plugin_dir_url(__FILE__) . 'preview/editor_plugin.js';
-		$jwl_plugin_array['xhtmlxtras'] = plugin_dir_url(__FILE__) . 'xhtmlxtras/editor_plugin.js';
-		$jwl_plugin_array['style'] = plugin_dir_url(__FILE__) . 'style/editor_plugin.js';
-		$jwl_plugin_array['media'] = plugin_dir_url(__FILE__) . 'media/editor_plugin.js';
-		$jwl_plugin_array['advhr'] = plugin_dir_url(__FILE__) . 'advhr/editor_plugin.js';
-		$jwl_plugin_array['clear'] = plugin_dir_url( __FILE__ ) . 'clear/editor_plugin.js';
-		$jwl_plugin_array['tableDropdown'] = plugin_dir_url( __FILE__ ) . 'tableDropdown/editor_plugin.js';
-		$jwl_plugin_array['codemagic'] = plugin_dir_url( __FILE__ ) . 'codemagic/editor_plugin.js';
-		$jwl_plugin_array['youtube'] = plugin_dir_url( __FILE__ ) . 'youtube/editor_plugin.js';
-		$jwl_plugin_array['imgmap'] = plugin_dir_url( __FILE__ ) . 'imgmap/editor_plugin.js';
-		$jwl_plugin_array['visualchars'] = plugin_dir_url( __FILE__ ) . 'visualchars/editor_plugin.js';
-		$jwl_plugin_array['print'] = plugin_dir_url( __FILE__ ) . 'print/editor_plugin.js';
-		$jwl_plugin_array['insertdatetime'] = plugin_dir_url( __FILE__ ) . 'insertdatetime/editor_plugin.js';
-		   
-		return $jwl_plugin_array;
-}
-add_filter( 'mce_external_plugins', 'jwl_mce_external_plugins' );
 
 // Add column shortcodes for tinymce editor
 $jwl_columns = get_option('jwl_columns_field_id');
