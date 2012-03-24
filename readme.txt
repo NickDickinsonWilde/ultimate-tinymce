@@ -139,6 +139,7 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * ---> Follow this <a href="http://youtu.be/-Y76wqkRMWk">SCREENCAST</a> to watch a short video explaining the new interface.
 * Added functionality to select which row each button will appear in the editor.
 * Added a check all/uncheck all option when choosing buttons.
+* Added Google Maps back to the plugin.  I believe all bugs have been worked out.
 
 = 1.7.4.1 =
 * 03-12-12
