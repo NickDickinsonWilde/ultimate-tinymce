@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.2.1
 Tested up to: 3.3.1
-Stable tag: 1.7.5.1
+Stable tag: 1.7.6
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -131,9 +131,20 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 == Changelog ==
 
-= 1.7.5.1 =
+= 1.7.6 =
+* 03-25-12
+* Adding a new Help System.  This can be accessed by clicking "Help" in the top-right of the settings page.
+* I didn't plan for this release this soon.  So, the new help system is incomplete.  I will be adding to this in future updates.
+* Adjusted save buttons back to normal (Renamed them to "Update Options").  Now each button will save ALL options, regardless of which button is clicked.
+= Bug Fixes: =
+* Removed Google Maps (again).
+* Issues saving posts/pages. (Google Maps Related)
+* Issues when working with images. (Google Maps Related)
+* Issues with copy/paste. (Google Maps Related)
+
+= 1.7.5.1
 * 03-23-12
-* Bug fix with copy/paste not working properly.
+* Bugfix with copy/paste buttons.
 
 = 1.7.5 =
 * 03-23-12
