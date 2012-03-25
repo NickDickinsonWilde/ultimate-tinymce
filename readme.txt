@@ -142,7 +142,7 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Issues when working with images. (Google Maps Related)
 * Issues with copy/paste. (Google Maps Related)
 
-= 1.7.5.1
+= 1.7.5.1 =
 * 03-23-12
 * Bugfix with copy/paste buttons.
 
