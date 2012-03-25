@@ -11,7 +11,7 @@
 <TABLE cellpadding=0 cellspacing=0 border="0" bordercolor="666666" width="80%"><tr><td ALIGN="left" VALIGN="TOP">
 <br>
 
-<span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong><?php _e('Abbreviations Box:','jwl-ultimate-tinymce'); ?></strong></span>
+<span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Abbreviations Box:</strong></span>
 <br />
 This option will enable the Abbreviations Box.  This button will be added to row four of the visual editor.
 
