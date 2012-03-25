@@ -374,3 +374,9 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 * This plugin is exactly like my Ultimate Visual Editor Upgrade plugin; except this plugin does NOT include the 291 Google Webfonts.  I realized the increased load the fonts puts on the server because each font calls a separate HTML request.  So, I created this plugin to use in the mean time until I can figure out a better solution.
 * Plugin was created.
+
+
+== Upgrade Notice ==
+
+= 1.7.6 =
+Bugfix: Removed Google Maps... causing miscellaneous conflicts.  Beginning redesign of settings page Help panel.
