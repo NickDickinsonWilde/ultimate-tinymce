@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+.help_wrapper {
+	background: #f4f9ff;
+	border: 1px solid #60AFFF;
+	border-radius: 5px;
+	color: #555;
+	height: auto;
+	margin-top: 10px;
+	padding: 5px;
+	position: relative;
+	width: 100%;
+}
+
+.content_wrapper {
+	background: #FFE6BF;
+	border: 1px solid #FAC46D;
+	border-radius: 5px;
+	color: #555;
+	height: auto;
+	margin-top: 10px;
+	margin-left: 65px;
+	margin-bottom: 10px;
+	padding: 5px;
+	position: relative;
+	width: 35%;
+	float:left;
+}
+
+.help_tab_list_image { 
+	list-style-image: url("img/list_image.png"); 
+	margin-left:30px !important;
+}
+
+#postbox_donate, #postbox_addons, #postbox_resources, #postbox_firefox, #postbox_vote, #postbox_blog, #postbox_feedback, #postbox_poll, #postbox_transfer {
+	background-color:#EAFFEE;
+}
+
+.donations {
+	display:block;
+	border:1px solid black;
+	padding:10px;
+	background-color: #DFFFDF;
+	margin-bottom:20px;
+}
+
+.plugin_addons {
+	background-color:#CFF;
+	color:#009;
+	border:1px solid #36F;
+	padding:5px;
+	display:block;
+}
+
+/* CSS for tooltips */
