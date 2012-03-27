@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.7.6
+ * @version 1.7.6.1
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.7.6
+Version: 1.7.6.1
 Author URI: http://joshlobe.com
 
 */
@@ -54,7 +54,6 @@ function ultimate_tinymce_uninstall() {
 	delete_option('jwl_search_field_id');
 	delete_option('jwl_replace_field_id');
 	delete_option('jwl_datetime_field_id');
-	//delete_option('jwl_googlemaps_field_id');
 	delete_option('jwl_fontselect_dropdown');
 	delete_option('jwl_fontsizeselect_dropdown');
 	delete_option('jwl_cut_dropdown');
@@ -70,7 +69,6 @@ function ultimate_tinymce_uninstall() {
 	delete_option('jwl_search_dropdown');
 	delete_option('jwl_replace_dropdown');
 	delete_option('jwl_datetime_dropdown');
-	//delete_option('jwl_googlemaps_dropdown');
 
 	delete_option('jwl_styleselect_field_id');
 	delete_option('jwl_tableDropdown_field_id');
@@ -158,6 +156,28 @@ function jwl_ultimate_tinymce_form_uninstall() {
 }
 /* End Uninstalling Database Values */
 
+/* Display a notice that can be dismissed */
+add_action('admin_notices', 'jwl_admin_notice');
+function jwl_admin_notice() {
+    global $current_user ;
+        $user_id = $current_user->ID;
+        /* Check that the user hasn't already clicked to ignore the message */
+    if ( ! get_user_meta($user_id, 'jwl_ignore_notice') ) {
+        echo '<div class="updated"><p>';
+        printf(__('<span style="color:green;">Thank you for choosing Ultimate Tinymce.</span><br />Please visit the <a href="admin.php?page=ultimate-tinymce">Ultimate Tinymce Settings Page</a> to begin customization of your editor.<br />If you are upgrading from a previous version, you will need to <a href="admin.php?page=ultimate-tinymce">reconfigure</a> your button row settings.<span style="float:right;"><a href="%1$s">Hide Notice</a></span>'), '?jwl_nag_ignore=0');
+        echo "</p></div>";
+    }
+}
+add_action('admin_init', 'jwl_nag_ignore');
+function jwl_nag_ignore() {
+    global $current_user;
+        $user_id = $current_user->ID;
+        /* If user clicks to ignore the notice, add that to their user meta */
+        if ( isset($_GET['jwl_nag_ignore']) && '0' == $_GET['jwl_nag_ignore'] ) {
+             add_user_meta($user_id, 'jwl_ignore_notice', 'true', true);
+    }
+}
+
 // Change our default Tinymce configuration values
 function jwl_change_mce_options($initArray) {
 	$initArray['popup_css'] = plugin_dir_url( __FILE__ ) . 'css/popup.css';
@@ -167,9 +187,7 @@ function jwl_change_mce_options($initArray) {
 
 	return $initArray;
 }
-
 add_filter('tiny_mce_before_init', 'jwl_change_mce_options');
-
 
 // Set our language localization folder (used for adding translations)
 function jwl_ultimate_tinymce() {
@@ -204,17 +222,6 @@ add_filter('plugin_action_links', 'add_ultimatetinymce_settings_link', 10, 2 );
 // Donate link on manage plugin page
 function jwl_execphp_donate_link($links, $file) { if ($file == plugin_basename(__FILE__)) { $donate_link = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS" target="_blank">Donate</a>'; $links[] = $donate_link; } return $links; } add_filter('plugin_row_meta', 'jwl_execphp_donate_link', 10, 2);
 
-/*
-// Call our external stylesheet used in the admin panel for customizing the "postbox" and "inside" classes.
-function jwl_admin_register_head() {
-    $url = plugin_dir_url( __FILE__ ) . 'css/admin_panel.css';  // Added for admin panel css styles
-	$url2 = plugin_dir_url( __FILE__ ) . 'js/pop-up.js';  // Added for popup help javascript
-    echo "<link rel='stylesheet' type='text/css' href='$url' />\n";  // Added for admin panel css styles
-	echo "<script language='JavaScript' type='text/javascript' src='$url2'></script>\n";  // Added for popup help javascript
-}
-add_action('admin_head', 'jwl_admin_register_head');
-*/
-
 // Add ALL our settings
 function jwl_settings_api_init() {
  	// This creates each settings option group.  These are used as headers in our admin panel settings page.	
@@ -241,7 +248,6 @@ function jwl_settings_api_init() {
 	add_settings_field('jwl_search_field_id', __('Search Box','jwl-ultimate-tinymce'), 'jwl_search_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
 	add_settings_field('jwl_replace_field_id', __('Replace Box','jwl-ultimate-tinymce'), 'jwl_replace_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
 	add_settings_field('jwl_datetime_field_id', __('Insert Date/Time Box','jwl-ultimate-tinymce'), 'jwl_datetime_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	//add_settings_field('jwl_googlemaps_field_id', __('Insert Google Maps Box','jwl-ultimate-tinymce'), 'jwl_googlemaps_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
 	
 	// These are the settings for Row 4
 	add_settings_field('jwl_styleselect_field_id', __('Style Select Box','jwl-ultimate-tinymce'), 'jwl_styleselect_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
@@ -315,8 +321,6 @@ function jwl_settings_api_init() {
 	register_setting('jwl_options_group','jwl_replace_dropdown');
 	register_setting('jwl_options_group','jwl_datetime_field_id');
 	register_setting('jwl_options_group','jwl_datetime_dropdown');
-	//register_setting('jwl_options_group','jwl_googlemaps_field_id');
-	//register_setting('jwl_options_group','jwl_googlemaps_dropdown');
 	
 	// Register settings for Row 4
 	register_setting('jwl_options_group','jwl_styleselect_field_id');
@@ -379,6 +383,11 @@ function jwl_settings_api_init() {
 	
 }
 add_action('admin_init', 'jwl_settings_api_init');
+
+// Set default values for dropdown buttons (if not already selected and saved).
+// Button defaults for Row 3		
+//$jwl_update_fontselect = get_option('jwl_fontselect_dropdown');
+	//if( !get_option('jwl_fontselect_dropdown' ) ) { update_option('jwl_fontselect_dropdown', '"Row 3"'); }
 
  // These are our callback functions for each settings option GROUP described above.
  function jwl_setting_section_callback_function1() {
@@ -589,20 +598,6 @@ add_action('admin_init', 'jwl_settings_api_init');
 			}
 			echo "</select>";
  }
- /*
- function jwl_googlemaps_callback_function() {
- 	echo '<input name="jwl_googlemaps_field_id" id="googlemaps" type="checkbox" value="1" class="one" ' . checked( 1, get_option('jwl_googlemaps_field_id'), false ) . ' /> ';
-	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/googlemaps.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:66px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/googlemaps.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
-			$options_googlemaps = get_option('jwl_googlemaps_dropdown');
-			$items_googlemaps = array("Row 1", "Row 2", "Row 3", "Row 4");
-			echo "<select id='row' style='width:80px;margin-left:27px;' name='jwl_googlemaps_dropdown[row]'>";
-			foreach($items_googlemaps as $item_googlemaps) {
-				$selected_googlemaps = ($options_googlemaps['row']==$item_googlemaps) ? 'selected="selected"' : '';
-				echo "<option value='$item_googlemaps' $selected_googlemaps>$item_googlemaps</option>";
-			}
-			echo "</select>";
- }
- */
  
 // Begin Callback functions for each individual setting registered in code above.
 // Callback Functions for Row 4 Buttons
@@ -1078,16 +1073,6 @@ if ($jwl_datetime_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_a
 if ($jwl_datetime_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_datetime"); }
 if ($jwl_datetime_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_datetime"); }
 
-/*
-function tinymce_add_button_googlemaps($buttons) { $jwl_googlemaps = get_option('jwl_googlemaps_field_id'); if ($jwl_googlemaps == "1") $buttons[] = 'googlemaps'; return $buttons; } 
-$jwl_googlemaps_dropdown = get_option('jwl_googlemaps_dropdown');
-$jwl_googlemaps_dropdown2 = $jwl_googlemaps_dropdown['row'];
-if ($jwl_googlemaps_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_googlemaps"); } 
-if ($jwl_googlemaps_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_googlemaps"); } 
-if ($jwl_googlemaps_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_googlemaps"); }
-if ($jwl_googlemaps_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_googlemaps"); }
-*/
-
 // Functions for Row 4
 function tinymce_add_button_styleselect($buttons) { $jwl_styleselect = get_option('jwl_styleselect_field_id'); if ($jwl_styleselect == "1") $buttons[] = 'styleselect'; return $buttons; } 
 $jwl_styleselect_dropdown = get_option('jwl_styleselect_dropdown');
@@ -1261,7 +1246,6 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['visualchars'] = plugin_dir_url( __FILE__ ) . 'visualchars/editor_plugin.js';
 		$jwl_plugin_array['print'] = plugin_dir_url( __FILE__ ) . 'print/editor_plugin.js';
 		$jwl_plugin_array['insertdatetime'] = plugin_dir_url( __FILE__ ) . 'insertdatetime/editor_plugin.js';
-		//$jwl_plugin_array['googlemaps'] = plugin_dir_url( __FILE__ ) . 'googlemaps/editor_plugin.js';
 		   
 		return $jwl_plugin_array;
 }
@@ -1627,7 +1611,6 @@ class jwl_metabox_admin {
 			$this->pagehook = add_options_page('Ultimate TinyMCE Plugin Page',  __('Ultimate TinyMCE','jwl-ultimate-tinymce'), 'manage_options', JWL_ADMIN_PAGE_NAME, array(&$this, 'jwl_options_page'));
 			//register  callback gets call prior your own page gets rendered
 			add_action('load-'.$this->pagehook, array(&$this, 'jwl_on_load_page'));
-			add_action("load-{$this->pagehook}",array(&$this,'jwl_help_screen'));
 			add_action('admin_print_styles-'.$this->pagehook, array(&$this, 'jwl_admin_register_head_styles'));
 			add_action('admin_print_scripts-'.$this->pagehook, array(&$this, 'jwl_admin_register_head_scripts'));
 
@@ -1641,33 +1624,6 @@ class jwl_metabox_admin {
 		function jwl_admin_register_head_scripts() {
 			$url2 = plugin_dir_url( __FILE__ ) . 'js/pop-up.js';  // Added for popup help javascript
 			echo "<script language='JavaScript' type='text/javascript' src='$url2'></script>\n";  // Added for popup help javascript
-		}
-		function jwl_help_screen() {
-			/** 
-			 * Create the WP_Screen object against your admin page handle
-			 * This ensures we're working with the right admin page
-			 */
-			$this->admin_screen = WP_Screen::get($this->pagehook);
-			// Content specified inline
-			$this->admin_screen->add_help_tab( array( 'title' => __('Help Documentation','jwl-ultimate-tinymce'), 'id' => 'help_tab', 'content' => '<div class="help_wrapper"><p>'.__('<ul><li class="help_tab_list_image">The best resource for expedited help is my <a target="_blank" href="http://www.forum.joshlobe.com/">Support Forum</a>.</li><li class="help_tab_list_image">You can also visit the <a target="_blank" href="http://www.joshlobe.com/2011/10/ultimate-tinymce/">Plugin Page</a> to read user comments.</ul>','jwl-ultimate-tinymce').'</p></div>', 'callback' => false ));
-			$this->admin_screen->add_help_tab( array( 'title' => __('Settings Page Tips','jwl-ultimate-tinymce'), 'id' => 'help_tab2', 'content' => '<div class="help_wrapper"><p>'.__('Here are some important items to remember regarding the new settings page.<br /><ul><li class="help_tab_list_image">Each option has a dedicated help icon.  Clicking the help icon (blue question mark) for a specific option will open a new window with a unique help file.</li><li class="help_tab_list_image">Boxes can be opened/closed and sorted by clicking and dragging the box headers.  Boxes can also be enabled/disabled via the "Screen Options" tab in the upper-right corner.</li><li class="help_tab_list_image">Set your screen layout to two columns (via Screen Options) for best results.</li><li class="help_tab_list_image">The "Row Selection" button allows you to choose which row of the visual editor the button will appear.</ul>','jwl-ultimate-tinymce').'</p></div>', 'callback' => false ));
-			$this->admin_screen->add_help_tab( array( 'title' => __('Paid Addons','jwl-ultimate-tinymce'), 'id' => 'help_tab3', 'content' => '<div class="help_wrapper"><p>'.__('<p><center>Check out these addons which will allow you even further customization over the visual editor.</center></p><a target="_blank" href="http://www.plugins.joshlobe.com/ultimate-tinymce-custom-styles/"><div class="content_wrapper"><h3>Ultimate Tinymce Custom Styles</h3><p><img src="http://www.joshlobe.com/images/styles_addon.png"></p></div></a><a target="_blank" href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/"><div class="content_wrapper"><h3>Ultimate Tinymce Google Webfonts</h3><p><img src="http://www.joshlobe.com/images/webfonts_addon.png"></p></div></a>','jwl-ultimate-tinymce').'</p></div>', 'callback' => false ));
-			/**
-			 * Content generated by callback
-			 * The callback fires when tab is rendered - args: WP_Screen object, current tab
-			 */
-			//$this->admin_screen->add_help_tab(
-				//array( 'title' => 'Info on this Page', 'id' => 'page_info', 'content' => '', 'callback' => create_function('','echo "<p>This is my generated content.</p>";' )));
-			$this->admin_screen->set_help_sidebar( '<p>'.__('Ultimate Tinymce Help<br /><br /><a target="_blank" href="http://www.forum.joshlobe.com/">Support Forum</a>','jwl-ultimate-tinymce').'</p>' );
-			//$this->admin_screen->add_option( 'per_page', array( 'label' => 'Entries per page', 'default' => 20, 'option' => 'edit_per_page' ));
-			$this->admin_screen->add_option( 'layout_columns', array( 'default' => 3, 'max' => 5 ));
-			// This option will NOT show up
-			//$this->admin_screen->add_option( 'invisible_option', array( 'label'	=> 'I am a custom option', 'default' => 'wow', 'option' => 'my_option_id' ));
-			/**
-			 * But old-style metaboxes still work for creating custom checkboxes in the option panel
-			 * This is a little hack-y, but it works
-			 */
-			//add_meta_box( 'jwl_help_meta_id', 'Help Metabox', array(&$this,'create_my_metabox'), $this->admin_page );
 		}
 
 		//will be executed if wordpress core detects this page has to be rendered
@@ -1722,6 +1678,7 @@ class jwl_metabox_admin {
 						<div id="post-body-content" class="has-sidebar-content">
                         	<?php do_meta_boxes($this->pagehook, 'normal', $data); ?>
 							<?php do_meta_boxes($this->pagehook, 'additional', $data); ?>
+                            <!--<div class="help_wrapper" style="height:440px;width:95%;"><p><center><h3>Check out these addons which will allow you even further customization over the visual editor.</h3></center><a target="_blank" href="http://www.plugins.joshlobe.com/ultimate-tinymce-custom-styles/"><div class="content_wrapper"><h3>Ultimate Tinymce Custom Styles</h3><p><img src="http://www.joshlobe.com/images/styles_addon.png"></p></div></a><a target="_blank" href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/"><div class="content_wrapper"><h3>Ultimate Tinymce Google Webfonts</h3><p><img src="http://www.joshlobe.com/images/webfonts_addon.png"></p></div></a></p></div>-->
 						</div>
 					</div>
 					<br class="clear"/>
@@ -1776,7 +1733,7 @@ class jwl_metabox_admin {
 		}
 		function buttons_group_3($data) {
 			sort($data);
-			do_settings_sections('ultimate-tinymce3');
+			do_settings_sections('ultimate-tinymce4');
 			settings_fields('jwl_options_group');
 			?>
 			<center><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
@@ -1785,7 +1742,7 @@ class jwl_metabox_admin {
 		}
 		function buttons_group_4($data) {
 			sort($data);
-			do_settings_sections('ultimate-tinymce4');
+			do_settings_sections('ultimate-tinymce3');
 			settings_fields('jwl_options_group');
 			?>
 			<center><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
@@ -1939,10 +1896,7 @@ class jwl_metabox_admin {
 		<form method=post action=http://poll.pollhost.com/vote.cgi><table border=0 width=100% bgcolor=#EEEEEE cellspacing=0 cellpadding=2><tr><td colspan=2><font face="Verdana" size=-1 color="#000000"><b>Which feature would you like to see?</b></font></td></tr><tr><td width=5><input type=radio name=answer value=1></td><td><font face="Verdana" size=-1 color="#000000">Better Tables Control and Usage</font></td></tr><tr><td width=5><input type=radio name=answer value=2></td><td><font face="Verdana" size=-1 color="#000000">Better Cross-Browser Compatibility</font></td></tr><tr><td width=5><input type=radio name=answer value=3></td><td><font face="Verdana" size=-1 color="#000000">More examples in the Help Popups</font></td></tr><tr><td width=5><input type=radio name=answer value=4></td><td><font face="Verdana" size=-1 color="#000000">A Shortcodes Manager</font></td></tr><tr><td width=5><input type=radio name=answer value=5></td><td><font face="Verdana" size=-1 color="#000000">A Custom Styles Manager</font></td></tr><tr><td colspan=2><input type=hidden name=config value="am9zaDQwMQkxMzI2NjkxMDQ5CUVFRUVFRQkwMDAwMDAJVmVyZGFuYQlBc3NvcnRlZA"><center><input type=submit value=Vote>&nbsp;&nbsp;<input type=submit name=view value=View></center></td></tr><tr><td bgcolor=#FFFFFF colspan=2 align=right><font face="Verdana" size=-2 color="#000000"><a href=http://www.pollhost.com/><font color=#000099>Free polls from Pollhost.com</font></a></font></td></tr></table></form>
 		</div> <?php
 		}
-		
-		
 }
-
 $my_jwl_metabox_admin = new jwl_metabox_admin();
 
 ?>
