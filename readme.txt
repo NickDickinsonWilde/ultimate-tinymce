@@ -136,6 +136,7 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 = 1.7.6.1 =
 * 03-27-12
 * Bugfix: Installation Error "Class 'WP_Screen' not found..." Fixed.
+* Update: This error of "Class WP_Screen not found" is due to wordpress installations using a version below 3.3.1.  I plan to implement this feaure in a future release, so users will need to upgrade to at least wordpress version 3.3.1 to continue enjoying the features of Ultimate Tinymce.  Please watch the changelog before downloading updates to check for compatibility with your wordpress version.
 
 = 1.7.6 =
 * 03-25-12
