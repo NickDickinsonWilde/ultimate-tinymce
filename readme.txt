@@ -2,9 +2,9 @@
 Contributors: josh401 
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
-Requires at least: 3.2.1
+Requires at least: 3.3.1
 Tested up to: 3.3.1
-Stable tag: 1.7.6.1
+Stable tag: 1.7.7
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -35,7 +35,7 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "W
 <ul><li><a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">Support Forum</a></li><li><a href="http://www.joshlobe.com/2011/10/ultimate-tinymce/">Ultimate TinyMCE Plugin HomePage</a></li><li>Follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> to be notified of new video tutorials.</li></ul>
 
 <strong>Other Plugins by Josh:</strong><br />
-<ul><li><a href="http://wordpress.org/extend/plugins/custom-welcome-messages/">Custom Welcome Messages</a> - Create custom login and logout pages.  Change the default wordpress login image, title, and link.</li><li><a href="http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/">Ultimate Moods Addon</a> - Add over 50 animated mood smilies to your content.</li><li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/">Ultimate Google Webfonts Addon</a> - Easily add any combination of Google Webfonts to your website without compromising page loading time.</li></ul>
+<ul><li><a href="http://wordpress.org/extend/plugins/custom-welcome-messages/">Custom Welcome Messages</a> - Create custom login and logout pages.  Change the default wordpress login image, title, and link.</li><li><a href="http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/">Ultimate Moods Addon</a> - Add over 50 animated mood smilies to your content.</li><li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/">Ultimate Google Webfonts Addon</a> - Easily add any combination of Google Webfonts to your website without compromising page loading time.</li><li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-custom-styles/">Ultimate Custom Styles Addon</a> - Create custom styles for use in the styles dropdown box; which are rendered in both the editor and the front-end of the website.</li><li><a href="http://www.plugins.joshlobe.com/predefined-custom-styles/">Predefined Custom Styles</a> - A collection of over 30 of my custom styles, ready to be added to the styles dropdown selector.  Simply activate the plugin; and you are done.</li></ul>
 
 <strong>Translations:</strong><br />
 Translating a plugin takes a lot of time, effort, and patience.  Especially with a plugin like Ultimate TinyMCE where there is a large admin panel options page with lots of text.  I really appreciate the hard work from these contributors.<br />
@@ -132,6 +132,13 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 1.7.7 =
+* Update: Another re-design to the admin panel.  Trying to clean up the length of the settings page.
+* Update: I'm thinking about making the entire admin panel jquery.  This would allow users to "tab" through each metabox area rather than having to scroll down the page.  Use my feedback form to let me know what you think.
+* Update: Getting closer to a true drag-n-drop experience with the buttons.  Check out this link for a "sneak-peek": http://www.joshlobe.com/test
+* <strong>Notice:</strong> I've changed the "requires" version to 3.3.1 on the plugin download page.  Currently, this plugin will still work on 2.8 and above.
+* <strong>Notice:</strong> Watch the changelog to see when the plugin steps up to 3.3.1; I will make sure to announce it here.  Once it does, the plugin will no longer work on any Wordpress version below 3.3.1 (to my understanding).
 
 = 1.7.6.1 =
 * 03-27-12

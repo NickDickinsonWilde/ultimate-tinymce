@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.7.6.1
+ * @version 1.7.7
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.7.6.1
+Version: 1.7.7
 Author URI: http://joshlobe.com
 
 */
@@ -156,7 +156,7 @@ function jwl_ultimate_tinymce_form_uninstall() {
 }
 /* End Uninstalling Database Values */
 
-/* Display a notice that can be dismissed */
+/* Display a plugin update notice that can be dismissed.  This notice is displayed on all admin pages until dismissed. */
 add_action('admin_notices', 'jwl_admin_notice');
 function jwl_admin_notice() {
     global $current_user ;
@@ -1646,7 +1646,6 @@ class jwl_metabox_admin {
 			add_meta_box('jwl_metabox2', __('Buttons Group 2'), array(&$this, 'buttons_group_2'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox3', __('Enable Advanced Features'), array(&$this, 'buttons_group_3'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox4', __('Miscellaneous Features'), array(&$this, 'buttons_group_4'), $this->pagehook, 'normal', 'core');
-			add_meta_box('jwl_metabox5', __('Delete Database Entries and Values &nbsp;&nbsp;(Reset Plugin Settings)'), array(&$this, 'jwl_ultimate_tinymce_form_uninstall'), $this->pagehook, 'normal', 'core');	
 		}
 		
 		//executed to show the plugins complete admin page
@@ -1655,8 +1654,7 @@ class jwl_metabox_admin {
 			global $screen_layout_columns;
 			//add a 3rd content box now for demonstration purpose, boxes added at start of page rendering can't be switched on/off, 
 			//may be needed to ensure that a special box is always available
-			add_meta_box('postbox_donate', 'Donations', array(&$this, 'postbox_donate'), $this->pagehook, 'side', 'core');
-			add_meta_box('postbox_addons', 'Plugin Addons', array(&$this, 'postbox_addons'), $this->pagehook, 'side', 'core');
+			//add_meta_box('postbox_addons', 'Plugin Addons', array(&$this, 'postbox_addons'), $this->pagehook, 'side', 'core');
 			//define some data can be given to each metabox during rendering
 			$data = array('My Data 1', 'My Data 2', 'Available Data 1');
 			?>
@@ -1669,17 +1667,103 @@ class jwl_metabox_admin {
 				<?php wp_nonce_field('meta-box-order', 'meta-box-order-nonce', false ); ?>
 				<input type="hidden" name="action" value="save_ultimate-tinymce_general" />
 				</form>
+                
+                 
+                
+    <div id="container">  
+        <ul class="menu">  
+            <li id="news" class="active">Plugin Addons</li>  
+            <li id="tutorials">Donations</li>  
+            <li id="links">Uninstall Plugin</li>  
+        </ul>  
+        <span class="clear"></span>  
+        <div class="content news"> 
+            <div class="help_wrapper" style="width:98%;padding:10px;display:inline-block;"><span style="font-size:15px;">Plugin Addons:</span><br /><br />
+                    <span style="margin-left:10px;"><?php _e('These addons provide additional features for Ultimate TinyMCE.  Click the title to view the download page.','jwl-ultimate-tinymce');
+					?></span><br />
+                    <div id="clickme" class="content_wrapper" style="float:left;width:22%;margin-left:10px;"><?php
+					echo '<a target="_blank" title="Add over 50 animated smilies to your content." href="http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/">Ultimate Moods Addon</a>'; ?> <span class="span_hover" style="float:right;cursor:pointer;margin-right:5px;">(Toggle)</span>
+                    <div id="me" style="display:none;margin-top:10px;"><?php
+					if (is_plugin_active('moods-addon-for-ultimate-tinymce/main.php')) {
+					echo '<span style="color:green;">Activated</span>';
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has been installed and activated successfully." /><?php
+					} else {
+					echo '<span style="color:red;">Not Activated</span>';
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Choose from over 50 professionally animated smilies and insert them randomly into your post or page content areas.'); ?> </span> <?php
+					}
+					?></div></div>
+					
+					<div id="clickme2" class="content_wrapper" style="float:left;width:22%;margin-left:10px;"><?php
+					echo '<a target="_blank" title="Easily Integrate Google Webfonts into your Website." href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/">Ultimate Google Webfonts</a>'; ?> <span class="span_hover" style="float:right;cursor:pointer;margin-right:5px;">(Toggle)</span>
+                    <div id="me2" style="display:none;margin-top:10px;"><?php
+					if (is_plugin_active('ultimate_tinymce_google_webfonts_addon/main.php')) {
+					echo '<span style="color:green;">Activated</span>';
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has been installed and activated successfully." /> <?php
+					} else {
+					echo '<span style="color:red;">Not Activated</span>';
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Choose any combination of Google Webfonts, and add them to the font dropdown selector.<br /><br />Fonts are rendered on both the editor screen, and to all front-end viewers.'); ?> <br /><br /><center><img style="border:1px solid #666" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/admin_webfonts.png" title="Ultimate Tinymce Google Webfonts" /></center></span> <?php
+					}
+					?></div></div>
+                    
+					<div id="clickme3" class="content_wrapper" style="float:left;width:22%;margin-left:10px;"><?php
+					echo '<a target="_blank" title="Easily add custom styles to your content." href="http://www.plugins.joshlobe.com/ultimate-tinymce-custom-styles/">Ultimate Custom Styles</a>'; ?> <span class="span_hover" style="float:right;cursor:pointer;margin-right:5px;">(Toggle)</span>
+                    <div id="me3" style="display:none;margin-top:10px;"><?php
+					if (is_plugin_active('ultimate_tinymce_custom_styles_addon/main.php')) {
+					echo '<span style="color:green;">Activated</span>';
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has been installed and activated successfully." /> <?php
+					} else {
+					echo '<span style="color:red;">Not Activated</span>';
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Define unlimited custom styles, and add them to the styleselect dropdown list.<br /><br />Styles are rendered in both the editor screen and the front end of the website.'); ?> <br /><br /><center><img style="border:1px solid #666" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/admin_styles.png" title="Ultimate Tinymce Custom Styles" /></center></span> <?php
+					}
+					?>    
+                    </div></div>
+                    
+                    <div id="clickme4" class="content_wrapper" style="float:left;width:22%;margin-left:10px;"><?php
+					echo '<a target="_blank" title="Easily add custom styles to your content." href="http://www.plugins.joshlobe.com/predefined-custom-styles/">Pre-Defined Styles</a>'; ?> <span class="span_hover" style="float:right;cursor:pointer;margin-right:5px;">(Toggle)</span>
+                    <div id="me4" style="display:none;margin-top:10px;"><?php
+					if (is_plugin_active('ultimate_tinymce_predefined_styles/main.php')) {
+					echo '<span style="color:green;">Activated</span>';
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has been installed and activated successfully." /> <?php
+					} else {
+					echo '<span style="color:red;">Not Activated</span>';
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('A collection of my custom styles.  No need to create your own.<br /><br />Install this plugin and have instant access to over 30 custom styles (and growing).'); ?> </span> <?php
+					}
+					?>    
+                    </div></div>
+                </div>
+        </div>
+        
+        <div class="content tutorials">
+        	<div class="help_wrapper" style="width:98%;padding:10px;display:inline-block;"><span style="font-size:15px;">Donations:</span><br /><br /><div class="content_wrapper" style="margin-left:10px;width:65%;">
+             <?php _e('Developing this awesome plugin took a lot of effort and time; months and months of continuous voluntary unpaid work.','jwl-ultimate-tinymce'); ?><!--  Donate Button -->
+					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="hosted_button_id" value="A9E5VNRBMVBCS">
+					<input type="image" src="http://www.joshlobe.com/images/donate.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+					<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+					</form>
+			<?php _e('If you like this plugin or if you are using it for commercial websites, please consider a donation to the developer to help support future updates and development.','jwl-ultimate-tinymce'); ?></div></div>
+        </div>  
+        
+        <div class="content links"> 
+        	<div class="help_wrapper" style="width:98%;padding:10px;display:inline-block;"><span style="font-size:15px;">Uninstall Plugin & Delete Database Entries:</span><br /><br />
+            	<div class="content_wrapper" style="margin-left:10px;width:70%;padding:20px;">
+            	<?php jwl_ultimate_tinymce_form_uninstall(); ?>
+                </div>
+            </div>
+        </div>  
+    </div>  
+                    
 			
 				<div id="poststuff" class="metabox-holder<?php echo 2 == $screen_layout_columns ? ' has-right-sidebar' : ''; ?>">
-					<div id="side-info-column" class="inner-sidebar">
-						<?php do_meta_boxes($this->pagehook, 'side', $data); ?>
+					<div id="side-info-column" class="inner-sidebar">                        
+                    	<?php do_meta_boxes($this->pagehook, 'side', $data); ?>
 					</div>
 					<div id="post-body" class="has-sidebar">
 						<div id="post-body-content" class="has-sidebar-content">
                         	<?php do_meta_boxes($this->pagehook, 'normal', $data); ?>
 							<?php do_meta_boxes($this->pagehook, 'additional', $data); ?>
-                            <!--<div class="help_wrapper" style="height:440px;width:95%;"><p><center><h3>Check out these addons which will allow you even further customization over the visual editor.</h3></center><a target="_blank" href="http://www.plugins.joshlobe.com/ultimate-tinymce-custom-styles/"><div class="content_wrapper"><h3>Ultimate Tinymce Custom Styles</h3><p><img src="http://www.joshlobe.com/images/styles_addon.png"></p></div></a><a target="_blank" href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/"><div class="content_wrapper"><h3>Ultimate Tinymce Google Webfonts</h3><p><img src="http://www.joshlobe.com/images/webfonts_addon.png"></p></div></a></p></div>-->
-						</div>
+                        </div>
 					</div>
 					<br class="clear"/>
 									
@@ -1694,6 +1778,53 @@ class jwl_metabox_admin {
             </script>
             <script type="text/javascript"> jQuery(document).ready( function($) { $("#allsts2").click(function() { $(".two").attr('checked', true); }); $("#nosts2").click(function() { $(".two").attr('checked', false); }); $('.two' ).each( function() { var isitchecked = this.checked; }); });
             </script>
+            
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+            <script type="text/javascript"> $(document).ready(function() { $('#clickme').click(function() { $('#me').animate({ height: 'toggle' }, 300 ); }); }); </script>
+            <script type="text/javascript"> $(document).ready(function() { $('#clickme2').click(function() { $('#me2').animate({ height: 'toggle' }, 300 ); }); }); </script>
+            <script type="text/javascript"> $(document).ready(function() { $('#clickme3').click(function() { $('#me3').animate({ height: 'toggle' }, 300 ); }); }); </script>
+            <script type="text/javascript"> $(document).ready(function() { $('#clickme4').click(function() { $('#me4').animate({ height: 'toggle' }, 300 ); }); }); </script>
+            <script type="text/javascript" src="tabs.js"></script>
+            <script type="text/javascript">
+			$(document).ready(function(){  
+    $(".menu > li").click(function(e){  
+        switch(e.target.id){  
+            case "news":  
+                //change status &amp;amp;amp; style menu  
+                $("#news").addClass("active");  
+                $("#tutorials").removeClass("active");  
+                $("#links").removeClass("active");  
+                //display selected division, hide others  
+                $("div.news").fadeIn();  
+                $("div.tutorials").css("display", "none");  
+                $("div.links").css("display", "none");  
+            break;  
+            case "tutorials":  
+                //change status &amp;amp;amp; style menu  
+                $("#news").removeClass("active");  
+                $("#tutorials").addClass("active");  
+                $("#links").removeClass("active");  
+                //display selected division, hide others  
+                $("div.tutorials").fadeIn();  
+                $("div.news").css("display", "none");  
+                $("div.links").css("display", "none");  
+            break;  
+            case "links":  
+                //change status &amp;amp;amp; style menu  
+                $("#news").removeClass("active");  
+                $("#tutorials").removeClass("active");  
+                $("#links").addClass("active");  
+                //display selected division, hide others  
+                $("div.links").fadeIn();  
+                $("div.news").css("display", "none");  
+                $("div.tutorials").css("display", "none");  
+            break;  
+        }  
+        //alert(e.target.id);  
+        return false;  
+    });  
+});  
+</script>
 			
 			<?php
 		}
@@ -1748,57 +1879,6 @@ class jwl_metabox_admin {
 			<center><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
 			</form>
 			<?php
-		}
-		function jwl_ultimate_tinymce_form_uninstall($data) {
-			sort($data);
-			jwl_ultimate_tinymce_form_uninstall();
-			
-		}
-		function postbox_donate($data) {
-			?>
-			<p><?php _e('Developing this awesome plugin took a lot of effort and time; months and months of continuous voluntary unpaid work.','jwl-ultimate-tinymce'); ?></p>				<!--  Donate Button -->
-					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-					<input type="hidden" name="cmd" value="_s-xclick">
-					<input type="hidden" name="hosted_button_id" value="A9E5VNRBMVBCS">
-					<center><input type="image" src="http://www.joshlobe.com/images/donate.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></center>
-					<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-					</form>
-			<p><?php _e('If you like this plugin or if you are using it for commercial websites, please consider a donation to the developer to help support future updates and development.','jwl-ultimate-tinymce'); ?></p><?php
-		}
-		function postbox_addons($data) {
-			sort($data);
-			?>
-			<p>
-					<?php _e('These addons provide additional features for Ultimate TinyMCE.  Click the title to view the download page.','jwl-ultimate-tinymce');
-					echo '<br /><br /><a target="_blank" title="Add over 50 animated smilies to your content." href="http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/">Ultimate Moods Addon</a> - ';
-					if (is_plugin_active('moods-addon-for-ultimate-tinymce/main.php')) {
-					echo '<span style="color:green;padding-left:5px;">Activated</span>';
-					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has been installed and activated successfully." /><?php
-					} else {
-					echo '<span style="color:red;padding-left:5px;">Not Activated</span>';
-					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Insert over 50 professionally animated smilies into your post or page content areas.'); ?> </span> <?php
-					}
-					
-					echo '<br /><br /><a target="_blank" title="Easily Integrate Google Webfonts into your Website." href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/">Ultimate Google Webfonts</a> - ';
-					if (is_plugin_active('ultimate_tinymce_google_webfonts_addon/main.php')) {
-					echo '<span style="color:green;padding-left:5px;">Activated</span>';
-					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has been installed and activated successfully." /> <?php
-					} else {
-					echo '<span style="color:red;padding-left:5px;">Not Activated</span>';
-					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Choose any combination of Google Webfonts, and add them to the font dropdown selector.'); ?> </span> <?php
-					}
-					
-					echo '<br /><br /><a target="_blank" title="Easily add custom styles to your content." href="http://www.plugins.joshlobe.com/ultimate-tinymce-custom-styles/">Ultimate Custom Styles</a> - ';
-					if (is_plugin_active('ultimate_tinymce_custom_styles_addon/main.php')) {
-					echo '<span style="color:green;padding-left:5px;">Activated</span>';
-					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has been installed and activated successfully." /> <?php
-					} else {
-					echo '<span style="color:red;padding-left:5px;">Not Activated</span>';
-					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Define unlimited custom styles, and add them to the styleselect dropdown list.'); ?> </span> <?php
-					}
-					?>
-					</p>
-					<?php
 		}
 		function postbox_resources($data) {
 			sort($data);
