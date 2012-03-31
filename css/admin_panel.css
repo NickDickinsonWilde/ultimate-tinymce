@@ -2,6 +2,10 @@
 
 /* CSS Document */
 
+.form-table th {
+    width: 260px !important;
+}
+
 .clear{  
     clear: both;  
     height: 0;  
@@ -75,6 +79,14 @@
     display: none;  
 }  
 /******* /TUTORIALS *******/  
+/******* SPREAD *******/  
+.content.spread h1{  
+    background: transparent url(images/tuts.jpg) no-repeat scroll left top;  
+}  
+.content.spread{  
+    display: none;  
+}  
+/******* /SPREAD *******/  
 /******* LINKS *******/  
 .content.links h1{  
     background: transparent url(images/links.jpg) no-repeat scroll left top;  
@@ -120,7 +132,7 @@
 }
 
 .help_tab_list_image { 
-	list-style-image: url("img/list_image.png"); 
+	list-style-image: url("img/list_image.png") !important; 
 	margin-left:30px !important;
 }
 

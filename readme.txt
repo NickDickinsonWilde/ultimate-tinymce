@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.3.1
-Stable tag: 1.7.7
+Stable tag: 1.7.7.1
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -133,7 +133,17 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 == Changelog ==
 
+= 1.7.7.1 =
+* 04-01-12
+* Tweak: Added unique screen icon to admin settings page.
+* Tweak: Extended width of first column settings.  Some were spilling one word to the second line.  It was driving me nuts!
+* Update: Added more information to the "Tabbed" area.  Getting ready to eliminate some of the sidebar content areas.
+* Update: Removed feature to enable the tinymce editor in the excerpt area.  This feature was buggy, and I want to focus on bigger challenges.
+* Update: Removed the custom styles option.  My plugin addons can offer a better option, with extended features.
+* Update: Consolidated the remaining three options from the "Advanced" metabox to the "Miscellaneous Features" betabox.  There are now only three main options boxes.  Basically, the bottom two options boxes have been merged.
+
 = 1.7.7 =
+* 03-30-12
 * Update: Another re-design to the admin panel.  Trying to clean up the length of the settings page.
 * Update: I'm thinking about making the entire admin panel jquery.  This would allow users to "tab" through each metabox area rather than having to scroll down the page.  Use my feedback form to let me know what you think.
 * Update: Getting closer to a true drag-n-drop experience with the buttons.  Check out this link for a "sneak-peek": http://www.joshlobe.com/test
