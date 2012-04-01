@@ -229,6 +229,7 @@ function jwl_admin_bar_links() {
 	$wp_admin_bar->add_menu( array( 'title' => 'Ultimate Tinymce', 'href' => false, 'id' => 'jwl_links', 'href' => 'admin.php?page=ultimate-tinymce' ));
 	/** * Add the submenu links. */
 	foreach ($links as $label => $url) { $wp_admin_bar->add_menu( array( 'title' => $label, 'href' => 'admin.php?page=ultimate-tinymce', 'parent' => 'jwl_links' )); }
+	/*
 	if (is_plugin_active('ultimate_tinymce_google_webfonts_addon/main.php')) {
 		foreach ($links2 as $label2 => $url2) { $wp_admin_bar->add_menu( array( 'title' => $label2, 'href' => 'admin.php?page=ultimate-tinymce-google', 'parent' => 'jwl_links' )); }
 	}
@@ -238,6 +239,7 @@ function jwl_admin_bar_links() {
 	if (is_plugin_active('wp-admin-colors/main.php')) {
 		foreach ($links4 as $label4 => $url4) { $wp_admin_bar->add_menu( array( 'title' => $label4, 'href' => 'admin.php?page=wp-admin-colors', 'parent' => 'jwl_links' )); }
 	}
+	*/
 }
 
 // Set our language localization folder (used for adding translations)
