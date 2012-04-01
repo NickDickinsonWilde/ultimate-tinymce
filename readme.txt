@@ -133,6 +133,10 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 == Changelog ==
 
+= 1.7.7.3 =
+* 04-01-12
+* Bugfix: Fixed error message regarding "Call to undefined function is_plugin_active()".
+
 = 1.7.7.2 =
 * 04-01-12
 * Bugfix: Spacing issue with "update options" button, and the box directly beneath.
