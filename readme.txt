@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.3.1
-Stable tag: 1.7.7.1
+Stable tag: 1.7.7.2
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -133,8 +133,18 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 == Changelog ==
 
-= 1.7.7.1 =
+= 1.7.7.2 =
 * 04-01-12
+* Bugfix: Spacing issue with "update options" button, and the box directly beneath.
+* Tweak: Removed most inline css used to display the admin settings page.  Most all css (for the settings page) is now rendered from a separate css file.
+* Tweak: Added an "Admin Tips" section in the main tab area; explaining different features of the admin settings page.
+* Tweak: Localized all admin settings page translation strings.  Still have to do the help popup pages.
+* Tweak: Added a link to the top admin bar for quick access back to the plugin settings page.
+* Tweak: The admin bar menu will dynamically generate new links if a user installs any of the available addons; taking them directly to the relevant settings page.
+* Tweak: Added a dashboard widget.  Currently, it is being used for links.  However, I will incorporate a dedicated news feed into this widget in a future update.
+
+= 1.7.7.1 =
+* 03-31-12
 * Tweak: Added unique screen icon to admin settings page.
 * Tweak: Extended width of first column settings.  Some were spilling one word to the second line.  It was driving me nuts!
 * Update: Added more information to the "Tabbed" area.  Getting ready to eliminate some of the sidebar content areas.

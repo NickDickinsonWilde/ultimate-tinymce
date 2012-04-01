@@ -87,6 +87,14 @@
     display: none;  
 }  
 /******* /SPREAD *******/  
+/******* TIPS *******/  
+.content.tips h1{  
+    background: transparent url(images/tuts.jpg) no-repeat scroll left top;  
+}  
+.content.tips{  
+    display: none;  
+}  
+/******* /TIPS *******/ 
 /******* LINKS *******/  
 .content.links h1{  
     background: transparent url(images/links.jpg) no-repeat scroll left top;  
@@ -97,11 +105,21 @@
 .content.links a{  
     color: #5f95ef;  
 }  
-/******* /LINKS *******/  
+/******* /LINKS *******/ 
+
+.span_hover {
+	float: right;
+	cursor: pointer;
+	margin-right: 5px;
+} 
 
 .span_hover:hover {
 	color: #0C0;
 	text-decoration: underline;
+	text-transform: uppercase;
+	float: right;
+	cursor: pointer;
+	margin-right: 5px;
 }
 
 .help_wrapper {
@@ -157,4 +175,77 @@
 	border-radius:5px;
 }
 
-/* CSS for tooltips */
+.content_wrapper_tips {
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 31%;
+	padding: 5px;
+	min-height: 240px;
+	background: #FFE6BF;
+	border: 1px solid #FAC46D;
+	border-radius: 5px;
+	color: #555;
+	position: relative;
+	float: left;
+}
+
+.content_wrapper_addons {
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 22%;
+	padding: 5px;
+	height: auto;
+	background: #FFE6BF;
+	border: 1px solid #FAC46D;
+	border-radius: 5px;
+	color: #555;
+	position: relative;
+	float: left;
+}
+
+.content_wrapper_title {
+	font-family: 'Unlock', cursive;
+	font-size: 14px;
+	color: #5F95EF;
+}
+
+.content_title {
+	font-family: 'Unlock', cursive;
+	font-size: 18px;
+	color: #5F95EF;
+}
+
+.activation_icons {
+	padding-left: 5px;
+	margin-bottom: -3px;
+}
+
+.main_help_wrapper {
+	width: 98%;
+	padding: 10px;
+	display: inline-block;
+	background: #f4f9ff;
+	border: 1px solid #60AFFF;
+	border-radius: 5px;
+	color: #555;
+	height: auto;
+	margin-top: 10px;
+	padding: 5px;
+	position: relative;
+}
+
+.blog_image {
+	float: left;
+	width: 33%;
+	margin-top: 40px;
+	margin-left: -20px;
+	padding-right: 20px;
+}
+
+.vote_image {
+	float: left;
+	width: 40%;
+	margin-top: 40px;
+}

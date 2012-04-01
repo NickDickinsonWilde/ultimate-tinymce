@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.7.7.1
+ * @version 1.7.7.2
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.7.7.1
+Version: 1.7.7.2
 Author URI: http://joshlobe.com
 
 */
@@ -152,6 +152,16 @@ function jwl_ultimate_tinymce_form_uninstall() {
 }
 /* End Uninstalling Database Values */
 
+// admin notice for not verifying to uninstall database
+if ( isset( $_POST['uninstall'] ) && ! isset( $_POST['uninstall_confirm'] ) ) {
+	function testing() {
+		echo '<div id="message" class="error"><p>';
+		_e('You must also check the confirm box before options will be uninstalled and deleted.','jwl-ultimate-tinymce');
+    	echo '</p></div>';
+	}
+	add_action('admin_notices','testing');
+}
+
 /* Display a plugin update notice that can be dismissed.  This notice is displayed on all admin pages until dismissed. */
 add_action('admin_notices', 'jwl_admin_notice');
 function jwl_admin_notice() {
@@ -184,6 +194,51 @@ function jwl_change_mce_options($initArray) {
 	return $initArray;
 }
 add_filter('tiny_mce_before_init', 'jwl_change_mce_options');
+
+// Insert a dashboarrd Ultimate Tinymce Widget
+add_action('wp_dashboard_setup', 'my_custom_dashboard_widgets');
+function my_custom_dashboard_widgets() {
+   global $wp_meta_boxes;
+   wp_add_dashboard_widget('jwl_tinymce_dashboard_widget', 'Ultimate Tinymce', 'jwl_tinymce_widget');
+}
+
+function jwl_tinymce_widget() {
+    ?><p><?php _e('Don\'t miss these Addons for Ultimate Tinymce:','jwl-ultimate-tinymce'); ?></p>
+	<ul><li><a target="_blank" href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/"><?php _e('Ultimate Tinymce Google Webfonts','jwl-ultimate-tinymce'); ?></a></li><li><a target="_blank" href="http://www.plugins.joshlobe.com/ultimate-tinymce-custom-styles/"><?php _e('Ultimate Tinymce Custom Styles','jwl-ultimate-tinymce'); ?></a></li><li><a target="_blank" href="http://www.plugins.joshlobe.com/predefined-custom-styles/"><?php _e('Ultimate Tinymce Pre-Defined Styles','jwl-ultimate-tinymce'); ?></a></li><li><a target="_blank" href="http://www.plugins.joshlobe.com/wp-admin-colors/"><?php _e('WP Admin Colors','jwl-ultimate-tinymce'); ?></a></li></ul>
+	<?php
+}
+
+// Set an admin bar link to the settings page
+function jwl_admin_bar_init() {
+	// Is the user sufficiently leveled, or has the bar been disabled?
+	if (!is_super_admin() || !is_admin_bar_showing() )
+		return;
+	// Good to go, lets do this!
+	add_action('admin_bar_menu', 'jwl_admin_bar_links', 500);
+}
+add_action('admin_bar_init', 'jwl_admin_bar_init');
+
+function jwl_admin_bar_links() {
+	global $wp_admin_bar;
+	// Links to add, in the form: 'Label' => 'URL'
+	$links = array( 'Settings Page' => '' );
+	$links2 = array( 'Google Webfonts' => '' );
+	$links3 = array( 'Custom Styles' => '' );
+	$links4 = array( 'WP Admin Colors' => '' );
+	
+	$wp_admin_bar->add_menu( array( 'title' => 'Ultimate Tinymce', 'href' => false, 'id' => 'jwl_links', 'href' => 'admin.php?page=ultimate-tinymce' ));
+	/** * Add the submenu links. */
+	foreach ($links as $label => $url) { $wp_admin_bar->add_menu( array( 'title' => $label, 'href' => 'admin.php?page=ultimate-tinymce', 'parent' => 'jwl_links' )); }
+	if (is_plugin_active('ultimate_tinymce_google_webfonts_addon/main.php')) {
+		foreach ($links2 as $label2 => $url2) { $wp_admin_bar->add_menu( array( 'title' => $label2, 'href' => 'admin.php?page=ultimate-tinymce-google', 'parent' => 'jwl_links' )); }
+	}
+	if (is_plugin_active('ultimate_tinymce_custom_styles_addon/main.php')) {
+		foreach ($links3 as $label3 => $url3) { $wp_admin_bar->add_menu( array( 'title' => $label3, 'href' => 'admin.php?page=ultimate-tinymce-styles', 'parent' => 'jwl_links' )); }
+	}
+	if (is_plugin_active('wp-admin-colors/main.php')) {
+		foreach ($links4 as $label4 => $url4) { $wp_admin_bar->add_menu( array( 'title' => $label4, 'href' => 'admin.php?page=wp-admin-colors', 'parent' => 'jwl_links' )); }
+	}
+}
 
 // Set our language localization folder (used for adding translations)
 function jwl_ultimate_tinymce() {
@@ -228,54 +283,54 @@ function jwl_settings_api_init() {
  	
  	// This adds our individual settings to each option group defined above.	
 	// These are the settings for Row 3
- 	add_settings_field('jwl_fontselect_field_id', __('Font Select Box','jwl-ultimate-tinymce'), 'jwl_fontselect_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_fontsizeselect_field_id', __('Font Size Box','jwl-ultimate-tinymce'), 'jwl_fontsizeselect_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_cut_field_id', __('Cut Box','jwl-ultimate-tinymce'), 'jwl_cut_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_copy_field_id', __('Copy Box','jwl-ultimate-tinymce'), 'jwl_copy_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_paste_field_id', __('Paste Box','jwl-ultimate-tinymce'), 'jwl_paste_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_backcolorpicker_field_id', __('Background Color Picker Box','jwl-ultimate-tinymce'), 'jwl_backcolorpicker_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_forecolorpicker_field_id', __('Foreground Color Picker Box','jwl-ultimate-tinymce'), 'jwl_forecolorpicker_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_advhr_field_id', __('Horizontal Rule Box','jwl-ultimate-tinymce'), 'jwl_advhr_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_visualaid_field_id', __('Visual Aid Box','jwl-ultimate-tinymce'), 'jwl_visualaid_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_anchor_field_id', __('Anchor Box','jwl-ultimate-tinymce'), 'jwl_anchor_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_sub_field_id', __('Subscript Box','jwl-ultimate-tinymce'), 'jwl_sub_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_sup_field_id', __('Superscript Box','jwl-ultimate-tinymce'), 'jwl_sup_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_search_field_id', __('Search Box','jwl-ultimate-tinymce'), 'jwl_search_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_replace_field_id', __('Replace Box','jwl-ultimate-tinymce'), 'jwl_replace_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_datetime_field_id', __('Insert Date/Time Box','jwl-ultimate-tinymce'), 'jwl_datetime_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
+ 	add_settings_field('jwl_fontselect_field_id', __('Font Select Button','jwl-ultimate-tinymce'), 'jwl_fontselect_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
+	add_settings_field('jwl_fontsizeselect_field_id', __('Font Size Button','jwl-ultimate-tinymce'), 'jwl_fontsizeselect_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
+	add_settings_field('jwl_cut_field_id', __('Cut Button','jwl-ultimate-tinymce'), 'jwl_cut_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
+	add_settings_field('jwl_copy_field_id', __('Copy Button','jwl-ultimate-tinymce'), 'jwl_copy_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
+	add_settings_field('jwl_paste_field_id', __('Paste Button','jwl-ultimate-tinymce'), 'jwl_paste_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
+	add_settings_field('jwl_backcolorpicker_field_id', __('Background Color Picker Button','jwl-ultimate-tinymce'), 'jwl_backcolorpicker_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
+	add_settings_field('jwl_forecolorpicker_field_id', __('Foreground Color Picker Button','jwl-ultimate-tinymce'), 'jwl_forecolorpicker_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
+	add_settings_field('jwl_advhr_field_id', __('Horizontal Rule Button','jwl-ultimate-tinymce'), 'jwl_advhr_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
+	add_settings_field('jwl_visualaid_field_id', __('Visual Aid Button','jwl-ultimate-tinymce'), 'jwl_visualaid_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
+	add_settings_field('jwl_anchor_field_id', __('Anchor Button','jwl-ultimate-tinymce'), 'jwl_anchor_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
+	add_settings_field('jwl_sub_field_id', __('Subscript Button','jwl-ultimate-tinymce'), 'jwl_sub_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
+	add_settings_field('jwl_sup_field_id', __('Superscript Button','jwl-ultimate-tinymce'), 'jwl_sup_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
+	add_settings_field('jwl_search_field_id', __('Search Button','jwl-ultimate-tinymce'), 'jwl_search_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
+	add_settings_field('jwl_replace_field_id', __('Replace Button','jwl-ultimate-tinymce'), 'jwl_replace_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
+	add_settings_field('jwl_datetime_field_id', __('Insert Date/Time Button','jwl-ultimate-tinymce'), 'jwl_datetime_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
 	
 	// These are the settings for Row 4
-	add_settings_field('jwl_styleselect_field_id', __('Style Select Box','jwl-ultimate-tinymce'), 'jwl_styleselect_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_tableDropdown_field_id', __('Table Controls Dropdown Box','jwl-ultimate-tinymce'), 'jwl_tableDropdown_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_emotions_field_id', __('Emotions Box','jwl-ultimate-tinymce'), 'jwl_emotions_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_image_field_id', __('Advanced Image Box','jwl-ultimate-tinymce'), 'jwl_image_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_preview_field_id', __('Preview Box','jwl-ultimate-tinymce'), 'jwl_preview_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_cite_field_id', __('Citations Box','jwl-ultimate-tinymce'), 'jwl_cite_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_abbr_field_id', __('Abbreviations Box','jwl-ultimate-tinymce'), 'jwl_abbr_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_acronym_field_id', __('Acronym Box','jwl-ultimate-tinymce'), 'jwl_acronym_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_del_field_id', __('Delete Box','jwl-ultimate-tinymce'), 'jwl_del_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_ins_field_id', __('Insert Box','jwl-ultimate-tinymce'), 'jwl_ins_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_attribs_field_id', __('Attributes Box','jwl-ultimate-tinymce'), 'jwl_attribs_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_styleselect_field_id', __('Style Select Button','jwl-ultimate-tinymce'), 'jwl_styleselect_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_tableDropdown_field_id', __('Table Controls Dropdown Button','jwl-ultimate-tinymce'), 'jwl_tableDropdown_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_emotions_field_id', __('Emotions Button','jwl-ultimate-tinymce'), 'jwl_emotions_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_image_field_id', __('Advanced Image Button','jwl-ultimate-tinymce'), 'jwl_image_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_preview_field_id', __('Preview Button','jwl-ultimate-tinymce'), 'jwl_preview_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_cite_field_id', __('Citations Button','jwl-ultimate-tinymce'), 'jwl_cite_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_abbr_field_id', __('Abbreviations Button','jwl-ultimate-tinymce'), 'jwl_abbr_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_acronym_field_id', __('Acronym Button','jwl-ultimate-tinymce'), 'jwl_acronym_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_del_field_id', __('Delete Button','jwl-ultimate-tinymce'), 'jwl_del_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_ins_field_id', __('Insert Button','jwl-ultimate-tinymce'), 'jwl_ins_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_attribs_field_id', __('Attributes Button','jwl-ultimate-tinymce'), 'jwl_attribs_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
 	add_settings_field('jwl_styleprops_field_id', __('Styleprops Box','jwl-ultimate-tinymce'), 'jwl_styleprops_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_code_field_id', __('HTML Code Box','jwl-ultimate-tinymce'), 'jwl_code_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_codemagic_field_id', __('HTML Code Magic Box','jwl-ultimate-tinymce'), 'jwl_codemagic_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); 	
-	add_settings_field('jwl_media_field_id', __('Insert Media Box','jwl-ultimate-tinymce'), 'jwl_media_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_youtube_field_id', __('Insert YouTube Video Box','jwl-ultimate-tinymce'), 'jwl_youtube_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_imgmap_field_id', __('Image Map Editor Box','jwl-ultimate-tinymce'), 'jwl_imgmap_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_visualchars_field_id', __('Toggle Visual Characters Box','jwl-ultimate-tinymce'), 'jwl_visualchars_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_print_field_id', __('Print Box','jwl-ultimate-tinymce'), 'jwl_print_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_shortcodes_field_id', __('Shortcodes Select Box','jwl-ultimate-tinymce'), 'jwl_shortcodes_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_code_field_id', __('HTML Code Button','jwl-ultimate-tinymce'), 'jwl_code_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_codemagic_field_id', __('HTML Code Magic Button','jwl-ultimate-tinymce'), 'jwl_codemagic_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); 	
+	add_settings_field('jwl_media_field_id', __('Insert Media Button','jwl-ultimate-tinymce'), 'jwl_media_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_youtube_field_id', __('Insert YouTube Video Button','jwl-ultimate-tinymce'), 'jwl_youtube_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_imgmap_field_id', __('Image Map Editor Button','jwl-ultimate-tinymce'), 'jwl_imgmap_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_visualchars_field_id', __('Toggle Visual Characters Button','jwl-ultimate-tinymce'), 'jwl_visualchars_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_print_field_id', __('Print Button','jwl-ultimate-tinymce'), 'jwl_print_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_shortcodes_field_id', __('Shortcodes Select Button','jwl-ultimate-tinymce'), 'jwl_shortcodes_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
 	
 	// Settings for miscellaneous options and features
 	add_settings_field('jwl_tinycolor_css_field_id', __('Change the color of the Editor.','jwl-ultimate-tinymce'), 'jwl_tinycolor_css_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
-	add_settings_field('jwl_tinymce_nextpage_field_id', __('Enable NextPage (PageBreak) Feature.','jwl-ultimate-tinymce'), 'jwl_tinymce_nextpage_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
+	add_settings_field('jwl_tinymce_nextpage_field_id', __('Enable NextPage (PageBreak) Button.','jwl-ultimate-tinymce'), 'jwl_tinymce_nextpage_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	add_settings_field('jwl_postid_field_id', __('Add ID Column to page/post admin list.','jwl-ultimate-tinymce'), 'jwl_postid_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	add_settings_field('jwl_shortcode_field_id', __('Allow shortcode usage in widget text areas.','jwl-ultimate-tinymce'), 'jwl_shortcode_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	add_settings_field('jwl_php_widget_field_id', __('Use PHP Text Widget','jwl-ultimate-tinymce'), 'jwl_php_widget_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	add_settings_field('jwl_linebreak_field_id', __('Enable Line Break Shortcode','jwl-ultimate-tinymce'), 'jwl_linebreak_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	add_settings_field('jwl_columns_field_id', __('Enable Columns Shortcodes','jwl-ultimate-tinymce'), 'jwl_columns_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
-	add_settings_field('jwl_defaults_field_id', __('Enable Advanced Insert/Edit Link','jwl-ultimate-tinymce'), 'jwl_defaults_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
-	add_settings_field('jwl_div_field_id', __('Enable "Div Clear" Ability','jwl-ultimate-tinymce'), 'jwl_div_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
+	add_settings_field('jwl_defaults_field_id', __('Enable Advanced Insert/Edit Link Button','jwl-ultimate-tinymce'), 'jwl_defaults_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
+	add_settings_field('jwl_div_field_id', __('Enable "Div Clear" Buttons','jwl-ultimate-tinymce'), 'jwl_div_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	add_settings_field('jwl_autop_field_id', __('Remove <b>p</b> and <b>br</b> tags','jwl-ultimate-tinymce'), 'jwl_autop_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	add_settings_field('jwl_signoff_field_id', __('Add a Signoff Shortcode','jwl-ultimate-tinymce'), 'jwl_signoff_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	
@@ -382,7 +437,7 @@ add_action('admin_init', 'jwl_settings_api_init');
  	_e('<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong><u>Description</u></strong><span style="margin-left:200px;"><strong><u>Enable</u></strong></span><span style="margin-left:20px;"><strong><u>Image</u></strong></span><span style="margin-left:35px;"><strong><u>Help</u></strong></span><span style="margin-left:20px;"><strong><u>Row Selection</u></strong></span></p>','jwl-ultimate-tinymce');
  }
  function jwl_setting_section_callback_function3() {
- 	_e('','jwl-ultimate-tinymce');
+ 	_e(' ','jwl-ultimate-tinymce');
  }
  
  // Begin callback functions	 
@@ -856,7 +911,7 @@ add_action('admin_init', 'jwl_settings_api_init');
 		echo "<option value='$item' $selected>$item</option>";
 	}
 	echo "</select>";
-	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/tinycolor.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/tinycolor.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="float:right;"><?php _e('Don\'t miss the <a target="_blank" href="http://www.plugins.joshlobe.com/wp-admin-colors/">WP Admin Colors</a> addon.','jwl-ultimate-tinymce'); ?></span><?php 
  }
  
  function change_mce_colors() {
@@ -890,12 +945,12 @@ add_action('admin_init', 'jwl_settings_api_init');
  
  function jwl_linebreak_callback_function() {
  	echo '<input name="jwl_linebreak_field_id" id="linebreak" type="checkbox" value="1" class="three" ' . checked( 1, get_option('jwl_linebreak_field_id'), false ) . ' /> ';
-	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/linebreak.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="padding-left:10px;"><?php _e('Simply use the <b>[break]</b> shortcode');
+	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/linebreak.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="padding-left:10px;"><?php _e('Simply use the <b>[break]</b> shortcode','jwl-ultimate-tinymce');
  }
  
  function jwl_columns_callback_function() {
  	echo '<input name="jwl_columns_field_id" id="columns" type="checkbox" value="1" class="three" ' . checked( 1, get_option('jwl_columns_field_id'), false ) . ' /> ';
-	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/columns.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="padding-left:10px;"><?php _e('Ex. <b>[one_half]</b>This is the left column.<b>[/one_half]</b> <b>[one_half_last]</b>This is the right column.<b>[/one_half_last]</b>');
+	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/columns.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="padding-left:10px;"><?php _e('Ex. <b>[one_half]</b>This is the left column.<b>[/one_half]</b> <b>[one_half_last]</b>This is the right column.<b>[/one_half_last]</b>','jwl-ultimate-tinymce');
  }
  
  function jwl_defaults_callback_function() {
@@ -910,7 +965,7 @@ add_action('admin_init', 'jwl_settings_api_init');
  
  function jwl_autop_callback_function() {
  	echo '<input name="jwl_autop_field_id" id="autop" type="checkbox" value="1" class="four" ' . checked( 1, get_option('jwl_autop_field_id'), false ) . ' /> ';
-	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/autop.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="margin-left:15px;"><?php _e('(Disable wpautop) - <b>Read the help file first</b>.'); ?></span><?php 
+	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/autop.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="margin-left:15px;"><?php _e('(Disable wpautop) - <b>Read the help file first</b>.','jwl-ultimate-tinymce'); ?></span><?php 
  }
  
  function jwl_signoff_callback_function() {
@@ -918,7 +973,7 @@ add_action('admin_init', 'jwl_settings_api_init');
 	echo get_option('jwl_signoff_field_id');
 	echo '</textarea>';
 	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/signoff.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
-	_e('<br />Insert the above code using the <b>[signoff]</b> shortcode within your post.');
+	_e('<br />Insert the above code using the <b>[signoff]</b> shortcode within your post.','jwl-ultimate-tinymce');
  } 
 
 // Finally, our custom functions for how we want the options to work.
@@ -1581,70 +1636,87 @@ class jwl_metabox_admin {
             <li id="news" class="active"><?php _e('Plugin Addons','jwl-ultimate-tinymce'); ?></li>  
             <li id="tutorials"><?php _e('Donations','jwl-ultimate-tinymce'); ?></li>  
             <li id="spread"><?php _e('Spread the Word','jwl-ultimate-tinymce'); ?></li> 
+            <li id="tips"><?php _e('Admin Tips','jwl-ultimate-tinymce'); ?></li>
             <li id="links"><?php _e('Uninstall Plugin','jwl-ultimate-tinymce'); ?></li>  
         </ul>  
         <span class="clear"></span>  
         <div class="content news"> 
-            <div class="help_wrapper" style="width:98%;padding:10px;display:inline-block;"><span style="font-family:'Unlock', cursive;font-size:18px;color:#5F95EF;"><?php _e('Plugin Addons:','jwl-ultimate-tinymce'); ?></span><br /><br />
+            <div class="main_help_wrapper"><span class="content_title"><?php _e('Plugin Addons:','jwl-ultimate-tinymce'); ?></span><br /><br />
                     <span style="margin-left:10px;"><?php _e('These addons provide additional features for Ultimate TinyMCE.  Click the title to view the download page.','jwl-ultimate-tinymce');
 					?></span><br />
-                    <div id="clickme" class="content_wrapper" style="float:left;width:22%;margin-left:10px;"><?php
-					_e('<a target="_blank" title="Add over 50 animated smilies to your content." href="http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/"><span style="font-family:\'Unlock\', cursive;">Ultimate Moods Addon</span></a>','jwl-ultimate-tinymce'); ?> <span class="span_hover" style="float:right;cursor:pointer;margin-right:5px;"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?></span>
+                    <div id="clickme" class="content_wrapper_addons"><?php
+					_e('<a target="_blank" title="Add over 50 animated smilies to your content." href="http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/"><span style="font-family:\'Unlock\', cursive;">Ultimate Moods Addon</span></a>','jwl-ultimate-tinymce'); ?> <span class="span_hover"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?></span>
                     <div id="me" style="display:none;margin-top:10px;"><?php
 					if (is_plugin_active('moods-addon-for-ultimate-tinymce/main.php')) {
 					_e('<span style="color:green;">Activated</span>','jwl-ultimate-tinymce');
-					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has been installed and activated successfully." /><?php
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" class="activation_icons" title="This addon has been installed and activated successfully." /><?php
 					} else {
 					_e('<span style="color:red;">Not Activated</span>','jwl-ultimate-tinymce');
-					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Choose from over 50 professionally animated smilies and insert them randomly into your post or page content areas.'); ?> </span> <?php
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" class="activation_icons" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Choose from over 50 professionally animated smilies and insert them randomly into your post or page content areas.','jwl-ultimate-tinymce'); ?> </span> <?php
 					}
 					?></div></div>
 					
-					<div id="clickme2" class="content_wrapper" style="float:left;width:22%;margin-left:10px;"><?php
-					_e('<a target="_blank" title="Easily Integrate Google Webfonts into your Website." href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/"><span style="font-family:\'Unlock\', cursive;">Ultimate Google Webfonts</span></a>','jwl-ultimate-tinymce'); ?> <span class="span_hover" style="float:right;cursor:pointer;margin-right:5px;"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?></span>
+					<div id="clickme2" class="content_wrapper_addons"><?php
+					_e('<a target="_blank" title="Easily Integrate Google Webfonts into your Website." href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/"><span style="font-family:\'Unlock\', cursive;">Ultimate Google Webfonts</span></a>','jwl-ultimate-tinymce'); ?> <span class="span_hover"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?></span>
                     <div id="me2" style="display:none;margin-top:10px;"><?php
 					if (is_plugin_active('ultimate_tinymce_google_webfonts_addon/main.php')) {
 					_e('<span style="color:green;">Activated</span>','jwl-ultimate-tinymce');
-					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has been installed and activated successfully." /> <?php
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" class="activation_icons" title="This addon has been installed and activated successfully." /> <?php
 					} else {
 					_e('<span style="color:red;">Not Activated</span>','jwl-ultimate-tinymce');
-					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Choose any combination of Google Webfonts, and add them to the font dropdown selector.<br /><br />Fonts are rendered on both the editor screen, and to all front-end viewers.'); ?> <br /><br /><center><img style="border:1px solid #666" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/admin_webfonts.png" title="Ultimate Tinymce Google Webfonts" /></center></span> <?php
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" class="activation_icons" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Choose any combination of Google Webfonts, and add them to the font dropdown selector.<br /><br />Fonts are rendered on both the editor screen, and to all front-end viewers.','jwl-ultimate-tinymce'); ?> <br /><br /><center><img style="border:1px solid #666" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/admin_webfonts.png" title="Ultimate Tinymce Google Webfonts" /></center></span> <?php
 					}
 					?></div></div>
                     
-					<div id="clickme3" class="content_wrapper" style="float:left;width:22%;margin-left:10px;"><?php
-					_e('<a target="_blank" title="Easily add custom styles to your content." href="http://www.plugins.joshlobe.com/ultimate-tinymce-custom-styles/"><span style="font-family:\'Unlock\', cursive;">Ultimate Custom Styles</span></a>','jwl-ultimate-tinymce'); ?> <span class="span_hover" style="float:right;cursor:pointer;margin-right:5px;"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?></span>
+					<div id="clickme3" class="content_wrapper_addons"><?php
+					_e('<a target="_blank" title="Easily add custom styles to your content." href="http://www.plugins.joshlobe.com/ultimate-tinymce-custom-styles/"><span style="font-family:\'Unlock\', cursive;">Ultimate Custom Styles</span></a>','jwl-ultimate-tinymce'); ?> <span class="span_hover"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?></span>
                     <div id="me3" style="display:none;margin-top:10px;"><?php
 					if (is_plugin_active('ultimate_tinymce_custom_styles_addon/main.php')) {
 					_e('<span style="color:green;">Activated</span>','jwl-ultimate-tinymce');
-					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has been installed and activated successfully." /> <?php
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" class="activation_icons" title="This addon has been installed and activated successfully." /> <?php
 					} else {
 					_e('<span style="color:red;">Not Activated</span>','jwl-ultimate-tinymce');
-					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Define unlimited custom styles, and add them to the styleselect dropdown list.<br /><br />Styles are rendered in both the editor screen and the front end of the website.'); ?> <br /><br /><center><img style="border:1px solid #666" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/admin_styles.png" title="Ultimate Tinymce Custom Styles" /></center></span> <?php
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" class="activation_icons" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Define unlimited custom styles, and add them to the styleselect dropdown list.<br /><br />Styles are rendered in both the editor screen and the front end of the website.','jwl-ultimate-tinymce'); ?> <br /><br /><center><img style="border:1px solid #666" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/admin_styles.png" title="Ultimate Tinymce Custom Styles" /></center></span> <?php
 					}
 					?>    
                     </div></div>
                     
-                    <div id="clickme4" class="content_wrapper" style="float:left;width:22%;margin-left:10px;"><?php
-					_e('<a target="_blank" title="Add a list of over 30 predefined styles to your editor." href="http://www.plugins.joshlobe.com/predefined-custom-styles/"><span style="font-family:\'Unlock\', cursive;">Pre-Defined Styles</span></a>','jwl-ultimate-tinymce'); ?> <span class="span_hover" style="float:right;cursor:pointer;margin-right:5px;"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?></span>
+                    <div id="clickme4" class="content_wrapper_addons"><?php
+					_e('<a target="_blank" title="Add a list of over 30 predefined styles to your editor." href="http://www.plugins.joshlobe.com/predefined-custom-styles/"><span style="font-family:\'Unlock\', cursive;">Pre-Defined Styles</span></a>','jwl-ultimate-tinymce'); ?> <span class="span_hover"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?></span>
                     <div id="me4" style="display:none;margin-top:10px;"><?php
 					if (is_plugin_active('ultimate_tinymce_predefined_styles/main.php')) {
 					_e('<span style="color:green;">Activated</span>','jwl-ultimate-tinymce');
-					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has been installed and activated successfully." /> <?php
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" class="activation_icons" title="This addon has been installed and activated successfully." /> <?php
 					} else {
 					_e('<span style="color:red;">Not Activated</span>','jwl-ultimate-tinymce');
-					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" style="padding-left:5px;margin-bottom:-3px;" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('A collection of my custom styles.  No need to create your own.<br /><br />Install this plugin and have instant access to over 30 custom styles (and growing).'); ?> </span> <?php
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" class="activation_icons" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('A collection of my custom styles.  No need to create your own.<br /><br />Install this plugin and have instant access to over 30 custom styles (and growing).','jwl-ultimate-tinymce'); ?> </span> <?php
 					}
 					?>    
-                    </div></div>
-                </div>
+                    </div>
+                    </div>
+                    
+                    <div id="clickme5" class="content_wrapper_addons"><?php
+					_e('<a target="_blank" title="Apply six unique color settings to your admin panel." href="http://www.plugins.joshlobe.com/wp-admin-colors/"><span style="font-family:\'Unlock\', cursive;">WP Admin Colors</span></a>','jwl-ultimate-tinymce'); ?> <span class="span_hover"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?></span>
+                    <div id="me5" style="display:none;margin-top:10px;"><?php
+					if (is_plugin_active('ap-admin-colors/main.php')) {
+					_e('<span style="color:green;">Activated</span>','jwl-ultimate-tinymce');
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" class="activation_icons" title="This addon has been installed and activated successfully." /> <?php
+					} else {
+					_e('<span style="color:red;">Not Activated</span>','jwl-ultimate-tinymce');
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" class="activation_icons" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Here is a compliment to the color selection for the tinymce editor. This addon will provide a choice of six unique stylesheets to apply to the entire admin panel dashboard.','jwl-ultimate-tinymce'); ?> </span> <?php
+					}
+					?>    
+                    </div>
+                    </div>
+             </div>
         </div>
         
         <div class="content tutorials">
-        	<div class="help_wrapper" style="width:98%;padding:10px;display:inline-block;">
-            <span style="font-family:'Unlock', cursive;font-size:18px;color:#5F95EF;">
+        	<div class="main_help_wrapper">
+            <span class="content_title">
 			<?php _e('Donations:','jwl-ultimate-tinymce'); ?></span><br /><br />
-            	<div class="content_wrapper" style="margin-left:10px;width:35%;">
+            	<div class="content_wrapper_tips">
+                <span class="content_wrapper_title"><?php _e('Support the Developer','jwl-ultimate-tinymce'); ?></span><br />
 				<?php _e('Developing this awesome plugin took a lot of effort and time; months and months of continuous voluntary unpaid work.','jwl-ultimate-tinymce'); ?>
                 <br /><br /><center>
                      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
@@ -1654,18 +1726,19 @@ class jwl_metabox_admin {
                      <img alt="PayPal - The safer, easier way to pay online!" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                      </form>
                 </center><br />
-                <?php _e('If you like this plugin or if you are using it for commercial websites, please consider a donation to the developer to help support future updates and development.','jwl-ultimate-tinymce'); ?>
+                <?php _e('If you like this plugin or if you are using it for commercial websites, please consider a donation to the author to help support future updates and development.','jwl-ultimate-tinymce'); ?>
             </div>
         
-                <div class="content_wrapper" style="margin-left:40px;width:35%;">
-                <?php _e('<span style="font-family:\'Unlock\', cursive;font-size:14px;color:#5F95EF;">Main uses of donations:</span><ul class="help_tab_list_image"><li>Web Hosting Fees</li><li>Cable Internet Fees</li><li>Time/Value Reimbursement</li><li>Motivation for Continuous Improvements</li><li>Sunday Father-Daughter Day</ul>','jwl-ultimate-tinymce'); ?>
+                <div class="content_wrapper_tips">
+                <?php _e('<span class="content_wrapper_title">Main uses of Donations</span><ul class="help_tab_list_image"><li>Web Hosting Fees</li><li>Cable Internet Fees</li><li>Time/Value Reimbursement</li><li>Motivation for Continuous Improvements</li><li>Sunday Father-Daughter Day</li></ul>','jwl-ultimate-tinymce'); ?>
                 </div>
                 
-                <div class="content_wrapper" style="margin-left:40px;width:16%;">
+                <div class="content_wrapper_tips">
+                <span class="content_wrapper_title"><?php _e('Donate Securely via Paypal','jwl-ultimate-tinymce'); ?></span><br />
                 	<center><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                      <input type="hidden" name="cmd" value="_s-xclick">
                      <input type="hidden" name="hosted_button_id" value="A9E5VNRBMVBCS">
-                     <input type="image" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/paypal.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                     <input type="image" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/paypal.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="margin-top:30px;">
                      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                      </form>
                      </center>
@@ -1674,33 +1747,33 @@ class jwl_metabox_admin {
         </div>  
         
         <div class="content spread">
-        	<div class="help_wrapper" style="width:98%;padding:10px;display:inline-block;">
-            <span style="font-family:'Unlock', cursive;font-size:18px;color:#5F95EF;">
+        	<div class="main_help_wrapper">
+            <span class="content_title">
 			<?php _e('Spread the Word:','jwl-ultimate-tinymce'); ?></span><br /><br />
-            	<div class="content_wrapper" style="margin-left:10px;width:35%;">
-                <span style="font-family:'Unlock', cursive;font-size:14px;color:#5F95EF;">
+            	<div class="content_wrapper_tips">
+                <span class="content_wrapper_title">
                 <?php _e('Blog about this Plugin','jwl-ultimate-tinymce'); ?>
                 </span><br />
-                	<div style="float:left;width:33%;margin-top:20px;">
+                	<div class="blog_image">
                     <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/blog.png" />
                     </div>
                     <div style="float:left;width:67%;">
                 <?php _e('<ul class="help_tab_list_image"><li>Do you like this plugin, and use it regularly on your site?</li><li>Why not write a brief article recommending it to your readers and other wordpress blogger buddies?</li><li>Include a link to the plugin download page to make it easy for your readers to access.</li></ul>','jwl-ultimate-tinymce'); ?>
                 	</div>
                 </div>
-                <div class="content_wrapper" style="margin-left:40px;width:35%;">
-                <span style="font-family:'Unlock', cursive;font-size:14px;color:#5F95EF;">
+                <div class="content_wrapper_tips">
+                <span class="content_wrapper_title">
                 <?php _e('Vote and Click Works','jwl-ultimate-tinymce'); ?>
                 </span><br />
-                	<div style="float:left;width:40%;margin-top:20px;">
+                	<div class="vote_image">
                     <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/works.png" />
                     </div>
                     <div style="float:left;width:60%;">
                 <?php _e('Please take a few moments to visit the plugin download page to vote and click "Works".  You must have an account on wordpress to rate and vote. Signing up is quick and easy.<br /><br />Also, each time a new plugin update is available, it resets the "Works" count.  So, please do this each time you update the plugin.<br /><br /><a target="_blank" href="http://wordpress.org/extend/plugins/ultimate-tinymce/">Ultimate Tinymce Wordpress Page</a>','jwl-ultimate-tinymce'); ?>
                 	</div>
                 </div>
-                <div class="content_wrapper" style="margin-left:40px;width:13%;">
-                <span style="font-family:'Unlock', cursive;font-size:14px;color:#5F95EF;">
+                <div class="content_wrapper_tips">
+                <span class="content_wrapper_title">
                 <?php _e('Twitter & Facebook','jwl-ultimate-tinymce'); ?>
                 </span><br />
                 	<div style="float:left;width:100%;margin-top:20px;">
@@ -1713,12 +1786,28 @@ class jwl_metabox_admin {
             </div>
         </div>
         
+        <div class="content tips"> 
+        	<div class="main_help_wrapper"><span class="content_title"><?php _e('Tips and Tricks for the Admin Panel', 'jwl-ultimate-tinymce'); ?></span><br /><br />
+            	<div class="content_wrapper_tips">
+            	<?php _e('<span class="content_wrapper_title">Screen Options:</span><ul class="help_tab_list_image"><li>Click the "Screen Options" tab in the upper-right corner to enable further customization.</li><li>Set the Screen Columns to "2" for best results.</li><li>Decide which Meta-Boxes to show or hide.</li><li>Selections are saved in the database.</li></ul>','jwl-ultimate-tinymce'); ?>
+                </div>
+                <div class="content_wrapper_tips">
+            	<?php _e('<span class="content_wrapper_title">Meta Boxes:</span><ul class="help_tab_list_image"><li>Each Meta-Box can be clicked to collapse/expand the contents of the box.</li><li>Boxes can be sorted by clicking and dragging the title area to a new location.</li><li>Open/Closed status and sorting arrangement are saved in the database.  So each time the page is visited; the last chosen layout remains.</li></ul>','jwl-ultimate-tinymce'); ?>
+                </div>
+                <div class="content_wrapper_tips">
+            	<?php _e('<span class="content_wrapper_title">Button Row Selection:</span><ul class="help_tab_list_image"><li>Each button from this plugin can be assigned to one of the four rows of the editor.</li><li>For suggested best results, set all buttons used in "Group One Buttons" to Row 3 and set all buttons used in "Group Two Buttons" to Row 4.  <em>This is only recommended, and not mandatory.</em></li><li>If the buttons scroll off the editor screen, come back here and select a different row for those buttons.</li></ul>','jwl-ultimate-tinymce'); ?>
+                </div>
+            </div>
+        </div>
+        
         <div class="content links"> 
-        	<div class="help_wrapper" style="width:98%;padding:10px;display:inline-block;"><span style="font-family:'Unlock', cursive;font-size:18px;color:#5F95EF;"><?php _e('Uninstall Plugin & Delete Database Entries:', 'jwl-ultimate-tinymce'); ?></span><br /><br />
-            	<div class="content_wrapper" style="margin-left:10px;width:40%;padding:20px;">
+        	<div class="main_help_wrapper"><span class="content_title"><?php _e('Uninstall Plugin & Delete Database Entries:', 'jwl-ultimate-tinymce'); ?></span><br /><br />
+            	<div class="content_wrapper_tips">
             	<?php jwl_ultimate_tinymce_form_uninstall(); ?>
                 </div>
-                <div style="float:left;margin-left:140px;margin-top:110px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/uninstall1.png" /></div>
+                <div class="content_wrapper_tips" style="height:332px;">
+                <center><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/uninstall1.png" style="margin-top:120px;" /></center>
+                </div>
             </div>
         </div>  
     </div>  
@@ -1738,22 +1827,23 @@ class jwl_metabox_admin {
 									
 			  </div>	
 			</div>
-			<script type="text/javascript">
-				//<![CDATA[
-				jQuery(document).ready( function($) { $('.if-js-closed').removeClass('if-js-closed').addClass('closed'); postboxes.add_postbox_toggles('<?php echo $this->pagehook; ?>'); });
-				//]]>
-			</script>
-            <script type="text/javascript"> jQuery(document).ready( function($) { $("#allsts").click(function() { $(".one").attr('checked', true); }); $("#nosts").click(function() { $(".one").attr('checked', false); }); $('.one' ).each( function() { var isitchecked = this.checked; }); });
-            </script>
-            <script type="text/javascript"> jQuery(document).ready( function($) { $("#allsts2").click(function() { $(".two").attr('checked', true); }); $("#nosts2").click(function() { $(".two").attr('checked', false); }); $('.two' ).each( function() { var isitchecked = this.checked; }); });
-            </script>
-            
-            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-            <script type="text/javascript"> $(document).ready(function() { $('#clickme').click(function() { $('#me').animate({ height: 'toggle' }, 300 ); }); }); </script>
-            <script type="text/javascript"> $(document).ready(function() { $('#clickme2').click(function() { $('#me2').animate({ height: 'toggle' }, 300 ); }); }); </script>
-            <script type="text/javascript"> $(document).ready(function() { $('#clickme3').click(function() { $('#me3').animate({ height: 'toggle' }, 300 ); }); }); </script>
-            <script type="text/javascript"> $(document).ready(function() { $('#clickme4').click(function() { $('#me4').animate({ height: 'toggle' }, 300 ); }); }); </script>
-            <script type="text/javascript" src="tabs.js"></script>
+	<script type="text/javascript">
+        //<![CDATA[
+        jQuery(document).ready( function($) { $('.if-js-closed').removeClass('if-js-closed').addClass('closed'); postboxes.add_postbox_toggles('<?php echo $this->pagehook; ?>'); });
+        //]]>
+    </script>
+    <script type="text/javascript"> jQuery(document).ready( function($) { $("#allsts").click(function() { $(".one").attr('checked', true); }); $("#nosts").click(function() { $(".one").attr('checked', false); }); $('.one' ).each( function() { var isitchecked = this.checked; }); });
+    </script>
+    <script type="text/javascript"> jQuery(document).ready( function($) { $("#allsts2").click(function() { $(".two").attr('checked', true); }); $("#nosts2").click(function() { $(".two").attr('checked', false); }); $('.two' ).each( function() { var isitchecked = this.checked; }); });
+    </script>
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="text/javascript"> $(document).ready(function() { $('#clickme').click(function() { $('#me').animate({ height: 'toggle' }, 300 ); }); }); </script>
+    <script type="text/javascript"> $(document).ready(function() { $('#clickme2').click(function() { $('#me2').animate({ height: 'toggle' }, 300 ); }); }); </script>
+    <script type="text/javascript"> $(document).ready(function() { $('#clickme3').click(function() { $('#me3').animate({ height: 'toggle' }, 300 ); }); }); </script>
+    <script type="text/javascript"> $(document).ready(function() { $('#clickme4').click(function() { $('#me4').animate({ height: 'toggle' }, 300 ); }); }); </script>
+    <script type="text/javascript"> $(document).ready(function() { $('#clickme5').click(function() { $('#me5').animate({ height: 'toggle' }, 300 ); }); }); </script>
+    <script type="text/javascript" src="tabs.js"></script>
             <script type="text/javascript">
 			$(document).ready(function(){  
     $(".menu > li").click(function(e){  
@@ -1763,11 +1853,13 @@ class jwl_metabox_admin {
                 $("#news").addClass("active");  
                 $("#tutorials").removeClass("active");  
 				$("#spread").removeClass("active");
+				$("#tips").removeClass("active");
                 $("#links").removeClass("active");  
                 //display selected division, hide others  
                 $("div.news").fadeIn();  
                 $("div.tutorials").css("display", "none"); 
 				$("div.spread").css("display", "none"); 
+				$("div.tips").css("display", "none");
                 $("div.links").css("display", "none");  
             break;  
             case "tutorials":  
@@ -1775,11 +1867,13 @@ class jwl_metabox_admin {
                 $("#news").removeClass("active");  
                 $("#tutorials").addClass("active"); 
 				$("#spread").removeClass("active"); 
+				$("#tips").removeClass("active");
                 $("#links").removeClass("active");  
                 //display selected division, hide others  
                 $("div.tutorials").fadeIn();  
                 $("div.news").css("display", "none"); 
 				$("div.spread").css("display", "none"); 
+				$("div.tips").css("display", "none");
                 $("div.links").css("display", "none");  
             break; 
 			case "spread":  
@@ -1787,9 +1881,25 @@ class jwl_metabox_admin {
                 $("#news").removeClass("active");  
                 $("#tutorials").removeClass("active");  
 				$("#spread").addClass("active");
+				$("#tips").removeClass("active");
                 $("#links").removeClass("active");  
                 //display selected division, hide others  
                 $("div.spread").fadeIn();  
+				$("div.tips").css("display", "none");
+                $("div.news").css("display", "none");  
+                $("div.tutorials").css("display", "none");  
+				$("div.links").css("display", "none");
+            break; 
+			case "tips":  
+                //change status &amp;amp;amp; style menu  
+                $("#news").removeClass("active");  
+                $("#tutorials").removeClass("active");  
+				$("#spread").removeClass("active");  
+				$("#tips").addClass("active");
+                $("#links").removeClass("active");  
+                //display selected division, hide others  
+				$("div.tips").fadeIn();
+                $("div.spread").css("display", "none"); 
                 $("div.news").css("display", "none");  
                 $("div.tutorials").css("display", "none");  
 				$("div.links").css("display", "none");
@@ -1799,12 +1909,14 @@ class jwl_metabox_admin {
                 $("#news").removeClass("active");  
                 $("#tutorials").removeClass("active");  
 				$("#spread").removeClass("active");
+				$("#tips").removeClass("active");
                 $("#links").addClass("active");  
                 //display selected division, hide others  
                 $("div.links").fadeIn();  
                 $("div.news").css("display", "none");  
                 $("div.tutorials").css("display", "none");  
 				$("div.spread").css("display", "none");
+				$("div.tips").css("display", "none");
             break;  
         }  
         //alert(e.target.id);  
@@ -1833,20 +1945,17 @@ class jwl_metabox_admin {
 		// Below you will find for each registered metabox the callback method, that produces the content inside the boxes
 		function buttons_group_1($data) {
 			sort($data);
-			?><div id="all"><form action="options.php" method="post" name="jwl_main_options"><?php
+			?><form action="options.php" method="post" name="jwl_main_options"><?php
 			do_settings_sections('ultimate-tinymce1');
 			settings_fields('jwl_options_group'); ?>
-			<br /><div style="float:left;"><input type="button" id="allsts" value="Check All"><input type="button" id="nosts" value="UnCheck All"><span style="margin-left:130px;"><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></span><br /><br /></div>
-			</div>
+			<span style="padding-left:10px;"><input type="button" id="allsts" value="Check All"><input type="button" id="nosts" value="UnCheck All"><span style="margin-left:130px;"><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></span></span>
 			<?php
 		}
 		function buttons_group_2($data) {
 			sort($data);
-			?><div id="all"><?php
 			do_settings_sections('ultimate-tinymce2');
 			settings_fields('jwl_options_group'); ?>
-			<br /><div style="float:left;"><input type="button" id="allsts2" value="Check All"><input type="button" id="nosts2" value="UnCheck All"><span style="margin-left:130px;"><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></span><br /><br /></div>
-			</div>
+			<span style="padding-left:10px;"><input type="button" id="allsts2" value="Check All"><input type="button" id="nosts2" value="UnCheck All"><span style="margin-left:130px;"><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></span></span>
 			<?php
 		}
 		function buttons_group_3($data) {
