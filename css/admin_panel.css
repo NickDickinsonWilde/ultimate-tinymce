@@ -95,6 +95,14 @@
     display: none;  
 }  
 /******* /TIPS *******/ 
+/******* DEFAULTS *******/  
+.content.defaults h1{  
+    background: transparent url(images/tuts.jpg) no-repeat scroll left top;  
+}  
+.content.defaults{  
+    display: none;  
+}  
+/******* /DEFAULTS *******/ 
 /******* LINKS *******/  
 .content.links h1{  
     background: transparent url(images/links.jpg) no-repeat scroll left top;  

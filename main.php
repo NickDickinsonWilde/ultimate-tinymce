@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.7.7.3
+ * @version 1.7.7.4
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.7.7.3
+Version: 1.7.7.4
 Author URI: http://joshlobe.com
 
 */
@@ -28,6 +28,62 @@ Author URI: http://joshlobe.com
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+if ( isset( $_POST['load_defaults'], $_POST['load_defaults_confirm'] ) ) {
+    ultimate_tinymce_load_defaults();
+}
+
+function ultimate_tinymce_load_defaults() {
+	
+	update_option('jwl_fontselect_field_id','1'); update_option('jwl_fontsizeselect_field_id','1'); update_option('jwl_cut_field_id','1'); update_option('jwl_copy_field_id','1'); update_option('jwl_paste_field_id','1'); update_option('jwl_backcolorpicker_field_id','1'); update_option('jwl_forecolorpicker_field_id','1'); update_option('jwl_advhr_field_id','1'); update_option('jwl_visualaid_field_id','1'); update_option('jwl_anchor_field_id','1'); update_option('jwl_sub_field_id','1'); update_option('jwl_sup_field_id','1'); update_option('jwl_search_field_id','1'); update_option('jwl_replace_field_id','1'); update_option('jwl_datetime_field_id','1');
+	
+	update_option('jwl_fontselect_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_fontsizeselect_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_cut_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_copy_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_paste_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_backcolorpicker_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_forecolorpicker_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_advhr_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_visualaid_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_anchor_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_sub_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_sup_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_search_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_replace_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_datetime_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}'));
+
+	update_option('jwl_styleselect_field_id','1'); update_option('jwl_tableDropdown_field_id','1'); update_option('jwl_emotions_field_id','1'); update_option('jwl_image_field_id','1'); update_option('jwl_preview_field_id','1'); update_option('jwl_cite_field_id','1'); update_option('jwl_abbr_field_id','1'); update_option('jwl_acronym_field_id','1'); update_option('jwl_del_field_id','1'); update_option('jwl_ins_field_id','1'); update_option('jwl_attribs_field_id','1'); update_option('jwl_styleprops_field_id','1'); update_option('jwl_code_field_id','1'); update_option('jwl_codemagic_field_id','1'); update_option('jwl_media_field_id','1'); update_option('jwl_youtube_field_id','1'); update_option('jwl_imgmap_field_id','1'); update_option('jwl_visualchars_field_id','1'); update_option('jwl_print_field_id','1'); update_option('jwl_shortcodes_field_id','1');
+	
+	update_option('jwl_styleselect_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_tableDropdown_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_emotions_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_image_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_preview_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_cite_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_abbr_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_acronym_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_del_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_ins_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_attribs_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_styleprops_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_code_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_codemagic_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_media_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_youtube_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_imgmap_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_visualchars_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_print_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}')); update_option('jwl_shortcodes_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 4";}'));
+	
+	update_option('jwl_tinycolor_css_field_id',unserialize('a:1:{s:9:"tinycolor";s:7:"Default";}')); update_option('jwl_tinymce_nextpage_field_id','1'); update_option('jwl_postid_field_id','1'); update_option('jwl_shortcode_field_id','1'); update_option('jwl_php_widget_field_id','1'); update_option('jwl_linebreak_field_id','1'); update_option('jwl_columns_field_id','1'); update_option('jwl_defaults_field_id','1'); update_option('jwl_div_field_id','1'); update_option('jwl_autop_field_id',''); update_option('jwl_signoff_field_id','This is a signoff example.');
+	
+	update_option('jwl_dashboard_widget','1'); update_option('jwl_admin_bar_link','1');
+	
+	update_option('jwl_dashboard_options',unserialize('a:1:{s:28:"jwl_tinymce_dashboard_widget";a:1:{s:5:"items";i:5;}}'));
+}
+
+function jwl_ultimate_tinymce_load_defaults() {
+	?>
+    <span class="content_wrapper_title"><?php _e('Load Default Settings','jwl-ultimate-tinymce'); ?></span>
+    <form method="post">
+	<input id="defaults" name="defaults" type="hidden" value="ultimate-tinymce/main.php" /> <?php  // The value must match the folder/file of the plugin.
+    if ( isset( $_POST['load_defaults'] ) && ! isset( $_POST['load_defaults_confirm'] ) ) { 
+	?><div id="message" class="error">
+  			<p><?php _e('You must also check the confirm box before default options will be loaded.','jwl-ultimate-tinymce'); ?></p>
+		</div>
+ 	  <?php
+    }
+	
+	?><div style="display:block;float:left;width:60%;"><?php
+	_e('<ul class="help_tab_list_image"><li>Load developers suggested default settings.</li><li>Basically, two additional rows will be added to the editor (rows 3 and 4).  Each with approximately 15 to 19 buttons each.</li><li>Options are still freely customizable, and can be tweaked after default settings are loaded.</li><li>Remember you might need to click the "show/hide kitchen sink" button in row 1 of your editor to expand row 2 buttons.</li></ul>','jwl-ultimate-tinymce'); ?>
+    </div>
+    <div style="display:block;float:left;width:40%;">
+    <center><br /><br />
+	<input name="load_defaults_confirm" type="checkbox" value="1" /> <?php _e('<b>Please confirm before proceeding</b><br /><br />','jwl-ultimate-tinymce'); ?>
+	<input class="button-primary" name="load_defaults" type="submit" value="<?php _e('Load Defaults','jwl-ultimate-tinymce'); ?>" />
+	</form>
+    </center>
+    </div>
+<?php
+}
+
+// admin notice for not verifying to uninstall database
+if ( isset( $_POST['load_defaults'] ) && ! isset( $_POST['load_defaults_confirm'] ) ) {
+	function jwl_top_admin_load_defaults_notice() {
+		echo '<div id="message" class="error"><p>';
+		_e('You must also check the confirm box before default options will be loaded.','jwl-ultimate-tinymce');
+    	echo '</p></div>';
+	}
+	add_action('admin_notices','jwl_top_admin_load_defaults_notice');
+}
+
 /* Added by Josh for uninstalling all database values.  3-3-12
  * This function will remove all database entries created by the plugin.
  * This action is permenant, so I included an option so no information is lost accidentally.
@@ -39,89 +95,15 @@ if ( isset( $_POST['uninstall'], $_POST['uninstall_confirm'] ) ) {
 
 function ultimate_tinymce_uninstall() {
 	
-	delete_option('jwl_fontselect_field_id');
-	delete_option('jwl_fontsizeselect_field_id');
-	delete_option('jwl_cut_field_id');
-	delete_option('jwl_copy_field_id');
-	delete_option('jwl_paste_field_id');
-	delete_option('jwl_backcolorpicker_field_id');
-	delete_option('jwl_forecolorpicker_field_id');
-	delete_option('jwl_advhr_field_id');
-	delete_option('jwl_visualaid_field_id');
-	delete_option('jwl_anchor_field_id');
-	delete_option('jwl_sub_field_id');
-	delete_option('jwl_sup_field_id');
-	delete_option('jwl_search_field_id');
-	delete_option('jwl_replace_field_id');
-	delete_option('jwl_datetime_field_id');
-	delete_option('jwl_fontselect_dropdown');
-	delete_option('jwl_fontsizeselect_dropdown');
-	delete_option('jwl_cut_dropdown');
-	delete_option('jwl_copy_dropdown');
-	delete_option('jwl_paste_dropdown');
-	delete_option('jwl_backcolorpicker_dropdown');
-	delete_option('jwl_forecolorpicker_dropdown');
-	delete_option('jwl_advhr_dropdown');
-	delete_option('jwl_visualaid_dropdown');
-	delete_option('jwl_anchor_dropdown');
-	delete_option('jwl_sub_dropdown');
-	delete_option('jwl_sup_dropdown');
-	delete_option('jwl_search_dropdown');
-	delete_option('jwl_replace_dropdown');
-	delete_option('jwl_datetime_dropdown');
+	delete_option('jwl_fontselect_field_id'); delete_option('jwl_fontsizeselect_field_id'); delete_option('jwl_cut_field_id'); delete_option('jwl_copy_field_id'); delete_option('jwl_paste_field_id'); delete_option('jwl_backcolorpicker_field_id'); delete_option('jwl_forecolorpicker_field_id'); delete_option('jwl_advhr_field_id'); delete_option('jwl_visualaid_field_id'); delete_option('jwl_anchor_field_id'); delete_option('jwl_sub_field_id'); delete_option('jwl_sup_field_id'); delete_option('jwl_search_field_id'); delete_option('jwl_replace_field_id'); delete_option('jwl_datetime_field_id'); delete_option('jwl_fontselect_dropdown'); delete_option('jwl_fontsizeselect_dropdown'); delete_option('jwl_cut_dropdown'); delete_option('jwl_copy_dropdown'); delete_option('jwl_paste_dropdown'); delete_option('jwl_backcolorpicker_dropdown'); delete_option('jwl_forecolorpicker_dropdown'); delete_option('jwl_advhr_dropdown'); delete_option('jwl_visualaid_dropdown'); delete_option('jwl_anchor_dropdown'); delete_option('jwl_sub_dropdown'); delete_option('jwl_sup_dropdown'); delete_option('jwl_search_dropdown'); delete_option('jwl_replace_dropdown'); delete_option('jwl_datetime_dropdown');
 
-	delete_option('jwl_styleselect_field_id');
-	delete_option('jwl_tableDropdown_field_id');
-	delete_option('jwl_emotions_field_id');
-	delete_option('jwl_image_field_id');
-	delete_option('jwl_preview_field_id');
-	delete_option('jwl_cite_field_id');
-	delete_option('jwl_abbr_field_id');
-	delete_option('jwl_acronym_field_id');
-	delete_option('jwl_del_field_id');
-	delete_option('jwl_ins_field_id');
-	delete_option('jwl_attribs_field_id');
-	delete_option('jwl_styleprops_field_id');
-	delete_option('jwl_code_field_id');
-	delete_option('jwl_codemagic_field_id');
-	delete_option('jwl_media_field_id');
-	delete_option('jwl_youtube_field_id');
-	delete_option('jwl_imgmap_field_id');
-	delete_option('jwl_visualchars_field_id');
-	delete_option('jwl_print_field_id');
-	delete_option('jwl_shortcodes_field_id');
-	delete_option('jwl_styleselect_dropdown');
-	delete_option('jwl_tableDropdown_dropdown');
-	delete_option('jwl_emotions_dropdown');
-	delete_option('jwl_image_dropdown');
-	delete_option('jwl_preview_dropdown');
-	delete_option('jwl_cite_dropdown');
-	delete_option('jwl_abbr_dropdown');
-	delete_option('jwl_acronym_dropdown');
-	delete_option('jwl_del_dropdown');
-	delete_option('jwl_ins_dropdown');
-	delete_option('jwl_attribs_dropdown');
-	delete_option('jwl_styleprops_dropdown');
-	delete_option('jwl_code_dropdown');
-	delete_option('jwl_codemagic_dropdown');
-	delete_option('jwl_media_dropdown');
-	delete_option('jwl_youtube_dropdown');
-	delete_option('jwl_imgmap_dropdown');
-	delete_option('jwl_visualchars_dropdown');
-	delete_option('jwl_print_dropdown');
-	delete_option('jwl_shortcodes_dropdown');
+	delete_option('jwl_styleselect_field_id'); delete_option('jwl_tableDropdown_field_id'); delete_option('jwl_emotions_field_id'); delete_option('jwl_image_field_id'); delete_option('jwl_preview_field_id'); delete_option('jwl_cite_field_id'); delete_option('jwl_abbr_field_id'); delete_option('jwl_acronym_field_id'); delete_option('jwl_del_field_id'); delete_option('jwl_ins_field_id'); delete_option('jwl_attribs_field_id'); delete_option('jwl_styleprops_field_id'); delete_option('jwl_code_field_id'); delete_option('jwl_codemagic_field_id'); delete_option('jwl_media_field_id'); delete_option('jwl_youtube_field_id'); delete_option('jwl_imgmap_field_id'); delete_option('jwl_visualchars_field_id'); delete_option('jwl_print_field_id'); delete_option('jwl_shortcodes_field_id'); delete_option('jwl_styleselect_dropdown'); delete_option('jwl_tableDropdown_dropdown'); delete_option('jwl_emotions_dropdown'); delete_option('jwl_image_dropdown'); delete_option('jwl_preview_dropdown'); delete_option('jwl_cite_dropdown'); delete_option('jwl_abbr_dropdown'); delete_option('jwl_acronym_dropdown'); delete_option('jwl_del_dropdown'); delete_option('jwl_ins_dropdown'); delete_option('jwl_attribs_dropdown'); delete_option('jwl_styleprops_dropdown'); delete_option('jwl_code_dropdown'); delete_option('jwl_codemagic_dropdown'); delete_option('jwl_media_dropdown'); delete_option('jwl_youtube_dropdown'); delete_option('jwl_imgmap_dropdown'); delete_option('jwl_visualchars_dropdown'); delete_option('jwl_print_dropdown'); delete_option('jwl_shortcodes_dropdown');
 	
-	delete_option('jwl_tinycolor_css_field_id');
-	delete_option('jwl_tinymce_nextpage_field_id');
-	delete_option('jwl_postid_field_id');
-	delete_option('jwl_shortcode_field_id');
-	delete_option('jwl_php_widget_field_id');
-	delete_option('jwl_linebreak_field_id');
-	delete_option('jwl_columns_field_id');
-	delete_option('jwl_defaults_field_id');
-	delete_option('jwl_div_field_id');
-	delete_option('jwl_autop_field_id');
-	delete_option('jwl_signoff_field_id');
+	delete_option('jwl_tinycolor_css_field_id'); delete_option('jwl_tinymce_nextpage_field_id'); delete_option('jwl_postid_field_id'); delete_option('jwl_shortcode_field_id'); delete_option('jwl_php_widget_field_id'); delete_option('jwl_linebreak_field_id'); delete_option('jwl_columns_field_id'); delete_option('jwl_defaults_field_id'); delete_option('jwl_div_field_id'); delete_option('jwl_autop_field_id'); delete_option('jwl_signoff_field_id');
+	
+	delete_option('jwl_dashboard_widget'); delete_option('jwl_admin_bar_link');
+	
+	delete_option('jwl_dashboard_options');
  
     // Do not change (this deactivates the plugin)
     $current = get_settings('active_plugins');
@@ -132,6 +114,7 @@ function ultimate_tinymce_uninstall() {
 
 function jwl_ultimate_tinymce_form_uninstall() {
 	?>
+    <span class="content_wrapper_title"><?php _e('Uninstall Ultimate Tinymce','jwl-ultimate-tinymce'); ?></span>
     <form method="post">
 	<input id="plugin" name="plugin" type="hidden" value="ultimate-tinymce/main.php" /> <?php  // The value must match the folder/file of the plugin.
     if ( isset( $_POST['uninstall'] ) && ! isset( $_POST['uninstall_confirm'] ) ) { 
@@ -154,12 +137,12 @@ function jwl_ultimate_tinymce_form_uninstall() {
 
 // admin notice for not verifying to uninstall database
 if ( isset( $_POST['uninstall'] ) && ! isset( $_POST['uninstall_confirm'] ) ) {
-	function testing() {
+	function jwl_tinymce_top_uninstall_notice() {
 		echo '<div id="message" class="error"><p>';
 		_e('You must also check the confirm box before options will be uninstalled and deleted.','jwl-ultimate-tinymce');
     	echo '</p></div>';
 	}
-	add_action('admin_notices','testing');
+	add_action('admin_notices','jwl_tinymce_top_uninstall_notice');
 }
 
 /* Display a plugin update notice that can be dismissed.  This notice is displayed on all admin pages until dismissed. */
@@ -195,51 +178,77 @@ function jwl_change_mce_options($initArray) {
 }
 add_filter('tiny_mce_before_init', 'jwl_change_mce_options');
 
-// Insert a dashboarrd Ultimate Tinymce Widget
-add_action('wp_dashboard_setup', 'my_custom_dashboard_widgets');
-function my_custom_dashboard_widgets() {
-   global $wp_meta_boxes;
-   wp_add_dashboard_widget('jwl_tinymce_dashboard_widget', 'Ultimate Tinymce', 'jwl_tinymce_widget');
-}
-
-function jwl_tinymce_widget() {
-    ?><p><?php _e('Don\'t miss these Addons for Ultimate Tinymce:','jwl-ultimate-tinymce'); ?></p>
-	<ul><li><a target="_blank" href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/"><?php _e('Ultimate Tinymce Google Webfonts','jwl-ultimate-tinymce'); ?></a></li><li><a target="_blank" href="http://www.plugins.joshlobe.com/ultimate-tinymce-custom-styles/"><?php _e('Ultimate Tinymce Custom Styles','jwl-ultimate-tinymce'); ?></a></li><li><a target="_blank" href="http://www.plugins.joshlobe.com/predefined-custom-styles/"><?php _e('Ultimate Tinymce Pre-Defined Styles','jwl-ultimate-tinymce'); ?></a></li><li><a target="_blank" href="http://www.plugins.joshlobe.com/wp-admin-colors/"><?php _e('WP Admin Colors','jwl-ultimate-tinymce'); ?></a></li></ul>
-	<?php
+// Insert a dashboard Ultimate Tinymce Widget for RSS feed.
+$jwl_dashboard = get_option('jwl_dashboard_widget');
+if ($jwl_dashboard == '1') {
+	
+	add_action('wp_dashboard_setup', 'my_custom_dashboard_widgets');
+	function my_custom_dashboard_widgets() {
+	   global $wp_meta_boxes;
+	   wp_add_dashboard_widget('jwl_tinymce_dashboard_widget', 'Ultimate Tinymce RSS Feed', 'jwl_tinymce_widget', 'jwl_configure_widget');
+	}
+	
+	function jwl_tinymce_widget() {
+		$jwl_widgets = get_option( 'jwl_dashboard_options' ); // Get the dashboard widget options
+		$jwl_widget_id = 'jwl_tinymce_dashboard_widget'; // This must be the same ID we set in wp_add_dashboard_widget
+		/* Check whether we have set the post count through the controls. If we didn't, set the default to 5 */
+		$jwl_total_items = 	isset( $jwl_widgets[$jwl_widget_id] ) && isset( $jwl_widgets[$jwl_widget_id]['items'] )
+							? absint( $jwl_widgets[$jwl_widget_id]['items'] ) : 5;
+		// Echo the output of the RSS Feed.
+		echo '<p style="border-bottom:#000 1px solid;">'; echo 'Showing ('.$jwl_total_items.') Posts'; echo '</p>';
+		echo '<div class="rss-widget">';
+		   wp_widget_rss_output(array( 'url' => 'http://www.plugins.joshlobe.com/feed/', 'title' => '', 'items' => $jwl_total_items, 'show_summary' => 0, 'show_author' => 0, 'show_date' => 0 ));
+		echo "</div>";
+		echo '<p style="text-align:center;border-top: #000 1px solid;padding:5px;"><a href="http://www.joshlobe.com/2011/10/ultimate-tinymce/">Ultimate Tinymce</a> - Visual Wordpress Editor</p>';
+	}
+	
+	function jwl_configure_widget(){
+		$jwl_widget_id = 'jwl_tinymce_dashboard_widget'; // This must be the same ID we set in wp_add_dashboard_widget
+		$jwl_form_id = 'jwl-dashboard-control'; // Set this to whatever you want
+			
+		// Checks whether there are already dashboard widget options in the database
+		if ( !$jwl_widget_options = get_option( 'jwl_dashboard_options' ) )
+			$jwl_widget_options = array(); // If not, we create a new array
+		// Check whether we have information for this form
+		if ( !isset($jwl_widget_options[$jwl_widget_id]) )
+			$jwl_widget_options[$jwl_widget_id] = array(); // If not, we create a new array
+		// Check whether our form was just submitted
+		if ( 'POST' == $_SERVER['REQUEST_METHOD'] && isset($_POST[$jwl_form_id]) ) {
+			/* Get the value. In this case ['items'] is from the input field with the name of '.$form_id.'[items] */
+			$jwl_number = absint( $_POST[$jwl_form_id]['items'] );
+			$jwl_widget_options[$jwl_widget_id]['items'] = $jwl_number; // Set the number of items
+			update_option( 'jwl_dashboard_options', $jwl_widget_options ); // Update our dashboard widget options so we can access later
+		}
+		
+		/* Check if we have set the number of posts previously. If we didn't, then we just set it as empty. This value is used when we create the input field */
+		$jwl_number = isset( $jwl_widget_options[$jwl_widget_id]['items'] ) ? (int) $jwl_widget_options[$jwl_widget_id]['items'] : '';
+		
+		// Create our form fields. Pay very close attention to the name part of the input field.
+		echo '<p><label for="jwl_tinymce_dashboard_widget-number">' . __('Number of posts to show:') . '</label>';
+		echo '<input id="jwl_tinymce_dashboard_widget-number" name="'.$jwl_form_id.'[items]" type="text" value="' . $jwl_number . '" size="3" /></p>';
+	}
 }
 
 // Set an admin bar link to the settings page
-function jwl_admin_bar_init() {
-	// Is the user sufficiently leveled, or has the bar been disabled?
-	if (!is_super_admin() || !is_admin_bar_showing() )
-		return;
-	// Good to go, lets do this!
-	add_action('admin_bar_menu', 'jwl_admin_bar_links', 500);
-}
-add_action('admin_bar_init', 'jwl_admin_bar_init');
+$jwl_admin_links = get_option('jwl_admin_bar_link');
+if ($jwl_admin_links == '1') {
+	function jwl_admin_bar_init() {
+		// Is the user sufficiently leveled, or has the bar been disabled?
+		if (!is_super_admin() || !is_admin_bar_showing() )
+			return;
+		// Good to go, lets do this!
+		add_action('admin_bar_menu', 'jwl_admin_bar_links', 500);
+	}
+	add_action('admin_bar_init', 'jwl_admin_bar_init');
 
-function jwl_admin_bar_links() {
-	global $wp_admin_bar;
-	// Links to add, in the form: 'Label' => 'URL'
-	$links = array( 'Settings Page' => '' );
-	$links2 = array( 'Google Webfonts' => '' );
-	$links3 = array( 'Custom Styles' => '' );
-	$links4 = array( 'WP Admin Colors' => '' );
-	
-	$wp_admin_bar->add_menu( array( 'title' => 'Ultimate Tinymce', 'href' => false, 'id' => 'jwl_links', 'href' => 'admin.php?page=ultimate-tinymce' ));
-	/** * Add the submenu links. */
-	foreach ($links as $label => $url) { $wp_admin_bar->add_menu( array( 'title' => $label, 'href' => 'admin.php?page=ultimate-tinymce', 'parent' => 'jwl_links' )); }
-	/*
-	if (is_plugin_active('ultimate_tinymce_google_webfonts_addon/main.php')) {
-		foreach ($links2 as $label2 => $url2) { $wp_admin_bar->add_menu( array( 'title' => $label2, 'href' => 'admin.php?page=ultimate-tinymce-google', 'parent' => 'jwl_links' )); }
+	function jwl_admin_bar_links() {
+		global $wp_admin_bar;
+		// Links to add, in the form: 'Label' => 'URL'
+		$links = array( 'Settings Page' => '' );
+		$wp_admin_bar->add_menu( array( 'title' => 'Ultimate Tinymce', 'href' => false, 'id' => 'jwl_links', 'href' => '/wp-admin/admin.php?page=ultimate-tinymce' ));
+		/** * Add the submenu links. */
+		foreach ($links as $label => $url) { $wp_admin_bar->add_menu( array( 'title' => $label, 'href' => '/wp-admin/admin.php?page=ultimate-tinymce', 'parent' => 'jwl_links' )); }
 	}
-	if (is_plugin_active('ultimate_tinymce_custom_styles_addon/main.php')) {
-		foreach ($links3 as $label3 => $url3) { $wp_admin_bar->add_menu( array( 'title' => $label3, 'href' => 'admin.php?page=ultimate-tinymce-styles', 'parent' => 'jwl_links' )); }
-	}
-	if (is_plugin_active('wp-admin-colors/main.php')) {
-		foreach ($links4 as $label4 => $url4) { $wp_admin_bar->add_menu( array( 'title' => $label4, 'href' => 'admin.php?page=wp-admin-colors', 'parent' => 'jwl_links' )); }
-	}
-	*/
 }
 
 // Set our language localization folder (used for adding translations)
@@ -281,149 +290,33 @@ function jwl_settings_api_init() {
  	add_settings_section('jwl_setting_section1', '', 'jwl_setting_section_callback_function1', 'ultimate-tinymce1');
 	add_settings_section('jwl_setting_section2', '', 'jwl_setting_section_callback_function2', 'ultimate-tinymce2');
 	add_settings_section('jwl_setting_section3', '', 'jwl_setting_section_callback_function3', 'ultimate-tinymce3');
-
- 	
+	add_settings_section('jwl_setting_section4', '', 'jwl_setting_section_callback_function4', 'ultimate-tinymce4');
+	
  	// This adds our individual settings to each option group defined above.	
 	// These are the settings for Row 3
- 	add_settings_field('jwl_fontselect_field_id', __('Font Select Button','jwl-ultimate-tinymce'), 'jwl_fontselect_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_fontsizeselect_field_id', __('Font Size Button','jwl-ultimate-tinymce'), 'jwl_fontsizeselect_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_cut_field_id', __('Cut Button','jwl-ultimate-tinymce'), 'jwl_cut_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_copy_field_id', __('Copy Button','jwl-ultimate-tinymce'), 'jwl_copy_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_paste_field_id', __('Paste Button','jwl-ultimate-tinymce'), 'jwl_paste_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_backcolorpicker_field_id', __('Background Color Picker Button','jwl-ultimate-tinymce'), 'jwl_backcolorpicker_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_forecolorpicker_field_id', __('Foreground Color Picker Button','jwl-ultimate-tinymce'), 'jwl_forecolorpicker_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_advhr_field_id', __('Horizontal Rule Button','jwl-ultimate-tinymce'), 'jwl_advhr_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_visualaid_field_id', __('Visual Aid Button','jwl-ultimate-tinymce'), 'jwl_visualaid_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_anchor_field_id', __('Anchor Button','jwl-ultimate-tinymce'), 'jwl_anchor_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_sub_field_id', __('Subscript Button','jwl-ultimate-tinymce'), 'jwl_sub_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_sup_field_id', __('Superscript Button','jwl-ultimate-tinymce'), 'jwl_sup_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_search_field_id', __('Search Button','jwl-ultimate-tinymce'), 'jwl_search_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_replace_field_id', __('Replace Button','jwl-ultimate-tinymce'), 'jwl_replace_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
-	add_settings_field('jwl_datetime_field_id', __('Insert Date/Time Button','jwl-ultimate-tinymce'), 'jwl_datetime_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
+ 	add_settings_field('jwl_fontselect_field_id', __('Font Select Button','jwl-ultimate-tinymce'), 'jwl_fontselect_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1'); add_settings_field('jwl_fontsizeselect_field_id', __('Font Size Button','jwl-ultimate-tinymce'), 'jwl_fontsizeselect_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1'); add_settings_field('jwl_cut_field_id', __('Cut Button','jwl-ultimate-tinymce'), 'jwl_cut_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1'); add_settings_field('jwl_copy_field_id', __('Copy Button','jwl-ultimate-tinymce'), 'jwl_copy_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1'); add_settings_field('jwl_paste_field_id', __('Paste Button','jwl-ultimate-tinymce'), 'jwl_paste_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1'); add_settings_field('jwl_backcolorpicker_field_id', __('Background Color Picker Button','jwl-ultimate-tinymce'), 'jwl_backcolorpicker_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1'); add_settings_field('jwl_forecolorpicker_field_id', __('Foreground Color Picker Button','jwl-ultimate-tinymce'), 'jwl_forecolorpicker_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1'); add_settings_field('jwl_advhr_field_id', __('Horizontal Rule Button','jwl-ultimate-tinymce'), 'jwl_advhr_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1'); add_settings_field('jwl_visualaid_field_id', __('Visual Aid Button','jwl-ultimate-tinymce'), 'jwl_visualaid_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1'); add_settings_field('jwl_anchor_field_id', __('Anchor Button','jwl-ultimate-tinymce'), 'jwl_anchor_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1'); add_settings_field('jwl_sub_field_id', __('Subscript Button','jwl-ultimate-tinymce'), 'jwl_sub_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1'); add_settings_field('jwl_sup_field_id', __('Superscript Button','jwl-ultimate-tinymce'), 'jwl_sup_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1'); add_settings_field('jwl_search_field_id', __('Search Button','jwl-ultimate-tinymce'), 'jwl_search_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1'); add_settings_field('jwl_replace_field_id', __('Replace Button','jwl-ultimate-tinymce'), 'jwl_replace_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1'); add_settings_field('jwl_datetime_field_id', __('Insert Date/Time Button','jwl-ultimate-tinymce'), 'jwl_datetime_callback_function', 'ultimate-tinymce1', 'jwl_setting_section1');
 	
 	// These are the settings for Row 4
-	add_settings_field('jwl_styleselect_field_id', __('Style Select Button','jwl-ultimate-tinymce'), 'jwl_styleselect_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_tableDropdown_field_id', __('Table Controls Dropdown Button','jwl-ultimate-tinymce'), 'jwl_tableDropdown_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_emotions_field_id', __('Emotions Button','jwl-ultimate-tinymce'), 'jwl_emotions_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_image_field_id', __('Advanced Image Button','jwl-ultimate-tinymce'), 'jwl_image_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_preview_field_id', __('Preview Button','jwl-ultimate-tinymce'), 'jwl_preview_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_cite_field_id', __('Citations Button','jwl-ultimate-tinymce'), 'jwl_cite_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_abbr_field_id', __('Abbreviations Button','jwl-ultimate-tinymce'), 'jwl_abbr_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_acronym_field_id', __('Acronym Button','jwl-ultimate-tinymce'), 'jwl_acronym_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_del_field_id', __('Delete Button','jwl-ultimate-tinymce'), 'jwl_del_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_ins_field_id', __('Insert Button','jwl-ultimate-tinymce'), 'jwl_ins_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_attribs_field_id', __('Attributes Button','jwl-ultimate-tinymce'), 'jwl_attribs_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_styleprops_field_id', __('Styleprops Box','jwl-ultimate-tinymce'), 'jwl_styleprops_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_code_field_id', __('HTML Code Button','jwl-ultimate-tinymce'), 'jwl_code_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_codemagic_field_id', __('HTML Code Magic Button','jwl-ultimate-tinymce'), 'jwl_codemagic_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); 	
-	add_settings_field('jwl_media_field_id', __('Insert Media Button','jwl-ultimate-tinymce'), 'jwl_media_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_youtube_field_id', __('Insert YouTube Video Button','jwl-ultimate-tinymce'), 'jwl_youtube_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_imgmap_field_id', __('Image Map Editor Button','jwl-ultimate-tinymce'), 'jwl_imgmap_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_visualchars_field_id', __('Toggle Visual Characters Button','jwl-ultimate-tinymce'), 'jwl_visualchars_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_print_field_id', __('Print Button','jwl-ultimate-tinymce'), 'jwl_print_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
-	add_settings_field('jwl_shortcodes_field_id', __('Shortcodes Select Button','jwl-ultimate-tinymce'), 'jwl_shortcodes_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
+	add_settings_field('jwl_styleselect_field_id', __('Style Select Button','jwl-ultimate-tinymce'), 'jwl_styleselect_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_tableDropdown_field_id', __('Table Controls Dropdown Button','jwl-ultimate-tinymce'), 'jwl_tableDropdown_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_emotions_field_id', __('Emotions Button','jwl-ultimate-tinymce'), 'jwl_emotions_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_image_field_id', __('Advanced Image Button','jwl-ultimate-tinymce'), 'jwl_image_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_preview_field_id', __('Preview Button','jwl-ultimate-tinymce'), 'jwl_preview_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_cite_field_id', __('Citations Button','jwl-ultimate-tinymce'), 'jwl_cite_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_abbr_field_id', __('Abbreviations Button','jwl-ultimate-tinymce'), 'jwl_abbr_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_acronym_field_id', __('Acronym Button','jwl-ultimate-tinymce'), 'jwl_acronym_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_del_field_id', __('Delete Button','jwl-ultimate-tinymce'), 'jwl_del_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_ins_field_id', __('Insert Button','jwl-ultimate-tinymce'), 'jwl_ins_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_attribs_field_id', __('Attributes Button','jwl-ultimate-tinymce'), 'jwl_attribs_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_styleprops_field_id', __('Styleprops Box','jwl-ultimate-tinymce'), 'jwl_styleprops_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_code_field_id', __('HTML Code Button','jwl-ultimate-tinymce'), 'jwl_code_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_codemagic_field_id', __('HTML Code Magic Button','jwl-ultimate-tinymce'), 'jwl_codemagic_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); 	 add_settings_field('jwl_media_field_id', __('Insert Media Button','jwl-ultimate-tinymce'), 'jwl_media_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_youtube_field_id', __('Insert YouTube Video Button','jwl-ultimate-tinymce'), 'jwl_youtube_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_imgmap_field_id', __('Image Map Editor Button','jwl-ultimate-tinymce'), 'jwl_imgmap_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_visualchars_field_id', __('Toggle Visual Characters Button','jwl-ultimate-tinymce'), 'jwl_visualchars_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_print_field_id', __('Print Button','jwl-ultimate-tinymce'), 'jwl_print_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2'); add_settings_field('jwl_shortcodes_field_id', __('Shortcodes Select Button','jwl-ultimate-tinymce'), 'jwl_shortcodes_callback_function', 'ultimate-tinymce2', 'jwl_setting_section2');
 	
 	// Settings for miscellaneous options and features
-	add_settings_field('jwl_tinycolor_css_field_id', __('Change the color of the Editor.','jwl-ultimate-tinymce'), 'jwl_tinycolor_css_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
-	add_settings_field('jwl_tinymce_nextpage_field_id', __('Enable NextPage (PageBreak) Button.','jwl-ultimate-tinymce'), 'jwl_tinymce_nextpage_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
-	add_settings_field('jwl_postid_field_id', __('Add ID Column to page/post admin list.','jwl-ultimate-tinymce'), 'jwl_postid_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
-	add_settings_field('jwl_shortcode_field_id', __('Allow shortcode usage in widget text areas.','jwl-ultimate-tinymce'), 'jwl_shortcode_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
-	add_settings_field('jwl_php_widget_field_id', __('Use PHP Text Widget','jwl-ultimate-tinymce'), 'jwl_php_widget_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
-	add_settings_field('jwl_linebreak_field_id', __('Enable Line Break Shortcode','jwl-ultimate-tinymce'), 'jwl_linebreak_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
-	add_settings_field('jwl_columns_field_id', __('Enable Columns Shortcodes','jwl-ultimate-tinymce'), 'jwl_columns_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
-	add_settings_field('jwl_defaults_field_id', __('Enable Advanced Insert/Edit Link Button','jwl-ultimate-tinymce'), 'jwl_defaults_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
-	add_settings_field('jwl_div_field_id', __('Enable "Div Clear" Buttons','jwl-ultimate-tinymce'), 'jwl_div_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
-	add_settings_field('jwl_autop_field_id', __('Remove <b>p</b> and <b>br</b> tags','jwl-ultimate-tinymce'), 'jwl_autop_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
-	add_settings_field('jwl_signoff_field_id', __('Add a Signoff Shortcode','jwl-ultimate-tinymce'), 'jwl_signoff_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
+	add_settings_field('jwl_tinycolor_css_field_id', __('Change the color of the Editor.','jwl-ultimate-tinymce'), 'jwl_tinycolor_css_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3'); add_settings_field('jwl_tinymce_nextpage_field_id', __('Enable NextPage (PageBreak) Button.','jwl-ultimate-tinymce'), 'jwl_tinymce_nextpage_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3'); add_settings_field('jwl_postid_field_id', __('Add ID Column to page/post admin list.','jwl-ultimate-tinymce'), 'jwl_postid_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3'); add_settings_field('jwl_shortcode_field_id', __('Allow shortcode usage in widget text areas.','jwl-ultimate-tinymce'), 'jwl_shortcode_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3'); add_settings_field('jwl_php_widget_field_id', __('Use PHP Text Widget','jwl-ultimate-tinymce'), 'jwl_php_widget_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3'); add_settings_field('jwl_linebreak_field_id', __('Enable Line Break Shortcode','jwl-ultimate-tinymce'), 'jwl_linebreak_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3'); add_settings_field('jwl_columns_field_id', __('Enable Columns Shortcodes','jwl-ultimate-tinymce'), 'jwl_columns_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3'); add_settings_field('jwl_defaults_field_id', __('Enable Advanced Insert/Edit Link Button','jwl-ultimate-tinymce'), 'jwl_defaults_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3'); add_settings_field('jwl_div_field_id', __('Enable "Div Clear" Buttons','jwl-ultimate-tinymce'), 'jwl_div_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3'); add_settings_field('jwl_autop_field_id', __('Remove <b>p</b> and <b>br</b> tags','jwl-ultimate-tinymce'), 'jwl_autop_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3'); add_settings_field('jwl_signoff_field_id', __('Add a Signoff Shortcode','jwl-ultimate-tinymce'), 'jwl_signoff_callback_function', 'ultimate-tinymce3', 'jwl_setting_section3');
 	
+	// Settings for Admin Options
+	add_settings_field('jwl_dashboard_widget', __('Enable dashboard widget','jwl-ultimate-tinymce'), 'jwl_dashboard_widget_callback_function', 'ultimate-tinymce4', 'jwl_setting_section4'); add_settings_field('jwl_admin_bar_link', __('Enable admin bar link','jwl-ultimate-tinymce'), 'jwl_admin_bar_link_callback_function', 'ultimate-tinymce4', 'jwl_setting_section4');
  	
 	// Register our settings so that $_POST handling is done for us and our callback function just has to echo the <input>.
 	// Register settings for Row 3
- 	register_setting('jwl_options_group','jwl_fontselect_field_id');
-	register_setting('jwl_options_group','jwl_fontselect_dropdown');
-	register_setting('jwl_options_group','jwl_fontsizeselect_field_id');
-	register_setting('jwl_options_group','jwl_fontsizeselect_dropdown');
-	register_setting('jwl_options_group','jwl_cut_field_id');
-	register_setting('jwl_options_group','jwl_cut_dropdown');
-	register_setting('jwl_options_group','jwl_copy_field_id');
-	register_setting('jwl_options_group','jwl_copy_dropdown');
-	register_setting('jwl_options_group','jwl_paste_field_id');
-	register_setting('jwl_options_group','jwl_paste_dropdown');
-	register_setting('jwl_options_group','jwl_backcolorpicker_field_id');
-	register_setting('jwl_options_group','jwl_backcolorpicker_dropdown');
-	register_setting('jwl_options_group','jwl_forecolorpicker_field_id');
-	register_setting('jwl_options_group','jwl_forecolorpicker_dropdown');
-	register_setting('jwl_options_group','jwl_advhr_field_id');
-	register_setting('jwl_options_group','jwl_advhr_dropdown');
-	register_setting('jwl_options_group','jwl_visualaid_field_id');
-	register_setting('jwl_options_group','jwl_visualaid_dropdown');
-	register_setting('jwl_options_group','jwl_anchor_field_id');
-	register_setting('jwl_options_group','jwl_anchor_dropdown');
-	register_setting('jwl_options_group','jwl_sub_field_id');
-	register_setting('jwl_options_group','jwl_sub_dropdown');
-	register_setting('jwl_options_group','jwl_sup_field_id');
-	register_setting('jwl_options_group','jwl_sup_dropdown');
-	register_setting('jwl_options_group','jwl_search_field_id');
-	register_setting('jwl_options_group','jwl_search_dropdown');
-	register_setting('jwl_options_group','jwl_replace_field_id');
-	register_setting('jwl_options_group','jwl_replace_dropdown');
-	register_setting('jwl_options_group','jwl_datetime_field_id');
-	register_setting('jwl_options_group','jwl_datetime_dropdown');
+ 	register_setting('jwl_options_group','jwl_fontselect_field_id'); register_setting('jwl_options_group','jwl_fontselect_dropdown'); register_setting('jwl_options_group','jwl_fontsizeselect_field_id'); register_setting('jwl_options_group','jwl_fontsizeselect_dropdown'); register_setting('jwl_options_group','jwl_cut_field_id'); register_setting('jwl_options_group','jwl_cut_dropdown'); register_setting('jwl_options_group','jwl_copy_field_id'); register_setting('jwl_options_group','jwl_copy_dropdown'); register_setting('jwl_options_group','jwl_paste_field_id'); register_setting('jwl_options_group','jwl_paste_dropdown'); register_setting('jwl_options_group','jwl_backcolorpicker_field_id'); register_setting('jwl_options_group','jwl_backcolorpicker_dropdown'); register_setting('jwl_options_group','jwl_forecolorpicker_field_id'); register_setting('jwl_options_group','jwl_forecolorpicker_dropdown'); register_setting('jwl_options_group','jwl_advhr_field_id'); register_setting('jwl_options_group','jwl_advhr_dropdown'); register_setting('jwl_options_group','jwl_visualaid_field_id'); register_setting('jwl_options_group','jwl_visualaid_dropdown'); register_setting('jwl_options_group','jwl_anchor_field_id'); register_setting('jwl_options_group','jwl_anchor_dropdown'); register_setting('jwl_options_group','jwl_sub_field_id'); register_setting('jwl_options_group','jwl_sub_dropdown'); register_setting('jwl_options_group','jwl_sup_field_id'); register_setting('jwl_options_group','jwl_sup_dropdown'); register_setting('jwl_options_group','jwl_search_field_id'); register_setting('jwl_options_group','jwl_search_dropdown'); register_setting('jwl_options_group','jwl_replace_field_id'); register_setting('jwl_options_group','jwl_replace_dropdown'); register_setting('jwl_options_group','jwl_datetime_field_id'); register_setting('jwl_options_group','jwl_datetime_dropdown');
 	
 	// Register settings for Row 4
-	register_setting('jwl_options_group','jwl_styleselect_field_id');
-	register_setting('jwl_options_group','jwl_styleselect_dropdown');
-	register_setting('jwl_options_group','jwl_tableDropdown_field_id');
-	register_setting('jwl_options_group','jwl_tableDropdown_dropdown');
-	register_setting('jwl_options_group','jwl_emotions_field_id');
-	register_setting('jwl_options_group','jwl_emotions_dropdown');
-	register_setting('jwl_options_group','jwl_image_field_id');
-	register_setting('jwl_options_group','jwl_image_dropdown');
-	register_setting('jwl_options_group','jwl_preview_field_id');
-	register_setting('jwl_options_group','jwl_preview_dropdown');
-	register_setting('jwl_options_group','jwl_cite_field_id');
-	register_setting('jwl_options_group','jwl_cite_dropdown');
-	register_setting('jwl_options_group','jwl_abbr_field_id');
-	register_setting('jwl_options_group','jwl_abbr_dropdown');
-	register_setting('jwl_options_group','jwl_acronym_field_id');
-	register_setting('jwl_options_group','jwl_acronym_dropdown');
-	register_setting('jwl_options_group','jwl_del_field_id');
-	register_setting('jwl_options_group','jwl_del_dropdown');
-	register_setting('jwl_options_group','jwl_ins_field_id');
-	register_setting('jwl_options_group','jwl_ins_dropdown');
-	register_setting('jwl_options_group','jwl_attribs_field_id');
-	register_setting('jwl_options_group','jwl_attribs_dropdown');
-	register_setting('jwl_options_group','jwl_styleprops_field_id');
-	register_setting('jwl_options_group','jwl_styleprops_dropdown');
-	register_setting('jwl_options_group','jwl_code_field_id');
-	register_setting('jwl_options_group','jwl_code_dropdown');
-	register_setting('jwl_options_group','jwl_codemagic_field_id');
-	register_setting('jwl_options_group','jwl_codemagic_dropdown');
-	register_setting('jwl_options_group','jwl_media_field_id');
-	register_setting('jwl_options_group','jwl_media_dropdown');
-	register_setting('jwl_options_group','jwl_youtube_field_id');
-	register_setting('jwl_options_group','jwl_youtube_dropdown');
-	register_setting('jwl_options_group','jwl_imgmap_field_id');
-	register_setting('jwl_options_group','jwl_imgmap_dropdown');
-	register_setting('jwl_options_group','jwl_visualchars_field_id');
-	register_setting('jwl_options_group','jwl_visualchars_dropdown');
-	register_setting('jwl_options_group','jwl_print_field_id');
-	register_setting('jwl_options_group','jwl_print_dropdown');
-	register_setting('jwl_options_group','jwl_shortcodes_field_id');
-	register_setting('jwl_options_group','jwl_shortcodes_dropdown');
+	register_setting('jwl_options_group','jwl_styleselect_field_id'); register_setting('jwl_options_group','jwl_styleselect_dropdown'); register_setting('jwl_options_group','jwl_tableDropdown_field_id'); register_setting('jwl_options_group','jwl_tableDropdown_dropdown'); register_setting('jwl_options_group','jwl_emotions_field_id'); register_setting('jwl_options_group','jwl_emotions_dropdown'); register_setting('jwl_options_group','jwl_image_field_id'); register_setting('jwl_options_group','jwl_image_dropdown'); register_setting('jwl_options_group','jwl_preview_field_id'); register_setting('jwl_options_group','jwl_preview_dropdown'); register_setting('jwl_options_group','jwl_cite_field_id'); register_setting('jwl_options_group','jwl_cite_dropdown'); register_setting('jwl_options_group','jwl_abbr_field_id'); register_setting('jwl_options_group','jwl_abbr_dropdown'); register_setting('jwl_options_group','jwl_acronym_field_id'); register_setting('jwl_options_group','jwl_acronym_dropdown'); register_setting('jwl_options_group','jwl_del_field_id'); register_setting('jwl_options_group','jwl_del_dropdown'); register_setting('jwl_options_group','jwl_ins_field_id'); register_setting('jwl_options_group','jwl_ins_dropdown'); register_setting('jwl_options_group','jwl_attribs_field_id'); register_setting('jwl_options_group','jwl_attribs_dropdown'); register_setting('jwl_options_group','jwl_styleprops_field_id'); register_setting('jwl_options_group','jwl_styleprops_dropdown'); register_setting('jwl_options_group','jwl_code_field_id'); register_setting('jwl_options_group','jwl_code_dropdown'); register_setting('jwl_options_group','jwl_codemagic_field_id'); register_setting('jwl_options_group','jwl_codemagic_dropdown'); register_setting('jwl_options_group','jwl_media_field_id'); register_setting('jwl_options_group','jwl_media_dropdown'); register_setting('jwl_options_group','jwl_youtube_field_id'); register_setting('jwl_options_group','jwl_youtube_dropdown'); register_setting('jwl_options_group','jwl_imgmap_field_id'); register_setting('jwl_options_group','jwl_imgmap_dropdown'); register_setting('jwl_options_group','jwl_visualchars_field_id'); register_setting('jwl_options_group','jwl_visualchars_dropdown'); register_setting('jwl_options_group','jwl_print_field_id'); register_setting('jwl_options_group','jwl_print_dropdown'); register_setting('jwl_options_group','jwl_shortcodes_field_id'); register_setting('jwl_options_group','jwl_shortcodes_dropdown');
 	
 	// Register Settings for miscellaneous options and features
-	register_setting('jwl_options_group','jwl_tinycolor_css_field_id');
-	register_setting('jwl_options_group','jwl_tinymce_nextpage_field_id');
-	register_setting('jwl_options_group','jwl_postid_field_id');
-	register_setting('jwl_options_group','jwl_shortcode_field_id');
-	register_setting('jwl_options_group','jwl_php_widget_field_id');
-	register_setting('jwl_options_group','jwl_linebreak_field_id');
-	register_setting('jwl_options_group','jwl_columns_field_id');
-	register_setting('jwl_options_group','jwl_defaults_field_id');
-	register_setting('jwl_options_group','jwl_div_field_id');
-	register_setting('jwl_options_group','jwl_autop_field_id');
-	register_setting('jwl_options_group','jwl_signoff_field_id');
+	register_setting('jwl_options_group','jwl_tinycolor_css_field_id'); register_setting('jwl_options_group','jwl_tinymce_nextpage_field_id'); register_setting('jwl_options_group','jwl_postid_field_id'); register_setting('jwl_options_group','jwl_shortcode_field_id'); register_setting('jwl_options_group','jwl_php_widget_field_id'); register_setting('jwl_options_group','jwl_linebreak_field_id'); register_setting('jwl_options_group','jwl_columns_field_id'); register_setting('jwl_options_group','jwl_defaults_field_id'); register_setting('jwl_options_group','jwl_div_field_id'); register_setting('jwl_options_group','jwl_autop_field_id'); register_setting('jwl_options_group','jwl_signoff_field_id');
+	
+	// Register settings for Admin Options
+	register_setting('jwl_options_group','jwl_dashboard_widget'); register_setting('jwl_options_group','jwl_admin_bar_link');
 	
 }
 add_action('admin_init', 'jwl_settings_api_init');
@@ -439,6 +332,9 @@ add_action('admin_init', 'jwl_settings_api_init');
  	_e('<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong><u>Description</u></strong><span style="margin-left:200px;"><strong><u>Enable</u></strong></span><span style="margin-left:20px;"><strong><u>Image</u></strong></span><span style="margin-left:35px;"><strong><u>Help</u></strong></span><span style="margin-left:20px;"><strong><u>Row Selection</u></strong></span></p>','jwl-ultimate-tinymce');
  }
  function jwl_setting_section_callback_function3() {
+ 	_e(' ','jwl-ultimate-tinymce');
+ }
+ function jwl_setting_section_callback_function4() {
  	_e(' ','jwl-ultimate-tinymce');
  }
  
@@ -971,12 +867,20 @@ add_action('admin_init', 'jwl_settings_api_init');
  }
  
  function jwl_signoff_callback_function() {
- 	echo '<textarea name="jwl_signoff_field_id" value=" rows="15" class="long-text" style="width:400px; height:100px;">';
+ 	echo '<textarea name="jwl_signoff_field_id" value="" rows="15" class="long-text" style="width:400px; height:100px;">';
 	echo get_option('jwl_signoff_field_id');
 	echo '</textarea>';
 	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/signoff.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
 	_e('<br />Insert the above code using the <b>[signoff]</b> shortcode within your post.','jwl-ultimate-tinymce');
  } 
+ 
+// Functions for Admin Panel Options
+function jwl_dashboard_widget_callback_function() {
+	echo '<input name="jwl_dashboard_widget" id="dashboard" type="checkbox" value="1" class="five" ' . checked( 1, get_option('jwl_dashboard_widget'), false ) . ' /> ';
+}
+function jwl_admin_bar_link_callback_function() {
+	echo '<input name="jwl_admin_bar_link" id="adminbar" type="checkbox" value="1" class="five" ' . checked( 1, get_option('jwl_admin_bar_link'), false ) . ' /> ';
+}
 
 // Finally, our custom functions for how we want the options to work.
 // Functions for Row 3
@@ -1609,6 +1513,7 @@ class jwl_metabox_admin {
 			add_meta_box('jwl_metabox1', __('Buttons Group 1'), array(&$this, 'buttons_group_1'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox2', __('Buttons Group 2'), array(&$this, 'buttons_group_2'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox4', __('Miscellaneous Features'), array(&$this, 'buttons_group_3'), $this->pagehook, 'normal', 'core');
+			add_meta_box('jwl_metabox5', __('Admin Options'), array(&$this, 'buttons_group_4'), $this->pagehook, 'normal', 'core');
 		}
 		
 		//executed to show the plugins complete admin page
@@ -1639,6 +1544,7 @@ class jwl_metabox_admin {
             <li id="tutorials"><?php _e('Donations','jwl-ultimate-tinymce'); ?></li>  
             <li id="spread"><?php _e('Spread the Word','jwl-ultimate-tinymce'); ?></li> 
             <li id="tips"><?php _e('Admin Tips','jwl-ultimate-tinymce'); ?></li>
+            <li id="defaults"><?php _e('Default Settings','jwl-ultimate-tinymce'); ?></li>
             <li id="links"><?php _e('Uninstall Plugin','jwl-ultimate-tinymce'); ?></li>  
         </ul>  
         <span class="clear"></span>  
@@ -1646,18 +1552,6 @@ class jwl_metabox_admin {
             <div class="main_help_wrapper"><span class="content_title"><?php _e('Plugin Addons:','jwl-ultimate-tinymce'); ?></span><br /><br />
                     <span style="margin-left:10px;"><?php _e('These addons provide additional features for Ultimate TinyMCE.  Click the title to view the download page.','jwl-ultimate-tinymce');
 					?></span><br />
-                    <div id="clickme" class="content_wrapper_addons"><?php
-					_e('<a target="_blank" title="Add over 50 animated smilies to your content." href="http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/"><span style="font-family:\'Unlock\', cursive;">Ultimate Moods Addon</span></a>','jwl-ultimate-tinymce'); ?> <span class="span_hover"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?></span>
-                    <div id="me" style="display:none;margin-top:10px;"><?php
-					if (is_plugin_active('moods-addon-for-ultimate-tinymce/main.php')) {
-					_e('<span style="color:green;">Activated</span>','jwl-ultimate-tinymce');
-					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" class="activation_icons" title="This addon has been installed and activated successfully." /><?php
-					} else {
-					_e('<span style="color:red;">Not Activated</span>','jwl-ultimate-tinymce');
-					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" class="activation_icons" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Choose from over 50 professionally animated smilies and insert them randomly into your post or page content areas.','jwl-ultimate-tinymce'); ?> </span> <?php
-					}
-					?></div></div>
-					
 					<div id="clickme2" class="content_wrapper_addons"><?php
 					_e('<a target="_blank" title="Easily Integrate Google Webfonts into your Website." href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/"><span style="font-family:\'Unlock\', cursive;">Ultimate Google Webfonts</span></a>','jwl-ultimate-tinymce'); ?> <span class="span_hover"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?></span>
                     <div id="me2" style="display:none;margin-top:10px;"><?php
@@ -1711,6 +1605,38 @@ class jwl_metabox_admin {
                     </div>
                     </div>
              </div>
+             
+             <div class="main_help_wrapper"><span class="content_title"><?php _e('Other Plugins:','jwl-ultimate-tinymce'); ?></span><br /><br />
+                    <span style="margin-left:10px;"><?php _e('Other plugins by <a target="_blank" href="http://www.joshlobe.com/">Josh Lobe</a>.','jwl-ultimate-tinymce');
+					?></span><br />
+                    <div id="clickme" class="content_wrapper_addons"><?php
+					_e('<a target="_blank" title="Add over 50 animated smilies to your content." href="http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/"><span style="font-family:\'Unlock\', cursive;">Ultimate Moods Addon</span></a>','jwl-ultimate-tinymce'); ?> <span class="span_hover"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?></span>
+                    <div id="me" style="display:none;margin-top:10px;"><?php
+					if (is_plugin_active('moods-addon-for-ultimate-tinymce/main.php')) {
+					_e('<span style="color:green;">Activated</span>','jwl-ultimate-tinymce');
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" class="activation_icons" title="This addon has been installed and activated successfully." /><?php
+					} else {
+					_e('<span style="color:red;">Not Activated</span>','jwl-ultimate-tinymce');
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" class="activation_icons" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Choose from over 50 professionally animated smilies and insert them randomly into your post or page content areas.','jwl-ultimate-tinymce'); ?> </span> <?php
+					}
+					?>
+                    </div>
+                    </div>
+                    
+                    <div id="clickme6" class="content_wrapper_addons"><?php
+					_e('<a target="_blank" title="Apply six unique color settings to your admin panel." href="http://wordpress.org/extend/plugins/custom-welcome-messages/"><span style="font-family:\'Unlock\', cursive;">Custom Login Messages</span></a>','jwl-ultimate-tinymce'); ?> <span class="span_hover"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?></span>
+                    <div id="me6" style="display:none;margin-top:10px;"><?php
+					if (is_plugin_active('custom-welcome/main.php')) {
+					_e('<span style="color:green;">Activated</span>','jwl-ultimate-tinymce');
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" class="activation_icons" title="This addon has been installed and activated successfully." /> <?php
+					} else {
+					_e('<span style="color:red;">Not Activated</span>','jwl-ultimate-tinymce');
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" class="activation_icons" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('This plugin will allow a custom message to be displayed on the register/login screen, and a different custom message for the logout screen.','jwl-ultimate-tinymce'); ?> </span> <?php
+					}
+					?>    
+                    </div>
+                    </div>
+            </div>
         </div>
         
         <div class="content tutorials">
@@ -1724,7 +1650,7 @@ class jwl_metabox_admin {
                      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                      <input type="hidden" name="cmd" value="_s-xclick">
                      <input type="hidden" name="hosted_button_id" value="A9E5VNRBMVBCS">
-                     <input type="image" src="http://www.joshlobe.com/images/donate.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                     <input type="image" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/donate.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                      <img alt="PayPal - The safer, easier way to pay online!" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                      </form>
                 </center><br />
@@ -1802,12 +1728,20 @@ class jwl_metabox_admin {
             </div>
         </div>
         
+        <div class="content defaults"> 
+          <div class="main_help_wrapper"><span class="content_title"><?php _e('Load developers suggested settings.', 'jwl-ultimate-tinymce'); ?></span><br /><br />
+                <div class="content_wrapper_tips" style="width:60%;">
+                <?php jwl_ultimate_tinymce_load_defaults(); ?>
+                </div>
+          </div>
+        </div>
+        
         <div class="content links"> 
         	<div class="main_help_wrapper"><span class="content_title"><?php _e('Uninstall Plugin & Delete Database Entries:', 'jwl-ultimate-tinymce'); ?></span><br /><br />
             	<div class="content_wrapper_tips">
             	<?php jwl_ultimate_tinymce_form_uninstall(); ?>
                 </div>
-                <div class="content_wrapper_tips" style="height:332px;">
+                <div class="content_wrapper_tips" style="height:349px;">
                 <center><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/uninstall1.png" style="margin-top:120px;" /></center>
                 </div>
             </div>
@@ -1845,6 +1779,7 @@ class jwl_metabox_admin {
     <script type="text/javascript"> $(document).ready(function() { $('#clickme3').click(function() { $('#me3').animate({ height: 'toggle' }, 300 ); }); }); </script>
     <script type="text/javascript"> $(document).ready(function() { $('#clickme4').click(function() { $('#me4').animate({ height: 'toggle' }, 300 ); }); }); </script>
     <script type="text/javascript"> $(document).ready(function() { $('#clickme5').click(function() { $('#me5').animate({ height: 'toggle' }, 300 ); }); }); </script>
+    <script type="text/javascript"> $(document).ready(function() { $('#clickme6').click(function() { $('#me6').animate({ height: 'toggle' }, 300 ); }); }); </script>
     <script type="text/javascript" src="tabs.js"></script>
             <script type="text/javascript">
 			$(document).ready(function(){  
@@ -1856,12 +1791,14 @@ class jwl_metabox_admin {
                 $("#tutorials").removeClass("active");  
 				$("#spread").removeClass("active");
 				$("#tips").removeClass("active");
+				$("#defaults").removeClass("active");
                 $("#links").removeClass("active");  
                 //display selected division, hide others  
                 $("div.news").fadeIn();  
                 $("div.tutorials").css("display", "none"); 
 				$("div.spread").css("display", "none"); 
 				$("div.tips").css("display", "none");
+				$("div.defaults").css("display", "none");
                 $("div.links").css("display", "none");  
             break;  
             case "tutorials":  
@@ -1870,12 +1807,14 @@ class jwl_metabox_admin {
                 $("#tutorials").addClass("active"); 
 				$("#spread").removeClass("active"); 
 				$("#tips").removeClass("active");
+				$("#defaults").removeClass("active");
                 $("#links").removeClass("active");  
                 //display selected division, hide others  
                 $("div.tutorials").fadeIn();  
                 $("div.news").css("display", "none"); 
 				$("div.spread").css("display", "none"); 
 				$("div.tips").css("display", "none");
+				$("div.defaults").css("display", "none");
                 $("div.links").css("display", "none");  
             break; 
 			case "spread":  
@@ -1884,6 +1823,7 @@ class jwl_metabox_admin {
                 $("#tutorials").removeClass("active");  
 				$("#spread").addClass("active");
 				$("#tips").removeClass("active");
+				$("#defaults").removeClass("active");
                 $("#links").removeClass("active");  
                 //display selected division, hide others  
                 $("div.spread").fadeIn();  
@@ -1891,6 +1831,7 @@ class jwl_metabox_admin {
                 $("div.news").css("display", "none");  
                 $("div.tutorials").css("display", "none");  
 				$("div.links").css("display", "none");
+				$("div.defaults").css("display", "none");
             break; 
 			case "tips":  
                 //change status &amp;amp;amp; style menu  
@@ -1898,9 +1839,27 @@ class jwl_metabox_admin {
                 $("#tutorials").removeClass("active");  
 				$("#spread").removeClass("active");  
 				$("#tips").addClass("active");
+				$("#defaults").removeClass("active");
                 $("#links").removeClass("active");  
                 //display selected division, hide others  
 				$("div.tips").fadeIn();
+                $("div.spread").css("display", "none"); 
+                $("div.news").css("display", "none");  
+                $("div.tutorials").css("display", "none");  
+				$("div.links").css("display", "none");
+				$("div.defaults").css("display", "none");
+            break; 
+			case "defaults":  
+                //change status &amp;amp;amp; style menu  
+                $("#news").removeClass("active");  
+                $("#tutorials").removeClass("active");  
+				$("#spread").removeClass("active");  
+				$("#defaults").addClass("active");
+				$("#tips").removeClass("active");  
+                $("#links").removeClass("active");  
+                //display selected division, hide others  
+				$("div.defaults").fadeIn();
+				$("div.tips").css("display", "none");
                 $("div.spread").css("display", "none"); 
                 $("div.news").css("display", "none");  
                 $("div.tutorials").css("display", "none");  
@@ -1912,6 +1871,7 @@ class jwl_metabox_admin {
                 $("#tutorials").removeClass("active");  
 				$("#spread").removeClass("active");
 				$("#tips").removeClass("active");
+				$("#defaults").removeClass("active");
                 $("#links").addClass("active");  
                 //display selected division, hide others  
                 $("div.links").fadeIn();  
@@ -1919,6 +1879,7 @@ class jwl_metabox_admin {
                 $("div.tutorials").css("display", "none");  
 				$("div.spread").css("display", "none");
 				$("div.tips").css("display", "none");
+				$("div.defaults").css("display", "none");
             break;  
         }  
         //alert(e.target.id);  
@@ -1950,7 +1911,7 @@ class jwl_metabox_admin {
 			?><form action="options.php" method="post" name="jwl_main_options"><?php
 			do_settings_sections('ultimate-tinymce1');
 			settings_fields('jwl_options_group'); ?>
-			<span style="padding-left:10px;"><input type="button" id="allsts" value="Check All"><input type="button" id="nosts" value="UnCheck All"><span style="margin-left:130px;"><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></span></span>
+			<span style="padding-left:10px;"><input type="button" id="allsts" value="Check All"><input type="button" id="nosts" value="UnCheck All"><span style="margin-left:130px;"><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></span><span style="padding-left:80px;"></span>
 			<?php
 		}
 		function buttons_group_2($data) {
@@ -1963,6 +1924,14 @@ class jwl_metabox_admin {
 		function buttons_group_3($data) {
 			sort($data);
 			do_settings_sections('ultimate-tinymce3');
+			settings_fields('jwl_options_group');
+			?>
+			<center><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
+			<?php
+		}
+		function buttons_group_4($data) {
+			sort($data);
+			do_settings_sections('ultimate-tinymce4');
 			settings_fields('jwl_options_group');
 			?>
 			<center><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
@@ -2067,5 +2036,30 @@ class jwl_metabox_admin {
 		}
 }
 $my_jwl_metabox_admin = new jwl_metabox_admin();
+
+/*
+function mytest() {
+?>
+	<div style="display:block;">
+	<form method="post">
+	<input id="groupone" name="groupone" type="hidden" value="ultimate-tinymce/main.php" />
+    <center><br /><br />
+	<input name="groupone_uninstall_confirm" type="checkbox" value="1" /> <?php _e('Row 3','jwl-ultimate-tinymce'); ?>
+	<input class="button-primary" name="groupone_uninstall" type="submit" value="<?php _e('Change','jwl-ultimate-tinymce'); ?>" />
+	</form>
+    </center>
+    </div>
+<?php
+}
+
+if ( isset( $_POST['groupone_uninstall'], $_POST['groupone_uninstall_confirm'] ) ) {
+    my_groupone();
+}
+	
+	
+function my_groupone() {
+    update_option('jwl_fontselect_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_fontsizeselect_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_cut_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_copy_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_paste_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_backcolorpicker_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_forecolorpicker_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_advhr_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_visualaid_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_anchor_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_sub_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_sup_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_search_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_replace_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}')); update_option('jwl_datetime_dropdown',unserialize('a:1:{s:3:"row";s:5:"Row 3";}'));
+}
+*/
 
 ?>

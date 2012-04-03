@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.3.1
-Stable tag: 1.7.7.3
+Stable tag: 1.7.7.4
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -132,6 +132,16 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 1.7.7.4 =
+* 04-02-12
+* Update: Added tab for users to apply the developers suggested default settings for this plugin.  My recommended settings will be automatically loaded and saved.
+* Udate: Added "Admin Options" new metabox on settings page.  
+* Update: Added two new settings under "Admin Options".  One for controlling the dashboard widget.  The other for controlling the link in the admin menu bar.
+* Tweak: Fixed link from admin bar to settings page when viewing from the front-end of the website.  Thanks Jessica!
+* Tweak: Added rss feed to dashboard widget.  The rss feed is from my wordpress plugins development website.
+* Tweak: Allowed users to specify the number of posts to display in dashboard widget.  (click "configure" on dashboard widget)
+* Tweak: Slightly modified various parts of the main tab section.
 
 = 1.7.7.3 =
 * 04-01-12
