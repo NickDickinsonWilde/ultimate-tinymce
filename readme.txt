@@ -23,6 +23,19 @@ Are you a visual person?  Do the four letters "HTML" send you running for the hi
 <strong>Here are just a few features which make this plugin so powerful:</strong>
 <ul><li>Custom column shortcodes makes it easy to break your content area into magazine-stlye columns.  You can split your contet area anywhere between two and six columns.</li><li>Insert YouTube videos by simply pasting the "share" link inside the popup window.</li><li>Format selected text using the subscript and superscript options.</li><li>Add, create, and manipulate as many tables as you like.  You can use these to create the effect of a two or three column layout within your post content.  (See the screenshots section for a visual example).</li><li>Add emoticons or animated smilies to your posts/pages.</li><li>Tons of text formatting options.</li><li>Advanced features for images (such as mouseover and mouseout).</li><li>Advanced features for ordered and unordered drop-down lists.</li><li>Easily add page anchors to posts that become too long to scroll through all the content.</li><li>Open links in your own javascript popup windows, without writing a single line of code.  You can even control the size and position of your popup window.</li><li>This plugin is in very active development, and new versions will be released adding further customization and functionality.</li></ul>
 
+<strong>Other Plugins by Josh:</strong><br />
+<ul>
+<li><a href="http://www.plugins.joshlobe.com/predefined-custom-styles/">Predefined Custom Styles</a> - A collection of over 80 of my custom styles, ready to be added to the styles dropdown selector.  Simply activate the plugin; and you are done.</li>
+
+<li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/">Ultimate Google Webfonts Addon</a> - Easily add any combination of Google Webfonts to your website without compromising page loading time.  Just copy your code from Google and paste it into this plugin.  The chosen fonts will appear in the dropdown list (rendered properly), your content area, and the front end of the website.</li>
+
+<li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-custom-styles/">Ultimate Custom Styles Addon</a> - Create custom styles for use in the styles dropdown box; which are rendered in both the editor and the front-end of the website.  Just like my predefined styles plugin, but this one allows you to create your own custom styles.</li>
+
+<li><a href="http://wordpress.org/extend/plugins/custom-welcome-messages/">Custom Welcome Messages</a> - Create custom login and logout pages.  Change the default wordpress login image, title, and link.</li>
+
+<li><a href="http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/">Ultimate Moods Addon</a> - Add over 50 animated mood smilies to your content.</li>
+</ul>
+
 <strong>Still reading??  How about some of these cool features?</strong>
 <ul><li>Disable the wpautop function which inserts all those <strong>p</strong> and <strong>br</strong> tags.</li><li>Choose from six different custom stylesheets to apply to the tinymce editor window.</li><li>Use image mapping to create separate links over the same image.  Great for using photoshop images as navigation.</li><li>Do you always end your posts with the same text or image?  Use the "signoff" shortcode to add your custom code at any time.</li><li>A very active support forum.</li><li>A huge contextual help system accompanies this plugin.  Each option has it's very own help icon which will open a popup giving specific help messages and screenshots.</li><li>Toggle the option to enable shortcodes in your widget areas.</li><li>This plugin is very stable and works extremely well on the current version of wordpress and across multiple themes (both free and paid); and with other plugins.</li></ul>
 
@@ -33,9 +46,6 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "W
 
 <strong>Additional Plugin Resources:</strong><br />
 <ul><li><a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">Support Forum</a></li><li><a href="http://www.joshlobe.com/2011/10/ultimate-tinymce/">Ultimate TinyMCE Plugin HomePage</a></li><li>Follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> to be notified of new video tutorials.</li></ul>
-
-<strong>Other Plugins by Josh:</strong><br />
-<ul><li><a href="http://wordpress.org/extend/plugins/custom-welcome-messages/">Custom Welcome Messages</a> - Create custom login and logout pages.  Change the default wordpress login image, title, and link.</li><li><a href="http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/">Ultimate Moods Addon</a> - Add over 50 animated mood smilies to your content.</li><li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/">Ultimate Google Webfonts Addon</a> - Easily add any combination of Google Webfonts to your website without compromising page loading time.</li><li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-custom-styles/">Ultimate Custom Styles Addon</a> - Create custom styles for use in the styles dropdown box; which are rendered in both the editor and the front-end of the website.</li><li><a href="http://www.plugins.joshlobe.com/predefined-custom-styles/">Predefined Custom Styles</a> - A collection of over 30 of my custom styles, ready to be added to the styles dropdown selector.  Simply activate the plugin; and you are done.</li></ul>
 
 <strong>Translations:</strong><br />
 Translating a plugin takes a lot of time, effort, and patience.  Especially with a plugin like Ultimate TinyMCE where there is a large admin panel options page with lots of text.  I really appreciate the hard work from these contributors.<br />
