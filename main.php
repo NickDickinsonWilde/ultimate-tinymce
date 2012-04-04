@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.7.7.4
+ * @version 1.7.8
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.7.7.4
+Version: 1.7.8
 Author URI: http://joshlobe.com
 
 */
@@ -21,7 +21,7 @@ Author URI: http://joshlobe.com
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU General Public License for more details and information.
 
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software

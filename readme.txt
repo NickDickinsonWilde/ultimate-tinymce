@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.3.1
-Stable tag: 1.7.7.4
+Stable tag: 1.7.8
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -132,6 +132,16 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 1.7.8 =
+* 04-04-12
+* I wanted to begin a new version sequence now that the plugin is reported as stable across various platforms.
+* Most of the code has been re-arranged on the main.php file, trying to make it easier for editing.
+* I intend to break the main.php file into multiple smaller segments, to make it more managable.  This will have no effect on any settings or usage of the plugin.
+
+* Those who are heavy users of this plugin, and who have not upgraded the Wordpress core to at least version 3.3.1 will want to do so in the very near future.  I plan to implement a few new features which rely on code only available in 3.3.1 and later.  This is not a final warning, but just letting those know the moment is getting close.
+
+* A special thanks to everyone who contributes to the development of this plugin with their time, constructive feedback, suggestions for improvement, and most importantly, financial donations.  Those who help financially, are the ones who keep this plugin alive and moving forward.  So, a very heartfelt thank you to everyone who has helped!!
 
 = 1.7.7.4 =
 * 04-02-12
