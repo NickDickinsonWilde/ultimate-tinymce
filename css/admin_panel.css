@@ -257,3 +257,9 @@
 	width: 40%;
 	margin-top: 40px;
 }
+
+div.clear {
+ clear: both;
+ width: 100%;
+ height: 1px;
+}

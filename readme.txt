@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.3.1
-Stable tag: 1.7.8
+Stable tag: 1.7.9
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -142,6 +142,12 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 1.7.9 =
+* 04-09-12
+* Notice: This will be the last plugin version before REQUIRING Wordpress version 3.3.1 or higher.  My next plugin version will begin utilizing new API's only available in 3.3.1 and higher.
+* Upgrade: I "reduced" the main.php file into several, more easily manageable, files.  This will help dramatically with loading times on the plugin settings page, and the content editor page.
+* Tweak: Performed a major renovation on coding.  Separating the main file into several smaller files made it easier for me to work with the code.  It is now easy to read, highly notated, and more concise.
 
 = 1.7.8 =
 * 04-04-12
