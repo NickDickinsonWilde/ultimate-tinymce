@@ -34,6 +34,27 @@ include ('options_functions.php');
 include ('options_callback_functions.php');
 include ('admin_functions.php');	
 
+
+//  Add settings link to plugins page menu
+//  This can be duplicated to add multiple links
+function add_ultimatetinymce_settings_link($links, $file) {
+	static $this_plugin;
+	if (!$this_plugin) $this_plugin = plugin_basename(__FILE__);
+ 
+		if ($file == $this_plugin){
+		$settings_link = '<a href="admin.php?page=ultimate-tinymce">'.__("Settings",'jwl-ultimate-tinymce').'</a>';
+		$settings_link2 = '<a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">'.__("Support Forum",'jwl-ultimate-tinymce').'</a>';
+		array_unshift($links, $settings_link, $settings_link2);
+		}
+	return $links;
+}
+add_filter('plugin_action_links', 'add_ultimatetinymce_settings_link', 10, 2 );
+
+// Donate link on manage plugin page
+function jwl_execphp_donate_link($links, $file) { if ($file == plugin_basename(__FILE__)) { $donate_link = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS" target="_blank">Donate</a>'; $links[] = $donate_link; } return $links; } add_filter('plugin_row_meta', 'jwl_execphp_donate_link', 10, 2);
+
+
+
 /*
  * Here we are generating the admin options page.
  * This will allow us to include all scripts and code to mimic the main dashboard admin page.
