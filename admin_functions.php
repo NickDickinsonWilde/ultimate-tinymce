@@ -1,25 +1,28 @@
 <?php
 
 /* Display a plugin update notice that can be dismissed.  This notice is displayed on all admin pages until dismissed. */
+
 add_action('admin_notices', 'jwl_admin_notice');
 function jwl_admin_notice() {
-    global $current_user ;
-        $user_id = $current_user->ID;
-        /* Check that the user hasn't already clicked to ignore the message */
-    if ( ! get_user_meta($user_id, 'jwl_ignore_notice') ) {
-        echo '<div class="updated"><p>';
-        printf(__('<span style="color:green;">Thank you for choosing Ultimate Tinymce.</span><br />Please visit the <a href="admin.php?page=ultimate-tinymce">Ultimate Tinymce Settings Page</a> to begin customization of your editor.<br />If you are upgrading from a previous version, you will need to <a href="admin.php?page=ultimate-tinymce">reconfigure</a> your button row settings.<span style="float:right;"><a href="%1$s">Hide Notice</a></span>'), '?jwl_nag_ignore=0');
-        echo "</p></div>";
-    }
+	global $current_user ;
+		$user_id = $current_user->ID;
+		/* Check that the user hasn't already clicked to ignore the message */
+	if ( ! get_user_meta($user_id, 'jwl_ignore_notice') ) {
+		if ( current_user_can( 'manage_options' ) ) {
+			echo '<div class="updated"><p>';
+			printf(__('<span style="color:green;">Thank you for choosing Ultimate Tinymce.</span><br />Please visit the <a href="admin.php?page=ultimate-tinymce">Ultimate Tinymce Settings Page</a> to begin customization of your editor.<br />If you are upgrading from a previous version, you will need to <a href="admin.php?page=ultimate-tinymce">reconfigure</a> your button row settings.<span style="float:right;"><a href="%1$s">Hide Notice</a></span>'), '?jwl_nag_ignore=0');
+			echo "</p></div>";
+		}
+	}
 }
 add_action('admin_init', 'jwl_nag_ignore');
 function jwl_nag_ignore() {
-    global $current_user;
-        $user_id = $current_user->ID;
-        /* If user clicks to ignore the notice, add that to their user meta */
-        if ( isset($_GET['jwl_nag_ignore']) && '0' == $_GET['jwl_nag_ignore'] ) {
-             add_user_meta($user_id, 'jwl_ignore_notice', 'true', true);
-    }
+	global $current_user;
+		$user_id = $current_user->ID;
+		/* If user clicks to ignore the notice, add that to their user meta */
+		if ( isset($_GET['jwl_nag_ignore']) && '0' == $_GET['jwl_nag_ignore'] ) {
+			 add_user_meta($user_id, 'jwl_ignore_notice', 'true', true);
+	}
 }
 
 // Change our default Tinymce configuration values
@@ -28,6 +31,7 @@ function jwl_change_mce_options($initArray) {
 	$initArray['theme_advanced_font_sizes'] = '6px=6px,8px=8px,10px=10px,12px=12px,14px=14px,16px=16px,18px=18px,20px=20px,22px=22px,24px=24px,28px=28px,32px=32px,36px=36px,40px=40px,44px=44px,48px=48px,52px=52px,62px=62px,72px=72px';
 	$initArray['plugin_insertdate_dateFormat'] = '%B %d, %Y';  // added for inserttimedate proper format
 	$initArray['plugin_insertdate_timeFormat'] = '%I:%M:%S %p';  // added for inserttimedate proper format
+	$initArray['wordpress_adv_hidden'] = false; // Always enable kitchen sink upon page refesh
 
 	return $initArray;
 }

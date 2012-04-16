@@ -124,7 +124,6 @@
 .span_hover:hover {
 	color: #0C0;
 	text-decoration: underline;
-	text-transform: uppercase;
 	float: right;
 	cursor: pointer;
 	margin-right: 5px;
@@ -160,10 +159,6 @@
 .help_tab_list_image { 
 	list-style-image: url("img/list_image.png") !important; 
 	margin-left:30px !important;
-}
-
-#postbox_donate, #postbox_addons, #postbox_resources, #postbox_firefox, #postbox_vote, #postbox_blog, #postbox_feedback, #postbox_poll, #postbox_transfer {
-	background-color:#EAFFEE;
 }
 
 .donations {

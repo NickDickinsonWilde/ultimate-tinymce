@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, register, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.3.1
-Stable tag: 1.7.9
+Stable tag: 1.8
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -142,6 +142,15 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 1.8 =
+* 04-15-12
+* NOTICE: This plugin version (and beyond until otherwise noted) is now only compatible with Wordpress version 3.3.1 and above.
+* Bugfix: Fixed admin message being shown to all users.  Now, only admin will see admin messages.
+* Update: Re-implemented "Help" tab for admin ultimate tinymce settings page.
+* Tweak: Added function which will display row 2 of the editor by default when opening any post/page.
+* Tweak: Removed a few pieces from the admin tab section, relocated to the new "Help" tab in the upper-right corner.
+* Tweak: Miscellaneous tweaks for Internet Explorer compatibility.  (Although I don't encourage IE... use <a href="http://www.mozilla.org/en-US/firefox/new/">Mozilla Firefox</a> instead!)
 
 = 1.7.9 =
 * 04-09-12
