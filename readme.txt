@@ -6,7 +6,7 @@ Requires at least: 3.3.1
 Tested up to: 3.3.1
 Stable tag: 1.8
 
-Description: Beef up your visual tinymce editor with a plethora of advanced options.
+Description: Expand your visual tinymce editor with a plethora of advanced options.
 
 == Description ==
 Are you a visual person?  Do the letter combinations "HTML" and "CSS" send you running for the hills; but you still want to create beautiful blogs like the pros?  Then this is the plugin for you!
