@@ -24,13 +24,13 @@ Are you a visual person?  Do the letter combinations "HTML" and "CSS" send you r
 <li>Insert YouTube videos by simply copying and pasting the share url.</li>
 <li>Graphical Image Mapping to make your images more exciting.</li>
 <li>Use shortcodes to insert column breaks.  This is a VERY cool feature.  You can break any content area into up to six separate columns.</li>
-<li>Ultimate Tinymce will add more than 30 new buttons and features to your visual editor.</li>
+<li>Ultimate Tinymce will add more than 40 new buttons and features to your visual editor.</li>
 <li>Accompanying this plugin is a huge contextual help system, designed to help provide specific information, screenshots, and examples for each feature.</li>
 </ul>
 
 <blockquote>I spent all last night playing with your Tinymce plugin. What a joy! Boy, have I been doing things the hard way! I loved your tooltips for the different settings. Not only were they informative, but fun! You seemed like a real person; not a manual of difficult to understand techie language! Bravo for an awesome plugin! I will certainly share it with others! I only regret having worked so long without it!</blockquote>
 
-<strong>Premium Ultimate Tinymce Addons:</strong><br />
+<strong>Premium Ultimate Tinymce Addons:</strong> These premium addons will further extend the performance of the visual editor.<br />
 <ul>
 <li><a href="http://www.plugins.joshlobe.com/predefined-custom-styles/">Predefined Custom Styles</a> - A collection of over 80 of my custom styles, ready to be added to the styles dropdown selector.  Simply activate the plugin; and you are done.</li>
 <li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/">Ultimate Google Webfonts Addon</a> - Easily add any combination of Google Webfonts to your website without compromising page loading time.  Just copy your code from Google and paste it into this plugin.  The chosen fonts will appear in the dropdown list (rendered properly), your content area, and the front end of the website.</li>
