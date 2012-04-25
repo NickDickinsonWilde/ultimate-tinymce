@@ -13,6 +13,9 @@
  function jwl_setting_section_callback_function4() {
  	_e(' ','jwl-ultimate-tinymce');
  }
+ function jwl_setting_section_callback_function5() {
+ 	_e('The options set above are available to the site administrator by default.<br />This feature will enable the editor for other user roles.  Multiple roles can be selected.','jwl-ultimate-tinymce');
+ }
  
  // Begin callback functions	 
  function jwl_fontselect_callback_function() {
@@ -542,6 +545,11 @@
 	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/autop.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="margin-left:15px;"><?php _e('(Disable wpautop) - <b>Read the help file first</b>.','jwl-ultimate-tinymce'); ?></span><?php 
  }
  
+ function jwl_cursor_callback_function() {
+ 	echo '<input name="jwl_cursor_field_id" id="cursor" type="checkbox" value="1" class="four" ' . checked( 1, get_option('jwl_cursor_field_id'), false ) . ' /> ';
+	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/cursor.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="margin-left:15px;"><?php _e('Restore scrollbar position after saving post/page content.','jwl-ultimate-tinymce'); ?></span><?php 
+ }
+ 
  function jwl_signoff_callback_function() {
  	echo '<textarea name="jwl_signoff_field_id" value="" rows="15" class="long-text" style="width:400px; height:100px;">';
 	echo get_option('jwl_signoff_field_id');
@@ -556,6 +564,11 @@ function jwl_dashboard_widget_callback_function() {
 }
 function jwl_admin_bar_link_callback_function() {
 	echo '<input name="jwl_admin_bar_link" id="adminbar" type="checkbox" value="1" class="five" ' . checked( 1, get_option('jwl_admin_bar_link'), false ) . ' /> ';
+}
+
+// Functions for User Roles
+function jwl_user_roles_editor_callback_function() {
+	echo '<input name="jwl_user_roles_editor" id="user_role_editor" type="checkbox" value="1" class="six" ' . checked( 1, get_option('jwl_user_roles_editor'), false ) . ' /> ';
 }
 
 ?>

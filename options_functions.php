@@ -511,6 +511,63 @@ if ($jwl_columns == "1"){
 	add_action('wp_print_styles', 'jwl_column_stylesheet');
 }
 
+// Class and Functions for Cursor Position in Editor
+$jwl_cursor = get_option('jwl_cursor_field_id');
+if ($jwl_cursor == "1") {
+	final class Preserve_Editor_Scroll_Position {
+	
+	public static function init() {
+		add_filter( 'redirect_post_location', array( __CLASS__, 'add_query_arg' ) );
+		add_action( 'edit_form_advanced', array( __CLASS__, 'add_input_field' ) );
+		add_action( 'edit_page_form', array( __CLASS__, 'add_input_field' ) );
+		add_filter( 'tiny_mce_before_init', array( __CLASS__, 'extend_tiny_mce' ) );
+	}
+
+	public static function add_input_field() {
+		$position = ! empty( $_GET['scrollto'] ) ? $_GET['scrollto'] : 0;
+		printf( '<input type="hidden" id="scrollto" name="scrollto" value="%d"/>', esc_attr( $position ) );
+		add_action( 'admin_print_footer_scripts', array( __CLASS__, 'print_js' ), 55 ); // Print after Editor JS
+	}
+
+	public static function extend_tiny_mce( $init ) {
+		if ( wp_default_editor() == 'tinymce' )
+			$init['setup'] = 'rich_scroll';
+
+		return $init;
+	}
+
+	public static function add_query_arg( $location ) {
+		if( ! empty( $_POST['scrollto'] ) )
+			$location = add_query_arg( 'scrollto', (int) $_POST['scrollto'], $location );
+
+		return $location;
+	}
+
+	public static function print_js() {
+		?>
+	<script>
+	( function( $ ) {
+		$( '#post' ).submit( function() {
+			scrollto =
+				$('#content' ).is(':hidden') ?
+				$('#content_ifr').contents().find( 'body' ).scrollTop() :
+				$('#content' ).scrollTop();
+			$( '#scrollto' ).val( scrollto );
+		} );
+		$( '#content' ).scrollTop( $( '#scrollto' ).val() );
+	} )( jQuery );
+	function rich_scroll( ed ) {
+		ed.onInit.add( function() {
+			jQuery( '#content_ifr' ).contents().find( 'body' ).scrollTop( jQuery( '#scrollto' ).val() );
+		} );
+	};
+	</script>
+		<?php
+	}
+	}
+	add_action( 'admin_init', array( 'Preserve_Editor_Scroll_Position', 'init' ) );
+}
+
 // Functions for shortcodes dropdown in editor
 $jwl_shortcodes = get_option('jwl_shortcodes_field_id');
 if ($jwl_shortcodes == "1") {
@@ -555,4 +612,7 @@ if ($jwl_shortcodes == "1") {
 		add_action('admin_head', array($shortcodesES, 'addSelector'));
 	}
 }
+
+// Functions for User Roles
+
 ?>

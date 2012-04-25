@@ -10,11 +10,13 @@ function ultimate_tinymce_uninstall() {
 
 	delete_option('jwl_styleselect_field_id'); delete_option('jwl_tableDropdown_field_id'); delete_option('jwl_emotions_field_id'); delete_option('jwl_image_field_id'); delete_option('jwl_preview_field_id'); delete_option('jwl_cite_field_id'); delete_option('jwl_abbr_field_id'); delete_option('jwl_acronym_field_id'); delete_option('jwl_del_field_id'); delete_option('jwl_ins_field_id'); delete_option('jwl_attribs_field_id'); delete_option('jwl_styleprops_field_id'); delete_option('jwl_code_field_id'); delete_option('jwl_codemagic_field_id'); delete_option('jwl_media_field_id'); delete_option('jwl_youtube_field_id'); delete_option('jwl_imgmap_field_id'); delete_option('jwl_visualchars_field_id'); delete_option('jwl_print_field_id'); delete_option('jwl_shortcodes_field_id'); delete_option('jwl_styleselect_dropdown'); delete_option('jwl_tableDropdown_dropdown'); delete_option('jwl_emotions_dropdown'); delete_option('jwl_image_dropdown'); delete_option('jwl_preview_dropdown'); delete_option('jwl_cite_dropdown'); delete_option('jwl_abbr_dropdown'); delete_option('jwl_acronym_dropdown'); delete_option('jwl_del_dropdown'); delete_option('jwl_ins_dropdown'); delete_option('jwl_attribs_dropdown'); delete_option('jwl_styleprops_dropdown'); delete_option('jwl_code_dropdown'); delete_option('jwl_codemagic_dropdown'); delete_option('jwl_media_dropdown'); delete_option('jwl_youtube_dropdown'); delete_option('jwl_imgmap_dropdown'); delete_option('jwl_visualchars_dropdown'); delete_option('jwl_print_dropdown'); delete_option('jwl_shortcodes_dropdown');
 	
-	delete_option('jwl_tinycolor_css_field_id'); delete_option('jwl_tinymce_nextpage_field_id'); delete_option('jwl_postid_field_id'); delete_option('jwl_shortcode_field_id'); delete_option('jwl_php_widget_field_id'); delete_option('jwl_linebreak_field_id'); delete_option('jwl_columns_field_id'); delete_option('jwl_defaults_field_id'); delete_option('jwl_div_field_id'); delete_option('jwl_autop_field_id'); delete_option('jwl_signoff_field_id');
+	delete_option('jwl_tinycolor_css_field_id'); delete_option('jwl_tinymce_nextpage_field_id'); delete_option('jwl_postid_field_id'); delete_option('jwl_shortcode_field_id'); delete_option('jwl_php_widget_field_id'); delete_option('jwl_linebreak_field_id'); delete_option('jwl_columns_field_id'); delete_option('jwl_defaults_field_id'); delete_option('jwl_div_field_id'); delete_option('jwl_autop_field_id'); delete_option('jwl_cursor_field_id'); delete_option('jwl_signoff_field_id');
 	
 	delete_option('jwl_dashboard_widget'); delete_option('jwl_admin_bar_link');
 	
 	delete_option('jwl_dashboard_options');
+	
+	delete_option('jwl_ww_options');
  
     // Do not change (this deactivates the plugin)
     $current = get_settings('active_plugins');

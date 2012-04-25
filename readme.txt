@@ -4,9 +4,9 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.3.2
-Stable tag: 1.8
+Stable tag: 1.9
 
-Description: Expand your visual tinymce editor with a plethora of advanced options.
+Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
 == Description ==
 Are you a visual person?  Do the letter combinations "HTML" and "CSS" send you running for the hills; but you still want to create beautiful blogs like the pros?  Then this is the plugin for you!
@@ -24,13 +24,13 @@ Are you a visual person?  Do the letter combinations "HTML" and "CSS" send you r
 <li>Insert YouTube videos by simply copying and pasting the share url.</li>
 <li>Graphical Image Mapping to make your images more exciting.</li>
 <li>Use shortcodes to insert column breaks.  This is a VERY cool feature.  You can break any content area into up to six separate columns.</li>
-<li>Ultimate Tinymce will add more than 40 new buttons and features to your visual editor.</li>
+<li>Ultimate Tinymce will add more than 30 new buttons and features to your visual editor.</li>
 <li>Accompanying this plugin is a huge contextual help system, designed to help provide specific information, screenshots, and examples for each feature.</li>
 </ul>
 
 <blockquote>I spent all last night playing with your Tinymce plugin. What a joy! Boy, have I been doing things the hard way! I loved your tooltips for the different settings. Not only were they informative, but fun! You seemed like a real person; not a manual of difficult to understand techie language! Bravo for an awesome plugin! I will certainly share it with others! I only regret having worked so long without it!</blockquote>
 
-<strong>Premium Ultimate Tinymce Addons:</strong> These premium addons will further extend the performance of the visual editor.<br />
+<strong>Premium Ultimate Tinymce Addons:</strong><br />
 <ul>
 <li><a href="http://www.plugins.joshlobe.com/predefined-custom-styles/">Predefined Custom Styles</a> - A collection of over 80 of my custom styles, ready to be added to the styles dropdown selector.  Simply activate the plugin; and you are done.</li>
 <li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/">Ultimate Google Webfonts Addon</a> - Easily add any combination of Google Webfonts to your website without compromising page loading time.  Just copy your code from Google and paste it into this plugin.  The chosen fonts will appear in the dropdown list (rendered properly), your content area, and the front end of the website.</li>
@@ -116,20 +116,13 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 == Screenshots ==
 
-1. <strong>Shows all of the available buttons added to the visual editor.</strong>
-2. <strong>Just a small sample of what can be done with this plugin.</strong>
-3. <strong>The front end view of the last screenshot.</strong>
-4. <strong>Easily insert YouTube videos with just the link url.</strong>
-5. <strong>Image Mapping is a fun way to make images more interactive.</strong>
-6. <strong>Over 50 different animated moods to add to your blog.</strong>
-7. <strong>Another front-end example of the tables feature.</strong>
-8. <strong>Have precision power with a visual GUI to style your elements.</strong>
-9. <strong>Easily insert javascript popups on your page.</strong>
-10. <strong>Syntax Highlighter will bring your code to life (supports PHP, JS, CSS, and others).  Also includes numbered lines.</strong>
-11. <strong>Design a custom message box for your register/login page.  You can even include links, images, and videos.</strong>
-12. <strong>Admin settings page, screenshot 1.</strong>
-13. <strong>Admin settings page, screenshot 2.</strong>
-14. <strong>Admin settings page, screenshot 3.</strong>
+1. <strong>Just a small sample of what can be done with this plugin.</strong>
+2. <strong>The front end view of the last screenshot.</strong>
+3. <strong>Easily insert YouTube videos with just the link url.</strong>
+4. <strong>Image Mapping is a fun way to make images more interactive.</strong>
+5. <strong>Over 50 different animated moods to add to your blog.</strong>
+6. <strong>Syntax Highlighter will bring your code to life (supports PHP, JS, CSS, and others).  Also includes numbered lines.</strong>
+7. <strong>Admin settings page.</strong>
 
 == Upgrade Notice ==
 * Upgrade notice.
@@ -156,6 +149,13 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 1.9 =
+* 04-25-12
+* New Feature: Added ability to save the scrollbar position after saving a post/page.  This prevents the scrollbar from jumping to the top of the post/page after saving or publishing content.
+* Bugfix: Finished renaming all functions and appended `jwl_` to the beginning of each, so as not to conflict with other plugins possibly using the same function names.
+* Tweak: Added 30 day reminder for donating.  My apologies to all who have already donated.  Thank you.  This message will popup after 30 days of having the plugin installed.  There is also a link to permanently dismiss the message when it appears.
+* Tweak: Removed half of the screenshots from the plugin (7 total), reducing plugin file size.
 
 = 1.8 =
 * 04-15-12
