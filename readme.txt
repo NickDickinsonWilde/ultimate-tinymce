@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.3.2
-Stable tag: 1.9
+Stable tag: 2.0
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -150,8 +150,14 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 
 == Changelog ==
 
+= 2.0 =
+* 04-26-12
+* New Feature: User Roles options are now available.  The Ultimate Tinymce options are set for admin by default.  With this new option, you can enable the advanced options for other user levels.
+* Bugfix: I had already added some of this code in the last update.  So, one of the options appeared without actually being available.  This is fixed now.
+* Tweak: A new metabox is now available for "User Roles".  This is where you can select your custom user levels.  
+
 = 1.9 =
-* 04-25-12
+* 04-23-12
 * New Feature: Added ability to save the scrollbar position after saving a post/page.  This prevents the scrollbar from jumping to the top of the post/page after saving or publishing content.
 * Bugfix: Finished renaming all functions and appended `jwl_` to the beginning of each, so as not to conflict with other plugins possibly using the same function names.
 * Tweak: Added 30 day reminder for donating.  My apologies to all who have already donated.  Thank you.  This message will popup after 30 days of having the plugin installed.  There is also a link to permanently dismiss the message when it appears.

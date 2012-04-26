@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 1.9
+ * @version 2.0
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 1.9
+Version: 2.0
 Author URI: http://joshlobe.com
 
 */
@@ -30,24 +30,36 @@ Author URI: http://joshlobe.com
 
 include ('includes/defaults.php');
 include ('includes/uninstall.php');
-include ('options_functions.php');
+//include ('options_functions.php');
 include ('options_callback_functions.php');
 include ('admin_functions.php');
-/*
-function jwl_check_user_levels() {
-    global $current_user;
-    if ( current_user_can('administrator') ) {
-		include ('admin_functions.php');
-	}
-	$jwl_user_role_editor = get_option('jwl_user_roles_editor');
-	if ($jwl_user_role_editor == "1") {
-		if ( current_user_can('editor') ) {
-			include ('admin_functions.php');
-		}
+require_once(ABSPATH . 'wp-includes/pluggable.php');
+
+global $current_user;
+if (current_user_can('administrator')) {
+	include ('options_functions.php');
+}
+
+if (current_user_can('editor')) {
+	$jwl_editor = get_option('jwl_user_roles_editor');
+	if ($jwl_editor == "1") {
+		include ('options_functions.php');
 	}
 }
-add_action('admin_head', 'jwl_check_user_levels');
-*/
+
+if (current_user_can('author')) {
+	$jwl_author = get_option('jwl_user_roles_author');
+	if ($jwl_author == "1") {
+		include ('options_functions.php');
+	}
+}
+
+if (current_user_can('contributor')) {
+	$jwl_contributor = get_option('jwl_user_roles_contributor');
+	if ($jwl_contributor == "1") {
+		include ('options_functions.php');
+	}
+}
 
 //  Add settings link to plugins page menu
 //  This can be duplicated to add multiple links

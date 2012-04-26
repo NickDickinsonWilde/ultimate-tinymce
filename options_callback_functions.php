@@ -570,5 +570,11 @@ function jwl_admin_bar_link_callback_function() {
 function jwl_user_roles_editor_callback_function() {
 	echo '<input name="jwl_user_roles_editor" id="user_role_editor" type="checkbox" value="1" class="six" ' . checked( 1, get_option('jwl_user_roles_editor'), false ) . ' /> ';
 }
+function jwl_user_roles_author_callback_function() {
+	echo '<input name="jwl_user_roles_author" id="user_role_author" type="checkbox" value="1" class="six" ' . checked( 1, get_option('jwl_user_roles_author'), false ) . ' /> ';
+}
+function jwl_user_roles_contributor_callback_function() {
+	echo '<input name="jwl_user_roles_contributor" id="user_role_contributor" type="checkbox" value="1" class="six" ' . checked( 1, get_option('jwl_user_roles_contributor'), false ) . ' /> ';
+}
 
 ?>
