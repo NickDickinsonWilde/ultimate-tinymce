@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 2.0
+ * @version 2.0.1
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 2.0
+Version: 2.0.1
 Author URI: http://joshlobe.com
 
 */
@@ -36,6 +36,11 @@ include ('admin_functions.php');
 require_once(ABSPATH . 'wp-includes/pluggable.php');
 
 global $current_user;
+
+if (current_user_can('super admin')) {
+	include ('options_functions.php');
+}
+
 if (current_user_can('administrator')) {
 	include ('options_functions.php');
 }
