@@ -145,9 +145,6 @@ function jwl_settings_api_init() {
 	
 	// Settings for Admin Options
 	add_settings_field('jwl_dashboard_widget', __('Enable dashboard widget','jwl-ultimate-tinymce'), 'jwl_dashboard_widget_callback_function', 'ultimate-tinymce4', 'jwl_setting_section4'); add_settings_field('jwl_admin_bar_link', __('Enable admin bar link','jwl-ultimate-tinymce'), 'jwl_admin_bar_link_callback_function', 'ultimate-tinymce4', 'jwl_setting_section4');
-	
-	// Settings for User Roles
-	add_settings_field('jwl_user_roles_editor', __('Editor','jwl-ultimate-tinymce'), 'jwl_user_roles_editor_callback_function', 'ultimate-tinymce5', 'jwl_setting_section5'); add_settings_field('jwl_user_roles_author', __('Author','jwl-ultimate-tinymce'), 'jwl_user_roles_author_callback_function', 'ultimate-tinymce5', 'jwl_setting_section5'); add_settings_field('jwl_user_roles_contributor', __('Contributor','jwl-ultimate-tinymce'), 'jwl_user_roles_contributor_callback_function', 'ultimate-tinymce5', 'jwl_setting_section5');
  	
 	// Register our settings so that $_POST handling is done for us and our callback function just has to echo the <input>.
 	// Register settings for Row 3
@@ -162,8 +159,6 @@ function jwl_settings_api_init() {
 	// Register settings for Admin Options
 	register_setting('jwl_options_group','jwl_dashboard_widget'); register_setting('jwl_options_group','jwl_admin_bar_link');
 	
-	// Register settings for User Roles
-	register_setting('jwl_options_group','jwl_user_roles_editor'); register_setting('jwl_options_group','jwl_user_roles_author'); register_setting('jwl_options_group','jwl_user_roles_contributor');
 }
 add_action('admin_init', 'jwl_settings_api_init');
 

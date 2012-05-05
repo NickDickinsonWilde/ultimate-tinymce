@@ -14,7 +14,7 @@
  	_e(' ','jwl-ultimate-tinymce');
  }
  function jwl_setting_section_callback_function5() {
- 	_e('The options set above are available to the site administrator by default.<br />This feature will enable the editor for other user roles.  Multiple roles can be selected.','jwl-ultimate-tinymce');
+ 	_e('Below are a few of my recommendations for themes and plugins.  These have been tested by me personally, and have grabbed my attention.','jwl-ultimate-tinymce');
  }
  
  // Begin callback functions	 
@@ -567,6 +567,7 @@ function jwl_admin_bar_link_callback_function() {
 }
 
 // Functions for User Roles
+/*
 function jwl_user_roles_editor_callback_function() {
 	echo '<input name="jwl_user_roles_editor" id="user_role_editor" type="checkbox" value="1" class="six" ' . checked( 1, get_option('jwl_user_roles_editor'), false ) . ' /> ';
 }
@@ -576,5 +577,6 @@ function jwl_user_roles_author_callback_function() {
 function jwl_user_roles_contributor_callback_function() {
 	echo '<input name="jwl_user_roles_contributor" id="user_role_contributor" type="checkbox" value="1" class="six" ' . checked( 1, get_option('jwl_user_roles_contributor'), false ) . ' /> ';
 }
+*/
 
 ?>

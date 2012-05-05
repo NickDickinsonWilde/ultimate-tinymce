@@ -4,9 +4,10 @@
   line-height: 14px;
   font-size: 13px;
   font-family: monospace;
-background-color: #fff;
-border:1px solid #abc6dd; 
+  background-color: #fff;
+  border:1px solid #abc6dd; 
   _position: relative; /* IE6 hack */
+  direction:ltr;
 }
 
 .CodeMirror-gutter {

@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.3.2
-Stable tag: 2.0.2
+Stable tag: 2.1
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -149,6 +149,13 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 2.1 =
+* 05-05-12
+* Tweak: Updated the CodeMagic plugin to be set to ltr language.  This helps those with rtl language websites while editing with CodeMagic.
+* Tweak: Updated the "popup.css" file to be set to ltr languate... for the same reason mentioned above.
+* Tweak: Adjusted various elements into measurements of percentages rather than pixels.  This will help when viewing the settings page on various screen resolutions.
+* Tweak: Added a metabox for suggested plugins and themes.  These have been tested by me personally, and work extremely well with Ultimate Tinymce.  If I use them and are happy with them, I will list them on the admin page as recommended additions.  (NOTE) Any plugin or theme in this box was NOT developed by me unless otherwise stated.
 
 = 2.0.2 =
 * 04-27-12

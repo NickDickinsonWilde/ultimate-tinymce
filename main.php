@@ -1,17 +1,18 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 2.0.2
+ * @version 2.1
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.joshlobe.com/2011/10/ultimate-tinymce/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 2.0.2
+Version: 2.1
 Author URI: http://joshlobe.com
 
 */
+
 /*  Copyright 2011  Josh Lobe  (email : joshlobe@joshlobe.com)
 
     This program is free software; you can redistribute it and/or modify
@@ -33,42 +34,6 @@ include ('includes/uninstall.php');
 include ('options_functions.php');
 include ('options_callback_functions.php');
 include ('admin_functions.php');
-
-
-/*
-require_once(ABSPATH . 'wp-includes/pluggable.php');
-
-global $current_user;
-
-if (current_user_can('super admin')) {
-	include ('options_functions.php');
-}
-
-if (current_user_can('administrator')) {
-	include ('options_functions.php');
-}
-
-if (current_user_can('editor')) {
-	$jwl_editor = get_option('jwl_user_roles_editor');
-	if ($jwl_editor == "1") {
-		include ('options_functions.php');
-	}
-}
-
-if (current_user_can('author')) {
-	$jwl_author = get_option('jwl_user_roles_author');
-	if ($jwl_author == "1") {
-		include ('options_functions.php');
-	}
-}
-
-if (current_user_can('contributor')) {
-	$jwl_contributor = get_option('jwl_user_roles_contributor');
-	if ($jwl_contributor == "1") {
-		include ('options_functions.php');
-	}
-}
-*/
 
 //  Add settings link to plugins page menu
 //  This can be duplicated to add multiple links
@@ -252,8 +217,8 @@ class jwl_metabox_admin {
 			add_meta_box('jwl_metabox1', __('Buttons Group 1'), array(&$this, 'jwl_buttons_group_1'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox2', __('Buttons Group 2'), array(&$this, 'jwl_buttons_group_2'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox4', __('Miscellaneous Features'), array(&$this, 'jwl_buttons_group_3'), $this->pagehook, 'normal', 'core');
-			//add_meta_box('jwl_metabox6', __('User Roles'), array(&$this, 'jwl_buttons_group_5'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox5', __('Admin Options'), array(&$this, 'jwl_buttons_group_4'), $this->pagehook, 'normal', 'core');
+			add_meta_box('jwl_metabox6', __('Developer Recommendations'), array(&$this, 'jwl_buttons_group_5'), $this->pagehook, 'normal', 'core');
 		}
 		
 		//executed to show the plugins complete admin page
@@ -280,12 +245,12 @@ class jwl_metabox_admin {
                 
     <div id="container">  
         <ul class="menu">  
-            <li id="news" class="active"><?php _e('Plugin Addons','jwl-ultimate-tinymce'); ?></li>  
-            <li id="tutorials"><?php _e('Donations','jwl-ultimate-tinymce'); ?></li>  
-            <li id="spread"><?php _e('Spread the Word','jwl-ultimate-tinymce'); ?></li> 
-            <li id="tips"><?php _e('Admin Tips','jwl-ultimate-tinymce'); ?></li>
-            <li id="defaults"><?php _e('Default Settings','jwl-ultimate-tinymce'); ?></li>
-            <li id="links"><?php _e('Uninstall Plugin','jwl-ultimate-tinymce'); ?></li>  
+            <li id="news" class="active" style="font-size:16px;"><?php _e('Plugin Addons','jwl-ultimate-tinymce'); ?></li>  
+            <li id="tutorials" style="font-size:16px;"><?php _e('Donations','jwl-ultimate-tinymce'); ?></li>  
+            <li id="spread" style="font-size:16px;"><?php _e('Spread the Word','jwl-ultimate-tinymce'); ?></li> 
+            <li id="tips" style="font-size:16px;"><?php _e('Admin Tips','jwl-ultimate-tinymce'); ?></li>
+            <li id="defaults" style="font-size:16px;"><?php _e('Default Settings','jwl-ultimate-tinymce'); ?></li>
+            <li id="links" style="font-size:16px;"><?php _e('Uninstall Plugin','jwl-ultimate-tinymce'); ?></li>  
         </ul>  
         <span class="clear"></span>  
         <div class="content news"> 
@@ -659,15 +624,26 @@ class jwl_metabox_admin {
 			settings_fields('jwl_options_group');
 			?>
 			<center><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
+			</form>
 			<?php
 		}
 		function jwl_buttons_group_5($data) {
 			sort($data);
 			do_settings_sections('ultimate-tinymce5');
 			settings_fields('jwl_options_group');
-			?>
-			<center><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
-			</form>
+			?><br /><br /><div class="main_help_wrapper" style="width:23%;padding:10px;text-align:justify;float:left;">
+            <center><a target="_blank" href="http://wordpress.org/extend/plugins/tinymce-templates/"><img class="image_ads" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/templates.png" width="100%" /></a></center><br /><?php
+			_e('TinyMCE Templates: A fantastic plugin designed to provide templates for commonly created posts/pages.','jwl-ultimate-tinymce');?><br /><br /><?php _e('For example, if you always design post/page content following a similar format (margins, paddings, etc.), this plugin will allow you to define a template for insertion into the post/page; which can then be modified to specific needs.','jwl-ultimate-tinymce');
+			?></div>
+            <div class="main_help_wrapper" style="width:43%;padding:10px;text-align:justify;float:left;margin-left:1%;">
+            <center><a target="_blank" href="http://themefuse.com/wp-themes-shop/?plugin=ultimate-tiny-mce"><img class="image_ads" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/themefuse.png" width="100%" /></a></center><br />
+			<a target="_blank" href="http://themefuse.com/wp-themes-shop/?plugin=ultimate-tiny-mce"><?php _e('Themefuse','jwl-ultimate-tinymce'); ?></a><?php
+			_e(', a Premium WordPress themes shop, focuses on original out of the box design and ease of use for every type of user.','jwl-ultimate-tinymce');?><br /><br /><?php _e('ThemeFuse aims at providing their customers with themes that can make every website stand out from the crowd, and also offers dedicated support around the clock.','jwl-ultimate-tinymce');
+			?></div>
+			<div class="main_help_wrapper" style="width:23%;padding:10px;text-align:justify;float:left;margin-left:1%;">
+            <center><a target="_blank" href="http://joshlobe.com/"><img class="image_ads" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/affil_template.png" width="100%" /></a></center><br /><?php
+			_e('Coming Soon...','jwl-ultimate-tinymce');?><br /><br /><?php _e(' ','jwl-ultimate-tinymce');
+			?></div>
 			<?php
 		}
 		function jwl_postbox_resources($data) {
