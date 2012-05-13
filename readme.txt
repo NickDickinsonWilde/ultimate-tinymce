@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.3.2
-Stable tag: 2.1
+Stable tag: 2.2
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -95,24 +95,7 @@ Translating a plugin takes a lot of time, effort, and patience.  Especially with
 
 = Support Forum =
 
-Please use my support forum <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">HERE</a> for expedited help.
-
-= The text doesn't wrap at the end of the window and keeps going, creating a slider across the bottom of the window. =
-I have found this to be because the line of text being entered has no spacing.  A single line of text, without any spacing, will cause the editor window to "grow".  Insert a space somewhere and the line will break to a new line.  
-
-= The color picker feature always shows hex code #000000 regardless of what color I click. =
-
-This is a bug in the TinyMCE core software.  This bug, as far as I know, is only seen when using Mozilla Firefox version 7.  Until the good folks over at TinyMCE can provide an upgrade, the only solution right now is to use another browser if you want to use the colorpicker.
-
-= How do I use the Anchors button =
-
-<ol><li>Highlight the text, image, or other content where you would like to insert the anchor.</li><li>Click the anchor button and enter a unique name for the anchor.</li><li>Now, highlight the text where you want the user to click TO BE SENT to the anchor you created.</li><li>Click the Link button in the toolbar, and on the popup window click anchors and choose the name of your unique anchor you created.</li></ol>
-
-= I still don't see my buttons after activating the plugin =
-
-You may have to click the button titled "enable kitchen sink" from your top row.  This will expand the editor buttons.
-
-<strong>Update:</strong>This version now includes an admin panel.  All buttons are set to false as default.  To activate buttons, go to Settings -> Ultimate TinyMCE and tick the checkboxes for the buttons you would like to include in your editor.
+Please use my <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">SUPPORT FORUM</a> for expedited help.
 
 == Screenshots ==
 
@@ -149,6 +132,13 @@ You may have to click the button titled "enable kitchen sink" from your top row.
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 2.2 =
+* 05-13-12
+* <strong>New Feature:</strong> Added button for automatically making selected text into a mailto link.  This will transform selected text into a clickable mailto link.  When clicked fromt the front-end, this link will open the end-users default mail client for sending an email.
+* <strong>New Feature:</strong> Added button for insertion of nonbreaking space characters.
+* Update: Added link to ultimate tinymce addons page in wordpress plugins page.
+* Update: changed all (applicable) links to my official Ultimate Tinymce plugin page rather than my personal website.
 
 = 2.1 =
 * 05-05-12

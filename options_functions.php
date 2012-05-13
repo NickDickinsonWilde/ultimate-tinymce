@@ -122,6 +122,22 @@ if ($jwl_datetime_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_a
 if ($jwl_datetime_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_datetime"); }
 if ($jwl_datetime_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_datetime"); }
 
+function tinymce_add_button_nonbreaking($buttons) { $jwl_nonbreaking = get_option('jwl_nonbreaking_field_id'); if ($jwl_nonbreaking == "1") $buttons[] = 'nonbreaking'; return $buttons; } 
+$jwl_nonbreaking_dropdown = get_option('jwl_nonbreaking_dropdown');
+$jwl_nonbreaking_dropdown2 = $jwl_nonbreaking_dropdown['row'];
+if ($jwl_nonbreaking_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_nonbreaking"); } 
+if ($jwl_nonbreaking_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_nonbreaking"); } 
+if ($jwl_nonbreaking_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_nonbreaking"); }
+if ($jwl_nonbreaking_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_nonbreaking"); }
+
+function tinymce_add_button_mailto($buttons) { $jwl_mailto = get_option('jwl_mailto_field_id'); if ($jwl_mailto == "1") $buttons[] = 'mailto'; return $buttons; } 
+$jwl_mailto_dropdown = get_option('jwl_mailto_dropdown');
+$jwl_mailto_dropdown2 = $jwl_mailto_dropdown['row'];
+if ($jwl_mailto_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_mailto"); } 
+if ($jwl_mailto_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_mailto"); } 
+if ($jwl_mailto_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_mailto"); }
+if ($jwl_mailto_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_mailto"); }
+
 // Functions for Row 4
 function tinymce_add_button_styleselect($buttons) { $jwl_styleselect = get_option('jwl_styleselect_field_id'); if ($jwl_styleselect == "1") $buttons[] = 'styleselect'; return $buttons; } 
 $jwl_styleselect_dropdown = get_option('jwl_styleselect_dropdown');
@@ -295,6 +311,8 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['visualchars'] = plugin_dir_url( __FILE__ ) . 'visualchars/editor_plugin.js';
 		$jwl_plugin_array['print'] = plugin_dir_url( __FILE__ ) . 'print/editor_plugin.js';
 		$jwl_plugin_array['insertdatetime'] = plugin_dir_url( __FILE__ ) . 'insertdatetime/editor_plugin.js';
+		$jwl_plugin_array['nonbreaking'] = plugin_dir_url( __FILE__ ) . 'nonbreaking/editor_plugin.js';
+		$jwl_plugin_array['mailto'] = plugin_dir_url( __FILE__ ) . 'mailto/editor_plugin_src.js';
 		   
 		return $jwl_plugin_array;
 }

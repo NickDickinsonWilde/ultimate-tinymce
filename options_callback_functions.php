@@ -213,6 +213,32 @@
 			echo "</select>";
  }
  
+ function jwl_nonbreaking_callback_function() {
+ 	echo '<input name="jwl_nonbreaking_field_id" id="nonbreaking" type="checkbox" value="1" class="one" ' . checked( 1, get_option('jwl_nonbreaking_field_id'), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/nonbreaking.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:66px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/nonbreaking.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+			$options_nonbreaking = get_option('jwl_nonbreaking_dropdown');
+			$items_nonbreaking = array("Row 1", "Row 2", "Row 3", "Row 4");
+			echo "<select id='row' style='width:80px;margin-left:27px;' name='jwl_nonbreaking_dropdown[row]'>";
+			foreach($items_nonbreaking as $item_nonbreaking) {
+				$selected_nonbreaking = ($options_nonbreaking['row']==$item_nonbreaking) ? 'selected="selected"' : '';
+				echo "<option value='$item_nonbreaking' $selected_nonbreaking>$item_nonbreaking</option>";
+			}
+			echo "</select>";
+ }
+ 
+ function jwl_mailto_callback_function() {
+ 	echo '<input name="jwl_mailto_field_id" id="mailto" type="checkbox" value="1" class="one" ' . checked( 1, get_option('jwl_mailto_field_id'), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/mailto.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:66px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/mailto.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+			$options_mailto = get_option('jwl_mailto_dropdown');
+			$items_mailto = array("Row 1", "Row 2", "Row 3", "Row 4");
+			echo "<select id='row' style='width:80px;margin-left:27px;' name='jwl_mailto_dropdown[row]'>";
+			foreach($items_mailto as $item_mailto) {
+				$selected_mailto = ($options_mailto['row']==$item_mailto) ? 'selected="selected"' : '';
+				echo "<option value='$item_mailto' $selected_mailto>$item_mailto</option>";
+			}
+			echo "</select>";
+ }
+ 
 // Begin Callback functions for each individual setting registered in code above.
 // Callback Functions for Row 4 Buttons
  
@@ -565,18 +591,5 @@ function jwl_dashboard_widget_callback_function() {
 function jwl_admin_bar_link_callback_function() {
 	echo '<input name="jwl_admin_bar_link" id="adminbar" type="checkbox" value="1" class="five" ' . checked( 1, get_option('jwl_admin_bar_link'), false ) . ' /> ';
 }
-
-// Functions for User Roles
-/*
-function jwl_user_roles_editor_callback_function() {
-	echo '<input name="jwl_user_roles_editor" id="user_role_editor" type="checkbox" value="1" class="six" ' . checked( 1, get_option('jwl_user_roles_editor'), false ) . ' /> ';
-}
-function jwl_user_roles_author_callback_function() {
-	echo '<input name="jwl_user_roles_author" id="user_role_author" type="checkbox" value="1" class="six" ' . checked( 1, get_option('jwl_user_roles_author'), false ) . ' /> ';
-}
-function jwl_user_roles_contributor_callback_function() {
-	echo '<input name="jwl_user_roles_contributor" id="user_role_contributor" type="checkbox" value="1" class="six" ' . checked( 1, get_option('jwl_user_roles_contributor'), false ) . ' /> ';
-}
-*/
 
 ?>
