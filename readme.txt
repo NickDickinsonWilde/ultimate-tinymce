@@ -1,10 +1,10 @@
 === Ultimate TinyMCE ===
 Contributors: josh401 
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS
-Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
+Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.3.2
-Stable tag: 2.2
+Stable tag: 2.3
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -66,11 +66,13 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "W
 <strong>Translations:</strong><br />
 Translating a plugin takes a lot of time, effort, and patience.  Especially with a plugin like Ultimate TinyMCE where there is a large admin panel options page with lots of text.  I really appreciate the hard work from these contributors.<br />
 <ul>
-<li>Lithuanian: Vincent G.      - <a href="http://www.host1free.com/">Host1Free.com</a></li>
-<li>Turkish:    Münip Öniz      - <a href="www.literaturaktuel.com">www.literaturaktuel.com</a></li>
-<li>Italian:    David           - <a href="http://www.davidpesarin.wordpress.com">http://www.davidpesarin.wordpress.com</a></li>
-<li>Japanese:   Redcocker       - <a href="http://www.near-mint.com/blog/">http://www.near-mint.com/blog/</a></li>
-<li>Dutch:      keesiemeijer    - <a href="http://codex.wordpress.org/User:Keesiemeijer">http://codex.wordpress.org/User:Keesiemeijer</a></li>
+<li>Czech:      Pavel Belik     	- <a href="http://chcistranky.eu/zdarma/">Chcistranky.eu</a></li>
+<li>Hindi:      Outshine SOlutions      - <a href="http://outshinesolutions.com/">Outshine Solutions</a></li>
+<li>Lithuanian: Vincent G.      	- <a href="http://www.host1free.com/">Host1Free.com</a></li>
+<li>Turkish:    Münip Öniz      	- <a href="www.literaturaktuel.com">www.literaturaktuel.com</a></li>
+<li>Italian:    David           	- <a href="http://www.davidpesarin.wordpress.com">http://www.davidpesarin.wordpress.com</a></li>
+<li>Japanese:   Redcocker       	- <a href="http://www.near-mint.com/blog/">http://www.near-mint.com/blog/</a></li>
+<li>Dutch:      keesiemeijer    	- <a href="http://codex.wordpress.org/User:Keesiemeijer">http://codex.wordpress.org/User:Keesiemeijer</a></li>
 <li>Finnish:    markku</li>
 </ul>
 
@@ -132,6 +134,13 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 2.3 =
+* 05-22-12
+* New Feature: Added optional import of content.css file.  Modification of this file will allow the user to alter the default font, font color, font size, etc. used in the tinymce editor.  NOTE: Any modifications to this file ONLY affect content inside the editor and is NOT rendered on the front-end of the website.
+* Update: Added Czech language files.  Thanks to <a href="http://chcistranky.eu/zdarma/">Pavel Bilek</a>.
+* Update: Added Hindi language files.  Thanks to <a href="http://outshinesolutions.com/">Outshine Solutions</a>.
+* Tweak: Beautified the interface when managing plugins.  Now includes nice color overlays and links to social netorking sites.  Go to the admin panel -> plugins, and then look for Ultimate Tinymce to see all changes.
 
 = 2.2 =
 * 05-13-12

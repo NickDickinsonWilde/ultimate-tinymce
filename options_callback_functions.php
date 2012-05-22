@@ -591,5 +591,9 @@ function jwl_dashboard_widget_callback_function() {
 function jwl_admin_bar_link_callback_function() {
 	echo '<input name="jwl_admin_bar_link" id="adminbar" type="checkbox" value="1" class="five" ' . checked( 1, get_option('jwl_admin_bar_link'), false ) . ' /> ';
 }
+function jwl_content_css_callback_function() {
+	echo '<input name="jwl_content_css" id="contentcss" type="checkbox" value="1" class="five" ' . checked( 1, get_option('jwl_content_css'), false ) . ' /> ';
+	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/content_css.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="margin-left:15px;"><?php _e('Click help icon for detailed information.','jwl-ultimate-tinymce'); ?></span><?php
+}
 
 ?>

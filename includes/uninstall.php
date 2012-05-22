@@ -12,7 +12,7 @@ function ultimate_tinymce_uninstall() {
 	
 	delete_option('jwl_tinycolor_css_field_id'); delete_option('jwl_tinymce_nextpage_field_id'); delete_option('jwl_postid_field_id'); delete_option('jwl_shortcode_field_id'); delete_option('jwl_php_widget_field_id'); delete_option('jwl_linebreak_field_id'); delete_option('jwl_columns_field_id'); delete_option('jwl_defaults_field_id'); delete_option('jwl_div_field_id'); delete_option('jwl_autop_field_id'); delete_option('jwl_cursor_field_id'); delete_option('jwl_signoff_field_id');
 	
-	delete_option('jwl_dashboard_widget'); delete_option('jwl_admin_bar_link');
+	delete_option('jwl_dashboard_widget'); delete_option('jwl_admin_bar_link'); delete_option('jwl_content_css');
 	
 	delete_option('jwl_dashboard_options');
 	

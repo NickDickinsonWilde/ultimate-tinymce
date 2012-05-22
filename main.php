@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 2.2
+ * @version 2.3
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 2.2
+Version: 2.3
 Author URI: http://joshlobe.com
 
 */
@@ -29,6 +29,8 @@ Author URI: http://joshlobe.com
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+
+
 include ('includes/defaults.php');
 include ('includes/uninstall.php');
 include ('options_functions.php');
@@ -42,20 +44,29 @@ function jwl_add_ultimatetinymce_settings_link($links, $file) {
 	if (!$this_plugin) $this_plugin = plugin_basename(__FILE__);
  
 		if ($file == $this_plugin){
-		$settings_link = '<a href="admin.php?page=ultimate-tinymce">'.__("Settings",'jwl-ultimate-tinymce').'</a>';
-		$settings_link2 = '<a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">'.__("Support Forum",'jwl-ultimate-tinymce').'</a>';
+		$settings_link = '<a href="admin.php?page=ultimate-tinymce" title="Plugin Settings Page">'.__("Settings",'jwl-ultimate-tinymce').'</a>';
+		$settings_link2 = '<a href="http://forum.joshlobe.com/member.php?action=register&referrer=1" title="Dedicated Ultimate Tinymce Free Support Forum">'.__("Support Forum",'jwl-ultimate-tinymce').'</a>';
 		array_unshift($links, $settings_link, $settings_link2);
 		}
 	return $links;
 }
 add_filter('plugin_action_links', 'jwl_add_ultimatetinymce_settings_link', 10, 2 );
 
+// Change the CSS for active plugin on admin plugins page
+function jwl_admin_style() {
+	require('includes/style.php');
+}
+add_action('admin_print_styles', 'jwl_admin_style');
+
 // Donate link on manage plugin page
 function jwl_execphp_donate_link($links, $file) { 
 	if ($file == plugin_basename(__FILE__)) { 
-		$donate_link = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS" target="_blank">Donate</a>'; 
-		$addons_link = '<a href="http://www.plugins.joshlobe.com">Premium Addons</a>';
-		$links[] = $donate_link . ' | ' . $addons_link; 
+		$donate_link = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS" target="_blank" title="Donate via Paypal">Donate</a>'; 
+		$addons_link = '<a target="_blank" href="http://www.plugins.joshlobe.com" title="View Premium Ultimate Tinymce Addons">Premium Addons</a>';
+		$support_link = '<a target="_blank" href="http://forum.joshlobe.com/member.php?action=register&referrer=1" class="jwl_support" title="Dedicated Ultimate Tinymce Free Support Forum"></a>';
+		$fbook_link = '<a target="_blank" href="http://www.facebook.com/joshlobe" class="jwl_fbook" title="Connect with me on Facebook"></a>';
+		$twitter_link = '<a target="_blank" href="http://twitter.com/#!/joshlobe" class="jwl_twitt" title="Follow me on twitter"></a>';
+		$links[] = $donate_link . ' | ' . $addons_link . ' | ' . $support_link . ' | ' . $fbook_link . ' | ' . $twitter_link; 
 	} 
 	return $links; 
 } add_filter('plugin_row_meta', 'jwl_execphp_donate_link', 10, 2);
