@@ -136,7 +136,7 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 == Changelog ==
 
 = 2.4 =
-* 
+* 05-27-07
 * Update: Added link to new premium plugin "Ultimate Tinymce Classes and Styles".
 * Update: Added option to disable css styling on plugins admin page.
 * Tweak: Fixed two broken links in plugins admin page.
