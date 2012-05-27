@@ -32,6 +32,7 @@ Are you a visual person?  Do the letter combinations "HTML" and "CSS" send you r
 
 <strong>Premium Ultimate Tinymce Addons:</strong><br />
 <ul>
+<li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-classes-and-ids/">Ultimate Tinymce Classes and IDs</a> - Add selectable classes and id's to any element in the visual editor via dropdown boxes.  Changes are seen real-time within the visual editor.</li>
 <li><a href="http://www.plugins.joshlobe.com/predefined-custom-styles/">Predefined Custom Styles</a> - A collection of over 80 of my custom styles, ready to be added to the styles dropdown selector.  Simply activate the plugin; and you are done.</li>
 <li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/">Ultimate Google Webfonts Addon</a> - Easily add any combination of Google Webfonts to your website without compromising page loading time.  Just copy your code from Google and paste it into this plugin.  The chosen fonts will appear in the dropdown list (rendered properly), your content area, and the front end of the website.</li>
 <li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-advanced-configuration/">Ultimate Tinymce Advanced Configuration</a> - Take total control over the Wordpress tinymce editor.  This plugin will allow you to tweak every known setting for the tinymce editor.</li>
