@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 2.3
+ * @version 2.4
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 2.3
+Version: 2.4
 Author URI: http://joshlobe.com
 
 */
@@ -54,9 +54,13 @@ add_filter('plugin_action_links', 'jwl_add_ultimatetinymce_settings_link', 10, 2
 
 // Change the CSS for active plugin on admin plugins page
 function jwl_admin_style() {
-	require('includes/style.php');
+		require('includes/style.php');
+	}
+	add_action('admin_print_styles', 'jwl_admin_style');
+$jwl_pluginslist = get_option('jwl_pluginslist_css');
+if ($jwl_pluginslist == "1"){
+	remove_action('admin_print_styles', 'jwl_admin_style');
 }
-add_action('admin_print_styles', 'jwl_admin_style');
 
 // Donate link on manage plugin page
 function jwl_execphp_donate_link($links, $file) { 
@@ -343,6 +347,21 @@ class jwl_metabox_admin {
 					?>    
                     </div>
                     </div>
+                    <div id="clickme6" class="content_wrapper_addons" style="margin-top:-10px;"><?php
+					_e('<a target="_blank" title="Take powerful control over the visual tinymce editor." href="http://www.plugins.joshlobe.com/ultimate-tinymce-classes-and-ids/"><span style="font-family:\'Unlock\', cursive;">Classes and IDs</span></a>','jwl-ultimate-tinymce'); ?> <span class="span_hover"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?></span>
+                    <div id="me6" style="display:none;margin-top:10px;"><?php
+					if (is_plugin_active('ultimate-tinymce-classes-ids/main.php')) {
+					_e('<span style="color:green;">Activated</span>','jwl-ultimate-tinymce');
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" class="activation_icons" title="This addon has been installed and activated successfully." /> <?php
+					} else {
+					_e('<span style="color:red;">Not Activated</span>','jwl-ultimate-tinymce');
+					?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" class="activation_icons" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Ultimate Tinymce Classes and IDs is a plugin for WordPress TinyMCE which enables the usage of CSS classes and CSS ids on any HTML element within TinyMCE.','jwl-ultimate-tinymce'); ?><br /><br /><?php _e('Together with an external CSS file, Ultimate Tinymce Classes and IDs bridges the (visual) gap between the content entered through TinyMCE and the actual output.','jwl-ultimate-tinymce'); ?> </span> <?php
+					}
+					?>    
+                    </div>
+                    </div>
+                    <br />
+                    <div style="clear:both"></div>
                     
              </div>
         </div>
@@ -501,6 +520,7 @@ class jwl_metabox_admin {
     <script type="text/javascript"> $(document).ready(function() { $('#clickme3').click(function() { $('#me3').animate({ height: 'toggle' }, 300 ); }); }); </script>
     <script type="text/javascript"> $(document).ready(function() { $('#clickme4').click(function() { $('#me4').animate({ height: 'toggle' }, 300 ); }); }); </script>
     <script type="text/javascript"> $(document).ready(function() { $('#clickme5').click(function() { $('#me5').animate({ height: 'toggle' }, 300 ); }); }); </script>
+    <script type="text/javascript"> $(document).ready(function() { $('#clickme6').click(function() { $('#me6').animate({ height: 'toggle' }, 300 ); }); }); </script>
     <script type="text/javascript" src="tabs.js"></script>
             <script type="text/javascript">
 			$(document).ready(function(){  

@@ -3,8 +3,8 @@ Contributors: josh401
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
-Tested up to: 3.3.2
-Stable tag: 2.3
+Tested up to: 3.4 Beta 1
+Stable tag: 2.4
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -66,7 +66,7 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "W
 <strong>Translations:</strong><br />
 Translating a plugin takes a lot of time, effort, and patience.  Especially with a plugin like Ultimate TinyMCE where there is a large admin panel options page with lots of text.  I really appreciate the hard work from these contributors.<br />
 <ul>
-<li>Czech:      Pavel Belik     	- <a href="http://chcistranky.eu/zdarma/">Chcistranky.eu</a></li>
+<li>Czech:      Pavel Bilek     	- <a href="http://chcistranky.eu/zdarma/">Chcistranky.eu</a></li>
 <li>Hindi:      Outshine SOlutions      - <a href="http://outshinesolutions.com/">Outshine Solutions</a></li>
 <li>Lithuanian: Vincent G.      	- <a href="http://www.host1free.com/">Host1Free.com</a></li>
 <li>Turkish:    Münip Öniz      	- <a href="www.literaturaktuel.com">www.literaturaktuel.com</a></li>
@@ -134,6 +134,13 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 2.4 =
+* 05-27-07
+* Update: Added link to new premium plugin "Ultimate Tinymce Classes and Styles".
+* Update: Added option to disable css styling on plugins admin page.
+* Tweak: Fixed two broken links in plugins admin page.
+* Tweak: Added updated Czech language file.
 
 = 2.3 =
 * 05-22-12
