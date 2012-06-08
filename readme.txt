@@ -3,8 +3,8 @@ Contributors: josh401
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
-Tested up to: 3.4 Beta 1
-Stable tag: 2.4
+Tested up to: 3.4 RC2
+Stable tag: 2.5
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -13,7 +13,7 @@ Are you a visual person?  Do the letter combinations "HTML" and "CSS" send you r
 
 [youtube http://www.youtube.com/watch?v=01reHnBCAIA]
 
-<strong>Ultimate TinyMCE</strong> will add over 30 new buttons the default visual tinymce editor, giving you the power to visually create your pages and posts. No need for mucking about in HTML and CSS.
+<strong>Ultimate TinyMCE</strong> will add over 30 new buttons to the default visual tinymce editor, giving you the power to visually create your pages and posts. No need for mucking about in HTML and CSS.
 
 <strong>How will Ultimate TinyMCE Help You?</strong>
 <ul>
@@ -67,6 +67,7 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "W
 <strong>Translations:</strong><br />
 Translating a plugin takes a lot of time, effort, and patience.  Especially with a plugin like Ultimate TinyMCE where there is a large admin panel options page with lots of text.  I really appreciate the hard work from these contributors.<br />
 <ul>
+<li>French:     Quentin                 - <a href="www.tradpress.fr">www.tradpress.fr</a></li>
 <li>Czech:      Pavel Bilek     	- <a href="http://chcistranky.eu/zdarma/">Chcistranky.eu</a></li>
 <li>Hindi:      Outshine SOlutions      - <a href="http://outshinesolutions.com/">Outshine Solutions</a></li>
 <li>Lithuanian: Vincent G.      	- <a href="http://www.host1free.com/">Host1Free.com</a></li>
@@ -135,6 +136,24 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 2.5 =
+* 06-08-12
+
+* Update: Added function to "refresh" the tinymce editor on each page load.  Tinymce is BAD at caching information making it difficult to see when you've made an adjustment.  This function will fix that problem, and force the editor to reload on each page refresh. (This option can be switched in the admin panel)
+* Update: Added plugin which adds a button and allows selected content to be wrapped with a span tag.  This is primarily intended for use with my <a href="http://www.plugins.joshlobe.com/ultimate-tinymce-classes-and-ids/">Ultimate Tinymce Classes and IDs</a> addon.
+* Update: Added layers plugin for tinymce.  This feature works best using the Mozilla Firefox web broswer.
+
+* Tweak: Added icons to admin settings page tabbed section.
+* Tweak: Adjusted colors on admin Plugins Listing.
+* Tweak: Added "Getting Started" tab and video on admin settings page.
+* Tweak: Added option to permanently dismiss themefuse banner.
+* Tweak: Added updated French language translation.  Thanks <a href="www.tradpress.fr">Quentin</a>!
+* Tweak: Added some custom css to images in the admin settings page.
+
+* Bugfix: Fixed compatibility issue with "Black Studio Tinymce Widget".
+* Bugfix: Fixed "Ultimate Tinymce" link in admin menu when wordpress is installed in a subdirectory.
+
 
 = 2.4 =
 * 05-27-07

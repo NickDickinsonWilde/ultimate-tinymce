@@ -239,6 +239,32 @@
 			echo "</select>";
  }
  
+ function jwl_layers_callback_function() {
+ 	echo '<input name="jwl_layers_field_id" id="layers" type="checkbox" value="1" class="one" ' . checked( 1, get_option('jwl_layers_field_id'), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/layers.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:66px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/layers.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+			$options_layers = get_option('jwl_layers_dropdown');
+			$items_layers = array("Row 1", "Row 2", "Row 3", "Row 4");
+			echo "<select id='row' style='width:80px;margin-left:27px;' name='jwl_layers_dropdown[row]'>";
+			foreach($items_layers as $item_layers) {
+				$selected_layers = ($options_layers['row']==$item_layers) ? 'selected="selected"' : '';
+				echo "<option value='$item_layers' $selected_layers>$item_layers</option>";
+			}
+			echo "</select>";
+ }
+ 
+ function jwl_span_callback_function() {
+ 	echo '<input name="jwl_span_field_id" id="span" type="checkbox" value="1" class="one" ' . checked( 1, get_option('jwl_span_field_id'), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/span.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:66px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/span.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+			$options_span = get_option('jwl_span_dropdown');
+			$items_span = array("Row 1", "Row 2", "Row 3", "Row 4");
+			echo "<select id='row' style='width:80px;margin-left:27px;' name='jwl_span_dropdown[row]'>";
+			foreach($items_span as $item_span) {
+				$selected_span = ($options_span['row']==$item_span) ? 'selected="selected"' : '';
+				echo "<option value='$item_span' $selected_span>$item_span</option>";
+			}
+			echo "</select>";
+ }
+ 
 // Begin Callback functions for each individual setting registered in code above.
 // Callback Functions for Row 4 Buttons
  
@@ -597,6 +623,9 @@ function jwl_content_css_callback_function() {
 }
 function jwl_pluginslist_callback_function() {
 	echo '<input name="jwl_pluginslist_css" id="pluginslistcss" type="checkbox" value="1" class="five" ' . checked( 1, get_option('jwl_pluginslist_css'), false ) . ' /> ';
+}
+function jwl_tinymce_refresh_callback_function() {
+	echo '<input name="jwl_tinymce_refresh" id="tinymcerefresh" type="checkbox" value="1" class="five" ' . checked( 1, get_option('jwl_tinymce_refresh'), false ) . ' /> ';
 }
 
 ?>

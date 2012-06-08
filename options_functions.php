@@ -138,6 +138,22 @@ if ($jwl_mailto_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add
 if ($jwl_mailto_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_mailto"); }
 if ($jwl_mailto_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_mailto"); }
 
+function tinymce_add_button_layers($buttons) { $jwl_layers = get_option('jwl_layers_field_id'); if ($jwl_layers == "1") $buttons[] = 'insertlayer,moveforward,movebackward,absolute'; return $buttons; } 
+$jwl_layers_dropdown = get_option('jwl_layers_dropdown');
+$jwl_layers_dropdown2 = $jwl_layers_dropdown['row'];
+if ($jwl_layers_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_layers"); } 
+if ($jwl_layers_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_layers"); } 
+if ($jwl_layers_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_layers"); }
+if ($jwl_layers_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_layers"); }
+
+function tinymce_add_button_span($buttons) { $jwl_span = get_option('jwl_span_field_id'); if ($jwl_span == "1") $buttons[] = 'jwlSpan'; return $buttons; } 
+$jwl_span_dropdown = get_option('jwl_span_dropdown');
+$jwl_span_dropdown2 = $jwl_span_dropdown['row'];
+if ($jwl_span_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_span"); } 
+if ($jwl_span_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_span"); } 
+if ($jwl_span_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_span"); }
+if ($jwl_span_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_span"); }
+
 // Functions for Row 4
 function tinymce_add_button_styleselect($buttons) { $jwl_styleselect = get_option('jwl_styleselect_field_id'); if ($jwl_styleselect == "1") $buttons[] = 'styleselect'; return $buttons; } 
 $jwl_styleselect_dropdown = get_option('jwl_styleselect_dropdown');
@@ -313,10 +329,22 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['insertdatetime'] = plugin_dir_url( __FILE__ ) . 'insertdatetime/editor_plugin.js';
 		$jwl_plugin_array['nonbreaking'] = plugin_dir_url( __FILE__ ) . 'nonbreaking/editor_plugin.js';
 		$jwl_plugin_array['mailto'] = plugin_dir_url( __FILE__ ) . 'mailto/editor_plugin_src.js';
+		$jwl_plugin_array['layer'] = plugin_dir_url( __FILE__ ) . 'layer/editor_plugin_src.js';
+		$jwl_plugin_array['jwlspan']  =  plugin_dir_url( __FILE__ ) . 'jwl_span/jwl_span.js';
 		   
 		return $jwl_plugin_array;
 }
 add_filter( 'mce_external_plugins', 'jwl_mce_external_plugins' );
+
+// Function for removing force reload of tinymce editor
+function jwl_tiny_mce_version($version) { // trick tinymce version number to force update and clear cache
+	return ++$version;
+}
+add_filter('tiny_mce_version', 'jwl_tiny_mce_version');
+$jwl_tinymce_refresh = get_option('jwl_tinymce_refresh');
+if ($jwl_tinymce_refresh == "1"){
+	remove_filter('tiny_mce_version', 'jwl_tiny_mce_version');
+}
 
 // Functions for miscellaneous options and features
 // Function for NextPage Feature
@@ -532,58 +560,63 @@ if ($jwl_columns == "1"){
 // Class and Functions for Cursor Position in Editor
 $jwl_cursor = get_option('jwl_cursor_field_id');
 if ($jwl_cursor == "1") {
-	final class Preserve_Editor_Scroll_Position {
 	
-	public static function init() {
-		add_filter( 'redirect_post_location', array( __CLASS__, 'add_query_arg' ) );
-		add_action( 'edit_form_advanced', array( __CLASS__, 'add_input_field' ) );
-		add_action( 'edit_page_form', array( __CLASS__, 'add_input_field' ) );
-		add_filter( 'tiny_mce_before_init', array( __CLASS__, 'extend_tiny_mce' ) );
+	global $pagenow;
+	if ($pagenow != "widgets.php") {
+		
+		final class Preserve_Editor_Scroll_Position {
+		
+		public static function init() {
+			add_filter( 'redirect_post_location', array( __CLASS__, 'add_query_arg' ) );
+			add_action( 'edit_form_advanced', array( __CLASS__, 'add_input_field' ) );
+			add_action( 'edit_page_form', array( __CLASS__, 'add_input_field' ) );
+			add_filter( 'tiny_mce_before_init', array( __CLASS__, 'extend_tiny_mce' ) );
+		}
+	
+		public static function add_input_field() {
+			$position = ! empty( $_GET['scrollto'] ) ? $_GET['scrollto'] : 0;
+			printf( '<input type="hidden" id="scrollto" name="scrollto" value="%d"/>', esc_attr( $position ) );
+			add_action( 'admin_print_footer_scripts', array( __CLASS__, 'print_js' ), 55 ); // Print after Editor JS
+		}
+	
+		public static function extend_tiny_mce( $init ) {
+			if ( wp_default_editor() == 'tinymce' )
+				$init['setup'] = 'rich_scroll';
+	
+			return $init;
+		}
+	
+		public static function add_query_arg( $location ) {
+			if( ! empty( $_POST['scrollto'] ) )
+				$location = add_query_arg( 'scrollto', (int) $_POST['scrollto'], $location );
+	
+			return $location;
+		}
+	
+		public static function print_js() {
+			?>
+		<script>
+		( function( $ ) {
+			$( '#post' ).submit( function() {
+				scrollto =
+					$('#content' ).is(':hidden') ?
+					$('#content_ifr').contents().find( 'body' ).scrollTop() :
+					$('#content' ).scrollTop();
+				$( '#scrollto' ).val( scrollto );
+			} );
+			$( '#content' ).scrollTop( $( '#scrollto' ).val() );
+		} )( jQuery );
+		function rich_scroll( ed ) {
+			ed.onInit.add( function() {
+				jQuery( '#content_ifr' ).contents().find( 'body' ).scrollTop( jQuery( '#scrollto' ).val() );
+			} );
+		};
+		</script>
+			<?php
+		}
+		}
+		add_action( 'admin_init', array( 'Preserve_Editor_Scroll_Position', 'init' ) );
 	}
-
-	public static function add_input_field() {
-		$position = ! empty( $_GET['scrollto'] ) ? $_GET['scrollto'] : 0;
-		printf( '<input type="hidden" id="scrollto" name="scrollto" value="%d"/>', esc_attr( $position ) );
-		add_action( 'admin_print_footer_scripts', array( __CLASS__, 'print_js' ), 55 ); // Print after Editor JS
-	}
-
-	public static function extend_tiny_mce( $init ) {
-		if ( wp_default_editor() == 'tinymce' )
-			$init['setup'] = 'rich_scroll';
-
-		return $init;
-	}
-
-	public static function add_query_arg( $location ) {
-		if( ! empty( $_POST['scrollto'] ) )
-			$location = add_query_arg( 'scrollto', (int) $_POST['scrollto'], $location );
-
-		return $location;
-	}
-
-	public static function print_js() {
-		?>
-	<script>
-	( function( $ ) {
-		$( '#post' ).submit( function() {
-			scrollto =
-				$('#content' ).is(':hidden') ?
-				$('#content_ifr').contents().find( 'body' ).scrollTop() :
-				$('#content' ).scrollTop();
-			$( '#scrollto' ).val( scrollto );
-		} );
-		$( '#content' ).scrollTop( $( '#scrollto' ).val() );
-	} )( jQuery );
-	function rich_scroll( ed ) {
-		ed.onInit.add( function() {
-			jQuery( '#content_ifr' ).contents().find( 'body' ).scrollTop( jQuery( '#scrollto' ).val() );
-		} );
-	};
-	</script>
-		<?php
-	}
-	}
-	add_action( 'admin_init', array( 'Preserve_Editor_Scroll_Position', 'init' ) );
 }
 
 // Functions for shortcodes dropdown in editor

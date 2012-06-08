@@ -87,6 +87,14 @@
     display: none;  
 }  
 /******* /SPREAD *******/  
+/******* GETTING STARTED *******/  
+.content.gettingstarted h1{  
+    background: transparent url(images/tuts.jpg) no-repeat scroll left top;  
+}  
+.content.gettingstarted{  
+    display: none;  
+}  
+/******* /GETTING STARTED *******/
 /******* TIPS *******/  
 .content.tips h1{  
     background: transparent url(images/tuts.jpg) no-repeat scroll left top;  
@@ -105,7 +113,7 @@
 /******* /DEFAULTS *******/ 
 /******* LINKS *******/  
 .content.links h1{  
-    background: transparent url(images/links.jpg) no-repeat scroll left top;  
+    background: transparent url('http://www.joshlobe.com/wp-content/misc/uninstall.png') no-repeat scroll left top;  
 }  
 .content.links{  
     display: none;  
@@ -260,7 +268,12 @@ div.clear {
 }
 
 .image_ads {
--moz-box-shadow: 0 0 5px 5px #888;
+-webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
+}
+.image_ads:hover {
+  -moz-box-shadow: 0 0 5px 5px #888;
 -webkit-box-shadow: 0 0 5px 5px#888;
 box-shadow: 0 0 5px 5px #888;
-}
+ }

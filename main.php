@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 2.4
+ * @version 2.5
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 2.4
+Version: 2.5
 Author URI: http://joshlobe.com
 
 */
@@ -28,8 +28,6 @@ Author URI: http://joshlobe.com
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-
-
 
 include ('includes/defaults.php');
 include ('includes/uninstall.php');
@@ -54,9 +52,9 @@ add_filter('plugin_action_links', 'jwl_add_ultimatetinymce_settings_link', 10, 2
 
 // Change the CSS for active plugin on admin plugins page
 function jwl_admin_style() {
-		require('includes/style.php');
-	}
-	add_action('admin_print_styles', 'jwl_admin_style');
+	require('includes/style.php');
+}
+add_action('admin_print_styles', 'jwl_admin_style');
 $jwl_pluginslist = get_option('jwl_pluginslist_css');
 if ($jwl_pluginslist == "1"){
 	remove_action('admin_print_styles', 'jwl_admin_style');
@@ -75,7 +73,16 @@ function jwl_execphp_donate_link($links, $file) {
 	return $links; 
 } add_filter('plugin_row_meta', 'jwl_execphp_donate_link', 10, 2);
 
-
+// Function added to permanently dismiss themefuse box
+add_action('admin_init', 'jwl_nag_ignore_themefuse');
+function jwl_nag_ignore_themefuse() {
+	global $current_user;
+	$user_id = $current_user->ID;
+	/* If user clicks to ignore the themefuse, add that to their user meta */
+	if ( isset($_GET['jwl_nag_ignore_themefuse']) && '0' == $_GET['jwl_nag_ignore_themefuse'] ) {
+		add_user_meta($user_id, 'jwl_ignore_notice_themefuse', 'true', true);
+	}
+}
 
 /*
  * Here we are generating the admin options page.
@@ -267,12 +274,13 @@ class jwl_metabox_admin {
                 
     <div id="container">  
         <ul class="menu">  
-            <li id="news" class="active" style="font-size:16px;"><?php _e('Plugin Addons','jwl-ultimate-tinymce'); ?></li>  
-            <li id="tutorials" style="font-size:16px;"><?php _e('Donations','jwl-ultimate-tinymce'); ?></li>  
-            <li id="spread" style="font-size:16px;"><?php _e('Spread the Word','jwl-ultimate-tinymce'); ?></li> 
-            <li id="tips" style="font-size:16px;"><?php _e('Admin Tips','jwl-ultimate-tinymce'); ?></li>
-            <li id="defaults" style="font-size:16px;"><?php _e('Default Settings','jwl-ultimate-tinymce'); ?></li>
-            <li id="links" style="font-size:16px;"><?php _e('Uninstall Plugin','jwl-ultimate-tinymce'); ?></li>  
+            <li id="news" class="active" style="font-size:16px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/addon.png" style="margin-right:3px;" title="Addons" /><?php _e('Plugin Addons','jwl-ultimate-tinymce'); ?></li>
+            <li id="tutorials" style="font-size:16px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/donate2.png" style="margin-right:3px;" title="Donate" /><?php _e('Donations','jwl-ultimate-tinymce'); ?></li>  
+            <li id="spread" style="font-size:16px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/spread.png" style="margin-right:3px;" title="Spread the Word" /><?php _e('Spread the Word','jwl-ultimate-tinymce'); ?></li> 
+            <li id="gettingstarted" style="font-size:16px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/started.png" style="margin-right:3px;" title="Getting Started" /><?php _e('Getting Started','jwl-ultimate-tinymce'); ?></li>
+            <li id="tips" style="font-size:16px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/tips.png" style="margin-right:3px;" title="Admin Tips" /><?php _e('Admin Tips','jwl-ultimate-tinymce'); ?></li>
+            <li id="defaults" style="font-size:16px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/default.png" style="margin-right:3px;" title="Load Defaults" /><?php _e('Default Settings','jwl-ultimate-tinymce'); ?></li>
+            <li id="links" style="font-size:16px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/uninstall.png" style="margin-right:3px;" title="Uninstall" /><?php _e('Uninstall Plugin','jwl-ultimate-tinymce'); ?></li>  
         </ul>  
         <span class="clear"></span>  
         <div class="content news"> 
@@ -441,6 +449,22 @@ class jwl_metabox_admin {
             </div>
         </div>
         
+        <div class="content gettingstarted">
+        	<div class="main_help_wrapper">
+            <span class="content_title">
+			<?php _e('Getting Started:','jwl-ultimate-tinymce'); ?></span><br /><br />
+            	<div class="content_wrapper_tips">
+                <span class="content_wrapper_title">
+                <?php _e('Setting up the Admin Settings Page','jwl-ultimate-tinymce'); ?>
+                </span><br />
+                    <div style="">
+                    <br /><br />
+                 		<iframe width="420" height="315" src="http://www.youtube.com/embed/wymClsVjkFY" frameborder="0" allowfullscreen></iframe>
+                	</div>
+                </div>
+            </div>
+        </div>
+        
         <div class="content tips"> 
         	<div class="main_help_wrapper"><span class="content_title"><?php _e('Tips and Tricks for the Admin Panel', 'jwl-ultimate-tinymce'); ?></span><br /><br />
             	<div class="content_wrapper_tips">
@@ -468,7 +492,7 @@ class jwl_metabox_admin {
             	<div class="content_wrapper_tips">
             	<?php jwl_ultimate_tinymce_form_uninstall(); ?>
                 </div>
-                <div class="content_wrapper_tips" style="height:349px;">
+                <div class="content_wrapper_tips" style="height:318px;">
                 <center><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/uninstall1.png" style="margin-top:120px;" /></center>
                 </div>
             </div>
@@ -481,6 +505,13 @@ class jwl_metabox_admin {
         </div>
         <div id="post-body" class="has-sidebar">
             <div id="post-body-content" class="has-sidebar-content">
+            
+            <?php
+            global $current_user ;
+		    $user_id = $current_user->ID;
+		    /* Check that the user hasn't already clicked to ignore themefuse */
+	        if ( ! get_user_meta($user_id, 'jwl_ignore_notice_themefuse') ) {
+				?>
             	<div style="height:160px;width:99%;margin-bottom:10px;margin-top:0px;" class="main_help_wrapper">
                 	<div style="float:left;width:30%;">
                     <a target="_blank" href="http://themefuse.com/wp-themes-shop/?plugin=ultimate-tiny-mce">
@@ -492,10 +523,14 @@ class jwl_metabox_admin {
                     <?php _e('Still using a basic default Wordpress Theme?  Why not upgrade to a premium theme?','jwl-ultimate-tinymce');?>
                     </span><br /><br /><br />
 					<a target="_blank" href="http://themefuse.com/wp-themes-shop/?plugin=ultimate-tiny-mce"><?php _e('Themefuse','jwl-ultimate-tinymce'); ?></a>
-					<?php _e(', a Premium WordPress themes shop, focuses on original out of the box design and ease of use for every type of user.','jwl-ultimate-tinymce');?><br /><br /><?php _e('ThemeFuse aims at providing their customers with themes that can make every website stand out from the crowd, and also offers dedicated support around the clock.','jwl-ultimate-tinymce'); ?>
+					<?php _e(', a Premium WordPress themes shop, focuses on original out of the box design and ease of use for every type of user.','jwl-ultimate-tinymce');?><br /><br /><?php _e('ThemeFuse aims at providing their customers with themes that can make every website stand out from the crowd, and also offers dedicated support around the clock.','jwl-ultimate-tinymce'); ?><br />
+                    <?php printf(__('<span style="float:right;"><a href="admin.php?page=ultimate-tinymce%1$s">Dismiss Permanently</a></span>'), '&jwl_nag_ignore_themefuse=0'); ?>
                 	</div>
                 </div> 
                 <div style="clear:both;"></div>
+            <?php } ?>
+                
+                
                 <?php do_meta_boxes($this->pagehook, 'normal', $data); ?>
                 <?php //do_meta_boxes($this->pagehook, 'additional', $data); ?>
             </div>
@@ -521,8 +556,7 @@ class jwl_metabox_admin {
     <script type="text/javascript"> $(document).ready(function() { $('#clickme4').click(function() { $('#me4').animate({ height: 'toggle' }, 300 ); }); }); </script>
     <script type="text/javascript"> $(document).ready(function() { $('#clickme5').click(function() { $('#me5').animate({ height: 'toggle' }, 300 ); }); }); </script>
     <script type="text/javascript"> $(document).ready(function() { $('#clickme6').click(function() { $('#me6').animate({ height: 'toggle' }, 300 ); }); }); </script>
-    <script type="text/javascript" src="tabs.js"></script>
-            <script type="text/javascript">
+    <script type="text/javascript">
 			$(document).ready(function(){  
     $(".menu > li").click(function(e){  
         switch(e.target.id){  
@@ -531,6 +565,7 @@ class jwl_metabox_admin {
                 $("#news").addClass("active");  
                 $("#tutorials").removeClass("active");  
 				$("#spread").removeClass("active");
+				$("#gettingstarted").removeClass("active");
 				$("#tips").removeClass("active");
 				$("#defaults").removeClass("active");
                 $("#links").removeClass("active");  
@@ -538,6 +573,7 @@ class jwl_metabox_admin {
                 $("div.news").fadeIn();  
                 $("div.tutorials").css("display", "none"); 
 				$("div.spread").css("display", "none"); 
+				$("div.gettingstarted").css("display", "none");
 				$("div.tips").css("display", "none");
 				$("div.defaults").css("display", "none");
                 $("div.links").css("display", "none");  
@@ -546,7 +582,8 @@ class jwl_metabox_admin {
                 //change status &amp;amp;amp; style menu  
                 $("#news").removeClass("active");  
                 $("#tutorials").addClass("active"); 
-				$("#spread").removeClass("active"); 
+				$("#spread").removeClass("active");
+				$("#gettingstarted").removeClass("active"); 
 				$("#tips").removeClass("active");
 				$("#defaults").removeClass("active");
                 $("#links").removeClass("active");  
@@ -554,6 +591,7 @@ class jwl_metabox_admin {
                 $("div.tutorials").fadeIn();  
                 $("div.news").css("display", "none"); 
 				$("div.spread").css("display", "none"); 
+				$("div.gettingstarted").css("display", "none");
 				$("div.tips").css("display", "none");
 				$("div.defaults").css("display", "none");
                 $("div.links").css("display", "none");  
@@ -563,11 +601,31 @@ class jwl_metabox_admin {
                 $("#news").removeClass("active");  
                 $("#tutorials").removeClass("active");  
 				$("#spread").addClass("active");
+				$("#gettingstarted").removeClass("active");
 				$("#tips").removeClass("active");
 				$("#defaults").removeClass("active");
                 $("#links").removeClass("active");  
                 //display selected division, hide others  
                 $("div.spread").fadeIn();  
+				$("div.tips").css("display", "none");
+                $("div.news").css("display", "none");  
+				$("div.gettingstarted").css("display", "none");
+                $("div.tutorials").css("display", "none");  
+				$("div.links").css("display", "none");
+				$("div.defaults").css("display", "none");
+            break; 
+			case "gettingstarted":  
+                //change status &amp;amp;amp; style menu  
+                $("#news").removeClass("active");  
+                $("#tutorials").removeClass("active");  
+				$("#spread").removeClass("active");
+				$("#gettingstarted").addClass("active");
+				$("#tips").removeClass("active");
+				$("#defaults").removeClass("active");
+                $("#links").removeClass("active");  
+                //display selected division, hide others 
+				$("div.gettingstarted").fadeIn(); 
+                $("div.spread").css("display", "none");
 				$("div.tips").css("display", "none");
                 $("div.news").css("display", "none");  
                 $("div.tutorials").css("display", "none");  
@@ -579,12 +637,14 @@ class jwl_metabox_admin {
                 $("#news").removeClass("active");  
                 $("#tutorials").removeClass("active");  
 				$("#spread").removeClass("active");  
+				$("#gettingstarted").removeClass("active");
 				$("#tips").addClass("active");
 				$("#defaults").removeClass("active");
                 $("#links").removeClass("active");  
                 //display selected division, hide others  
 				$("div.tips").fadeIn();
                 $("div.spread").css("display", "none"); 
+				$("div.gettingstarted").css("display", "none");
                 $("div.news").css("display", "none");  
                 $("div.tutorials").css("display", "none");  
 				$("div.links").css("display", "none");
@@ -594,14 +654,16 @@ class jwl_metabox_admin {
                 //change status &amp;amp;amp; style menu  
                 $("#news").removeClass("active");  
                 $("#tutorials").removeClass("active");  
-				$("#spread").removeClass("active");  
+				$("#spread").removeClass("active"); 
+				$("#gettingstarted").removeClass("active"); 
 				$("#defaults").addClass("active");
 				$("#tips").removeClass("active");  
                 $("#links").removeClass("active");  
                 //display selected division, hide others  
 				$("div.defaults").fadeIn();
 				$("div.tips").css("display", "none");
-                $("div.spread").css("display", "none"); 
+                $("div.spread").css("display", "none");
+				$("div.gettingstarted").css("display", "none"); 
                 $("div.news").css("display", "none");  
                 $("div.tutorials").css("display", "none");  
 				$("div.links").css("display", "none");
@@ -611,6 +673,7 @@ class jwl_metabox_admin {
                 $("#news").removeClass("active");  
                 $("#tutorials").removeClass("active");  
 				$("#spread").removeClass("active");
+				$("#gettingstarted").removeClass("active");
 				$("#tips").removeClass("active");
 				$("#defaults").removeClass("active");
                 $("#links").addClass("active");  
@@ -619,6 +682,7 @@ class jwl_metabox_admin {
                 $("div.news").css("display", "none");  
                 $("div.tutorials").css("display", "none");  
 				$("div.spread").css("display", "none");
+				$("div.gettingstarted").css("display", "none");
 				$("div.tips").css("display", "none");
 				$("div.defaults").css("display", "none");
             break;  
@@ -688,8 +752,8 @@ class jwl_metabox_admin {
 			_e('TinyMCE Templates: A fantastic plugin designed to provide templates for commonly created posts/pages.','jwl-ultimate-tinymce');?><br /><br /><?php _e('For example, if you always design post/page content following a similar format (margins, paddings, etc.), this plugin will allow you to define a template for insertion into the post/page; which can then be modified to specific needs.','jwl-ultimate-tinymce');
 			?></div>
             <div class="main_help_wrapper" style="width:23%;padding:10px;text-align:justify;float:left;margin-left:1%;">
-            <center><a target="_blank" href="http://joshlobe.com/"><img class="image_ads" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/affil_template.png" width="100%" /></a></center><br /><?php
-			_e('Coming Soon...','jwl-ultimate-tinymce');?><br /><br /><?php _e(' ','jwl-ultimate-tinymce');
+            <center><a target="_blank" href="http://wordpress.org/extend/plugins/black-studio-tinymce-widget/"><img class="image_ads" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/tinymce_widget.png" width="100%" /></a></center><br /><?php
+			_e('Black Studio Tinymce Widget: This plugin will replicate the Ultimate Tinymce editor, and make it available for widget content editing.','jwl-ultimate-tinymce');?><br /><br /><?php _e(' ','jwl-ultimate-tinymce');
 			?></div>
 			<div class="main_help_wrapper" style="width:23%;padding:10px;text-align:justify;float:left;margin-left:1%;">
             <center><a target="_blank" href="http://joshlobe.com/"><img class="image_ads" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/affil_template.png" width="100%" /></a></center><br /><?php
