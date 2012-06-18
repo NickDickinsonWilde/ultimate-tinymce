@@ -56,7 +56,7 @@
 	color:#14AD47;
 }
 #ultimate-tinymce .plugin-title{
-background-image: url('<?php echo plugins_url("images/jwl_logo.png",__FILE__) ?>');
+/* background-image: url('<?php //echo plugins_url("images/jwl_logo.png",__FILE__) ?>'); */
 background-repeat: no-repeat;
 background-position: left  bottom;
 height: 70px;

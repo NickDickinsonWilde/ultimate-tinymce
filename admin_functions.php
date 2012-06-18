@@ -32,7 +32,8 @@ function jwl_change_mce_options($initArray) {
 	$initArray['plugin_insertdate_timeFormat'] = '%I:%M:%S %p';  // added for inserttimedate proper format
 	$initArray['nonbreaking_force_tab'] = true; // Enable tab key inserting three character blank spaces
 	$initArray['wordpress_adv_hidden'] = false; // Always enable kitchen sink upon page refesh
-		$jwl_content_css = get_option('jwl_content_css');
+	    $options = get_option('jwl_options_group');
+		$jwl_content_css = $options['jwl_content_css'];
 		if ($jwl_content_css == "1") {
 		$initArray['content_css'] = plugin_dir_url( __FILE__ ) . 'css/content.css'; // Change default editor font and styles
 		}
@@ -42,7 +43,8 @@ function jwl_change_mce_options($initArray) {
 add_filter('tiny_mce_before_init', 'jwl_change_mce_options');
 
 // Insert a dashboard Ultimate Tinymce Widget for RSS feed.
-$jwl_dashboard = get_option('jwl_dashboard_widget');
+$options = get_option('jwl_options_group');
+$jwl_dashboard = isset($options['jwl_dashboard_widget']);
 if ($jwl_dashboard == '1') {
 	
 	add_action('wp_dashboard_setup', 'my_custom_dashboard_widgets');
@@ -93,7 +95,7 @@ if ($jwl_dashboard == '1') {
 }
 
 // Set an admin bar link to the settings page
-$jwl_admin_links = get_option('jwl_admin_bar_link');
+$jwl_admin_links = isset($options['jwl_admin_bar_link']);
 if ($jwl_admin_links == '1') {
 	function jwl_admin_bar_init() {
 		// Is the user sufficiently leveled, or has the bar been disabled?
@@ -109,9 +111,9 @@ if ($jwl_admin_links == '1') {
 		$path = get_option('siteurl');
 		// Links to add, in the form: 'Label' => 'URL'
 		$links = array( 'Settings Page' => '' );
-		$wp_admin_bar->add_menu( array( 'title' => 'Ultimate Tinymce', 'href' => false, 'id' => 'jwl_links', 'href' => $path . '/wp-admin/admin.php?page=ultimate-tinymce' ));
+		$wp_admin_bar->add_menu( array( 'id' => 'utmce', 'title' => 'Ultimate Tinymce', 'href' => false, 'id' => 'jwl_links', 'href' => $path . '/wp-admin/admin.php?page=ultimate-tinymce' ));
 		/** * Add the submenu links. */
-		foreach ($links as $label => $url) { $wp_admin_bar->add_menu( array( 'title' => $label, 'href' => $path . '/wp-admin/admin.php?page=ultimate-tinymce', 'parent' => 'jwl_links' )); }
+		foreach ($links as $label => $url) { $wp_admin_bar->add_menu( array( 'id' => 'utmce2', 'title' => $label, 'href' => $path . '/wp-admin/admin.php?page=ultimate-tinymce', 'parent' => 'jwl_links' )); }
 	}
 }
 
@@ -153,17 +155,7 @@ function jwl_settings_api_init() {
 	add_settings_field('jwl_dashboard_widget', __('Enable dashboard widget','jwl-ultimate-tinymce'), 'jwl_dashboard_widget_callback_function', 'ultimate-tinymce4', 'jwl_setting_section4'); add_settings_field('jwl_admin_bar_link', __('Enable admin bar link','jwl-ultimate-tinymce'), 'jwl_admin_bar_link_callback_function', 'ultimate-tinymce4', 'jwl_setting_section4'); add_settings_field('jwl_content_css', __('Enable content.css file','jwl-ultimate-tinymce'), 'jwl_content_css_callback_function', 'ultimate-tinymce4', 'jwl_setting_section4'); add_settings_field('jwl_pluginslist_css', __('Disable plugins list css styling','jwl-ultimate-tinymce'), 'jwl_pluginslist_callback_function', 'ultimate-tinymce4', 'jwl_setting_section4'); add_settings_field('jwl_tinymce_refresh', __('Disable "force" refresh of tinymce','jwl-ultimate-tinymce'), 'jwl_tinymce_refresh_callback_function', 'ultimate-tinymce4', 'jwl_setting_section4');
  	
 	// Register our settings so that $_POST handling is done for us and our callback function just has to echo the <input>.
-	// Register settings for Row 3
- 	register_setting('jwl_options_group','jwl_fontselect_field_id'); register_setting('jwl_options_group','jwl_fontselect_dropdown'); register_setting('jwl_options_group','jwl_fontsizeselect_field_id'); register_setting('jwl_options_group','jwl_fontsizeselect_dropdown'); register_setting('jwl_options_group','jwl_cut_field_id'); register_setting('jwl_options_group','jwl_cut_dropdown'); register_setting('jwl_options_group','jwl_copy_field_id'); register_setting('jwl_options_group','jwl_copy_dropdown'); register_setting('jwl_options_group','jwl_paste_field_id'); register_setting('jwl_options_group','jwl_paste_dropdown'); register_setting('jwl_options_group','jwl_backcolorpicker_field_id'); register_setting('jwl_options_group','jwl_backcolorpicker_dropdown'); register_setting('jwl_options_group','jwl_forecolorpicker_field_id'); register_setting('jwl_options_group','jwl_forecolorpicker_dropdown'); register_setting('jwl_options_group','jwl_advhr_field_id'); register_setting('jwl_options_group','jwl_advhr_dropdown'); register_setting('jwl_options_group','jwl_visualaid_field_id'); register_setting('jwl_options_group','jwl_visualaid_dropdown'); register_setting('jwl_options_group','jwl_anchor_field_id'); register_setting('jwl_options_group','jwl_anchor_dropdown'); register_setting('jwl_options_group','jwl_sub_field_id'); register_setting('jwl_options_group','jwl_sub_dropdown'); register_setting('jwl_options_group','jwl_sup_field_id'); register_setting('jwl_options_group','jwl_sup_dropdown'); register_setting('jwl_options_group','jwl_search_field_id'); register_setting('jwl_options_group','jwl_search_dropdown'); register_setting('jwl_options_group','jwl_replace_field_id'); register_setting('jwl_options_group','jwl_replace_dropdown'); register_setting('jwl_options_group','jwl_datetime_field_id'); register_setting('jwl_options_group','jwl_datetime_dropdown'); register_setting('jwl_options_group','jwl_nonbreaking_field_id'); register_setting('jwl_options_group','jwl_nonbreaking_dropdown'); register_setting('jwl_options_group','jwl_mailto_field_id'); register_setting('jwl_options_group','jwl_mailto_dropdown'); register_setting('jwl_options_group','jwl_layers_field_id'); register_setting('jwl_options_group','jwl_layers_dropdown'); register_setting('jwl_options_group','jwl_span_field_id'); register_setting('jwl_options_group','jwl_span_dropdown');
-	
-	// Register settings for Row 4
-	register_setting('jwl_options_group','jwl_styleselect_field_id'); register_setting('jwl_options_group','jwl_styleselect_dropdown'); register_setting('jwl_options_group','jwl_tableDropdown_field_id'); register_setting('jwl_options_group','jwl_tableDropdown_dropdown'); register_setting('jwl_options_group','jwl_emotions_field_id'); register_setting('jwl_options_group','jwl_emotions_dropdown'); register_setting('jwl_options_group','jwl_image_field_id'); register_setting('jwl_options_group','jwl_image_dropdown'); register_setting('jwl_options_group','jwl_preview_field_id'); register_setting('jwl_options_group','jwl_preview_dropdown'); register_setting('jwl_options_group','jwl_cite_field_id'); register_setting('jwl_options_group','jwl_cite_dropdown'); register_setting('jwl_options_group','jwl_abbr_field_id'); register_setting('jwl_options_group','jwl_abbr_dropdown'); register_setting('jwl_options_group','jwl_acronym_field_id'); register_setting('jwl_options_group','jwl_acronym_dropdown'); register_setting('jwl_options_group','jwl_del_field_id'); register_setting('jwl_options_group','jwl_del_dropdown'); register_setting('jwl_options_group','jwl_ins_field_id'); register_setting('jwl_options_group','jwl_ins_dropdown'); register_setting('jwl_options_group','jwl_attribs_field_id'); register_setting('jwl_options_group','jwl_attribs_dropdown'); register_setting('jwl_options_group','jwl_styleprops_field_id'); register_setting('jwl_options_group','jwl_styleprops_dropdown'); register_setting('jwl_options_group','jwl_code_field_id'); register_setting('jwl_options_group','jwl_code_dropdown'); register_setting('jwl_options_group','jwl_codemagic_field_id'); register_setting('jwl_options_group','jwl_codemagic_dropdown'); register_setting('jwl_options_group','jwl_media_field_id'); register_setting('jwl_options_group','jwl_media_dropdown'); register_setting('jwl_options_group','jwl_youtube_field_id'); register_setting('jwl_options_group','jwl_youtube_dropdown'); register_setting('jwl_options_group','jwl_imgmap_field_id'); register_setting('jwl_options_group','jwl_imgmap_dropdown'); register_setting('jwl_options_group','jwl_visualchars_field_id'); register_setting('jwl_options_group','jwl_visualchars_dropdown'); register_setting('jwl_options_group','jwl_print_field_id'); register_setting('jwl_options_group','jwl_print_dropdown'); register_setting('jwl_options_group','jwl_shortcodes_field_id'); register_setting('jwl_options_group','jwl_shortcodes_dropdown');
-	
-	// Register Settings for miscellaneous options and features
-	register_setting('jwl_options_group','jwl_tinycolor_css_field_id'); register_setting('jwl_options_group','jwl_tinymce_nextpage_field_id'); register_setting('jwl_options_group','jwl_postid_field_id'); register_setting('jwl_options_group','jwl_shortcode_field_id'); register_setting('jwl_options_group','jwl_php_widget_field_id'); register_setting('jwl_options_group','jwl_linebreak_field_id'); register_setting('jwl_options_group','jwl_columns_field_id'); register_setting('jwl_options_group','jwl_defaults_field_id'); register_setting('jwl_options_group','jwl_div_field_id'); register_setting('jwl_options_group','jwl_autop_field_id'); register_setting('jwl_options_group','jwl_cursor_field_id'); register_setting('jwl_options_group','jwl_signoff_field_id');
-	
-	// Register settings for Admin Options
-	register_setting('jwl_options_group','jwl_dashboard_widget'); register_setting('jwl_options_group','jwl_admin_bar_link'); register_setting('jwl_options_group','jwl_content_css'); register_setting('jwl_options_group','jwl_pluginslist_css'); register_setting('jwl_options_group','jwl_tinymce_refresh');
+	register_setting('jwl_options_group','jwl_options_group');
 	
 }
 add_action('admin_init', 'jwl_settings_api_init');

@@ -3,8 +3,8 @@ Contributors: josh401
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
-Tested up to: 3.4 RC2
-Stable tag: 2.5
+Tested up to: 3.4
+Stable tag: 2.6
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -81,6 +81,7 @@ Translating a plugin takes a lot of time, effort, and patience.  Especially with
 
 <strong>A Very Personal Special Thanks to:</strong><br />
 <ul>
+<li><a href="http://thegeekinvasion.com">Marventus</a> - Who has bailed me out of quite a few coding problems.  Thanks Marventus!</li>
 <li><a href="http://www.khairul-syahir.com/">Syahir Hakim</a> - Developer of the extremely powerful <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a>.</li>
 <li><a href="http://blog.kjodle.net/">Kenneth John Odle</a> - <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a> Forum Moderator Comrad.</li>
 <li><a href="http://www.prasannasp.net/">Prasanna SP</a> - Newfound friend from halfway around the globe.</li>
@@ -136,6 +137,34 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 2.6 =
+
+* 06-18-12
+* <strong>MAJOR UPGRADE:</strong>
+* Update: Datbase Optimization: Re-wrote all options into a single array stored in the database.
+* The first time you update, you will need to run the "Optimize Database" feature in the "Import/Export Settings" box to restore your settings.
+* This will seek out all entries in the database used for this plugin, and re-write them into a single array, and delete the originals.
+* You will only need to do this if you are updating from a previous version.
+* I do apologize if settings need to be re-set.  I did my best to make this conversion process as bug-free as possible.
+
+* Update: Added options for exporting/importing the plugin settings.
+* This can be also be used to store individual plugin settings configurations, which can be loaded "on-demand"... or even used for sharing.
+
+* Bugfix: Fixed incompatibility issue with Contact Form 7 plugin.
+* Bugfix: Fixed jquery functions to be executed in no-conflict mode.
+* Bugfix: Fixed function which was throwing a notice when wp-debug is set to true.
+* Bugifx: Fixed developer recommendations images flowing behind meta boxes in some browsers.
+* Bugfix: Fixed some css rules being applied to all admin pages instead of just plugin page.
+
+* Tweak: Updated a few functions to remain consistent with new Wordpress API settings.
+* Tweak: Removed two deprecated functions, and re-wrote properly.
+* Tweak: All options settings had to be re-written.
+* Tweak: Added notice to update for wordpress installations using below version 3.3.1.
+
+* Note: With over 80 different options needing to be re-written, a bug may arise.
+* Note: Please remember to use my <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">Support Forum</a> to report any issues.
+* Note: I have also begun to write the code for my drag-n-drop feature.  This code is in the plugin, but has been commented out until development is complete.
 
 = 2.5 =
 * 06-08-12

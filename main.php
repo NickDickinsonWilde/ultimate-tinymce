@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 2.5
+ * @version 2.6
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 2.5
+Version: 2.6
 Author URI: http://joshlobe.com
 
 */
@@ -29,11 +29,11 @@ Author URI: http://joshlobe.com
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-include ('includes/defaults.php');
-include ('includes/uninstall.php');
-include ('options_functions.php');
-include ('options_callback_functions.php');
-include ('admin_functions.php');
+include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/includes/defaults.php';
+include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/includes/uninstall.php';
+include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/options_functions.php';
+include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/options_callback_functions.php';
+include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/admin_functions.php';
 
 //  Add settings link to plugins page menu
 //  This can be duplicated to add multiple links
@@ -52,10 +52,14 @@ add_filter('plugin_action_links', 'jwl_add_ultimatetinymce_settings_link', 10, 2
 
 // Change the CSS for active plugin on admin plugins page
 function jwl_admin_style() {
-	require('includes/style.php');
+	global $pagenow;
+	if ($pagenow == "plugins.php") {
+		require('includes/style.php');
+	}
 }
 add_action('admin_print_styles', 'jwl_admin_style');
-$jwl_pluginslist = get_option('jwl_pluginslist_css');
+$options = get_option('jwl_options_group');
+$jwl_pluginslist = isset($options['jwl_pluginslist_css']);
 if ($jwl_pluginslist == "1"){
 	remove_action('admin_print_styles', 'jwl_admin_style');
 }
@@ -82,6 +86,17 @@ function jwl_nag_ignore_themefuse() {
 	if ( isset($_GET['jwl_nag_ignore_themefuse']) && '0' == $_GET['jwl_nag_ignore_themefuse'] ) {
 		add_user_meta($user_id, 'jwl_ignore_notice_themefuse', 'true', true);
 	}
+}
+
+// Check WP Version and generate update notice if necessary
+if ( ! isset($GLOBALS['wp_version']) || version_compare($GLOBALS['wp_version'], '3.3.1', '<') ) { // if less than ...
+	?>
+	<div class="error" style="margin-top:30px;">
+	<p><?php _e('This plugin requires WordPress version 3.3.1 or newer. Please upgrade your WordPress installation or download an', 'jwl-ultimate-tinymce'); ?> <a href="http://wordpress.org/extend/plugins/ultimate-tinymce/developers/"><?php _e('older version of the plugin.', 'jwl-ultimate-tinymce'); ?></a></p>
+	</div>
+	<?php
+
+	return;
 }
 
 /*
@@ -127,6 +142,19 @@ class jwl_metabox_admin {
 			add_action("load-{$this->pagehook}",array(&$this,'jwl_help_screen'));
 			add_action('admin_print_styles-'.$this->pagehook, array(&$this, 'jwl_admin_register_head_styles'));
 			add_action('admin_print_scripts-'.$this->pagehook, array(&$this, 'jwl_admin_register_head_scripts'));
+			if ( isset( $_POST['optimize_database'] ) && ! isset( $_POST['optimize_confirm'] ) ) {
+				function jwl_tinymce_top_optimize_notice() {
+					echo '<div id="message" class="error"><p>';
+					_e('You must also check the confirm box before database options will be optimized.','jwl-ultimate-tinymce');
+					echo '</p></div>';
+				}
+				add_action('admin_notices','jwl_tinymce_top_optimize_notice');
+			}
+			if ( isset( $_POST['optimize_database'], $_POST['optimize_confirm'] ) ) {
+				$this->jwl_convert_options();
+			}
+			$this->jwl_utmce_import();
+			$this->jwl_utmce_export();
 			$this->jwl_check_usage_time();
 			if (isset($this->actions['show_donate_box']) && $this->actions['show_donate_box']) {
                 add_action('admin_footer-'.$this->pagehook, array(&$this, 'jwl_donate_popup'));
@@ -134,20 +162,111 @@ class jwl_metabox_admin {
 
 		}
 		
+		function jwl_convert_options() {
+			$new_options = array(
+				'jwl_fontselect_field_id' => null, 'jwl_fontsizeselect_field_id' => null, 'jwl_cut_field_id' => null, 'jwl_copy_field_id' => null, 'jwl_paste_field_id' => null, 'jwl_backcolorpicker_field_id' => null, 'jwl_forecolorpicker_field_id' => null, 'jwl_advhr_field_id' => null, 'jwl_visualaid_field_id' => null, 'jwl_anchor_field_id' => null, 'jwl_sub_field_id' => null, 'jwl_sup_field_id' => null, 'jwl_search_field_id' => null, 'jwl_replace_field_id' => null, 'jwl_datetime_field_id' => null, 'jwl_nonbreaking_field_id' => null, 'jwl_mailto_field_id' => null, 'jwl_layers_field_id' => null, 'jwl_span_field_id' => null,
+				
+				'jwl_fontselect_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_fontsizeselect_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_cut_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_copy_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_paste_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_backcolorpicker_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_forecolorpicker_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_advhr_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_visualaid_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_anchor_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_sub_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'), 'jwl_sup_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'), 'jwl_search_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'), 'jwl_replace_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'), 'jwl_datetime_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'), 'jwl_nonbreaking_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'), 'jwl_mailto_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'), 'jwl_layers_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'), 'jwl_span_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'),
+				
+				'jwl_styleselect_field_id' => null, 'jwl_tableDropdown_field_id' => null, 'jwl_emotions_field_id' => null, 'jwl_image_field_id' => null, 'jwl_preview_field_id' => null, 'jwl_cite_field_id' => null, 'jwl_abbr_field_id' => null, 'jwl_acronym_field_id' => null, 'jwl_del_field_id' => null, 'jwl_ins_field_id' => null, 'jwl_attribs_field_id' => null, 'jwl_styleprops_field_id' => null, 'jwl_code_field_id' => null, 'jwl_codemagic_field_id' => null, 'jwl_media_field_id' => null, 'jwl_youtube_field_id' => null, 'jwl_imgmap_field_id' => null, 'jwl_visualchars_field_id' => null, 'jwl_print_field_id' => null, 'jwl_cursor_field_id' => null, 'jwl_shortcodes_field_id' => null,
+				
+				'jwl_styleselect_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_tableDropdown_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_emotions_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_image_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_preview_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_cite_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_abbr_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_acronym_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_del_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_ins_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_attribs_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_styleprops_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_code_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_codemagic_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_media_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_youtube_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_imgmap_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_visualchars_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_print_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_shortcodes_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'),
+				
+				'jwl_tinycolor_css_field_id' => unserialize('a:1:{s:9:"tinycolor",s:7:"Default",}'), 'jwl_tinymce_nextpage_field_id' => null, 'jwl_postid_field_id' => null, 'jwl_shortcode_field_id' => null, 'jwl_php_widget_field_id' => null, 'jwl_linebreak_field_id' => null, 'jwl_columns_field_id' => null, 'jwl_defaults_field_id' => null, 'jwl_div_field_id' => null, 'jwl_autop_field_id' => null, 'jwl_signoff_field_id' => null,
+				
+				'jwl_dashboard_widget' => null, 'jwl_admin_bar_link' => null,
+				
+				'jwl_dashboard_options' => unserialize('a:1:{s:28:"jwl_tinymce_dashboard_widget",a:1:{s:5:"items",i:5,}}')
+			);
+		
+			// if old options exist, update to new system
+			foreach( $new_options as $key => $value ) {
+				if( $existing = get_option( '' . $key ) ) {
+					$new_options[$key] = $existing;
+					delete_option( '' . $key );
+				}
+			}
+		
+			update_option( 'jwl_options_group', $new_options );
+			
+			$date_installed = get_option('jwl_ww_options');
+			update_option('timestamp_utmce', $date_installed);
+			delete_option('jwl_ww_options');
+		}
+		
+		function jwl_utmce_import() {
+
+			// check file extension
+			$str_file_name = isset($_FILES['datei']['name']);
+			$str_file_ext  = explode( ".", $str_file_name );
+		
+			if ( isset($str_file_ext[1]) != 'seq' ) {
+				$addreferer = 'notexist';
+			} elseif ( file_exists( $_FILES['datei']['name'] ) ) {
+				$addreferer = 'exist';
+			} else {
+				// path for file
+				$str_ziel = WP_CONTENT_DIR . '/' . $_FILES['datei']['name'];
+				// transfer
+				move_uploaded_file( $_FILES['datei']['tmp_name'], $str_ziel );
+				// access authorisation
+				chmod( $str_ziel, 0644);
+				// SQL import
+				ini_set( 'default_socket_timeout', 120);
+				$import_file = file_get_contents( $str_ziel );
+		
+				delete_option( 'jwl_options_group' );
+				$import_file = unserialize( $import_file );
+		
+				if ( file_exists( $str_ziel ) )
+					unlink( $str_ziel );
+				update_option( 'jwl_options_group', $import_file );
+				if ( file_exists( $str_ziel ) )
+					unlink( $str_ziel );
+		
+				$addreferer = 'true';
+			}
+		}
+		
+		function jwl_utmce_export() {
+			if ( isset( $_POST['jwl_utmce_export'] ) ) {
+				
+				global $wpdb;
+				
+				$filename = 'jwl_utmce_export-' . date( 'Y-m-d_G-i-s' ) . '.seq';
+			
+				header( "Content-Description: File Transfer");
+				header( "Content-Disposition: attachment; filename=" . urlencode( $filename ) );
+				header( "Content-Type: application/force-download");
+				header( "Content-Type: application/octet-stream");
+				header( "Content-Type: application/download");
+				header( 'Content-Type: text/seq; charset=' . get_option( 'blog_charset' ), TRUE );
+				flush();
+			
+				$export_data = mysql_query("SELECT option_value FROM $wpdb->options WHERE option_name = 'jwl_options_group'");
+				//$export_data = $wpdb->get_results("SELECT * FROM $wpdb->options WHERE option_name LIKE 'jwl\_%'", ARRAY_A);
+				$export_data = mysql_result( $export_data, 0 );
+				echo $export_data;
+				flush();
+				
+				die();
+			}
+		}
+		
 		function jwl_check_usage_time() {
-            $opts = get_option('jwl_ww_options');
+            $opts = get_option('timestamp_utmce');
 
             // First-time use? (option does not exist)
             if (!$opts) {
                 $opts['date_installed'] = strtotime('now');
-                update_option('jwl_ww_options', $opts);
+                add_option('timestamp_utmce', $opts);
                 return;
             }
 
             // User clicked don't show pop-up link, update option.
             if (isset($_GET['dontshowpopup']) && $_GET['dontshowpopup'] == 1) {
                 $opts['dontshowpopup'] = 1;
-                update_option('jwl_ww_options', $opts);
+                add_option('timestamp_utmce', $opts);
                 return;
             }
 
@@ -186,11 +305,11 @@ class jwl_metabox_admin {
             <?php
         }
 		
-		// Register our styles only for admin settings page
+		// Register (and Enqueue) our styles only for admin settings page
 		function jwl_admin_register_head_styles() {
-			/** Register */
+    		wp_register_style('dragdrop-css', plugins_url('css/style.css', __FILE__), array(), '1.0.0', 'all');
+    		wp_enqueue_style('dragdrop-css');
     		wp_register_style('admin-panel-css', plugins_url('css/admin_panel.css', __FILE__), array(), '1.0.0', 'all');
-			/** Enqueue */
     		wp_enqueue_style('admin-panel-css');
 			echo "<link href='http://fonts.googleapis.com/css?family=Unlock' rel='stylesheet' type='text/css'>"; // Added for title font
 		}
@@ -198,6 +317,26 @@ class jwl_metabox_admin {
 		function jwl_admin_register_head_scripts() {
 			$url2 = plugin_dir_url( __FILE__ ) . 'js/pop-up.js';  // Added for popup help javascript
 			echo "<script language='JavaScript' type='text/javascript' src='$url2'></script>\n";  // Added for popup help javascript
+			
+			// Scripts for drag and drop feature (yes, they are all necessary)
+			wp_enqueue_script( 'jquery-ui' );
+			wp_enqueue_script( 'jquery-ui-core' );
+			wp_enqueue_script( 'jquery-ui-widget' );
+			wp_enqueue_script( 'jquery-ui-mouse' );
+			wp_enqueue_script( 'jquery-ui-sortable' );
+			wp_enqueue_script( 'jquery-ui-draggable' );
+			wp_enqueue_script( 'jquery-ui-droppable' );
+			wp_enqueue_script( 'jquery-ui-accordion' );
+			wp_enqueue_script( 'jwl-drag-drop', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/jwl-drag-drop.js', array( 'jquery', 'jquery-ui-core' ) );
+			
+			?>
+            <script type="text/javascript">
+			//<![CDATA[
+				var jwl_plugin_url = '<?php echo trailingslashit( plugin_dir_url( __FILE__ ) ); ?>';
+			//]]>
+			</script>
+            <?php
+			
 		}
 		// Creates the help tab at the top right of the admin settings page
 		function jwl_help_screen() {
@@ -248,6 +387,8 @@ class jwl_metabox_admin {
 			add_meta_box('jwl_metabox4', __('Miscellaneous Features'), array(&$this, 'jwl_buttons_group_3'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox5', __('Admin Options'), array(&$this, 'jwl_buttons_group_4'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox6', __('Developer Recommendations'), array(&$this, 'jwl_buttons_group_5'), $this->pagehook, 'normal', 'core');
+			add_meta_box('jwl_metabox7', __('Import/Export Options'), array(&$this, 'jwl_buttons_group_6'), $this->pagehook, 'normal', 'core');
+			//add_meta_box('jwl_metabox8', __('Drag and Drop Test'), array(&$this, 'jwl_buttons_group_7'), $this->pagehook, 'normal', 'core');
 		}
 		
 		//executed to show the plugins complete admin page
@@ -262,7 +403,7 @@ class jwl_metabox_admin {
 			?>
 			<div id="ultimate-tinymce-general" class="wrap">
 			<?php //screen_icon('options-general'); ?>
-            <span style="margin-top:10px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/settings.png" title="Ultimate Tinymce Settings Page" style="margin-top:10px;margin-bottom:-10px;"/><span style="margin-left:20px;color:#FAC46D;font-size:32px;font-family:'Unlock', cursive;"><?php _e('Ultimate Tinymce ','jwl-ultimate-tinymce'); ?></span><span style="color:#5F95EF;font-size:22px;font-family:'Unlock', cursive;"><?php _e('Admin Settings Page','jwl-ultimate-tinymce'); ?></span></span>
+            <span style="margin-top:10px;"><img src="<?php echo plugins_url('img/settings.png', __FILE__ ) ?>" title="Ultimate Tinymce Settings Page" style="margin-top:10px;margin-bottom:-10px;"/><span style="margin-left:20px;color:#FAC46D;font-size:32px;font-family:'Unlock', cursive;"><?php _e('Ultimate Tinymce ','jwl-ultimate-tinymce'); ?></span><span style="color:#5F95EF;font-size:22px;font-family:'Unlock', cursive;"><?php _e('Admin Settings Page','jwl-ultimate-tinymce'); ?></span></span>
 				<form action="admin-post.php" method="post">
 				<?php wp_nonce_field('ultimate-tinymce-general'); ?>
 				<?php wp_nonce_field('closedpostboxes', 'closedpostboxesnonce', false ); ?>
@@ -541,158 +682,73 @@ class jwl_metabox_admin {
 </div>
 	<script type="text/javascript">
         //<![CDATA[
-        jQuery(document).ready( function($) { $('.if-js-closed').removeClass('if-js-closed').addClass('closed'); postboxes.add_postbox_toggles('<?php echo $this->pagehook; ?>'); });
+        jQuery(document).ready( function($) { $(".if-js-closed").removeClass("if-js-closed").addClass("closed"); postboxes.add_postbox_toggles("<?php echo $this->pagehook; ?>"); });
         //]]>
     </script>
-    <script type="text/javascript"> jQuery(document).ready( function($) { $("#allsts").click(function() { $(".one").attr('checked', true); }); $("#nosts").click(function() { $(".one").attr('checked', false); }); $('.one' ).each( function() { var isitchecked = this.checked; }); });
+    <script type="text/javascript"> jQuery(document).ready( function($) { $("#allsts").click(function() { $(".one").attr("checked", true); }); $("#nosts").click(function() { $(".one").attr("checked", false); }); $(".one" ).each( function() { var isitchecked = this.checked; }); });
     </script>
-    <script type="text/javascript"> jQuery(document).ready( function($) { $("#allsts2").click(function() { $(".two").attr('checked', true); }); $("#nosts2").click(function() { $(".two").attr('checked', false); }); $('.two' ).each( function() { var isitchecked = this.checked; }); });
+    <script type="text/javascript"> jQuery(document).ready( function($) { $("#allsts2").click(function() { $(".two").attr("checked", true); }); $("#nosts2").click(function() { $(".two").attr("checked", false); }); $(".two" ).each( function() { var isitchecked = this.checked; }); });
     </script>
-    
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-    <script type="text/javascript"> $(document).ready(function() { $('#clickme').click(function() { $('#me').animate({ height: 'toggle' }, 300 ); }); }); </script>
-    <script type="text/javascript"> $(document).ready(function() { $('#clickme2').click(function() { $('#me2').animate({ height: 'toggle' }, 300 ); }); }); </script>
-    <script type="text/javascript"> $(document).ready(function() { $('#clickme3').click(function() { $('#me3').animate({ height: 'toggle' }, 300 ); }); }); </script>
-    <script type="text/javascript"> $(document).ready(function() { $('#clickme4').click(function() { $('#me4').animate({ height: 'toggle' }, 300 ); }); }); </script>
-    <script type="text/javascript"> $(document).ready(function() { $('#clickme5').click(function() { $('#me5').animate({ height: 'toggle' }, 300 ); }); }); </script>
-    <script type="text/javascript"> $(document).ready(function() { $('#clickme6').click(function() { $('#me6').animate({ height: 'toggle' }, 300 ); }); }); </script>
+    <?php /*
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> */ ?>
+    <script type="text/javascript"> jQuery(document).ready( function($) { $("#clickme").click(function() { $("#me").animate({ height: "toggle" }, 300 ); }); }); </script>
+    <script type="text/javascript"> jQuery(document).ready( function($) { $("#clickme2").click(function() { $("#me2").animate({ height: "toggle" }, 300 ); }); }); </script>
+    <script type="text/javascript"> jQuery(document).ready( function($) { $("#clickme3").click(function() { $("#me3").animate({ height: "toggle" }, 300 ); }); }); </script>
+    <script type="text/javascript"> jQuery(document).ready( function($) { $("#clickme4").click(function() { $("#me4").animate({ height: "toggle" }, 300 ); }); }); </script>
+    <script type="text/javascript"> jQuery(document).ready( function($) { $("#clickme5").click(function() { $("#me5").animate({ height: "toggle" }, 300 ); }); }); </script>
+    <script type="text/javascript"> jQuery(document).ready( function($) { $("#clickme6").click(function() { $("#me6").animate({ height: "toggle" }, 300 ); }); }); </script>
     <script type="text/javascript">
-			$(document).ready(function(){  
+	jQuery(document).ready( function($){  
     $(".menu > li").click(function(e){  
         switch(e.target.id){  
             case "news":  
                 //change status &amp;amp;amp; style menu  
-                $("#news").addClass("active");  
-                $("#tutorials").removeClass("active");  
-				$("#spread").removeClass("active");
-				$("#gettingstarted").removeClass("active");
-				$("#tips").removeClass("active");
-				$("#defaults").removeClass("active");
-                $("#links").removeClass("active");  
+                $("#news").addClass("active"); $("#tutorials").removeClass("active"); $("#spread").removeClass("active"); $("#gettingstarted").removeClass("active"); $("#tips").removeClass("active"); $("#defaults").removeClass("active"); $("#links").removeClass("active");  
                 //display selected division, hide others  
-                $("div.news").fadeIn();  
-                $("div.tutorials").css("display", "none"); 
-				$("div.spread").css("display", "none"); 
-				$("div.gettingstarted").css("display", "none");
-				$("div.tips").css("display", "none");
-				$("div.defaults").css("display", "none");
-                $("div.links").css("display", "none");  
+                $("div.news").fadeIn(); $("div.tutorials").css("display", "none"); $("div.spread").css("display", "none"); $("div.gettingstarted").css("display", "none"); $("div.tips").css("display", "none"); $("div.defaults").css("display", "none"); $("div.links").css("display", "none");  
             break;  
             case "tutorials":  
                 //change status &amp;amp;amp; style menu  
-                $("#news").removeClass("active");  
-                $("#tutorials").addClass("active"); 
-				$("#spread").removeClass("active");
-				$("#gettingstarted").removeClass("active"); 
-				$("#tips").removeClass("active");
-				$("#defaults").removeClass("active");
-                $("#links").removeClass("active");  
+                $("#news").removeClass("active"); $("#tutorials").addClass("active"); $("#spread").removeClass("active"); $("#gettingstarted").removeClass("active"); $("#tips").removeClass("active"); $("#defaults").removeClass("active"); $("#links").removeClass("active");  
                 //display selected division, hide others  
-                $("div.tutorials").fadeIn();  
-                $("div.news").css("display", "none"); 
-				$("div.spread").css("display", "none"); 
-				$("div.gettingstarted").css("display", "none");
-				$("div.tips").css("display", "none");
-				$("div.defaults").css("display", "none");
-                $("div.links").css("display", "none");  
+                $("div.tutorials").fadeIn(); $("div.news").css("display", "none"); $("div.spread").css("display", "none"); $("div.gettingstarted").css("display", "none"); $("div.tips").css("display", "none"); $("div.defaults").css("display", "none"); $("div.links").css("display", "none");  
             break; 
 			case "spread":  
                 //change status &amp;amp;amp; style menu  
-                $("#news").removeClass("active");  
-                $("#tutorials").removeClass("active");  
-				$("#spread").addClass("active");
-				$("#gettingstarted").removeClass("active");
-				$("#tips").removeClass("active");
-				$("#defaults").removeClass("active");
-                $("#links").removeClass("active");  
+                $("#news").removeClass("active"); $("#tutorials").removeClass("active"); $("#spread").addClass("active"); $("#gettingstarted").removeClass("active"); $("#tips").removeClass("active"); $("#defaults").removeClass("active"); $("#links").removeClass("active");  
                 //display selected division, hide others  
-                $("div.spread").fadeIn();  
-				$("div.tips").css("display", "none");
-                $("div.news").css("display", "none");  
-				$("div.gettingstarted").css("display", "none");
-                $("div.tutorials").css("display", "none");  
-				$("div.links").css("display", "none");
-				$("div.defaults").css("display", "none");
+                $("div.spread").fadeIn(); $("div.tips").css("display", "none"); $("div.news").css("display", "none"); $("div.gettingstarted").css("display", "none"); $("div.tutorials").css("display", "none"); $("div.links").css("display", "none"); $("div.defaults").css("display", "none");
             break; 
 			case "gettingstarted":  
                 //change status &amp;amp;amp; style menu  
-                $("#news").removeClass("active");  
-                $("#tutorials").removeClass("active");  
-				$("#spread").removeClass("active");
-				$("#gettingstarted").addClass("active");
-				$("#tips").removeClass("active");
-				$("#defaults").removeClass("active");
-                $("#links").removeClass("active");  
+                $("#news").removeClass("active"); $("#tutorials").removeClass("active"); $("#spread").removeClass("active"); $("#gettingstarted").addClass("active"); $("#tips").removeClass("active"); $("#defaults").removeClass("active"); $("#links").removeClass("active");  
                 //display selected division, hide others 
-				$("div.gettingstarted").fadeIn(); 
-                $("div.spread").css("display", "none");
-				$("div.tips").css("display", "none");
-                $("div.news").css("display", "none");  
-                $("div.tutorials").css("display", "none");  
-				$("div.links").css("display", "none");
-				$("div.defaults").css("display", "none");
+				$("div.gettingstarted").fadeIn(); $("div.spread").css("display", "none"); $("div.tips").css("display", "none"); $("div.news").css("display", "none"); $("div.tutorials").css("display", "none"); $("div.links").css("display", "none"); $("div.defaults").css("display", "none");
             break; 
 			case "tips":  
                 //change status &amp;amp;amp; style menu  
-                $("#news").removeClass("active");  
-                $("#tutorials").removeClass("active");  
-				$("#spread").removeClass("active");  
-				$("#gettingstarted").removeClass("active");
-				$("#tips").addClass("active");
-				$("#defaults").removeClass("active");
-                $("#links").removeClass("active");  
+                $("#news").removeClass("active"); $("#tutorials").removeClass("active"); $("#spread").removeClass("active"); $("#gettingstarted").removeClass("active"); $("#tips").addClass("active"); $("#defaults").removeClass("active"); $("#links").removeClass("active");  
                 //display selected division, hide others  
-				$("div.tips").fadeIn();
-                $("div.spread").css("display", "none"); 
-				$("div.gettingstarted").css("display", "none");
-                $("div.news").css("display", "none");  
-                $("div.tutorials").css("display", "none");  
-				$("div.links").css("display", "none");
-				$("div.defaults").css("display", "none");
+				$("div.tips").fadeIn(); $("div.spread").css("display", "none"); $("div.gettingstarted").css("display", "none"); $("div.news").css("display", "none"); $("div.tutorials").css("display", "none"); $("div.links").css("display", "none"); $("div.defaults").css("display", "none");
             break; 
 			case "defaults":  
                 //change status &amp;amp;amp; style menu  
-                $("#news").removeClass("active");  
-                $("#tutorials").removeClass("active");  
-				$("#spread").removeClass("active"); 
-				$("#gettingstarted").removeClass("active"); 
-				$("#defaults").addClass("active");
-				$("#tips").removeClass("active");  
-                $("#links").removeClass("active");  
+                $("#news").removeClass("active"); $("#tutorials").removeClass("active"); $("#spread").removeClass("active"); $("#gettingstarted").removeClass("active"); $("#defaults").addClass("active"); $("#tips").removeClass("active"); $("#links").removeClass("active");  
                 //display selected division, hide others  
-				$("div.defaults").fadeIn();
-				$("div.tips").css("display", "none");
-                $("div.spread").css("display", "none");
-				$("div.gettingstarted").css("display", "none"); 
-                $("div.news").css("display", "none");  
-                $("div.tutorials").css("display", "none");  
-				$("div.links").css("display", "none");
+				$("div.defaults").fadeIn(); $("div.tips").css("display", "none"); $("div.spread").css("display", "none"); $("div.gettingstarted").css("display", "none"); $("div.news").css("display", "none"); $("div.tutorials").css("display", "none"); $("div.links").css("display", "none");
             break; 
             case "links":  
                 //change status &amp;amp;amp; style menu  
-                $("#news").removeClass("active");  
-                $("#tutorials").removeClass("active");  
-				$("#spread").removeClass("active");
-				$("#gettingstarted").removeClass("active");
-				$("#tips").removeClass("active");
-				$("#defaults").removeClass("active");
-                $("#links").addClass("active");  
+                $("#news").removeClass("active"); $("#tutorials").removeClass("active"); $("#spread").removeClass("active"); $("#gettingstarted").removeClass("active"); $("#tips").removeClass("active"); $("#defaults").removeClass("active"); $("#links").addClass("active");  
                 //display selected division, hide others  
-                $("div.links").fadeIn();  
-                $("div.news").css("display", "none");  
-                $("div.tutorials").css("display", "none");  
-				$("div.spread").css("display", "none");
-				$("div.gettingstarted").css("display", "none");
-				$("div.tips").css("display", "none");
-				$("div.defaults").css("display", "none");
+                $("div.links").fadeIn(); $("div.news").css("display", "none"); $("div.tutorials").css("display", "none"); $("div.spread").css("display", "none"); $("div.gettingstarted").css("display", "none"); $("div.tips").css("display", "none"); $("div.defaults").css("display", "none");
             break;  
         }  
         //alert(e.target.id);  
         return false;  
     });  
 });  
-</script>
-			
+</script>		
 			<?php
 		}
 		
@@ -759,6 +815,109 @@ class jwl_metabox_admin {
             <center><a target="_blank" href="http://joshlobe.com/"><img class="image_ads" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/affil_template.png" width="100%" /></a></center><br /><?php
 			_e('Coming Soon...','jwl-ultimate-tinymce');?><br /><br /><?php _e(' ','jwl-ultimate-tinymce');
 			?></div>
+            <div style="clear:both;"></div>
+			<?php
+		}
+		function jwl_buttons_group_6($data) {
+			sort($data);
+			do_settings_sections('ultimate-tinymce6');
+			settings_fields('jwl_options_group');
+			?>
+                <form name="export_options" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>&jwl_utmce_export=true">
+                <h4><?php _e('Export', 'jwl-ultimate-tinymce' ) ?></h4>
+                    <p><?php _e('Click to download a .seq file with your options.', 'jwl-ultimate-tinymce' ) ?></p>
+                    <p><?php _e('Do NOT change the filename (it is preformatted with the date and time.)', 'jwl-ultimate-tinymce' ) ?></p>
+                    <p id="submitbutton-export">
+                        <input type="hidden" name="jwl_utmce_export" value="true" />
+                        <input type="submit" name="jwl_utmce_save" value="<?php _e('Export &raquo;', 'jwl-ultimate-tinymce' ) ?>" class="button" />
+                    </p>
+                </form>
+                <br />
+                <h4><?php _e('Import', 'jwl-ultimate-tinymce' ) ?></h4>
+                <form name="import_options" enctype="multipart/form-data" method="post" action="?page=<?php echo esc_attr( $_GET['page'] ); ?>">
+                    <?php wp_nonce_field('jwl_utmce_options_nonce'); ?>
+                    <p><?php _e('Select the <em>.seq</em> with your options and click the button below.', 'jwl-ultimate-tinymce' ) ?></p>
+                    <p>
+                        <label for="datei_id"><?php _e('Choose a file from your computer', 'jwl-ultimate-tinymce' ) ?>: </label>
+                        <input name="datei" id="datei_id" type="file" />
+                    </p>
+                    <p id="submitbutton">
+                        <input type="hidden" name="jwl_utmce_options_action" value="jwl_utmce_import" />
+                        <input type="submit" name="jwl_utmce_save" value="<?php _e('Upload and import &raquo; &raquo;', 'jwl-ultimate-tinymce' ) ?>" class="button" />
+                    </p>
+                </form>
+                <br />
+                <h4><?php _e('Clean Up Database', 'jwl-ultimate-tinymce' ) ?></h4>
+                <p><?php _e('Only use if you are upgrading and lost all saved options.', 'jwl-ultimate-tinymce' ) ?><br />
+                <?php _e('This utility will attempt to seek out rogue Ultimate Tinymce database entries and restore them into a single array.', 'jwl-ultimate-tinymce' ) ?></p>
+                <form method="post">
+                <input id="plugin2" name="plugin2" type="hidden" value="ultimate-tinymce/main.php" /> <?php  // The value must match the folder/file of the plugin.
+                if ( isset( $_POST['optimize_database'] ) && ! isset( $_POST['optimize_confirm'] ) ) { 
+                ?><div id="message" class="error">
+                        <p>
+                        <?php _e('You must also check the confirm box before database options will be optimized.','jwl-ultimate-tinymce'); ?>
+                        </p>
+                    </div>
+                  <?php
+                }
+                ?>
+                <input name="optimize_confirm" type="checkbox" value="1" /> <strong><?php _e('Please confirm before proceeding<br /><br />','jwl-ultimate-tinymce'); ?></strong>
+                <input class="button" name="optimize_database" type="submit" value="<?php _e('Optimize Database &raquo; &raquo;','jwl-ultimate-tinymce'); ?>" />
+                </form>
+                <?php
+		}
+		function jwl_buttons_group_7($data) {
+			sort($data);
+			do_settings_sections('ultimate-tinymce7');
+			settings_fields('jwl_options_group');
+			
+			?>
+			<div class="wrapper">
+                <div id="header">
+                    <h1>Ultimate TinyMCE Awesome Drag and Drop Feature!</h1>
+                </div>
+                
+                <div id="container">
+                <p class="instructions">Drag and drop the icons you wish to display in the Visual Editor. You can place them in the first or second row, but you may not insert the same icon twice.</p>
+                    <p class="icon-title"><span class="blue">1st</span> Row:</p>
+                    <div id="row1" class="row">
+                        <ol class="drop-container" id="row1_icons">
+                            <li class="place-holder">Drag the editor icons here!</li>
+                        </ol>
+                    </div>
+                    <p class="icon-title"><span class="blue">2nd</span> Row:</p>
+                    <div id="row2" class="row">
+                        <ol class="drop-container" id="row2_icons">
+                            <li class="place-holder">Drag the editor icons here!</li>
+                        </ol>
+                    </div>
+                    <p class="icon-title"><span class="blue">3rd</span> Row:</p>
+                    <div id="row3" class="row">
+                        <ol class="drop-container" id="row3_icons">
+                            <li class="place-holder">Drag the editor icons here!</li>
+                        </ol>
+                    </div>
+                    <p class="icon-title"><span class="blue">4th</span> Row:</p>
+                    <div id="row4" class="row">
+                        <ol class="drop-container" id="row4_icons">
+                            <li class="place-holder">Drag the editor icons here!</li>
+                        </ol>
+                    </div>
+        
+                    <p class="icon-title"><span class="orange">Tiny-MCE</span> Icons:</p>
+                    <div id="icons">            
+                        <ol class="drop-container" id="container_icons">
+                            <?php $icons = glob( WP_CONTENT_DIR . '/plugins/ultimate-tinymce/icons-new/*.png' );
+                            foreach ( $icons as $icon ) {
+                                $title = str_replace( '.png', '', basename( $icon ) );
+								$icon2 = plugin_dir_url( __FILE__ ) . 'icons-new/' . basename($icon);
+                                echo "<li class='draggable'><img title='$title' id='" . 'icon_' . $title . "' src=\"$icon2\" alt='' /></li>\n";
+                            }
+                            ?>
+                        </ol>
+                    </div>
+                </div>
+            </div>
 			<?php
 		}
 		function jwl_postbox_resources($data) {
