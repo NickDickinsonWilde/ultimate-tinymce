@@ -33,7 +33,7 @@ function jwl_change_mce_options($initArray) {
 	$initArray['nonbreaking_force_tab'] = true; // Enable tab key inserting three character blank spaces
 	$initArray['wordpress_adv_hidden'] = false; // Always enable kitchen sink upon page refesh
 	    $options = get_option('jwl_options_group');
-		$jwl_content_css = $options['jwl_content_css'];
+		$jwl_content_css = isset($options['jwl_content_css']);
 		if ($jwl_content_css == "1") {
 		$initArray['content_css'] = plugin_dir_url( __FILE__ ) . 'css/content.css'; // Change default editor font and styles
 		}

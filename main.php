@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 2.6
+ * @version 2.6.1
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 2.6
+Version: 2.6.1
 Author URI: http://joshlobe.com
 
 */
@@ -155,10 +155,12 @@ class jwl_metabox_admin {
 			}
 			$this->jwl_utmce_import();
 			$this->jwl_utmce_export();
+			/*
 			$this->jwl_check_usage_time();
 			if (isset($this->actions['show_donate_box']) && $this->actions['show_donate_box']) {
                 add_action('admin_footer-'.$this->pagehook, array(&$this, 'jwl_donate_popup'));
             }
+			*/
 
 		}
 		
@@ -188,10 +190,11 @@ class jwl_metabox_admin {
 			}
 		
 			update_option( 'jwl_options_group', $new_options );
-			
+			/*
 			$date_installed = get_option('jwl_ww_options');
 			update_option('timestamp_utmce', $date_installed);
 			delete_option('jwl_ww_options');
+			*/
 		}
 		
 		function jwl_utmce_import() {
@@ -252,7 +255,7 @@ class jwl_metabox_admin {
 				die();
 			}
 		}
-		
+		/*
 		function jwl_check_usage_time() {
             $opts = get_option('timestamp_utmce');
 
@@ -304,7 +307,7 @@ class jwl_metabox_admin {
             </div>
             <?php
         }
-		
+		*/
 		// Register (and Enqueue) our styles only for admin settings page
 		function jwl_admin_register_head_styles() {
     		wp_register_style('dragdrop-css', plugins_url('css/style.css', __FILE__), array(), '1.0.0', 'all');

@@ -22,6 +22,10 @@
                 image: url + '/span.png',
                 cmd: 'jwlSpanButton'
             });
+			//set button to pressed when cursor is within a span tag
+			ed.onNodeChange.add(function(ed, cm, n) {
+				cm.setActive('jwlSpan', n.nodeName == 'SPAN');
+			});
             ed.addShortcut('alt+ctrl+x', ed.getLang('jwlspan.php'), 'jwlSpanButton');			
         },
         createControl : function(n, cm){
