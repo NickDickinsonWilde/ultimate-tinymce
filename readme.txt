@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.4.1
-Stable tag: 2.6.1
+Stable tag: 2.7
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -137,6 +137,21 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 2.7 =
+
+* 07-17-12
+
+= New Features =
+* Added button for inserting YouTube videos using the new iFrame procedure.
+* Added plugin for inserting tons of math formatting options.  This uses a third-party plugin which makes accessible hundreds of math, trig, calc, and algebra functions... all displayed neatly within the content editor.  Perfect for teachers, students, engineers, physicists, etc.
+* Added a new QR (Quick Response) code option.  When enabled, a new box will be inserted at the bottom of every post with a unique qr code.  This can then be used by smart devices for sharing and whatever else.  Any feedback is greatly appreciated.  (Setting can be found under "Admin Options")
+
+= Tweaks and Modifications =
+* I decided to move all files required to load the tinymce and it's functionality into the plugin folder.  Hoping this will clear up a lot of the smaller issues people are having with misc. features being buggy.
+* I will update these files anytime Wordpress or Tinymce are updated.  (Basically, any time the files change)
+* Re-wrote all the popup windows for each button to use these newly located files.
+* Added images for the buttons of "pagebreak" and "div clear".
 
 = 2.6.1 =
 

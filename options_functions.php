@@ -213,6 +213,17 @@ if ($jwl_span_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_b
 if ($jwl_span_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_span"); }
 if ($jwl_span_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_span"); }
 
+function tinymce_add_button_equation($buttons) { 
+$options = get_option('jwl_options_group');
+$jwl_equation = isset($options['jwl_equation_field_id']); 
+if ($jwl_equation == "1") $buttons[] = 'equation'; return $buttons; } 
+$options2 = get_option('jwl_options_group');
+$jwl_equation_dropdown2 = $options2['jwl_equation_dropdown']['row'];
+if ($jwl_equation_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_equation"); } 
+if ($jwl_equation_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_equation"); } 
+if ($jwl_equation_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_equation"); }
+if ($jwl_equation_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_equation"); }
+
 // Functions for Row 4
 function tinymce_add_button_styleselect($buttons) { 
 $options = get_option('jwl_options_group');
@@ -390,6 +401,17 @@ if ($jwl_youtube_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_ad
 if ($jwl_youtube_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_youtube"); }
 if ($jwl_youtube_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_youtube"); }
 
+function tinymce_add_button_youtubeIframe($buttons) { 
+$options = get_option('jwl_options_group');
+$jwl_youtubeIframe = isset($options['jwl_youtubeIframe_field_id']); 
+if ($jwl_youtubeIframe == "1") $buttons[] = 'youtubeIframe'; return $buttons; } 
+$options2 = get_option('jwl_options_group');
+$jwl_youtubeIframe_dropdown2 = $options2['jwl_youtubeIframe_dropdown']['row'];
+if ($jwl_youtubeIframe_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_youtubeIframe"); } 
+if ($jwl_youtubeIframe_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_youtubeIframe"); } 
+if ($jwl_youtubeIframe_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_youtubeIframe"); }
+if ($jwl_youtubeIframe_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_youtubeIframe"); }
+
 function tinymce_add_button_imgmap($buttons) { 
 $options = get_option('jwl_options_group');
 $jwl_imgmap = isset($options['jwl_imgmap_field_id']); 
@@ -447,6 +469,8 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['mailto'] = plugin_dir_url( __FILE__ ) . 'mailto/editor_plugin_src.js';
 		$jwl_plugin_array['layer'] = plugin_dir_url( __FILE__ ) . 'layer/editor_plugin_src.js';
 		$jwl_plugin_array['jwlspan']  =  plugin_dir_url( __FILE__ ) . 'jwl_span/jwl_span.js';
+		$jwl_plugin_array['youtubeIframe']  =  plugin_dir_url( __FILE__ ) . 'youtubeIframe/editor_plugin.js';	
+		$jwl_plugin_array['equation']  =  plugin_dir_url( __FILE__ ) . 'equation/editor_plugin.js';
 		   
 		return $jwl_plugin_array;
 }
@@ -786,7 +810,5 @@ if ($jwl_shortcodes == "1") {
 		add_action('admin_head', array($shortcodesES, 'addSelector'));
 	}
 }
-
-// Functions for User Roles
 
 ?>

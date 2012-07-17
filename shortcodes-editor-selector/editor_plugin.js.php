@@ -1,6 +1,17 @@
 <?php 
-	require_once('../../../../wp-admin/admin.php');
-	require_once('../../../../wp-admin/includes/admin.php');
+	/*
+	if ( defined('ABSPATH') ) {
+		require_once(ABSPATH . '/wp-admin/admin.php');
+		require_once(ABSPATH . '/wp-admin/includes/admin.php');
+	} else {
+		require_once('../../../../wp-admin/admin.php');
+		require_once('../../../../wp-admin/includes/admin.php');
+	}
+	*/
+	$parse_uri = explode( 'wp-content', $_SERVER['SCRIPT_FILENAME'] );
+	$parse_uri2 = explode( 'wp-content', $_SERVER['SCRIPT_FILENAME'] );
+	require_once( $parse_uri[0] . 'wp-admin/admin.php' );
+	require_once( $parse_uri2[0] . 'wp-admin/includes/admin.php' );
 	do_action('admin_init');
  
 	if ( ! is_user_logged_in() )

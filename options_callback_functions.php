@@ -284,6 +284,20 @@
 			echo "</select>";
  }
  
+ function jwl_equation_callback_function() {
+	 $options = get_option('jwl_options_group');
+ 	echo '<input name="jwl_options_group[jwl_equation_field_id]" id="equation" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_equation_field_id']), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/equation.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:66px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/equation.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+			$options_equation = $options['jwl_equation_dropdown'];
+			$items_equation = array("Row 1", "Row 2", "Row 3", "Row 4");
+			echo "<select id='row' style='width:80px;margin-left:27px;' name='jwl_options_group[jwl_equation_dropdown][row]'>";
+			foreach($items_equation as $item_equation) {
+				$selected_equation = ($options_equation['row']==$item_equation) ? 'selected="selected"' : '';
+				echo "<option value='$item_equation' $selected_equation>$item_equation</option>";
+			}
+			echo "</select>";
+ }
+ 
 // Begin Callback functions for each individual setting registered in code above.
 // Callback Functions for Row 4 Buttons
  
@@ -511,6 +525,20 @@
 			echo "</select>";
  }
  
+ function jwl_youtubeIframe_callback_function() {
+	 $options = get_option('jwl_options_group');
+ 	echo '<input name="jwl_options_group[jwl_youtubeIframe_field_id]" id="youtubeIframe" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_youtubeIframe_field_id']), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/youtubeIframe.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:66px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/youtubeIframe.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+			$options_youtubeIframe = $options['jwl_youtubeIframe_dropdown'];
+			$items_youtubeIframe = array("Row 1", "Row 2", "Row 3", "Row 4");
+			echo "<select id='row' style='width:80px;margin-left:27px;' name='jwl_options_group[jwl_youtubeIframe_dropdown][row]'>";
+			foreach($items_youtubeIframe as $item_youtubeIframe) {
+				$selected_youtubeIframe = ($options_youtubeIframe['row']==$item_youtubeIframe) ? 'selected="selected"' : '';
+				echo "<option value='$item_youtubeIframe' $selected_youtubeIframe>$item_youtubeIframe</option>";
+			}
+			echo "</select>";
+ }
+ 
  function jwl_imgmap_callback_function() {
 	 $options = get_option('jwl_options_group');
  	echo '<input name="jwl_options_group[jwl_imgmap_field_id]" id="imgmap" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_imgmap_field_id']), false ) . ' /> ';
@@ -595,25 +623,25 @@
  function jwl_tinymce_nextpage_callback_function() {
 	 $options = get_option('jwl_options_group');
  	echo '<input name="jwl_options_group[jwl_tinymce_nextpage_field_id]" id="tinymce_nextpage" type="checkbox" value="1" class="three" ' . checked( 1, isset($options['jwl_tinymce_nextpage_field_id']), false ) . ' /> ';
-	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/nextpage.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/page_break.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/nextpage.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="margin-left:15px;"><em><?php _e('Adds a button to "break" posts into multiple pages.','jwl-ultimate-tinymce'); ?></em></span><?php
  }
  
  function jwl_postid_callback_function() {
 	 $options = get_option('jwl_options_group');
  	echo '<input name="jwl_options_group[jwl_postid_field_id]" id="postid" type="checkbox" value="1" class="three" ' . checked( 1, isset($options['jwl_postid_field_id']), false ) . ' /> ';
-	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/postid.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+	?><span style="margin-left:15px;"><em><?php _e('Adds ID column to post/page admin list.','jwl-ultimate-tinymce'); ?></em></span><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/postid.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
  }
  
  function jwl_shortcode_callback_function() {
 	 $options = get_option('jwl_options_group');
  	echo '<input name="jwl_options_group[jwl_shortcode_field_id]" id="shortcode" type="checkbox" value="1" class="three" ' . checked( 1, isset($options['jwl_shortcode_field_id']), false ) . ' /> ';
-	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/widgetshortcode.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+	?><span style="margin-left:15px;"><em><?php _e('Use all shortcodes in widget areas too.','jwl-ultimate-tinymce'); ?></em></span><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/widgetshortcode.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
  }
  
  function jwl_php_widget_callback_function() {
 	 $options = get_option('jwl_options_group');
  	echo '<input name="jwl_options_group[jwl_php_widget_field_id]" id="media" type="checkbox" value="1" class="three" ' . checked( 1, isset($options['jwl_php_widget_field_id']), false ) . ' /> ';
-	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/php.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+	?><span style="margin-left:15px;"><em><?php _e('Adds a widget which can be used to insert PHP code.','jwl-ultimate-tinymce'); ?></em></span><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/php.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
  }
  
  function jwl_linebreak_callback_function() {
@@ -637,7 +665,7 @@
  function jwl_div_callback_function() {
 	 $options = get_option('jwl_options_group');
  	echo '<input name="jwl_options_group[jwl_div_field_id]" id="div" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_div_field_id']), false ) . ' /> ';
-	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/divclear.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/div_clear.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:10px;"><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/divclear.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
  }
  
  function jwl_autop_callback_function() {
@@ -649,7 +677,7 @@
  function jwl_cursor_callback_function() {
 	 $options = get_option('jwl_options_group');
  	echo '<input name="jwl_options_group[jwl_cursor_field_id]" id="cursor" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_cursor_field_id']), false ) . ' /> ';
-	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/cursor.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="margin-left:15px;"><?php _e('Restore scrollbar position after saving post/page content.','jwl-ultimate-tinymce'); ?></span><?php 
+	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/cursor.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="margin-left:15px;"><em><?php _e('Restore scrollbar position after saving post/page content.','jwl-ultimate-tinymce'); ?></em></span><?php 
  }
  
  function jwl_signoff_callback_function() {
@@ -687,6 +715,12 @@ function jwl_tinymce_refresh_callback_function() {
 	 $options = get_option('jwl_options_group');
 	echo '<input name="jwl_options_group[jwl_tinymce_refresh]" id="tinymcerefresh" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_refresh']), false ) . ' /> ';
 	?><span style="margin-left:15px;"><em><?php _e('Disables the force caching of tinymce on page reload.','jwl-ultimate-tinymce'); ?></em></span><?php
+}
+
+function jwl_qr_code_callback_function() {
+	 $options = get_option('jwl_options_group');
+	echo '<input name="jwl_options_group[jwl_qr_code]" id="jwl_qr_code" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_qr_code']), false ) . ' /> ';
+	?><span style="margin-left:15px;"><em><?php _e('Displays unique qr code at bottom of each post','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 
 ?>

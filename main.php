@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 2.6.1
+ * @version 2.7
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 2.6.1
+Version: 2.7
 Author URI: http://joshlobe.com
 
 */
@@ -97,6 +97,26 @@ if ( ! isset($GLOBALS['wp_version']) || version_compare($GLOBALS['wp_version'], 
 	<?php
 
 	return;
+}
+
+// Functions for QR Code
+$options = get_option('jwl_options_group');
+$jwl_qr_code = isset($options['jwl_qr_code']); 
+if ($jwl_qr_code == "1") {
+
+	function jwl_qr_code( $content ) {
+		if( is_single() ) {
+			$content .= '<br /><br /><div style="border:1px solid #ddd;"><div style="height:18px;border:1px solid #ddd;padding:5px;">';
+			$content .= '<span style="font-weight:bold;font-size:18px;margin-left:10px;">QR Code - Take this post Mobile!</span>';
+			$content .= '</div><div style="padding:10px;">';
+			$content .= '<div style="float:left;margin-right:20px;width:20%;"><script type="text/javascript">var uri=window.location.href;document.write("<img src=\'http://api.qrserver.com/v1/create-qr-code/?data="+encodeURI(uri)+"&size=100x100\'/>");</script></div>';
+			$content .= '<div style="float:left;width:75%;">Use this unique QR (Quick Response) code with your smart device. The code will save the url of this webpage to the device for mobile sharing and storage.</div>';
+			$content .= '<div style="clear:both;"></div>';
+			$content .= '</div></div>';
+		}
+		return $content;
+	}
+	add_filter('the_content', 'jwl_qr_code');
 }
 
 /*
