@@ -59,7 +59,7 @@ if ($jwl_paste_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_
 
 function tinymce_add_button_backcolorpicker($buttons) { 
 $options = get_option('jwl_options_group');
-$jwl_backcolorpicker = isset($options['jwl_backcolorpicker_field_id']); 
+$jwl_backcolorpicker = $options['jwl_backcolorpicker_field_id']; 
 if ($jwl_backcolorpicker == "1") $buttons[] = 'backcolorpicker'; return $buttons; } 
 $options2 = get_option('jwl_options_group');
 $jwl_backcolorpicker_dropdown2 = $options2['jwl_backcolorpicker_dropdown']['row'];
@@ -445,6 +445,20 @@ if ($jwl_print_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_
 if ($jwl_print_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_print"); }
 if ($jwl_print_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_print"); }
 
+// Functions for Other Plugin Buttons
+
+function tinymce_add_button_wp_photo_album($buttons) { 
+$options = get_option('jwl_options_group');
+$jwl_wp_photo_album = isset($options['jwl_wp_photo_album_field_id']); 
+if ($jwl_wp_photo_album == "1") $buttons[] = 'mygallery_button'; return $buttons; } 
+$options2 = get_option('jwl_options_group');
+$jwl_wp_photo_album_dropdown2 = $options2['jwl_wp_photo_album_dropdown']['row'];
+if ($jwl_wp_photo_album_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_wp_photo_album"); } 
+if ($jwl_wp_photo_album_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_wp_photo_album"); } 
+if ($jwl_wp_photo_album_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_wp_photo_album"); }
+if ($jwl_wp_photo_album_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_wp_photo_album"); }
+
+
 // Add the plugin array for extra features
 function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['table'] = plugin_dir_url( __FILE__ ) . 'table/editor_plugin.js';
@@ -638,7 +652,7 @@ if ($jwl_autop == "1"){
 // User option for adding a signoff shortcode for tinymce visual editor (Goes with custom message box below)
 function jwl_sign_off_text() {
 	$options = get_option('jwl_options_group');  
-	$jwl_signoff = $options['jwl_signoff_field_id'];
+	$jwl_signoff = isset($options['jwl_signoff_field_id']);
     return $jwl_signoff;  
 } 
 add_shortcode('signoff', 'jwl_sign_off_text');

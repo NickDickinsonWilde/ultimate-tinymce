@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 2.7
+ * @version 2.7.1
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 2.7
+Version: 2.7.1
 Author URI: http://joshlobe.com
 
 */
@@ -106,17 +106,42 @@ if ($jwl_qr_code == "1") {
 
 	function jwl_qr_code( $content ) {
 		if( is_single() ) {
-			$content .= '<br /><br /><div style="border:1px solid #ddd;"><div style="height:18px;border:1px solid #ddd;padding:5px;">';
+			
+			$options2 = get_option('jwl_options_group');
+	
+			$content .= '<br /><br /><div style="border:1px solid #ddd;"><div style="height:18px;border:1px solid #ddd;padding:5px;background:#'.$options2['jwl_qr_code_bg'].';color:#'.$options2['jwl_qr_code_text'].';" id="qr_header">';
 			$content .= '<span style="font-weight:bold;font-size:18px;margin-left:10px;">QR Code - Take this post Mobile!</span>';
-			$content .= '</div><div style="padding:10px;">';
+			$content .= '</div><div id="qr_main" style="padding:10px;background:#'.$options2['jwl_qr_code_bg_main'].';color:#'.$options2['jwl_qr_code_text'].';">';
 			$content .= '<div style="float:left;margin-right:20px;width:20%;"><script type="text/javascript">var uri=window.location.href;document.write("<img src=\'http://api.qrserver.com/v1/create-qr-code/?data="+encodeURI(uri)+"&size=100x100\'/>");</script></div>';
-			$content .= '<div style="float:left;width:75%;">Use this unique QR (Quick Response) code with your smart device. The code will save the url of this webpage to the device for mobile sharing and storage.</div>';
+			$content .= '<div style="float:left;width:75%;">'.$options2['jwl_qr_code_content'].'</div>';
 			$content .= '<div style="clear:both;"></div>';
 			$content .= '</div></div>';
 		}
 		return $content;
 	}
 	add_filter('the_content', 'jwl_qr_code');
+}
+
+$options2 = get_option('jwl_options_group');
+$jwl_qr_code_pages = isset($options2['jwl_qr_code_pages']); 
+if ($jwl_qr_code_pages == "1") {
+
+	function jwl_qr_code_pages( $content ) {
+		if( is_page() ) {
+			
+			$options3 = get_option('jwl_options_group');
+	
+			$content .= '<br /><br /><div style="border:1px solid #ddd;"><div style="height:18px;border:1px solid #ddd;padding:5px;background:#'.$options3['jwl_qr_code_bg'].';color:#'.$options3['jwl_qr_code_text'].';" id="qr_header">';
+			$content .= '<span style="font-weight:bold;font-size:18px;margin-left:10px;">QR Code - Take this post Mobile!</span>';
+			$content .= '</div><div id="qr_main" style="padding:10px;background:#'.$options3['jwl_qr_code_bg_main'].';color:#'.$options3['jwl_qr_code_text'].';">';
+			$content .= '<div style="float:left;margin-right:20px;width:20%;"><script type="text/javascript">var uri=window.location.href;document.write("<img src=\'http://api.qrserver.com/v1/create-qr-code/?data="+encodeURI(uri)+"&size=100x100\'/>");</script></div>';
+			$content .= '<div style="float:left;width:75%;">'.$options3['jwl_qr_code_content'].'</div>';
+			$content .= '<div style="clear:both;"></div>';
+			$content .= '</div></div>';
+		}
+		return $content;
+	}
+	add_filter('the_content', 'jwl_qr_code_pages');
 }
 
 /*
@@ -330,9 +355,9 @@ class jwl_metabox_admin {
 		*/
 		// Register (and Enqueue) our styles only for admin settings page
 		function jwl_admin_register_head_styles() {
-    		wp_register_style('dragdrop-css', plugins_url('css/style.css', __FILE__), array(), '1.0.0', 'all');
+    		wp_register_style('dragdrop-css', plugins_url('css/style.css', __FILE__), array(), '1.0.0', 'all'); // Used for future drag and drop interface
     		wp_enqueue_style('dragdrop-css');
-    		wp_register_style('admin-panel-css', plugins_url('css/admin_panel.css', __FILE__), array(), '1.0.0', 'all');
+    		wp_register_style('admin-panel-css', plugins_url('css/admin_panel.css', __FILE__), array(), '1.0.0', 'all');  // Used for all css for admin panel presentation
     		wp_enqueue_style('admin-panel-css');
 			echo "<link href='http://fonts.googleapis.com/css?family=Unlock' rel='stylesheet' type='text/css'>"; // Added for title font
 		}
@@ -340,6 +365,8 @@ class jwl_metabox_admin {
 		function jwl_admin_register_head_scripts() {
 			$url2 = plugin_dir_url( __FILE__ ) . 'js/pop-up.js';  // Added for popup help javascript
 			echo "<script language='JavaScript' type='text/javascript' src='$url2'></script>\n";  // Added for popup help javascript
+			$url3 = plugin_dir_url( __FILE__ ) . 'js/jscolor/jscolor.js';
+			echo "<script language='JavaScript' type='text/javascript' src='$url3'></script>\n";
 			
 			// Scripts for drag and drop feature (yes, they are all necessary)
 			wp_enqueue_script( 'jquery-ui' );
@@ -407,6 +434,7 @@ class jwl_metabox_admin {
 			
 			add_meta_box('jwl_metabox1', __('Buttons Group 1'), array(&$this, 'jwl_buttons_group_1'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox2', __('Buttons Group 2'), array(&$this, 'jwl_buttons_group_2'), $this->pagehook, 'normal', 'core');
+			add_meta_box('jwl_metabox9', __('Other Plugins\' Buttons'), array(&$this, 'jwl_buttons_group_9'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox4', __('Miscellaneous Features'), array(&$this, 'jwl_buttons_group_3'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox5', __('Admin Options'), array(&$this, 'jwl_buttons_group_4'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox6', __('Developer Recommendations'), array(&$this, 'jwl_buttons_group_5'), $this->pagehook, 'normal', 'core');
@@ -712,6 +740,8 @@ class jwl_metabox_admin {
     </script>
     <script type="text/javascript"> jQuery(document).ready( function($) { $("#allsts2").click(function() { $(".two").attr("checked", true); }); $("#nosts2").click(function() { $(".two").attr("checked", false); }); $(".two" ).each( function() { var isitchecked = this.checked; }); });
     </script>
+    <script type="text/javascript"> jQuery(document).ready( function($) { $("#allsts3").click(function() { $(".three").attr("checked", true); }); $("#nosts3").click(function() { $(".three").attr("checked", false); }); $(".three" ).each( function() { var isitchecked = this.checked; }); });
+    </script>
     <?php /*
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> */ ?>
     <script type="text/javascript"> jQuery(document).ready( function($) { $("#clickme").click(function() { $("#me").animate({ height: "toggle" }, 300 ); }); }); </script>
@@ -771,8 +801,64 @@ class jwl_metabox_admin {
         return false;  
     });  
 });  
-</script>		
-			<?php
+</script>
+
+<script type="text/javascript">
+jQuery(document).ready( function($) {
+
+    //Hide div w/id jwl_hide
+	if ($("#jwl_qr_code").is(":checked") || $("#jwl_qr_code_pages").is(":checked"))
+        {
+            //show the hidden div
+			$('.jwl_hide').fadeIn('slow', function() {
+            $(".jwl_hide").css("display","block");
+			});
+        }
+	else {
+	$('.jwl_hide').fadeOut('slow', function() {
+    $(".jwl_hide").css("display","none");
+	});
+	}
+    // Add onclick handler to checkbox w/id jwl_qr_code
+    $("#jwl_qr_code").click(function(){
+		$('.jwl_hide').fadeIn('slow', function() {
+        // If checked
+        if ($("#jwl_qr_code").is(":checked") || $("#jwl_qr_code_pages").is(":checked"))
+        {
+            //show the hidden div
+            $(".jwl_hide").css("display","block");
+        }
+        else
+        {
+            //otherwise, hide it
+			$('.jwl_hide').fadeOut('slow', function() {
+            $(".jwl_hide").css("display","none");
+			});
+        }
+		});
+    });
+	$("#jwl_qr_code_pages").click(function(){
+		$('.jwl_hide').fadeIn('slow', function() {
+        // If checked
+        if ($("#jwl_qr_code_pages").is(":checked") || $("#jwl_qr_code").is(":checked"))
+        {
+            //show the hidden div
+            $(".jwl_hide").css("display","block");
+        }
+        else
+        {
+            //otherwise, hide it
+			$('.jwl_hide').fadeOut('slow', function() {
+            $(".jwl_hide").css("display","none");
+			});
+        }
+		});
+    });
+
+});
+</script>
+	
+<?php
 		}
 		
 		// Executed if the post arrives initiated by pressing the submit button of form
@@ -803,6 +889,13 @@ class jwl_metabox_admin {
 			do_settings_sections('ultimate-tinymce2');
 			settings_fields('jwl_options_group'); ?>
 			<span style="padding-left:10px;"><input type="button" id="allsts2" value="Check All"><input type="button" id="nosts2" value="UnCheck All"><span style="margin-left:130px;"><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></span></span>
+			<?php
+		}
+		function jwl_buttons_group_9($data) {
+			sort($data);
+			do_settings_sections('ultimate-tinymce9');
+			settings_fields('jwl_options_group'); ?>
+			<span style="padding-left:10px;"><input type="button" id="allsts3" value="Check All"><input type="button" id="nosts3" value="UnCheck All"><span style="margin-left:130px;"><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></span></span>
 			<?php
 		}
 		function jwl_buttons_group_3($data) {

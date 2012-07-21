@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.4.1
-Stable tag: 2.7
+Stable tag: 2.7.1
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -137,6 +137,20 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 2.7.1 =
+* 07-20-12
+
+= New Features =
+* Working with <a href="http://profiles.wordpress.org/opajaap/">OpaJaap's</a> plugin <a href="http://wordpress.org/extend/plugins/wp-photo-album-plus/">WP Photo Album Plus</a>, I added a button which allows row selection and enable/disable for his visual editor button.  I'm hoping other plugin developers will hop on board.  If you are using a plugin, and would like to have control of it via Ultimate Tinymce, contact the plugin author and myself and we might be able to make it work!
+
+= Tweaks and Updates =
+* Added additional options to QR Code option.  Now, when checked, new options will expand giving control over color selection and text.
+* Added option to use QR's on pages also.
+* Added javascript color picker popup to color selection boxes under QR code.
+
+= Bug Fixes =
+* Fixed bug using isset() on options.
 
 = 2.7 =
 

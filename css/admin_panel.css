@@ -277,3 +277,11 @@ div.clear {
 -webkit-box-shadow: 0 0 5px 5px#888;
 box-shadow: 0 0 5px 5px #888;
  }
+ 
+.show-hide
+{
+    display:none;
+    margin: 0;
+    padding: 0;
+    clear:both;
+}
