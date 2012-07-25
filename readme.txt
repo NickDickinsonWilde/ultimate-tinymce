@@ -145,7 +145,7 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * This version of the plugin is written with a completely new interface for saving options.  YOU WILL LOSE ALL YOUR SETTINGS, AND THEY WILL NEED TO BE MANUALLY RESET.  I'm sorry.  There is simply no way for me to manually write a function which will move all stored options to the new configuration.
 
 = New Features =
-* NEW SHORTCODES INTERFACE.  I just finished this new plugin.  Please let me know how it works for everyone.  (Bottom of Buttons Group Two)
+* NEW SHORTCODES INTERFACE.  I just finished writing this new plugin.  Please let me know how it works for everyone.  (Bottom of Buttons Group Two)
 * Added option for tinymce in comments field, allowing visitors to leave comments using a lightweight (custom) version of tinymce.
 * Changed QR textbox to a visual editor.  Now content can be added visually with (teeny) tinymce.
 
