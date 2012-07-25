@@ -7,7 +7,7 @@ if ( isset( $_POST['load_defaults'], $_POST['load_defaults_confirm'] ) ) {
 
 function ultimate_tinymce_load_defaults() {
 	
-	$options = get_option('jwl_options_group');
+	$options = get_option('jwl_options_group1');
 		$options['jwl_fontselect_field_id'] = '1';
 		$options['jwl_fontsizeselect_field_id'] = '1';
 		$options['jwl_cut_field_id'] = '1';
@@ -27,6 +27,7 @@ function ultimate_tinymce_load_defaults() {
 		$options['jwl_mailto_field_id'] = '1';
 		$options['jwl_layers_field_id'] = '1';
 		$options['jwl_span_field_id'] = '1';
+		$options['jwl_equation_field_id'] = '1';
 		
 		$options['jwl_fontselect_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
 		$options['jwl_fontsizeselect_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
@@ -47,69 +48,82 @@ function ultimate_tinymce_load_defaults() {
 		$options['jwl_mailto_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
 		$options['jwl_layers_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
 		$options['jwl_span_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
+		$options['jwl_equation_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
 		
+	$options2 = get_option('jwl_options_group2');
+		$options2['jwl_styleselect_field_id'] = '1';
+		$options2['jwl_tableDropdown_field_id'] = '1';
+		$options2['jwl_emotions_field_id'] = '1';
+		$options2['jwl_image_field_id'] = '1';
+		$options2['jwl_preview_field_id'] = '1';
+		$options2['jwl_cite_field_id'] = '1';
+		$options2['jwl_abbr_field_id'] = '1';
+		$options2['jwl_acronym_field_id'] = '1';
+		$options2['jwl_del_field_id'] = '1';
+		$options2['jwl_ins_field_id'] = '1';
+		$options2['jwl_attribs_field_id'] = '1';
+		$options2['jwl_styleprops_field_id'] = '1';
+		$options2['jwl_code_field_id'] = '1';
+		$options2['jwl_codemagic_field_id'] = '1';
+		$options2['jwl_media_field_id'] = '1';
+		$options2['jwl_youtube_field_id'] = '1';
+		$options2['jwl_youtubeIframe_field_id'] = '1';
+		$options2['jwl_imgmap_field_id'] = '1';
+		$options2['jwl_visualchars_field_id'] = '1';
+		$options2['jwl_print_field_id'] = '1';
+		$options2['jwl_cursor_field_id'] = '1';
+		$options2['jwl_shortcodes_field_id'] = '1';
 		
-		$options['jwl_styleselect_field_id'] = '1';
-		$options['jwl_tableDropdown_field_id'] = '1';
-		$options['jwl_emotions_field_id'] = '1';
-		$options['jwl_image_field_id'] = '1';
-		$options['jwl_preview_field_id'] = '1';
-		$options['jwl_cite_field_id'] = '1';
-		$options['jwl_abbr_field_id'] = '1';
-		$options['jwl_acronym_field_id'] = '1';
-		$options['jwl_del_field_id'] = '1';
-		$options['jwl_ins_field_id'] = '1';
-		$options['jwl_attribs_field_id'] = '1';
-		$options['jwl_styleprops_field_id'] = '1';
-		$options['jwl_code_field_id'] = '1';
-		$options['jwl_codemagic_field_id'] = '1';
-		$options['jwl_media_field_id'] = '1';
-		$options['jwl_youtube_field_id'] = '1';
-		$options['jwl_imgmap_field_id'] = '1';
-		$options['jwl_visualchars_field_id'] = '1';
-		$options['jwl_print_field_id'] = '1';
-		$options['jwl_cursor_field_id'] = '1';
-		$options['jwl_shortcodes_field_id'] = '1';
+		$options2['jwl_styleselect_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_tableDropdown_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_emotions_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_image_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_preview_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_cite_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_abbr_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_acronym_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_del_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_ins_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_attribs_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_styleprops_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_code_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_codemagic_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_media_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_youtube_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_youtubeIframe_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_imgmap_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_visualchars_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_print_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_shortcodes_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		
-		$options['jwl_styleselect_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_tableDropdown_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_emotions_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_image_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_preview_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_cite_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_abbr_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_acronym_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_del_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_ins_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_attribs_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_styleprops_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_code_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_codemagic_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_media_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_youtube_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_imgmap_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_visualchars_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_print_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options['jwl_shortcodes_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+	$options9 = get_option('jwl_options_group9');
+		$options9['jwl_wp_photo_album_field_id'] = '1';
+		$options9['jwl_wp_photo_album_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		
-		$options['jwl_tinycolor_css_field_id'] = unserialize('a:1:{s:9:"tinycolor";s:7:"Default";}');
-		$options['jwl_tinymce_nextpage_field_id'] = '1';
-		$options['jwl_postid_field_id'] = '1';
-		$options['jwl_shortcode_field_id'] = '1';
-		$options['jwl_php_widget_field_id'] = '1';
-		$options['jwl_linebreak_field_id'] = '1';
-		$options['jwl_columns_field_id'] = '1';
-		$options['jwl_defaults_field_id'] = '1';
-		$options['jwl_div_field_id'] = '1';
-		$options['jwl_autop_field_id'] = '';
-		$options['jwl_signoff_field_id'] = 'This is a signoff example.';
+	$options3 = get_option('jwl_options_group3');
+		$options3['jwl_tinycolor_css_field_id'] = unserialize('a:1:{s:9:"tinycolor";s:7:"Default";}');
+		$options3['jwl_tinymce_nextpage_field_id'] = '1';
+		$options3['jwl_postid_field_id'] = '1';
+		$options3['jwl_shortcode_field_id'] = '1';
+		$options3['jwl_php_widget_field_id'] = '1';
+		$options3['jwl_linebreak_field_id'] = '1';
+		$options3['jwl_columns_field_id'] = '1';
+		$options3['jwl_defaults_field_id'] = '1';
+		$options3['jwl_div_field_id'] = '1';
+		$options3['jwl_cursor_field_id'] = '1';
+		$options3['jwl_signoff_field_id'] = 'This is a signoff example.';
 		
-		$options['jwl_dashboard_widget'] = '1';
-		$options['jwl_admin_bar_link'] = '1';
+	$options4 = get_option('jwl_options_group4');
+		$options4['jwl_dashboard_widget'] = '1';
+		$options4['jwl_admin_bar_link'] = '1';
 		
-		$options['jwl_dashboard_options'] = unserialize('a:1:{s:28:"jwl_tinymce_dashboard_widget";a:1:{s:5:"items";i:5;}}');
+		//$options['jwl_dashboard_options'] = unserialize('a:1:{s:28:"jwl_tinymce_dashboard_widget";a:1:{s:5:"items";i:5;}}');
 	
-	update_option('jwl_options_group', $options);
+	update_option('jwl_options_group1', $options);
+	update_option('jwl_options_group2', $options2);
+	update_option('jwl_options_group9', $options9);
+	update_option('jwl_options_group3', $options3);
+	update_option('jwl_options_group4', $options4);
 }
 
 function jwl_ultimate_tinymce_load_defaults() {

@@ -6,10 +6,16 @@ if ( isset( $_POST['uninstall'], $_POST['uninstall_confirm'] ) ) {
 
 function ultimate_tinymce_uninstall() {
 	
-	delete_option('jwl_options_group','jwl_options_group');
+	delete_option('jwl_options_group','jwl_options_group'); // From prior plugin single array
+	
+	delete_option('jwl_options_group1','jwl_options_group1');
+	delete_option('jwl_options_group2','jwl_options_group2');
+	delete_option('jwl_options_group9','jwl_options_group9');
+	delete_option('jwl_options_group3','jwl_options_group3');
+	delete_option('jwl_options_group4','jwl_options_group4');
  
     // Do not change (this deactivates the plugin)
-    $current = get_settings('active_plugins');
+    $current = get_option('active_plugins');
     array_splice($current, array_search( $_POST['plugin'], $current), 1 ); // Array-function!
     update_option('active_plugins', $current);
     header('Location: plugins.php?deactivate=true');

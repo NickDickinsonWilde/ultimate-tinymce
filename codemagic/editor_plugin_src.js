@@ -17,7 +17,7 @@
 			ed.addCommand('mceCodeMagic', function() {
                 ed.windowManager.open({
                     file : url + '/codemagic.htm',
-                    width : 900,
+                    width : 1200,
                     height : 600,
                     inline : 1,
                     maximizable: true

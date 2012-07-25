@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.4.1
-Stable tag: 2.7.1
+Stable tag: 2.8
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -137,6 +137,32 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 2.8 =
+* 07-25-12
+
+= IMPORTANT NOTICE =
+* This version of the plugin is written with a completely new interface for saving options.  YOU WILL LOSE ALL YOUR SETTINGS, AND THEY WILL NEED TO BE MANUALLY RESET.  I'm sorry.  There is simply no way for me to manually write a function which will move all stored options to the new configuration.
+
+= New Features =
+* NEW SHORTCODES INTERFACE.  I just finished this new plugin.  Please let me know how it works for everyone.  (Bottom of Buttons Group Two)
+* Added option for tinymce in comments field, allowing visitors to leave comments using a lightweight (custom) version of tinymce.
+* Changed QR textbox to a visual editor.  Now content can be added visually with (teeny) tinymce.
+
+= Tweaks =
+* Added master controls for each "buttons group" section.  You can check all/uncheck all, and also set the row for all buttons with one click.
+* Added option to export and import each buttons group independently.  The main Import/Export has now been removed, and each buttons group has an independent export/import feature.
+
+= Bug Fixes =
+* Fixed plugin uninstallation bug which was using a deprecated function.
+* Fixed bugs with various issues, primarily from usage of isset().  This is why I re-wrote the options configuration again.
+
+= Deleted Options =
+* The old Shortcodes dropdown interface is dead.  I spent three days attempting to get this working... unsuccessfully.  However, there is a new button for working with shortcodes.  See "New Features" above.
+* The old Export/Import section has been removed.  See "Tweaks" above.
+
+= Notes =
+* All options groups now have a unique "Save Options" button.  Pressing each button ONLY saves the options for that group.  Work one section at a time when configuring settings.
 
 = 2.7.1 =
 * 07-20-12

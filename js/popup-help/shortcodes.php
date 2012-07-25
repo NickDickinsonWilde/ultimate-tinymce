@@ -1,5 +1,5 @@
 <html><head>
-<title>Shortcodes Box</title>
+<title>Shortcodes Button</title>
 <link rel=StyleSheet href="pop-upstyle.css" type="text/css" media="screen">
 </head>
 
@@ -12,28 +12,21 @@
 <TABLE cellpadding=0 cellspacing=0 border="0" bordercolor="666666" width="80%"><tr><td ALIGN="left" VALIGN="TOP">
 <br>
 
-<span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Shortcodes Box:</strong></span>
+<span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Shortcodes Button:</strong></span>
 <br />
-This option will enable the Shortcodes Box.  This button will be added to row four of the visual editor.
+This option will add the Shortcodes Selector Button to the tinymce editor.
 
 <br /><br />
 
 <span class="title" style="padding:0px 5px 0px 5px;background-color:#CCFCD9;border:1px solid #339966;"><strong>Usage:</strong></span>
 <br />
-Placing a check in the box will enable the button in your visual editor.  Unchecking the box removes the button from the editor.<br /><br />
+This button is a personal endeavor.  It will grab the global variable used by Wordpress and populate a list via a tinymce button popup window.<br /><br />
 
-This option places a dropdown list in the visual editor of <b>ALL</b> shortcodes available in your theme.  Not only does it list all your shortcodes, but you can also highlight text and click the shortcode you would like to apply.  The button will then "wrap" your highlighted text with the selected shortcode.<br /><br />
+From here, simply select the shortcode you would like to insert into the post/page.<br /><br />
 
-This feature is still in very early development... so I welcome and encourage any constructive feedback.
+Once you click your selection, the popup window will close automatically, and your selection will be added to the content editor.
 
 <br /><br />
-<img src="images/shortcodes1.png" border="1px solid #000000" /><br />
-<em>The Shortcodes dropdown in the visual editor.</em><br /><br />
-<img src="images/shortcodes2.png" border="1px solid #000000" /><br />
-<em>Shows the text being wrapped after clicking the shortcode button.</em><br /><br />
-<img src="images/shortcodes3.png" border="1px solid #000000" /><br />
-<em>Front-end view of using the Shortcodes button.</em><br /><br />
-
 </td></tr></table>
 <!-- CONTENT TABLE -->
 

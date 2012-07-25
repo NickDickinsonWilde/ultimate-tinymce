@@ -32,16 +32,17 @@
 			});
 
 			// Register buttons
-			ed.addButton('link', {
+			ed.addButton('advlink', {
 				title : 'advlink.link_desc',
-				cmd : 'mceAdvLink'
+				cmd : 'mceAdvLink',
+				image: url + '/img/advlink.png'
 			});
 
 			ed.addShortcut('ctrl+k', 'advlink.advlink_desc', 'mceAdvLink');
 
 			ed.onNodeChange.add(function(ed, cm, n, co) {
-				cm.setDisabled('link', co && n.nodeName != 'A');
-				cm.setActive('link', n.nodeName == 'A' && !n.name);
+				cm.setDisabled('advlink', co && n.nodeName != 'A');
+				cm.setActive('advlink', n.nodeName == 'A' && !n.name);
 			});
 		},
 

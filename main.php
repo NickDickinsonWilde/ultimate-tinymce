@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 2.7.1
+ * @version 2.8
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 2.7.1
+Version: 2.8
 Author URI: http://joshlobe.com
 
 */
@@ -35,6 +35,7 @@ include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/options_functions.php';
 include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/options_callback_functions.php';
 include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/admin_functions.php';
 
+
 //  Add settings link to plugins page menu
 //  This can be duplicated to add multiple links
 function jwl_add_ultimatetinymce_settings_link($links, $file) {
@@ -58,7 +59,7 @@ function jwl_admin_style() {
 	}
 }
 add_action('admin_print_styles', 'jwl_admin_style');
-$options = get_option('jwl_options_group');
+$options = get_option('jwl_options_group4');
 $jwl_pluginslist = isset($options['jwl_pluginslist_css']);
 if ($jwl_pluginslist == "1"){
 	remove_action('admin_print_styles', 'jwl_admin_style');
@@ -100,14 +101,14 @@ if ( ! isset($GLOBALS['wp_version']) || version_compare($GLOBALS['wp_version'], 
 }
 
 // Functions for QR Code
-$options = get_option('jwl_options_group');
-$jwl_qr_code = isset($options['jwl_qr_code']); 
+$options = get_option('jwl_options_group4');
+$jwl_qr_code = isset($options['jwl_qr_code']);
 if ($jwl_qr_code == "1") {
 
 	function jwl_qr_code( $content ) {
 		if( is_single() ) {
 			
-			$options2 = get_option('jwl_options_group');
+			$options2 = get_option('jwl_options_group4');
 	
 			$content .= '<br /><br /><div style="border:1px solid #ddd;"><div style="height:18px;border:1px solid #ddd;padding:5px;background:#'.$options2['jwl_qr_code_bg'].';color:#'.$options2['jwl_qr_code_text'].';" id="qr_header">';
 			$content .= '<span style="font-weight:bold;font-size:18px;margin-left:10px;">QR Code - Take this post Mobile!</span>';
@@ -117,19 +118,19 @@ if ($jwl_qr_code == "1") {
 			$content .= '<div style="clear:both;"></div>';
 			$content .= '</div></div>';
 		}
-		return $content;
+		return wpautop($content);
 	}
 	add_filter('the_content', 'jwl_qr_code');
 }
 
-$options2 = get_option('jwl_options_group');
+$options2 = get_option('jwl_options_group4');
 $jwl_qr_code_pages = isset($options2['jwl_qr_code_pages']); 
 if ($jwl_qr_code_pages == "1") {
 
 	function jwl_qr_code_pages( $content ) {
 		if( is_page() ) {
 			
-			$options3 = get_option('jwl_options_group');
+			$options3 = get_option('jwl_options_group4');
 	
 			$content .= '<br /><br /><div style="border:1px solid #ddd;"><div style="height:18px;border:1px solid #ddd;padding:5px;background:#'.$options3['jwl_qr_code_bg'].';color:#'.$options3['jwl_qr_code_text'].';" id="qr_header">';
 			$content .= '<span style="font-weight:bold;font-size:18px;margin-left:10px;">QR Code - Take this post Mobile!</span>';
@@ -183,176 +184,14 @@ class jwl_metabox_admin {
 			//add our own option page, you can also add it to different sections or use your own one
 			$this->pagehook = add_options_page('Ultimate TinyMCE Plugin Page',  __('Ultimate TinyMCE','jwl-ultimate-tinymce'), 'manage_options', JWL_ADMIN_PAGE_NAME, array(&$this, 'jwl_options_page'));
 			//register  callback gets call prior your own page gets rendered
+			
 			add_action('load-'.$this->pagehook, array(&$this, 'jwl_on_load_page'));
 			add_action("load-{$this->pagehook}",array(&$this,'jwl_help_screen'));
 			add_action('admin_print_styles-'.$this->pagehook, array(&$this, 'jwl_admin_register_head_styles'));
 			add_action('admin_print_scripts-'.$this->pagehook, array(&$this, 'jwl_admin_register_head_scripts'));
-			if ( isset( $_POST['optimize_database'] ) && ! isset( $_POST['optimize_confirm'] ) ) {
-				function jwl_tinymce_top_optimize_notice() {
-					echo '<div id="message" class="error"><p>';
-					_e('You must also check the confirm box before database options will be optimized.','jwl-ultimate-tinymce');
-					echo '</p></div>';
-				}
-				add_action('admin_notices','jwl_tinymce_top_optimize_notice');
-			}
-			if ( isset( $_POST['optimize_database'], $_POST['optimize_confirm'] ) ) {
-				$this->jwl_convert_options();
-			}
-			$this->jwl_utmce_import();
-			$this->jwl_utmce_export();
-			/*
-			$this->jwl_check_usage_time();
-			if (isset($this->actions['show_donate_box']) && $this->actions['show_donate_box']) {
-                add_action('admin_footer-'.$this->pagehook, array(&$this, 'jwl_donate_popup'));
-            }
-			*/
 
 		}
 		
-		function jwl_convert_options() {
-			$new_options = array(
-				'jwl_fontselect_field_id' => null, 'jwl_fontsizeselect_field_id' => null, 'jwl_cut_field_id' => null, 'jwl_copy_field_id' => null, 'jwl_paste_field_id' => null, 'jwl_backcolorpicker_field_id' => null, 'jwl_forecolorpicker_field_id' => null, 'jwl_advhr_field_id' => null, 'jwl_visualaid_field_id' => null, 'jwl_anchor_field_id' => null, 'jwl_sub_field_id' => null, 'jwl_sup_field_id' => null, 'jwl_search_field_id' => null, 'jwl_replace_field_id' => null, 'jwl_datetime_field_id' => null, 'jwl_nonbreaking_field_id' => null, 'jwl_mailto_field_id' => null, 'jwl_layers_field_id' => null, 'jwl_span_field_id' => null,
-				
-				'jwl_fontselect_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_fontsizeselect_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_cut_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_copy_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_paste_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_backcolorpicker_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_forecolorpicker_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_advhr_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_visualaid_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_anchor_dropdown' => unserialize('a:1:{s:3:"row";s:5:"Row 3";}'), 'jwl_sub_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'), 'jwl_sup_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'), 'jwl_search_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'), 'jwl_replace_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'), 'jwl_datetime_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'), 'jwl_nonbreaking_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'), 'jwl_mailto_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'), 'jwl_layers_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'), 'jwl_span_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 3",}'),
-				
-				'jwl_styleselect_field_id' => null, 'jwl_tableDropdown_field_id' => null, 'jwl_emotions_field_id' => null, 'jwl_image_field_id' => null, 'jwl_preview_field_id' => null, 'jwl_cite_field_id' => null, 'jwl_abbr_field_id' => null, 'jwl_acronym_field_id' => null, 'jwl_del_field_id' => null, 'jwl_ins_field_id' => null, 'jwl_attribs_field_id' => null, 'jwl_styleprops_field_id' => null, 'jwl_code_field_id' => null, 'jwl_codemagic_field_id' => null, 'jwl_media_field_id' => null, 'jwl_youtube_field_id' => null, 'jwl_imgmap_field_id' => null, 'jwl_visualchars_field_id' => null, 'jwl_print_field_id' => null, 'jwl_cursor_field_id' => null, 'jwl_shortcodes_field_id' => null,
-				
-				'jwl_styleselect_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_tableDropdown_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_emotions_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_image_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_preview_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_cite_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_abbr_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_acronym_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_del_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_ins_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_attribs_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_styleprops_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_code_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_codemagic_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_media_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_youtube_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_imgmap_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_visualchars_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_print_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'), 'jwl_shortcodes_dropdown' => unserialize('a:1:{s:3:"row",s:5:"Row 4",}'),
-				
-				'jwl_tinycolor_css_field_id' => unserialize('a:1:{s:9:"tinycolor",s:7:"Default",}'), 'jwl_tinymce_nextpage_field_id' => null, 'jwl_postid_field_id' => null, 'jwl_shortcode_field_id' => null, 'jwl_php_widget_field_id' => null, 'jwl_linebreak_field_id' => null, 'jwl_columns_field_id' => null, 'jwl_defaults_field_id' => null, 'jwl_div_field_id' => null, 'jwl_autop_field_id' => null, 'jwl_signoff_field_id' => null,
-				
-				'jwl_dashboard_widget' => null, 'jwl_admin_bar_link' => null,
-				
-				'jwl_dashboard_options' => unserialize('a:1:{s:28:"jwl_tinymce_dashboard_widget",a:1:{s:5:"items",i:5,}}')
-			);
-		
-			// if old options exist, update to new system
-			foreach( $new_options as $key => $value ) {
-				if( $existing = get_option( '' . $key ) ) {
-					$new_options[$key] = $existing;
-					delete_option( '' . $key );
-				}
-			}
-		
-			update_option( 'jwl_options_group', $new_options );
-			/*
-			$date_installed = get_option('jwl_ww_options');
-			update_option('timestamp_utmce', $date_installed);
-			delete_option('jwl_ww_options');
-			*/
-		}
-		
-		function jwl_utmce_import() {
-
-			// check file extension
-			$str_file_name = isset($_FILES['datei']['name']);
-			$str_file_ext  = explode( ".", $str_file_name );
-		
-			if ( isset($str_file_ext[1]) != 'seq' ) {
-				$addreferer = 'notexist';
-			} elseif ( file_exists( $_FILES['datei']['name'] ) ) {
-				$addreferer = 'exist';
-			} else {
-				// path for file
-				$str_ziel = WP_CONTENT_DIR . '/' . $_FILES['datei']['name'];
-				// transfer
-				move_uploaded_file( $_FILES['datei']['tmp_name'], $str_ziel );
-				// access authorisation
-				chmod( $str_ziel, 0644);
-				// SQL import
-				ini_set( 'default_socket_timeout', 120);
-				$import_file = file_get_contents( $str_ziel );
-		
-				delete_option( 'jwl_options_group' );
-				$import_file = unserialize( $import_file );
-		
-				if ( file_exists( $str_ziel ) )
-					unlink( $str_ziel );
-				update_option( 'jwl_options_group', $import_file );
-				if ( file_exists( $str_ziel ) )
-					unlink( $str_ziel );
-		
-				$addreferer = 'true';
-			}
-		}
-		
-		function jwl_utmce_export() {
-			if ( isset( $_POST['jwl_utmce_export'] ) ) {
-				
-				global $wpdb;
-				
-				$filename = 'jwl_utmce_export-' . date( 'Y-m-d_G-i-s' ) . '.seq';
-			
-				header( "Content-Description: File Transfer");
-				header( "Content-Disposition: attachment; filename=" . urlencode( $filename ) );
-				header( "Content-Type: application/force-download");
-				header( "Content-Type: application/octet-stream");
-				header( "Content-Type: application/download");
-				header( 'Content-Type: text/seq; charset=' . get_option( 'blog_charset' ), TRUE );
-				flush();
-			
-				$export_data = mysql_query("SELECT option_value FROM $wpdb->options WHERE option_name = 'jwl_options_group'");
-				//$export_data = $wpdb->get_results("SELECT * FROM $wpdb->options WHERE option_name LIKE 'jwl\_%'", ARRAY_A);
-				$export_data = mysql_result( $export_data, 0 );
-				echo $export_data;
-				flush();
-				
-				die();
-			}
-		}
-		/*
-		function jwl_check_usage_time() {
-            $opts = get_option('timestamp_utmce');
-
-            // First-time use? (option does not exist)
-            if (!$opts) {
-                $opts['date_installed'] = strtotime('now');
-                add_option('timestamp_utmce', $opts);
-                return;
-            }
-
-            // User clicked don't show pop-up link, update option.
-            if (isset($_GET['dontshowpopup']) && $_GET['dontshowpopup'] == 1) {
-                $opts['dontshowpopup'] = 1;
-                add_option('timestamp_utmce', $opts);
-                return;
-            }
-
-            // Over 30 days? Not set to don't show? Show the damn thing.
-            if (!isset($opts['dontshowpopup']) && $opts['date_installed'] < strtotime('-30 days')) {
-                // plugin has been installed for over 30 days
-                $this->actions['show_donate_box'] = true;
-                wp_enqueue_style('jwl_donate', plugins_url('css/donate.css', __FILE__), array(), '1.0.0', 'all');
-                wp_enqueue_script('jwl_donate', plugins_url('js/donate.js', __FILE__));
-            }
-        }
-		
-		function jwl_donate_popup() {
-            ?>
-            <div id="jwl-donate-box">
-                <div id="jwl-donate-box-content">
-                    <img width="16" height="16" class="jwl-close" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/close.png" alt="X">
-                    <h3><?php _e('Do you enjoy Ultimate Tinymce?','jwl-ultimate-tinymce') ?></h3>
-                    <p><?php _e("I've noticed you've been using Ultimate Tinymce for at least 30 days. This plugin takes me countless hours of work to develop and maintain. If you continue to use it, please consider donating a token of your appreciation!",'jwl-ultimate-tinymce') ?></p>
-                    
-                     <form id= "jwl_donate" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-                     <input type="hidden" name="cmd" value="_s-xclick">
-                     <input type="hidden" name="hosted_button_id" value="A9E5VNRBMVBCS">
-                     <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="margin-top:30px;">
-                     <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                     </form>
-
-                    <p><?php _e('Alternatively, tweet about it so others can find out about Ultimate Tinymce.','jwl-ultimate-tinymce') ?></p>
-
-                    <div style="margin:10px 0; text-align:center;">
-                        <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.plugins.joshlobe.com/" data-text="Showing my appreciation to @joshlobe for his awesome #WordPress plugin: Ultimate Tinymce" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-                    </div>
-                    <a class="jwl-dontshow" href="admin.php?page=ultimate-tinymce&dontshowpopup=1"><?php _e('(do not show me this pop-up again)','jwl-ultimate-tinymce') ?></a>
-                </div>
-            </div>
-            <?php
-        }
-		*/
 		// Register (and Enqueue) our styles only for admin settings page
 		function jwl_admin_register_head_styles() {
     		wp_register_style('dragdrop-css', plugins_url('css/style.css', __FILE__), array(), '1.0.0', 'all'); // Used for future drag and drop interface
@@ -365,8 +204,8 @@ class jwl_metabox_admin {
 		function jwl_admin_register_head_scripts() {
 			$url2 = plugin_dir_url( __FILE__ ) . 'js/pop-up.js';  // Added for popup help javascript
 			echo "<script language='JavaScript' type='text/javascript' src='$url2'></script>\n";  // Added for popup help javascript
-			$url3 = plugin_dir_url( __FILE__ ) . 'js/jscolor/jscolor.js';
-			echo "<script language='JavaScript' type='text/javascript' src='$url3'></script>\n";
+			$url3 = plugin_dir_url( __FILE__ ) . 'js/jscolor/jscolor.js'; // Added for color picker
+			echo "<script language='JavaScript' type='text/javascript' src='$url3'></script>\n"; // added for color picker
 			
 			// Scripts for drag and drop feature (yes, they are all necessary)
 			wp_enqueue_script( 'jquery-ui' );
@@ -425,20 +264,19 @@ class jwl_metabox_admin {
 		
 			//add metaboxes now, all metaboxes registered during load page can be switched off/on at "Screen Options" automatically, nothing special to do therefore
 			// Can use 'normal', 'side', or 'additional' when defining metabox positions
-			add_meta_box('postbox_resources', __('Additional Resources'), array(&$this, 'jwl_postbox_resources'), $this->pagehook, 'side', 'core');
-			add_meta_box('postbox_firefox', __('TinyMCE + Firefox = Best Experience'), array(&$this, 'jwl_postbox_firefox'), $this->pagehook, 'side', 'core');
-			add_meta_box('postbox_vote', __('Please VOTE and click WORKS.'), array(&$this, 'jwl_postbox_vote'), $this->pagehook, 'side', 'core');
-			add_meta_box('postbox_blog', __('Bloggers!!'), array(&$this, 'jwl_postbox_blog'), $this->pagehook, 'side', 'core');
-			add_meta_box('postbox_feedback', __('Feedback'), array(&$this, 'jwl_postbox_feedback'), $this->pagehook, 'side', 'core');
-			add_meta_box('postbox_poll', __('Plugin Poll'), array(&$this, 'jwl_postbox_poll'), $this->pagehook, 'side', 'core');
+			add_meta_box('postbox_resources', __('Additional Resources','jwl-ultimate-tinymce'), array(&$this, 'jwl_postbox_resources'), $this->pagehook, 'side', 'core');
+			add_meta_box('postbox_firefox', __('TinyMCE + Firefox = Best Experience','jwl-ultimate-tinymce'), array(&$this, 'jwl_postbox_firefox'), $this->pagehook, 'side', 'core');
+			add_meta_box('postbox_vote', __('Please VOTE and click WORKS.','jwl-ultimate-tinymce'), array(&$this, 'jwl_postbox_vote'), $this->pagehook, 'side', 'core');
+			add_meta_box('postbox_blog', __('Bloggers!!','jwl-ultimate-tinymce'), array(&$this, 'jwl_postbox_blog'), $this->pagehook, 'side', 'core');
+			add_meta_box('postbox_feedback', __('Feedback','jwl-ultimate-tinymce'), array(&$this, 'jwl_postbox_feedback'), $this->pagehook, 'side', 'core');
+			add_meta_box('postbox_poll', __('Plugin Poll','jwl-ultimate-tinymce'), array(&$this, 'jwl_postbox_poll'), $this->pagehook, 'side', 'core');
 			
-			add_meta_box('jwl_metabox1', __('Buttons Group 1'), array(&$this, 'jwl_buttons_group_1'), $this->pagehook, 'normal', 'core');
-			add_meta_box('jwl_metabox2', __('Buttons Group 2'), array(&$this, 'jwl_buttons_group_2'), $this->pagehook, 'normal', 'core');
-			add_meta_box('jwl_metabox9', __('Other Plugins\' Buttons'), array(&$this, 'jwl_buttons_group_9'), $this->pagehook, 'normal', 'core');
-			add_meta_box('jwl_metabox4', __('Miscellaneous Features'), array(&$this, 'jwl_buttons_group_3'), $this->pagehook, 'normal', 'core');
-			add_meta_box('jwl_metabox5', __('Admin Options'), array(&$this, 'jwl_buttons_group_4'), $this->pagehook, 'normal', 'core');
-			add_meta_box('jwl_metabox6', __('Developer Recommendations'), array(&$this, 'jwl_buttons_group_5'), $this->pagehook, 'normal', 'core');
-			add_meta_box('jwl_metabox7', __('Import/Export Options'), array(&$this, 'jwl_buttons_group_6'), $this->pagehook, 'normal', 'core');
+			add_meta_box('jwl_metabox1', __('Buttons Group 1','jwl-ultimate-tinymce'), array(&$this, 'jwl_buttons_group_1'), $this->pagehook, 'normal', 'core');
+			add_meta_box('jwl_metabox2', __('Buttons Group 2','jwl-ultimate-tinymce'), array(&$this, 'jwl_buttons_group_2'), $this->pagehook, 'normal', 'core');
+			add_meta_box('jwl_metabox9', __('Other Plugins\' Buttons','jwl-ultimate-tinymce'), array(&$this, 'jwl_buttons_group_9'), $this->pagehook, 'normal', 'core');
+			add_meta_box('jwl_metabox4', __('Miscellaneous Features','jwl-ultimate-tinymce'), array(&$this, 'jwl_buttons_group_3'), $this->pagehook, 'normal', 'core');
+			add_meta_box('jwl_metabox5', __('Admin Options','jwl-ultimate-tinymce'), array(&$this, 'jwl_buttons_group_4'), $this->pagehook, 'normal', 'core');
+			add_meta_box('jwl_metabox6', __('Developer Recommendations','jwl-ultimate-tinymce'), array(&$this, 'jwl_buttons_group_5'), $this->pagehook, 'normal', 'core');
 			//add_meta_box('jwl_metabox8', __('Drag and Drop Test'), array(&$this, 'jwl_buttons_group_7'), $this->pagehook, 'normal', 'core');
 		}
 		
@@ -808,15 +646,14 @@ jQuery(document).ready( function($) {
 
     //Hide div w/id jwl_hide
 	if ($("#jwl_qr_code").is(":checked") || $("#jwl_qr_code_pages").is(":checked"))
-        {
-            //show the hidden div
-			$('.jwl_hide').fadeIn('slow', function() {
-            $(".jwl_hide").css("display","block");
-			});
-        }
-	else {
-	$('.jwl_hide').fadeOut('slow', function() {
-    $(".jwl_hide").css("display","none");
+	{
+		//show the hidden div
+		$('.jwl_hide').fadeIn('slow', function() {
+		$(".jwl_hide").css("display","block");
+		});
+	}else {
+		$('.jwl_hide').fadeOut('slow', function() {
+		$(".jwl_hide").css("display","none");
 	});
 	}
     // Add onclick handler to checkbox w/id jwl_qr_code
@@ -827,9 +664,7 @@ jQuery(document).ready( function($) {
         {
             //show the hidden div
             $(".jwl_hide").css("display","block");
-        }
-        else
-        {
+        }else{
             //otherwise, hide it
 			$('.jwl_hide').fadeOut('slow', function() {
             $(".jwl_hide").css("display","none");
@@ -844,15 +679,84 @@ jQuery(document).ready( function($) {
         {
             //show the hidden div
             $(".jwl_hide").css("display","block");
-        }
-        else
-        {
+        }else{
             //otherwise, hide it
 			$('.jwl_hide').fadeOut('slow', function() {
             $(".jwl_hide").css("display","none");
 			});
         }
 		});
+    });
+	$("#jwl_export_group1").click(function(){
+        // If checked
+        if ($("#jwl_export_group1").is(":checked"))
+        {
+            //show the hidden div
+            $(".jwl_hide_group1").css("display","block");
+        }else{
+            //otherwise, hide it
+            $(".jwl_hide_group1").css("display","none");
+        }
+    });
+	$("#jwl_import_group1").click(function(){
+        // If checked
+        if ($("#jwl_import_group1").is(":checked"))
+        {
+            //show the hidden div
+            $(".jwl_hide_import_group1").css("display","block");
+        }else{
+            //otherwise, hide it
+            $(".jwl_hide_import_group1").css("display","none");
+        }
+    });
+	$("#jwl_export_group2").click(function(){
+        // If checked
+        if ($("#jwl_export_group2").is(":checked"))
+        {
+            //show the hidden div
+            $(".jwl_hide_group2").css("display","block");
+        }else{
+            //otherwise, hide it
+            $(".jwl_hide_group2").css("display","none");
+        }
+    });
+	$("#jwl_import_group2").click(function(){
+        // If checked
+        if ($("#jwl_import_group2").is(":checked"))
+        {
+            //show the hidden div
+            $(".jwl_hide_import_group2").css("display","block");
+        }else{
+            //otherwise, hide it
+            $(".jwl_hide_import_group2").css("display","none");
+        }
+    });
+
+});
+</script>
+<script type="text/javascript">
+jQuery(document).ready( function($) {
+	$('select[name="masterBox"]').change(function(){
+	$('.actionList option[value="'+$(this).val()+'"]').attr('selected','selected');
+	});
+	$('select[name="masterBox2"]').change(function(){
+	$('.actionList2 option[value="'+$(this).val()+'"]').attr('selected','selected');
+	});
+	$('select[name="masterBox3"]').change(function(){
+	$('.actionList3 option[value="'+$(this).val()+'"]').attr('selected','selected');
+	});
+});
+</script>
+<script type="text/javascript">
+jQuery(document).ready( function($) {
+    // define the mouseover event for text
+$('.popup').mouseover(function() {
+        $($(this).data("image")).css('display', 'block');
+    });
+
+    // define the mouseout event for text       
+$('.popup').mouseout(function() {
+        $($(this).data("image")).css('display', 'none');
     });
 
 });
@@ -876,49 +780,142 @@ jQuery(document).ready( function($) {
 		}
 		
 		// Below you will find for each registered metabox the callback method, that produces the content inside the boxes
-		function jwl_buttons_group_1($data) {
+		function jwl_buttons_group_1($data) { // Buttons Group One
 			sort($data);
-			?><form action="options.php" method="post" name="jwl_main_options"><?php
-			do_settings_sections('ultimate-tinymce1');
-			settings_fields('jwl_options_group'); ?>
-			<span style="padding-left:10px;"><input type="button" id="allsts" value="Check All"><input type="button" id="nosts" value="UnCheck All"><span style="margin-left:130px;"><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></span></span>
+			?><form action="options.php" method="post" name="jwl_main_options1"><?php
+			do_settings_sections('jwl_options_group1');
+			settings_fields('jwl_options_group1'); ?>
+            
+            <span style="margin-left:15px;"><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;margin-top:40px;" value="<?php _e('Update Buttons Group One Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></span>
+            </form>
+            <div class="bottom_options_content" style="margin-top:30px;padding:10px;background-color:#E6EFEF;border:1px solid #000;border-radius:5px;width:300px;">
+                <span style="padding-left:5px;"><strong><?php _e('Buttons Group One Master Controls:','jwl-ultimate-tinymce'); ?></strong></span><br />
+                <select id="masterBox" name="masterBox" style="width:80px;">
+                <option value="Row 1">Row 1</option><option value="Row 2">Row 2</option>
+                <option value="Row 3">Row 3</option><option value="Row 4">Row 4</option>
+                </select>
+                <input type="button" id="allsts" value="Check All"><input type="button" id="nosts" value="UnCheck All">
+            </div>
+            <div class="bottom_options_content" style="margin-top:30px;padding:10px;background-color:#E6EFEF;border:1px solid #000;border-radius:5px;width:450px;">
+                <div style="float:left;width:200px;">
+                <span style="padding-left:5px;"><strong><?php _e('Export Group One Settings:','jwl-ultimate-tinymce'); ?></strong></span><br />
+                
+                <form>
+                    <br /><input name="jwl_export_group1" id="jwl_export_group1" class="jwl_export_group1" type="checkbox" /><span style="padding-left:10px;">Check to display export box.</span><br /><br />
+                    <textarea id="my_textarea" cols="25" rows="10" class="jwl_hide_group1" style="display:none;" /><?php $export_group1 = get_option('jwl_options_group1'); echo serialize($export_group1); ?></textarea>    
+                </form>
+                </div>
+                <div style="float:left;width:200px;">
+                    <span style="padding-left:5px;"><strong><?php _e('Import Group One Settings:','jwl-ultimate-tinymce'); ?></strong></span><br />
+                    
+                    <form name="export_group1" method="post" action="">
+                        <br /><input name="jwl_import_group1" id="jwl_import_group1" class="jwl_import_group1" type="checkbox" /><span style="padding-left:10px;">Check to display import box.</span><br /><br />
+                        <textarea name="testing" cols="25" rows="10" class="jwl_hide_import_group1" style="display:none;" /></textarea>
+                        <input type="submit" name="jwl_group1_save" value="<?php _e('Import &raquo; &raquo;', 'jwl-ultimate-tinymce' ) ?>" class="button jwl_hide_import_group1" style="display:none;" />
+                    </form>
+                </div>
+                <div style="clear:both;">
+            </div>
+                <em><?php _e('<u>To export</u>, click the box to open dropdown and copy the entire contents.','jwl-ultimate-tinymce'); ?><br /><?php _e('<u>To import</u>, click the dropdown and paste the exported code from another intallation.','jwl-ultimate-tinymce'); ?><br /><?php _e('After importing, the page <strong>MUST</strong> be refreshed for changes to take affect.','jwl-ultimate-tinymce'); ?></em>
+            </div>
+            
+			<?php
+			if (isset($_POST['testing']) || isset($_POST['jwl_group1_save'])) {
+				$testing = $_POST['testing'];
+				$testing2 = stripslashes($testing);
+				$testing3 = unserialize($testing2);
+				update_option('jwl_options_group1', $testing3);
+			}
+		}
+		
+		function jwl_buttons_group_2($data) { // Buttons Group Two
+			sort($data);
+			?><form action="options.php" method="post" name="jwl_main_options2"><?php
+			do_settings_sections('jwl_options_group2');
+			settings_fields('jwl_options_group2'); ?>
+            <span style="margin-left:15px;"><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;margin-top:40px;" value="<?php _e('Update Buttons Group Two Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></span>
+            </form>
+            <div class="bottom_options_content" style="margin-top:30px;padding:10px;background-color:#E6EFEF;border:1px solid #000;border-radius:5px;width:300px;">
+                <span style="padding-left:5px;"><strong><?php _e('Buttons Group Two Master Controls:','jwl-ultimate-tinymce'); ?></strong></span><br />
+                <select id="masterBox2" name="masterBox2" style="width:80px;">
+                <option value="Row 1">Row 1</option><option value="Row 2">Row 2</option>
+                <option value="Row 3">Row 3</option><option value="Row 4">Row 4</option>
+                </select>
+                <input type="button" id="allsts2" value="Check All"><input type="button" id="nosts2" value="UnCheck All">
+            </div>
+            <div class="bottom_options_content" style="margin-top:30px;padding:10px;background-color:#E6EFEF;border:1px solid #000;border-radius:5px;width:450px;">
+                <div style="float:left;width:200px;">
+                <span style="padding-left:5px;"><strong><?php _e('Export Group Two Settings:','jwl-ultimate-tinymce'); ?></strong></span><br />
+                
+                <form>
+                    <br /><input name="jwl_export_group2" id="jwl_export_group2" class="jwl_export_group2" type="checkbox" /><span style="padding-left:10px;">Check to display export box.</span><br /><br />
+                    <textarea id="my_textarea2" cols="25" rows="10" class="jwl_hide_group2" style="display:none;" /><?php $export_group2 = get_option('jwl_options_group2'); echo serialize($export_group2); ?></textarea>    
+                </form>
+                </div>
+                <div style="float:left;width:200px;">
+                    <span style="padding-left:5px;"><strong><?php _e('Import Group Two Settings:','jwl-ultimate-tinymce'); ?></strong></span><br />
+                    
+                    <form name="export_group2" method="post" action="">
+                        <br /><input name="jwl_import_group2" id="jwl_import_group2" class="jwl_import_group2" type="checkbox" /><span style="padding-left:10px;">Check to display import box.</span><br /><br />
+                        <textarea name="testing2" cols="25" rows="10" class="jwl_hide_import_group2" style="display:none;" /></textarea>
+                        <input type="submit" name="jwl_group2_save" value="<?php _e('Import &raquo; &raquo;', 'jwl-ultimate-tinymce' ) ?>" class="button jwl_hide_import_group2" style="display:none;" />
+                    </form>
+                </div>
+                <div style="clear:both;">
+            </div>
+                <em><?php _e('<u>To export</u>, click the box to open dropdown and copy the entire contents.','jwl-ultimate-tinymce'); ?><br /><?php _e('<u>To import</u>, click the dropdown and paste the exported code from another intallation.','jwl-ultimate-tinymce'); ?><br /><?php _e('After importing, the page <strong>MUST</strong> be refreshed for changes to take affect.','jwl-ultimate-tinymce'); ?></em>
+            </div>
+            
+			<?php
+			if (isset($_POST['testing2']) || isset($_POST['jwl_group2_save'])) {
+				$group2_testing = $_POST['testing2'];
+				$group2_testing2 = stripslashes($group2_testing);
+				$group2_testing3 = unserialize($group2_testing2);
+				update_option('jwl_options_group2', $group2_testing3);
+			}
+		}
+		function jwl_buttons_group_9($data) { // Other Plugins Buttons
+			sort($data);
+			?><form action="options.php" method="post" name="jwl_main_options9"><?php
+			do_settings_sections('jwl_options_group9');
+			settings_fields('jwl_options_group9'); ?>
+            <div class="bottom_options_content" style="margin-top:30px;padding:10px;background-color:#E6EFEF;border:1px solid #000;border-radius:5px;width:300px;float:left;">
+            <span style="padding-left:5px;"><strong><?php _e('Other Plugins Buttons Master Controls:','jwl-ultimate-tinymce'); ?></strong></span><br />
+            <select id="masterBox3" name="masterBox3" style="width:80px;">
+            <option value="Row 1">Row 1</option><option value="Row 2">Row 2</option>
+            <option value="Row 3">Row 3</option><option value="Row 4">Row 4</option>
+            </select>
+            </span>
+			<span style="padding-left:10px;margin-top:20px;"><input type="button" id="allsts3" value="Check All"><input type="button" id="nosts3" value="UnCheck All">
+            </div><div style="float:left;margin-top:70px;">
+            <span style="margin-left:60px;"><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Other Plugins Buttons Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></span></span></div><div style="clear:both;"></div>
+            </form>
 			<?php
 		}
-		function jwl_buttons_group_2($data) {
+		function jwl_buttons_group_3($data) { // Miscellaneous Options and Features
 			sort($data);
-			do_settings_sections('ultimate-tinymce2');
-			settings_fields('jwl_options_group'); ?>
-			<span style="padding-left:10px;"><input type="button" id="allsts2" value="Check All"><input type="button" id="nosts2" value="UnCheck All"><span style="margin-left:130px;"><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></span></span>
-			<?php
-		}
-		function jwl_buttons_group_9($data) {
-			sort($data);
-			do_settings_sections('ultimate-tinymce9');
-			settings_fields('jwl_options_group'); ?>
-			<span style="padding-left:10px;"><input type="button" id="allsts3" value="Check All"><input type="button" id="nosts3" value="UnCheck All"><span style="margin-left:130px;"><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></span></span>
-			<?php
-		}
-		function jwl_buttons_group_3($data) {
-			sort($data);
-			do_settings_sections('ultimate-tinymce3');
-			settings_fields('jwl_options_group');
+			?><form action="options.php" method="post" name="jwl_main_options3"><?php
+			do_settings_sections('jwl_options_group3');
+			settings_fields('jwl_options_group3');
 			?>
-			<center><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
+			<center><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;margin-top:40px;" value="<?php _e('Update Miscellaneous Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
+            </form>
 			<?php
 		}
-		function jwl_buttons_group_4($data) {
+		function jwl_buttons_group_4($data) { // Admin Options
 			sort($data);
-			do_settings_sections('ultimate-tinymce4');
-			settings_fields('jwl_options_group');
+			?><form action="options.php" method="post" name="jwl_main_options4"><?php
+			do_settings_sections('jwl_options_group4');
+			settings_fields('jwl_options_group4');
 			?>
-			<center><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
+			<center><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Admin Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
 			</form>
 			<?php
 		}
-		function jwl_buttons_group_5($data) {
+		function jwl_buttons_group_5($data) { // Developer Recommendations
 			sort($data);
-			do_settings_sections('ultimate-tinymce5');
-			settings_fields('jwl_options_group');
+			//do_settings_sections('ultimate-tinymce5');
+			//settings_fields('jwl_options_group');
 			?><br /><br /><div class="main_help_wrapper" style="width:23%;padding:10px;text-align:justify;float:left;">
             <center><a target="_blank" href="http://wordpress.org/extend/plugins/tinymce-templates/"><img class="image_ads" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/templates.png" width="100%" /></a></center><br /><?php
 			_e('TinyMCE Templates: A fantastic plugin designed to provide templates for commonly created posts/pages.','jwl-ultimate-tinymce');?><br /><br /><?php _e('For example, if you always design post/page content following a similar format (margins, paddings, etc.), this plugin will allow you to define a template for insertion into the post/page; which can then be modified to specific needs.','jwl-ultimate-tinymce');
@@ -934,54 +931,8 @@ jQuery(document).ready( function($) {
             <div style="clear:both;"></div>
 			<?php
 		}
-		function jwl_buttons_group_6($data) {
-			sort($data);
-			do_settings_sections('ultimate-tinymce6');
-			settings_fields('jwl_options_group');
-			?>
-                <form name="export_options" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>&jwl_utmce_export=true">
-                <h4><?php _e('Export', 'jwl-ultimate-tinymce' ) ?></h4>
-                    <p><?php _e('Click to download a .seq file with your options.', 'jwl-ultimate-tinymce' ) ?></p>
-                    <p><?php _e('Do NOT change the filename (it is preformatted with the date and time.)', 'jwl-ultimate-tinymce' ) ?></p>
-                    <p id="submitbutton-export">
-                        <input type="hidden" name="jwl_utmce_export" value="true" />
-                        <input type="submit" name="jwl_utmce_save" value="<?php _e('Export &raquo;', 'jwl-ultimate-tinymce' ) ?>" class="button" />
-                    </p>
-                </form>
-                <br />
-                <h4><?php _e('Import', 'jwl-ultimate-tinymce' ) ?></h4>
-                <form name="import_options" enctype="multipart/form-data" method="post" action="?page=<?php echo esc_attr( $_GET['page'] ); ?>">
-                    <?php wp_nonce_field('jwl_utmce_options_nonce'); ?>
-                    <p><?php _e('Select the <em>.seq</em> with your options and click the button below.', 'jwl-ultimate-tinymce' ) ?></p>
-                    <p>
-                        <label for="datei_id"><?php _e('Choose a file from your computer', 'jwl-ultimate-tinymce' ) ?>: </label>
-                        <input name="datei" id="datei_id" type="file" />
-                    </p>
-                    <p id="submitbutton">
-                        <input type="hidden" name="jwl_utmce_options_action" value="jwl_utmce_import" />
-                        <input type="submit" name="jwl_utmce_save" value="<?php _e('Upload and import &raquo; &raquo;', 'jwl-ultimate-tinymce' ) ?>" class="button" />
-                    </p>
-                </form>
-                <br />
-                <h4><?php _e('Clean Up Database', 'jwl-ultimate-tinymce' ) ?></h4>
-                <p><?php _e('Only use if you are upgrading and lost all saved options.', 'jwl-ultimate-tinymce' ) ?><br />
-                <?php _e('This utility will attempt to seek out rogue Ultimate Tinymce database entries and restore them into a single array.', 'jwl-ultimate-tinymce' ) ?></p>
-                <form method="post">
-                <input id="plugin2" name="plugin2" type="hidden" value="ultimate-tinymce/main.php" /> <?php  // The value must match the folder/file of the plugin.
-                if ( isset( $_POST['optimize_database'] ) && ! isset( $_POST['optimize_confirm'] ) ) { 
-                ?><div id="message" class="error">
-                        <p>
-                        <?php _e('You must also check the confirm box before database options will be optimized.','jwl-ultimate-tinymce'); ?>
-                        </p>
-                    </div>
-                  <?php
-                }
-                ?>
-                <input name="optimize_confirm" type="checkbox" value="1" /> <strong><?php _e('Please confirm before proceeding<br /><br />','jwl-ultimate-tinymce'); ?></strong>
-                <input class="button" name="optimize_database" type="submit" value="<?php _e('Optimize Database &raquo; &raquo;','jwl-ultimate-tinymce'); ?>" />
-                </form>
-                <?php
-		}
+		
+		/*
 		function jwl_buttons_group_7($data) {
 			sort($data);
 			do_settings_sections('ultimate-tinymce7');
@@ -1036,6 +987,7 @@ jQuery(document).ready( function($) {
             </div>
 			<?php
 		}
+		*/
 		function jwl_postbox_resources($data) {
 			sort($data);
 			?>
@@ -1134,5 +1086,76 @@ jQuery(document).ready( function($) {
 		}
 }
 $my_jwl_metabox_admin = new jwl_metabox_admin();
+
+$options = get_option('jwl_options_group4');
+$jwl_tinymce_comment = isset($options['jwl_tinymce_comment']);
+if ($jwl_tinymce_comment == "1"){
+
+	if ( ! CUSTOM_TAGS ) {
+				$allowedtags = array( 'a' => array( 'href' => array (), 'title' => array ()), 'abbr' => array( 'title' => array ()), 'acronym' => array( 'title' => array ()), 'b' => array(), 'blockquote' => array( 'cite' => array ()), 'br' => array(), 'cite' => array (), 'code' => array(), 'del' => array( 'datetime' => array ()), 'dd' => array(), 'dl' => array(), 'dt' => array(), 'em' => array (), 'i' => array (), 'img' => array( 'alt' => array (), 'align' => array (), 'border' => array (), 'class' => array (), 'height' => array (), 'hspace' => array (), 'longdesc' => array (), 'vspace' => array (), 'src' => array (), 'style' => array (), 'width' => array ()), 'ins' => array('datetime' => array(), 'cite' => array()), 'li' => array(), 'ol' => array(), 'p' => array(), 'q' => array( 'cite' => array ()), 'strike' => array(), 'strong' => array(), 'sub' => array(), 'sup' => array(), 'u' => array(), 'ul' => array(),
+				);
+	}
+	
+	add_action('wp_print_scripts', 'jwl_comment_tinymce_print_scripts');
+	add_action('wp_head', 'jwl_comment_tinymce_inline');
+	
+	function jwl_comment_tinymce_print_scripts() 
+	{
+		wp_register_script('jwl_comment_tinymce_js', plugin_dir_url( __FILE__ ) . 'js/jwl_comment_tinymce.js', array('jquery'));
+		wp_enqueue_script('jwl_comment_tinymce_js');
+	}
+			
+	function jwl_comment_tinymce_inline()
+	{
+	?>
+	<script tipe="text/javascript">
+	(function(a){a(document).ready(function(){a("#comment,#topic_text,#reply_text,#message_content,#bbp_topic_content,#bbp_reply_content,.wpcf7-textarea").wysiwyg({controls:{bold:{visible:!0},italic:{visible:!0},underline:{visible:!0},strikeThrough:{visible:!0},justifyLeft:{visible:!1},justifyCenter:{visible:!0},justifyRight:{visible:!1},justifyFull:{visible:!0},createLink:{visible:!0},insertImage:{visible:!0},indent:{visible:!0},outdent:{visible:!0},subscript:{visible:!0},superscript:{visible:!0},undo:{visible:!0},redo:{visible:!1},paragraph:{visible:!1},code:{visible:!0},highlight:{visible:!0}, h1:{visible:!1},h2:{visible:!1},h3:{visible:!0},insertOrderedList:{visible:!0},insertUnorderedList:{visible:!0},insertHorizontalRule:{visible:!1},cut:{visible:!1},copy:{visible:!1},paste:{visible:!1},html:{visible:!0},removeFormat:{visible:!0},increaseFontSize:{visible:!0},decreaseFontSize:{visible:!0}}})})})(jQuery);
+	</script>
+	<?php
+			
+		echo '<link rel="stylesheet" type="text/css" href="'.plugin_dir_url( __FILE__ ).'css/jwl_comment_tinymce.css" />';
+	}
+}
+
+global $pagenow;
+if ( 'plugins.php' === $pagenow )
+{
+    // Better update message
+    $file   = basename( __FILE__ );
+    $folder = basename( dirname( __FILE__ ) );
+    $hook = "in_plugin_update_message-{$folder}/{$file}";
+    add_action( $hook, 'your_update_message_cb', 20, 2 );
+}
+
+function your_update_message_cb( $plugin_data, $r )
+{
+    // readme contents
+    //$data       = file_get_contents( 'http://plugins.trac.wordpress.org/browser/ultimate-tinymce/trunk/readme.txt?format=txt' );
+
+    // assuming you've got a Changelog section
+    // @example == Changelog ==
+    //$changelog  = stristr( $data, '== Changelog ==' );
+
+    // assuming you've got a Screenshots section
+    // @example == Screenshots ==
+    //$changelog  = stristr( $changelog, '== Screenshots ==', true );
+
+    // only return for the current & later versions
+	//$plugin_data = get_plugin_data( __FILE__ );
+    //$curr_ver = $plugin_data['Version'];
+    //$curr_ver   = get_plugin_data('Version');
+
+    // assuming you use "= v" to prepend your version numbers
+    // @example = v0.2.1 =
+    //$changelog  = stristr( $changelog, "= {$curr_ver} =" );
+
+    // uncomment the next line to var_export $var contents for dev:
+    # echo '<pre>'.var_export( $plugin_data, false ).'<br />'.var_export( $r, false ).'</pre>';
+
+    // echo stuff....
+    $output = '<span style="margin-left:10px;color:#FF0000;">Please Read Changelog Details Before Upgrading.</span>';
+	
+    return print $output;
+}
 
 ?>
