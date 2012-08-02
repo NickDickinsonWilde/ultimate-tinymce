@@ -568,6 +568,24 @@
 			echo "</select>";
  }
  
+ function jwl_html5_callback_function() {
+	 $options = get_option('jwl_options_group2');
+ 	echo '<input name="jwl_options_group2[jwl_html5_field_id]" id="html5" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_html5_field_id']), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/html5.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:66px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/html5.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+			if (isset($options['jwl_html5_dropdown'])) {
+			$options_html5 = $options['jwl_html5_dropdown'];
+			}		
+			$items_html5 = array("Row 1", "Row 2", "Row 3", "Row 4");
+			echo "<select class='actionList2' id='row' style='width:80px;margin-left:27px;' name='jwl_options_group2[jwl_html5_dropdown][row]'>";
+			foreach($items_html5 as $item_html5) {
+				$selected_html5 = ($options_html5['row']==$item_html5) ? 'selected="selected"' : '';
+				echo "<option value='$item_html5' $selected_html5>$item_html5</option>";
+			}
+			echo "</select>";
+			// NEW FEATURE
+			?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-bottom:-3px;margin-left:10px;" title="New Feature" /><?php
+ }
+ 
  function jwl_media_callback_function() {
 	 $options = get_option('jwl_options_group2');
  	echo '<input name="jwl_options_group2[jwl_media_field_id]" id="media" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_media_field_id']), false ) . ' /> ';
@@ -680,6 +698,42 @@
 			echo "</select>";
  }
  
+ function jwl_loremipsum_callback_function() {
+	 $options = get_option('jwl_options_group2');
+ 	echo '<input name="jwl_options_group2[jwl_loremipsum_field_id]" id="loremipsum" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_loremipsum_field_id']), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/loremipsum.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:66px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/loremipsum.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+			if (isset($options['jwl_loremipsum_dropdown'])) {
+			$options_loremipsum = $options['jwl_loremipsum_dropdown'];
+			}	
+			$items_loremipsum = array("Row 1", "Row 2", "Row 3", "Row 4");
+			echo "<select class='actionList2' id='row' style='width:80px;margin-left:27px;' name='jwl_options_group2[jwl_loremipsum_dropdown][row]'>";
+			foreach($items_loremipsum as $item_loremipsum) {
+				$selected_loremipsum = ($options_loremipsum['row']==$item_loremipsum) ? 'selected="selected"' : '';
+				echo "<option value='$item_loremipsum' $selected_loremipsum>$item_loremipsum</option>";
+			}
+			echo "</select>";
+			// NEW FEATURE
+			?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-bottom:-3px;margin-left:10px;" title="New Feature" /><?php
+ }
+ 
+ function jwl_w3cvalidate_callback_function() {
+	 $options = get_option('jwl_options_group2');
+ 	echo '<input name="jwl_options_group2[jwl_w3cvalidate_field_id]" id="w3cvalidate" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_w3cvalidate_field_id']), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/w3cvalidate.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:66px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/w3cvalidate.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+			if (isset($options['jwl_w3cvalidate_dropdown'])) {
+			$options_w3cvalidate = $options['jwl_w3cvalidate_dropdown'];
+			}	
+			$items_w3cvalidate = array("Row 1", "Row 2", "Row 3", "Row 4");
+			echo "<select class='actionList2' id='row' style='width:80px;margin-left:27px;' name='jwl_options_group2[jwl_w3cvalidate_dropdown][row]'>";
+			foreach($items_w3cvalidate as $item_w3cvalidate) {
+				$selected_w3cvalidate = ($options_w3cvalidate['row']==$item_w3cvalidate) ? 'selected="selected"' : '';
+				echo "<option value='$item_w3cvalidate' $selected_w3cvalidate>$item_w3cvalidate</option>";
+			}
+			echo "</select>";
+			// NEW FEATURE
+			?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-bottom:-3px;margin-left:10px;" title="New Feature" /><?php
+ }
+ 
 // Callback Functions for Other Plugin Buttons
 
  function jwl_wp_photo_album_callback_function() {
@@ -790,6 +844,14 @@
 	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/cursor.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="margin-left:15px;"><em><?php _e('Restore scrollbar position after saving post/page content.','jwl-ultimate-tinymce'); ?></em></span><?php 
  }
  
+ function jwl_toggle_callback_function() {
+	 $options = get_option('jwl_options_group3');
+ 	echo '<input name="jwl_options_group3[jwl_toggle_field_id]" id="toggle" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_toggle_field_id']), false ) . ' /> ';
+	?><span style="margin-left:15px;"><em><?php _e('Removes tab at top of content editor to show/hide all rows.','jwl-ultimate-tinymce'); ?></em></span><?php
+	// NEW FEATURE
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-bottom:-3px;margin-left:10px;" title="New Feature" /><?php
+ }
+ 
  function jwl_signoff_callback_function() {
 	 $options = get_option('jwl_options_group3');
  	echo '<textarea name="jwl_options_group3[jwl_signoff_field_id]" value="" rows="15" class="long-text" style="width:400px; height:100px;">';
@@ -802,7 +864,20 @@
  } 
  
 // Functions for Admin Panel Options
-
+function jwl_tinymce_excerpt_callback_function() {
+	 $options = get_option('jwl_options_group4');
+	echo '<input name="jwl_options_group4[jwl_tinymce_excerpt]" id="jwl_tinymce_excerpt" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_excerpt']), false ) . ' /> ';
+	?><span style="margin-left:15px;"><em><?php _e('Enables Ultimate Tinymce in the excerpt area of Posts.','jwl-ultimate-tinymce'); ?></em></span><?php
+	// NEW FEATURE
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-bottom:-3px;margin-left:10px;" title="New Feature" /><?php
+}
+function jwl_hide_html_tab_callback_function() {
+	 $options = get_option('jwl_options_group4');
+	echo '<input name="jwl_options_group4[jwl_hide_html_tab]" id="hide_html" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_hide_html_tab']), false ) . ' /> ';
+	?><span style="margin-left:15px;"><em><?php _e('Removes the HTML tab from the content editor, rendering it unusuable','jwl-ultimate-tinymce'); ?></em></span><?php
+	// NEW FEATURE
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-bottom:-3px;margin-left:10px;" title="New Feature" /><?php
+}
 function jwl_tinymce_comment_callback_function() {
 	 $options = get_option('jwl_options_group4');
 	echo '<input name="jwl_options_group4[jwl_tinymce_comment]" id="tinymce_comment" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_comment']), false ) . ' /> ';

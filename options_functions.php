@@ -447,6 +447,19 @@ if ($jwl_codemagic_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_
 if ($jwl_codemagic_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_codemagic"); }
 }
 
+function tinymce_add_button_html5($buttons) { 
+$options = get_option('jwl_options_group2');
+$jwl_html5 = isset($options['jwl_html5_field_id']); 
+if ($jwl_html5 == "1") $buttons[] = 'tagwrap'; return $buttons; } 
+$options2 = get_option('jwl_options_group2');
+if (isset($options2['jwl_html5_dropdown']['row'])) {
+$jwl_html5_dropdown2 = $options2['jwl_html5_dropdown']['row'];
+if ($jwl_html5_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_html5"); } 
+if ($jwl_html5_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_html5"); } 
+if ($jwl_html5_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_html5"); }
+if ($jwl_html5_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_html5"); }
+}
+
 function tinymce_add_button_media($buttons) { 
 $options = get_option('jwl_options_group2');
 $jwl_media = isset($options['jwl_media_field_id']); 
@@ -538,8 +551,33 @@ if ($jwl_shortcodes_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce
 if ($jwl_shortcodes_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_shortcodes"); }
 }
 
-// Functions for Other Plugin Buttons
+function tinymce_add_button_loremipsum($buttons) { 
+$options = get_option('jwl_options_group2');
+$jwl_loremipsum = isset($options['jwl_loremipsum_field_id']); 
+if ($jwl_loremipsum == "1") $buttons[] = 'loremipsum'; return $buttons; } 
+$options2 = get_option('jwl_options_group2');
+if (isset($options2['jwl_loremipsum_dropdown']['row'])) {
+$jwl_loremipsum_dropdown2 = $options2['jwl_loremipsum_dropdown']['row'];
+if ($jwl_loremipsum_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_loremipsum"); } 
+if ($jwl_loremipsum_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_loremipsum"); } 
+if ($jwl_loremipsum_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_loremipsum"); }
+if ($jwl_loremipsum_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_loremipsum"); }
+}
 
+function tinymce_add_button_w3cvalidate($buttons) { 
+$options = get_option('jwl_options_group2');
+$jwl_w3cvalidate = isset($options['jwl_w3cvalidate_field_id']); 
+if ($jwl_w3cvalidate == "1") $buttons[] = 'w3cvalidate'; return $buttons; } 
+$options2 = get_option('jwl_options_group2');
+if (isset($options2['jwl_w3cvalidate_dropdown']['row'])) {
+$jwl_w3cvalidate_dropdown2 = $options2['jwl_w3cvalidate_dropdown']['row'];
+if ($jwl_w3cvalidate_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_w3cvalidate"); } 
+if ($jwl_w3cvalidate_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_w3cvalidate"); } 
+if ($jwl_w3cvalidate_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_w3cvalidate"); }
+if ($jwl_w3cvalidate_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_w3cvalidate"); }
+}
+
+// Functions for Other Plugin Buttons
 function tinymce_add_button_wp_photo_album($buttons) { 
 $options = get_option('jwl_options_group9');
 $jwl_wp_photo_album = isset($options['jwl_wp_photo_album_field_id']); 
@@ -552,6 +590,10 @@ if ($jwl_wp_photo_album_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tin
 if ($jwl_wp_photo_album_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_wp_photo_album"); }
 if ($jwl_wp_photo_album_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_wp_photo_album"); }
 }
+
+// Test button
+//function tinymce_add_test_button($buttons) {  $buttons[] = 'tagwrap';  return $buttons;  }
+//add_filter("mce_buttons", "tinymce_add_test_button");
 
 // Add the plugin array for extra features
 function jwl_mce_external_plugins( $jwl_plugin_array ) {
@@ -580,10 +622,43 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['youtubeIframe']  =  plugin_dir_url( __FILE__ ) . 'youtubeIframe/editor_plugin.js';	
 		$jwl_plugin_array['equation']  =  plugin_dir_url( __FILE__ ) . 'equation/editor_plugin.js';
 		$jwl_plugin_array['shortcodes'] = plugin_dir_url(__FILE__) . 'shortcodes/editor_plugin_src.js';
+		$jwl_plugin_array['loremipsum'] = plugin_dir_url(__FILE__) . 'loremipsum/editor_plugin.js';
+		$jwl_plugin_array['w3cvalidate'] = plugin_dir_url(__FILE__) . 'w3cvalidate/editor_plugin.js';	
+		$jwl_plugin_array['toggletoolbars'] = plugin_dir_url(__FILE__) . 'toggletoolbars/editor_plugin.js';
+		$jwl_plugin_array['tagwrap'] = plugin_dir_url(__FILE__) . 'tagwrap/editor_plugin_src.js';
+		
+		// Test plugin array
+		//$jwl_plugin_array['tagwrap'] = plugin_dir_url(__FILE__) . 'tagwrap/editor_plugin_src.js';
 		   
 		return $jwl_plugin_array;
 }
 add_filter( 'mce_external_plugins', 'jwl_mce_external_plugins' );
+
+// Adds toggle to the content editor (actually option removes toggle)
+global $pagenow;
+if ($pagenow=='post.php') {
+	$options_toggle = get_option('jwl_options_group3');
+	$jwl_toggle = isset($options_toggle['jwl_toggle_field_id']); 
+	if ($jwl_toggle == "1") { 
+		function jwl_hide_on_toggle() {
+			?><style type="text/css"> #content_toggle_toolbar { display: none !important; }</style><?php
+		}
+		add_action('admin_head','jwl_hide_on_toggle');
+	}
+}
+
+// Function to hide the HTML tab from the content editor.
+global $pagenow;
+if ($pagenow=='post.php' || ($pagenow == "admin.php" && (isset($_GET['page'])) == 'cleverness-to-do-list') || ($pagenow == "options-general.php" && (isset($_GET['page'])) == 'ultimate-tinymce')) {
+	$options_html = get_option('jwl_options_group4');
+	$jwl_html = isset($options_html['jwl_hide_html_tab']); 
+	if ($jwl_html == "1") {
+		function jwl_hide_on_todo() {
+			?><style type="text/css"> #excerpt-html { display: none !important; } #content-id-html { display: none !important; }  #content-html { display: none !important; } #clevernesstododescription-html { display: none !important; }</style><?php
+		}
+		add_filter('admin_head','jwl_hide_on_todo');
+	}
+}
 
 // Function for removing force reload of tinymce editor
 function jwl_tiny_mce_version($version) { // trick tinymce version number to force update and clear cache
@@ -830,59 +905,89 @@ if ($jwl_cursor == "1") {
 	
 	global $pagenow;
 	if ($pagenow != "widgets.php") {
+		global $pagenow;
+		if (($pagenow != "admin.php") && (isset($_GET['page']) == 'cleverness-to-do-list')) {
 		
-		final class Preserve_Editor_Scroll_Position {
+			final class Preserve_Editor_Scroll_Position {
+			
+			public static function init() {
+				add_filter( 'redirect_post_location', array( __CLASS__, 'add_query_arg' ) );
+				add_action( 'edit_form_advanced', array( __CLASS__, 'add_input_field' ) );
+				add_action( 'edit_page_form', array( __CLASS__, 'add_input_field' ) );
+				add_filter( 'tiny_mce_before_init', array( __CLASS__, 'extend_tiny_mce' ) );
+			}
 		
-		public static function init() {
-			add_filter( 'redirect_post_location', array( __CLASS__, 'add_query_arg' ) );
-			add_action( 'edit_form_advanced', array( __CLASS__, 'add_input_field' ) );
-			add_action( 'edit_page_form', array( __CLASS__, 'add_input_field' ) );
-			add_filter( 'tiny_mce_before_init', array( __CLASS__, 'extend_tiny_mce' ) );
+			public static function add_input_field() {
+				$position = ! empty( $_GET['scrollto'] ) ? $_GET['scrollto'] : 0;
+				printf( '<input type="hidden" id="scrollto" name="scrollto" value="%d"/>', esc_attr( $position ) );
+				add_action( 'admin_print_footer_scripts', array( __CLASS__, 'print_js' ), 55 ); // Print after Editor JS
+			}
+		
+			public static function extend_tiny_mce( $init ) {
+				if ( wp_default_editor() == 'tinymce' )
+					$init['setup'] = 'rich_scroll';
+		
+				return $init;
+			}
+		
+			public static function add_query_arg( $location ) {
+				if( ! empty( $_POST['scrollto'] ) )
+					$location = add_query_arg( 'scrollto', (int) $_POST['scrollto'], $location );
+		
+				return $location;
+			}
+		
+			public static function print_js() {
+				?>
+			<script>
+			( function( $ ) {
+				$( '#post' ).submit( function() {
+					scrollto =
+						$('#content' ).is(':hidden') ?
+						$('#content_ifr').contents().find( 'body' ).scrollTop() :
+						$('#content' ).scrollTop();
+					$( '#scrollto' ).val( scrollto );
+				} );
+				$( '#content' ).scrollTop( $( '#scrollto' ).val() );
+			} )( jQuery );
+			function rich_scroll( ed ) {
+				ed.onInit.add( function() {
+					jQuery( '#content_ifr' ).contents().find( 'body' ).scrollTop( jQuery( '#scrollto' ).val() );
+				} );
+			};
+			</script>
+				<?php
+			}
+			}
+			add_action( 'admin_init', array( 'Preserve_Editor_Scroll_Position', 'init' ) );
 		}
+	}
+}
+
+// Functions for adding Ultimate Tinymce to Excerpt Area
+$options9 = get_option('jwl_options_group4');
+$jwl_tinymce_excerpt = isset($options9['jwl_tinymce_excerpt']);
+if ($jwl_tinymce_excerpt == "1") {
+	add_action( 'admin_init', 'jwl_change_excerpt' );
+	function jwl_change_excerpt() {
+		remove_meta_box('postexcerpt', 'post', 'normal');
+		add_meta_box('postexcerpt', __('Ultimate Tinymce Excerpt'), 'ultimate_tinymce_excerpt_meta_box', 'post', 'normal');
+	}
 	
-		public static function add_input_field() {
-			$position = ! empty( $_GET['scrollto'] ) ? $_GET['scrollto'] : 0;
-			printf( '<input type="hidden" id="scrollto" name="scrollto" value="%d"/>', esc_attr( $position ) );
-			add_action( 'admin_print_footer_scripts', array( __CLASS__, 'print_js' ), 55 ); // Print after Editor JS
-		}
+	function ultimate_tinymce_excerpt_meta_box() {
+		global $wpdb,$post;
+		$tinymce_summary = $wpdb->get_row("SELECT post_excerpt FROM $wpdb->posts WHERE id = '$post->ID'");
+		$post_tinymce_excerpt 	 = $tinymce_summary->post_excerpt;
 	
-		public static function extend_tiny_mce( $init ) {
-			if ( wp_default_editor() == 'tinymce' )
-				$init['setup'] = 'rich_scroll';
-	
-			return $init;
-		}
-	
-		public static function add_query_arg( $location ) {
-			if( ! empty( $_POST['scrollto'] ) )
-				$location = add_query_arg( 'scrollto', (int) $_POST['scrollto'], $location );
-	
-			return $location;
-		}
-	
-		public static function print_js() {
-			?>
-		<script>
-		( function( $ ) {
-			$( '#post' ).submit( function() {
-				scrollto =
-					$('#content' ).is(':hidden') ?
-					$('#content_ifr').contents().find( 'body' ).scrollTop() :
-					$('#content' ).scrollTop();
-				$( '#scrollto' ).val( scrollto );
-			} );
-			$( '#content' ).scrollTop( $( '#scrollto' ).val() );
-		} )( jQuery );
-		function rich_scroll( ed ) {
-			ed.onInit.add( function() {
-				jQuery( '#content_ifr' ).contents().find( 'body' ).scrollTop( jQuery( '#scrollto' ).val() );
-			} );
-		};
-		</script>
-			<?php
-		}
-		}
-		add_action( 'admin_init', array( 'Preserve_Editor_Scroll_Position', 'init' ) );
+		$settings = array(
+						'quicktags' 	=> array('buttons' => 'em,strong,link',),
+						'text_area_name'=> 'excerpt',
+						'quicktags' 	=> true,
+						'tinymce' 		=> true,
+						'editor_css'	=> '<style>#wp-excerpt-editor-container .wp-editor-area{height:150px; width:100%;}</style>'
+						);
+		$id = 'excerpt';
+		wp_editor($post_tinymce_excerpt,$id,$settings);
 	}
 }
 

@@ -65,6 +65,7 @@ function ultimate_tinymce_load_defaults() {
 		$options2['jwl_styleprops_field_id'] = '1';
 		$options2['jwl_code_field_id'] = '1';
 		$options2['jwl_codemagic_field_id'] = '1';
+		$options2['jwl_html5_field_id'] = '1';
 		$options2['jwl_media_field_id'] = '1';
 		$options2['jwl_youtube_field_id'] = '1';
 		$options2['jwl_youtubeIframe_field_id'] = '1';
@@ -73,6 +74,8 @@ function ultimate_tinymce_load_defaults() {
 		$options2['jwl_print_field_id'] = '1';
 		$options2['jwl_cursor_field_id'] = '1';
 		$options2['jwl_shortcodes_field_id'] = '1';
+		$options2['jwl_loremipsum_field_id'] = '1';
+		$options2['jwl_w3cvalidate_field_id'] = '1';
 		
 		$options2['jwl_styleselect_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		$options2['jwl_tableDropdown_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
@@ -88,6 +91,7 @@ function ultimate_tinymce_load_defaults() {
 		$options2['jwl_styleprops_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		$options2['jwl_code_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		$options2['jwl_codemagic_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_html5_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		$options2['jwl_media_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		$options2['jwl_youtube_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		$options2['jwl_youtubeIframe_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
@@ -95,6 +99,8 @@ function ultimate_tinymce_load_defaults() {
 		$options2['jwl_visualchars_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		$options2['jwl_print_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		$options2['jwl_shortcodes_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_loremipsum_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_w3cvalidate_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		
 	$options9 = get_option('jwl_options_group9');
 		$options9['jwl_wp_photo_album_field_id'] = '1';

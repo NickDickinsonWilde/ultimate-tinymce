@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.4.1
-Stable tag: 2.8
+Stable tag: 2.9
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -138,6 +138,35 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 
 == Changelog ==
 
+= 2.9 =
+* 08-01-2012
+
+= New Features =
+* Added a button to check validation of content against w3cvalidator (or you may select a different validator by entering the link).  Validations can be checked using five different options including xhtml 1.1 and xhtml 1.0 strict.
+* Added button used for inserting "dummy" Lorem Ipsum text. This is very handy for anyone just setting up a site; or wanting to test a feature which needs text in the editor. Choose from five different languages (including English!), and also from paragraphs, sentences, or lists.
+* Added new tinymce plugin for inserting any HTML5 compliant html tag. Select the content, push the button, select the tag, and it's automatically wrapped around the selected content.  A PERFECT companion for my premium <a href="http://www.plugins.joshlobe.com/ultimate-tinymce-classes-and-ids/">Classes and ID's</a> plugin.
+* Added toggle buttons to show/hide editor rows during content editing. (can be disabled via admin settings page).
+* Added option (admin settings) to toggle off the HTML tab in the content editor.
+* Tinymce Excerpt Area is back!!  This will add the tinymce visual editor to the post excerpt area.  (Code has been re-written and tested.)
+
+= Tweaks =
+* Changed Shortcodes popup to wrap selected content with selected shortcode... tweaked from "replacing" selected content.
+* Changed import/export functions.  These will create a file to import/export, rather than having to copy settings.
+
+= Bug Fixes =
+* Fixed warning at top of shortcodes popover when wp-debug is set to true.
+* Fixed bug with <a href="http://wordpress.org/extend/plugins/cleverness-to-do-list/">"Cleverness To-Do List"</a> plugin.
+
+
+= Deleted Options =
+* None
+
+= Notes =
+* The excerpt area tinymce should be solid. Next, I'll be looking on how to do this with the comment section area.
+* The HTML5 tags button is my first large tinymce plugin project.  There is a LOT of text, and quite a few files; please feel free to report any issues.
+* I'm probably going to have to re-write the options panel once more.  The issue is with importing/exporting options.  Long story short, I'm learning how to best deal with all the features included with Ultimate Tinymce while still maintaining an easy to use options panel.  This will require updating the settings manually once again. Be sure to watch the changelog for when this will take effect.
+
+
 = 2.8 =
 * 07-25-12
 
@@ -145,7 +174,7 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * This version of the plugin is written with a completely new interface for saving options.  YOU WILL LOSE ALL YOUR SETTINGS, AND THEY WILL NEED TO BE MANUALLY RESET.  I'm sorry.  There is simply no way for me to manually write a function which will move all stored options to the new configuration.
 
 = New Features =
-* NEW SHORTCODES INTERFACE.  I just finished writing this new plugin.  Please let me know how it works for everyone.  (Bottom of Buttons Group Two)
+* NEW SHORTCODES INTERFACE.  I just finished this new plugin.  Please let me know how it works for everyone.  (Bottom of Buttons Group Two)
 * Added option for tinymce in comments field, allowing visitors to leave comments using a lightweight (custom) version of tinymce.
 * Changed QR textbox to a visual editor.  Now content can be added visually with (teeny) tinymce.
 

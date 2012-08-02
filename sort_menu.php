@@ -3,6 +3,6 @@
 
 if (isset($_POST)) { $results = $_POST; } //end switch} //end if
 
-update_option('jwl_test', $results);
+update_option('jwl_options_group7', $results);
 
 ?>
