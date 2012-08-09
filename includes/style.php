@@ -1,4 +1,4 @@
-<?php require_once( dirname( __FILE__ ) .'/../../../../wp-load.php'); ?>
+<?php require_once( ABSPATH .'/wp-load.php'); ?>
 <style type="text/css">
 
 #ultimate-tinymce {

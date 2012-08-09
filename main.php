@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 2.9
+ * @version 3.0
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 2.9
+Version: 3.0
 Author URI: http://joshlobe.com
 
 */
@@ -74,7 +74,8 @@ function jwl_execphp_donate_link($links, $file) {
 		$support_link = '<a target="_blank" href="http://forum.joshlobe.com/member.php?action=register&referrer=1" class="jwl_support" title="Dedicated Ultimate Tinymce Free Support Forum"></a>';
 		$fbook_link = '<a target="_blank" href="http://www.facebook.com/joshlobe" class="jwl_fbook" title="Connect with me on Facebook"></a>';
 		$twitter_link = '<a target="_blank" href="http://twitter.com/#!/joshlobe" class="jwl_twitt" title="Follow me on twitter"></a>';
-		$links[] = $donate_link . ' | ' . $addons_link . ' | ' . $support_link . ' | ' . $fbook_link . ' | ' . $twitter_link; 
+		$ultimate_pro = '<span style="margin-left:20px;"><a target="_blank" href="http://plugins.joshlobe.com/ultimate-tinymce-pro/">Ultimate Tinymce PRO</a></span>';
+		$links[] = $donate_link . ' | ' . $addons_link . ' | ' . $support_link . ' | ' . $fbook_link . ' | ' . $twitter_link . $ultimate_pro; 
 	} 
 	return $links; 
 } add_filter('plugin_row_meta', 'jwl_execphp_donate_link', 10, 2);
@@ -111,10 +112,10 @@ if ($jwl_qr_code == "1") {
 			
 			$options2 = get_option('jwl_options_group4');
 	
-			$content .= '<br /><br /><div style="border:1px solid #ddd;"><div style="height:18px;border:1px solid #ddd;padding:5px;background:#'.$options2['jwl_qr_code_bg'].';color:#'.$options2['jwl_qr_code_text'].';" id="qr_header">';
+			$content .= '<div style="border:1px solid #ddd;margin-top:30px;"><div style="height:18px;border:1px solid #ddd;padding:5px;background:#'.$options2['jwl_qr_code_bg'].';color:#'.$options2['jwl_qr_code_text'].';" id="qr_header">';
 			$content .= '<span style="font-weight:bold;font-size:18px;margin-left:10px;">QR Code - Take this post Mobile!</span>';
 			$content .= '</div><div id="qr_main" style="padding:10px;background:#'.$options2['jwl_qr_code_bg_main'].';color:#'.$options2['jwl_qr_code_text'].';">';
-			$content .= '<div style="float:left;margin-right:20px;width:20%;"><script type="text/javascript">var uri=window.location.href;document.write("<img src=\'http://api.qrserver.com/v1/create-qr-code/?data="+encodeURI(uri)+"&size=100x100\'/>");</script></div>';
+			$content .= '<div style="float:left;margin-right:20px;width:20%;"><script type="text/javascript">var uri=window.location.href;document.write("<img src=\'http://api.qrserver.com/v1/create-qr-code/?data="+encodeURI(uri)+"&size=75x75\'/>");</script></div>';
 			$content .= '<div style="float:left;width:75%;">'.$options2['jwl_qr_code_content'].'</div>';
 			$content .= '<div style="clear:both;"></div>';
 			$content .= '</div></div>';
@@ -133,10 +134,10 @@ if ($jwl_qr_code_pages == "1") {
 			
 			$options3 = get_option('jwl_options_group4');
 	
-			$content .= '<br /><br /><div style="border:1px solid #ddd;"><div style="height:18px;border:1px solid #ddd;padding:5px;background:#'.$options3['jwl_qr_code_bg'].';color:#'.$options3['jwl_qr_code_text'].';" id="qr_header">';
+			$content .= '<div style="border:1px solid #ddd;margin-top:30px;"><div style="height:18px;border:1px solid #ddd;padding:5px;background:#'.$options3['jwl_qr_code_bg'].';color:#'.$options3['jwl_qr_code_text'].';" id="qr_header">';
 			$content .= '<span style="font-weight:bold;font-size:18px;margin-left:10px;">QR Code - Take this post Mobile!</span>';
 			$content .= '</div><div id="qr_main" style="padding:10px;background:#'.$options3['jwl_qr_code_bg_main'].';color:#'.$options3['jwl_qr_code_text'].';">';
-			$content .= '<div style="float:left;margin-right:20px;width:20%;"><script type="text/javascript">var uri=window.location.href;document.write("<img src=\'http://api.qrserver.com/v1/create-qr-code/?data="+encodeURI(uri)+"&size=100x100\'/>");</script></div>';
+			$content .= '<div style="float:left;margin-right:20px;width:20%;"><script type="text/javascript">var uri=window.location.href;document.write("<img src=\'http://api.qrserver.com/v1/create-qr-code/?data="+encodeURI(uri)+"&size=75x75\'/>");</script></div>';
 			$content .= '<div style="float:left;width:75%;">'.$options3['jwl_qr_code_content'].'</div>';
 			$content .= '<div style="clear:both;"></div>';
 			$content .= '</div></div>';
@@ -399,6 +400,17 @@ class jwl_metabox_admin {
 					?>    
                     </div>
                     </div>
+                    
+                    <div id="clickme7" class="content_wrapper_addons" style="margin-top:-10px;"><?php
+					_e('<a target="_blank" title="Ultimate Tinymce PRO" href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/"><span style="font-family:\'Unlock\', cursive;">Ultimate Tinymce PRO</span></a>','jwl-ultimate-tinymce'); ?> <span class="span_hover"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?></span><span style="color:green;margin-left:10px;">NEW!</span>
+                    <div id="me7" style="display:none;margin-top:10px;"><?php
+					_e('Are you using the most advanced WP visual editor available? Get it today!','jwl-ultimate-tinymce');
+					?><br /><br /><center><a target="_blank" href="http://plugins.joshlobe.com/ultimate-tinymce-pro/"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/pro.gif" /></a></center><?php
+					
+					?>    
+                    </div>
+                    </div>
+                    
                     <br />
                     <div style="clear:both"></div>
                     
@@ -586,6 +598,7 @@ jQuery(document).ready( function($) { $(".if-js-closed").removeClass("if-js-clos
 <script type="text/javascript"> jQuery(document).ready( function($) { $("#clickme4").click(function() { $("#me4").animate({ height: "toggle" }, 300 ); }); }); </script>
 <script type="text/javascript"> jQuery(document).ready( function($) { $("#clickme5").click(function() { $("#me5").animate({ height: "toggle" }, 300 ); }); }); </script>
 <script type="text/javascript"> jQuery(document).ready( function($) { $("#clickme6").click(function() { $("#me6").animate({ height: "toggle" }, 300 ); }); }); </script>
+<script type="text/javascript"> jQuery(document).ready( function($) { $("#clickme7").click(function() { $("#me7").animate({ height: "toggle" }, 300 ); }); }); </script>
 <script type="text/javascript">
 jQuery(document).ready( function($){  
     $(".menu > li").click(function(e){ switch(e.target.id){  

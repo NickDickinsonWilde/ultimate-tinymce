@@ -3,12 +3,15 @@ Contributors: josh401
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
-Tested up to: 3.4.1
-Stable tag: 2.9
+Tested up to: 3.5
+Stable tag: 3.0
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
 == Description ==
+
+<a href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/">GO PRO!!</a>  Be sure to check out <a href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/">Ultimate Tinymce PRO</a>.  Offering more advanced features, additional formatting options, and an easier admin interface; <a href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/">Ultimate Tinymce PRO</a> is the final solution for the ultimate WordPress visual editor.
+
 Are you a visual person?  Do the letter combinations "HTML" and "CSS" send you running for the hills; but you still want to create beautiful blogs like the pros?  Then this is the plugin for you!
 
 [youtube http://www.youtube.com/watch?v=01reHnBCAIA]
@@ -37,6 +40,10 @@ Are you a visual person?  Do the letter combinations "HTML" and "CSS" send you r
 <li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/">Ultimate Google Webfonts Addon</a> - Easily add any combination of Google Webfonts to your website without compromising page loading time.  Just copy your code from Google and paste it into this plugin.  The chosen fonts will appear in the dropdown list (rendered properly), your content area, and the front end of the website.</li>
 <li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-advanced-configuration/">Ultimate Tinymce Advanced Configuration</a> - Take total control over the Wordpress tinymce editor.  This plugin will allow you to tweak every known setting for the tinymce editor.</li>
 <li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-custom-styles/">Ultimate Custom Styles Addon</a> - Create custom styles for use in the styles dropdown box; which are rendered in both the editor and the front-end of the website.  Just like my predefined styles plugin, but this one allows you to create your own custom styles.</li>
+</ul>
+
+<strong>Free Ultimate TInymce Addons:</strong><br />
+<ul>
 <li><a href="http://wordpress.org/extend/plugins/custom-welcome-messages/">Custom Welcome Messages</a> - Create custom login and logout pages.  Change the default wordpress login image, title, and link.</li>
 <li><a href="http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/">Ultimate Moods Addon</a> - Add over 50 animated mood smilies to your content.</li>
 </ul>
@@ -137,6 +144,31 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 3.0 =
+* 08-09-2012
+
+= New Features =
+* <a href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/">Ultimate Tinymce PRO</a> is now available.  Get it today for an introductory price!
+
+= Tweaks =
+* Reduced QR Code image from 100x100px to 75x75px.  This reduces screen "real-estate", while still allowing smart devices to recognize the code.
+* Changed "Signoff" textbox to an Ultimate Tinymce textbox.
+* Added link and info box for <a href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/">Ultimate Tinymce PRO</a>.
+
+= Bug Fixes =
+* Fixed warning message if plugin is installed in a subdirectory.
+* Fixed spacing issue of QR Code box under post/page content area.
+* Fixed admin styles not being called on certain installations.
+* Modified the content.css file to prevent interference when used with other plugins who also modify the content_css of tinymce.
+
+
+= Deleted Options =
+* None
+
+= Notes =
+* None
+
 
 = 2.9 =
 * 08-01-2012

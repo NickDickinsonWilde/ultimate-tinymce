@@ -854,11 +854,11 @@
  
  function jwl_signoff_callback_function() {
 	 $options = get_option('jwl_options_group3');
- 	echo '<textarea name="jwl_options_group3[jwl_signoff_field_id]" value="" rows="15" class="long-text" style="width:400px; height:100px;">';
-	if (isset($options['jwl_signoff_field_id'])) {
-		echo $options['jwl_signoff_field_id'];
+ 	if (isset($options['jwl_signoff_field_id'])) {
+	wp_editor( $options["jwl_signoff_field_id"], 'signoff-id', array( 'textarea_name' => 'jwl_options_group[jwl_signoff_field_id]', 'media_buttons' => false ) );
+	} else {
+	wp_editor( 'Setup your signoff text here...', 'signoff-id', array( 'textarea_name' => 'jwl_options_group[jwl_signoff_field_id]', 'media_buttons' => false ) );
 	}
-	echo '</textarea>';
 	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/signoff.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
 	_e('<br />Insert the above code using the <b>[signoff]</b> shortcode within your post.','jwl-ultimate-tinymce');
  } 
