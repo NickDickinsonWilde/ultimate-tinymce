@@ -166,7 +166,7 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * Removed tinymce comment editor.  (Loses focus when replying to comment)
 
 = Notes =
-* Added notice for Pro version signup, and an Affiliate Program link.
+* Added notice for Pro version signup, and an Affiliate Program link (dismissable).
 
 
 = 3.0 =
