@@ -1,4 +1,3 @@
-<?php require_once( ABSPATH .'/wp-load.php'); ?>
 <style type="text/css">
 
 #ultimate-tinymce {

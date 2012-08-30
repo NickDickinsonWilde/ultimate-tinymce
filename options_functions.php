@@ -623,8 +623,7 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['equation']  =  plugin_dir_url( __FILE__ ) . 'equation/editor_plugin.js';
 		$jwl_plugin_array['shortcodes'] = plugin_dir_url(__FILE__) . 'shortcodes/editor_plugin_src.js';
 		$jwl_plugin_array['loremipsum'] = plugin_dir_url(__FILE__) . 'loremipsum/editor_plugin.js';
-		$jwl_plugin_array['w3cvalidate'] = plugin_dir_url(__FILE__) . 'w3cvalidate/editor_plugin.js';	
-		$jwl_plugin_array['toggletoolbars'] = plugin_dir_url(__FILE__) . 'toggletoolbars/editor_plugin.js';
+		$jwl_plugin_array['w3cvalidate'] = plugin_dir_url(__FILE__) . 'w3cvalidate/editor_plugin.js';
 		$jwl_plugin_array['tagwrap'] = plugin_dir_url(__FILE__) . 'tagwrap/editor_plugin_src.js';
 		
 		// Test plugin array
@@ -633,19 +632,6 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		return $jwl_plugin_array;
 }
 add_filter( 'mce_external_plugins', 'jwl_mce_external_plugins' );
-
-// Adds toggle to the content editor (actually option removes toggle)
-global $pagenow;
-if ($pagenow=='post.php') {
-	$options_toggle = get_option('jwl_options_group3');
-	$jwl_toggle = isset($options_toggle['jwl_toggle_field_id']); 
-	if ($jwl_toggle == "1") { 
-		function jwl_hide_on_toggle() {
-			?><style type="text/css"> #content_toggle_toolbar { display: none !important; }</style><?php
-		}
-		add_action('admin_head','jwl_hide_on_toggle');
-	}
-}
 
 // Function to hide the HTML tab from the content editor.
 global $pagenow;

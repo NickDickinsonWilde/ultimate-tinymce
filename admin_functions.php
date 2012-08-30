@@ -1,26 +1,26 @@
 <?php
 
 /* Display a plugin update notice that can be dismissed.  This notice is displayed on all admin pages until dismissed. */
-add_action('admin_notices', 'jwl_admin_notice');
-function jwl_admin_notice() {
+add_action('admin_notices', 'jwl_admin_notice_pro');
+function jwl_admin_notice_pro() {
 	global $current_user ;
 		$user_id = $current_user->ID;
 		/* Check that the user hasn't already clicked to ignore the message */
-	if ( ! get_user_meta($user_id, 'jwl_ignore_notice') ) {
+	if ( ! get_user_meta($user_id, 'jwl_ignore_notice_pro') ) {
 		if ( current_user_can( 'manage_options' ) ) {
 			echo '<div class="updated"><p>';
-			printf(__('<span style="color:green;">Thank you for choosing Ultimate Tinymce.</span><br />Please visit the <a href="admin.php?page=ultimate-tinymce">Ultimate Tinymce Settings Page</a> to begin customization of your editor.<br />If you are upgrading from a previous version, you will need to <a href="admin.php?page=ultimate-tinymce">reconfigure</a> your button row settings.<span style="float:right;"><a href="admin.php?page=ultimate-tinymce%1$s">Hide Notice</a></span>'), '&jwl_nag_ignore=0');
+			printf(__('<span style="color:green;">Thank you for choosing Ultimate Tinymce.</span><br />Interested in checking out the features of the PRO version?  <a target="_blank" href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/">Click Here</a> to view the product page, or <a target="_blank" href="http://www.plugins.joshlobe.com/newsletter/">Sign Up</a> to be notified of updates and feature enhancements.<br />You may even <a target="_blank" href="http://plugins.joshlobe.com/wp-content/plugins/wp-affiliate-platform/affiliates/">Become an Affiliate</a> and earn revenue from referrals.<span style="float:right;"><a href="admin.php?page=ultimate-tinymce%1$s">Hide Notice</a></span>'), '&jwl_nag_ignore_pro=0');
 			echo "</p></div>";
 		}
 	}
 }
-add_action('admin_init', 'jwl_nag_ignore');
-function jwl_nag_ignore() {
+add_action('admin_init', 'jwl_nag_ignore_pro');
+function jwl_nag_ignore_pro() {
 	global $current_user;
 		$user_id = $current_user->ID;
 		/* If user clicks to ignore the notice, add that to their user meta */
-		if ( isset($_GET['jwl_nag_ignore']) && '0' == $_GET['jwl_nag_ignore'] ) {
-			 add_user_meta($user_id, 'jwl_ignore_notice', 'true', true);
+		if ( isset($_GET['jwl_nag_ignore_pro']) && '0' == $_GET['jwl_nag_ignore_pro'] ) {
+			 add_user_meta($user_id, 'jwl_ignore_notice_pro', 'true', true);
 	}
 }
 
@@ -32,10 +32,14 @@ function jwl_change_mce_options($initArray) {
 	$initArray['plugin_insertdate_timeFormat'] = '%I:%M:%S %p';  // added for inserttimedate proper format
 	$initArray['nonbreaking_force_tab'] = true; // Enable tab key inserting three character blank spaces
 	$initArray['wordpress_adv_hidden'] = false; // Always enable kitchen sink upon page refesh
-	    $options = get_option('jwl_options_group');
+	    $options = get_option('jwl_options_group4');
 		$jwl_content_css = isset($options['jwl_content_css']);
 		if ($jwl_content_css == "1") {
-		$initArray['content_css'] = plugin_dir_url( __FILE__ ) . 'css/content.css'; // Change default editor font and styles
+			if (empty($initArray['content_css'])) {
+				$initArray['content_css'] = plugin_dir_url( __FILE__ ) . 'css/content.css'; // Change default editor font and styles
+			} else {
+				$initArray['content_css'] = ',' . plugin_dir_url( __FILE__ ) . 'css/content.css'; // Change default editor font and styles
+			}
 		}
 	
 	return $initArray;
@@ -170,7 +174,7 @@ function register_options_misc_features() {
 	add_settings_section('jwl_setting_section3', '', 'jwl_setting_section_callback_function3', 'jwl_options_group3');
 	
 	// Register Settings for Miscellaneous Features
-	add_settings_field('jwl_tinycolor_css_field_id', __('Change the color of the Editor.','jwl-ultimate-tinymce'), 'jwl_tinycolor_css_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_tinymce_nextpage_field_id', __('Enable NextPage (PageBreak) Button.','jwl-ultimate-tinymce'), 'jwl_tinymce_nextpage_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_postid_field_id', __('Add ID Column to page/post admin list.','jwl-ultimate-tinymce'), 'jwl_postid_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_shortcode_field_id', __('Allow shortcode usage in widget text areas.','jwl-ultimate-tinymce'), 'jwl_shortcode_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_php_widget_field_id', __('Use PHP Text Widget','jwl-ultimate-tinymce'), 'jwl_php_widget_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_linebreak_field_id', __('Enable Line Break Shortcode','jwl-ultimate-tinymce'), 'jwl_linebreak_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_columns_field_id', __('Enable Columns Shortcodes','jwl-ultimate-tinymce'), 'jwl_columns_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_defaults_field_id', __('Enable Advanced Insert/Edit Link Button','jwl-ultimate-tinymce'), 'jwl_defaults_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_div_field_id', __('Enable "Div Clear" Buttons','jwl-ultimate-tinymce'), 'jwl_div_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_autop_field_id', __('Remove <b>p</b> and <b>br</b> tags','jwl-ultimate-tinymce'), 'jwl_autop_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_cursor_field_id', __('Save scrollbar position in editor','jwl-ultimate-tinymce'), 'jwl_cursor_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_toggle_field_id', __('Remove Toggle Button from Editor','jwl-ultimate-tinymce'), 'jwl_toggle_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_signoff_field_id', __('Add a Signoff Shortcode','jwl-ultimate-tinymce'), 'jwl_signoff_callback_function', 'jwl_options_group3', 'jwl_setting_section3');
+	add_settings_field('jwl_tinycolor_css_field_id', __('Change the color of the Editor.','jwl-ultimate-tinymce'), 'jwl_tinycolor_css_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_tinymce_nextpage_field_id', __('Enable NextPage (PageBreak) Button.','jwl-ultimate-tinymce'), 'jwl_tinymce_nextpage_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_postid_field_id', __('Add ID Column to page/post admin list.','jwl-ultimate-tinymce'), 'jwl_postid_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_shortcode_field_id', __('Allow shortcode usage in widget text areas.','jwl-ultimate-tinymce'), 'jwl_shortcode_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_php_widget_field_id', __('Use PHP Text Widget','jwl-ultimate-tinymce'), 'jwl_php_widget_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_linebreak_field_id', __('Enable Line Break Shortcode','jwl-ultimate-tinymce'), 'jwl_linebreak_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_columns_field_id', __('Enable Columns Shortcodes','jwl-ultimate-tinymce'), 'jwl_columns_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_defaults_field_id', __('Enable Advanced Insert/Edit Link Button','jwl-ultimate-tinymce'), 'jwl_defaults_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_div_field_id', __('Enable "Div Clear" Buttons','jwl-ultimate-tinymce'), 'jwl_div_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_autop_field_id', __('Remove <b>p</b> and <b>br</b> tags','jwl-ultimate-tinymce'), 'jwl_autop_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_cursor_field_id', __('Save scrollbar position in editor','jwl-ultimate-tinymce'), 'jwl_cursor_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); add_settings_field('jwl_signoff_field_id', __('Add a Signoff Shortcode','jwl-ultimate-tinymce'), 'jwl_signoff_callback_function', 'jwl_options_group3', 'jwl_setting_section3');
 	
 	register_setting('jwl_options_group3','jwl_options_group3');
 }
@@ -181,7 +185,7 @@ function register_options_admin() {
 	add_settings_section('jwl_setting_section4', '', 'jwl_setting_section_callback_function4', 'jwl_options_group4');
 	
 	// Register Settings for Admin Options
-	add_settings_field('jwl_tinymce_excerpt', __('Enable Ultimate Tinymce Excerpt Area','jwl-ultimate-tinymce'), 'jwl_tinymce_excerpt_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_hide_html_tab', __('Disable content editor HTML tab','jwl-ultimate-tinymce'), 'jwl_hide_html_tab_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_tinymce_comment', __('Enable (lightweight) tinymce in Comments','jwl-ultimate-tinymce'), 'jwl_tinymce_comment_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_dashboard_widget', __('Enable dashboard widget','jwl-ultimate-tinymce'), 'jwl_dashboard_widget_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_admin_bar_link', __('Enable admin bar link','jwl-ultimate-tinymce'), 'jwl_admin_bar_link_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_content_css', __('Enable content.css file','jwl-ultimate-tinymce'), 'jwl_content_css_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_pluginslist_css', __('Disable plugins list css styling','jwl-ultimate-tinymce'), 'jwl_pluginslist_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_tinymce_refresh', __('Disable "force" refresh of tinymce','jwl-ultimate-tinymce'), 'jwl_tinymce_refresh_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_qr_code', __('Enable QR (Quick Response) code on posts','jwl-ultimate-tinymce'), 'jwl_qr_code_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_qr_code_pages', __('Enable QR (Quick Response) code on pages','jwl-ultimate-tinymce'), 'jwl_qr_code_pages_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_qr_code_text', __('','jwl-ultimate-tinymce'), 'jwl_qr_code_text_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_qr_code_bg', __('','jwl-ultimate-tinymce'), 'jwl_qr_code_bg_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_qr_code_bg_main', __('','jwl-ultimate-tinymce'), 'jwl_qr_code_bg_main_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_qr_code_content', __('','jwl-ultimate-tinymce'), 'jwl_qr_code_content_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
+	add_settings_field('jwl_tinymce_excerpt', __('Enable Ultimate Tinymce Excerpt Area','jwl-ultimate-tinymce'), 'jwl_tinymce_excerpt_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_hide_html_tab', __('Disable content editor HTML tab','jwl-ultimate-tinymce'), 'jwl_hide_html_tab_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_dashboard_widget', __('Enable dashboard widget','jwl-ultimate-tinymce'), 'jwl_dashboard_widget_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_admin_bar_link', __('Enable admin bar link','jwl-ultimate-tinymce'), 'jwl_admin_bar_link_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_content_css', __('Enable content.css file','jwl-ultimate-tinymce'), 'jwl_content_css_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_pluginslist_css', __('Disable plugins list css styling','jwl-ultimate-tinymce'), 'jwl_pluginslist_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_tinymce_refresh', __('Disable "force" refresh of tinymce','jwl-ultimate-tinymce'), 'jwl_tinymce_refresh_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_qr_code', __('Enable QR (Quick Response) code on posts','jwl-ultimate-tinymce'), 'jwl_qr_code_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_qr_code_pages', __('Enable QR (Quick Response) code on pages','jwl-ultimate-tinymce'), 'jwl_qr_code_pages_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_qr_code_text', __('','jwl-ultimate-tinymce'), 'jwl_qr_code_text_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_qr_code_bg', __('','jwl-ultimate-tinymce'), 'jwl_qr_code_bg_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_qr_code_bg_main', __('','jwl-ultimate-tinymce'), 'jwl_qr_code_bg_main_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); add_settings_field('jwl_qr_code_content', __('','jwl-ultimate-tinymce'), 'jwl_qr_code_content_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
 	
 	register_setting('jwl_options_group4','jwl_options_group4');
 }

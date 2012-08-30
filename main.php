@@ -1,19 +1,19 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 3.0
+ * @version 3.1
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 3.0
+Version: 3.1
 Author URI: http://joshlobe.com
 
 */
 
-/*  Copyright 2011  Josh Lobe  (email : joshlobe@joshlobe.com)
+/*  Copyright 2012  Josh Lobe  (email : joshlobe@joshlobe.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -75,7 +75,11 @@ function jwl_execphp_donate_link($links, $file) {
 		$fbook_link = '<a target="_blank" href="http://www.facebook.com/joshlobe" class="jwl_fbook" title="Connect with me on Facebook"></a>';
 		$twitter_link = '<a target="_blank" href="http://twitter.com/#!/joshlobe" class="jwl_twitt" title="Follow me on twitter"></a>';
 		$ultimate_pro = '<span style="margin-left:20px;"><a target="_blank" href="http://plugins.joshlobe.com/ultimate-tinymce-pro/">Ultimate Tinymce PRO</a></span>';
-		$links[] = $donate_link . ' | ' . $addons_link . ' | ' . $support_link . ' | ' . $fbook_link . ' | ' . $twitter_link . $ultimate_pro; 
+			$options = get_option('jwl_options_group4');
+			$jwl_pluginslinks = isset($options['jwl_pluginslist_css']);
+			if ($jwl_pluginslinks == "0"){
+				$links[] = $donate_link . ' | ' . $addons_link . ' | ' . $support_link . ' | ' . $fbook_link . ' | ' . $twitter_link . $ultimate_pro; 
+			}
 	} 
 	return $links; 
 } add_filter('plugin_row_meta', 'jwl_execphp_donate_link', 10, 2);
@@ -958,35 +962,7 @@ $('.popup').mouseout(function() { $($(this).data("image")).css('display', 'none'
 }
 $my_jwl_metabox_admin = new jwl_metabox_admin();
 
-$options = get_option('jwl_options_group4');
-$jwl_tinymce_comment = isset($options['jwl_tinymce_comment']);
-if ($jwl_tinymce_comment == "1"){
 
-	if ( ! CUSTOM_TAGS ) {
-				$allowedtags = array( 'a' => array( 'href' => array (), 'title' => array ()), 'abbr' => array( 'title' => array ()), 'acronym' => array( 'title' => array ()), 'b' => array(), 'blockquote' => array( 'cite' => array ()), 'br' => array(), 'cite' => array (), 'code' => array(), 'del' => array( 'datetime' => array ()), 'dd' => array(), 'dl' => array(), 'dt' => array(), 'em' => array (), 'i' => array (), 'img' => array( 'alt' => array (), 'align' => array (), 'border' => array (), 'class' => array (), 'height' => array (), 'hspace' => array (), 'longdesc' => array (), 'vspace' => array (), 'src' => array (), 'style' => array (), 'width' => array ()), 'ins' => array('datetime' => array(), 'cite' => array()), 'li' => array(), 'ol' => array(), 'p' => array(), 'q' => array( 'cite' => array ()), 'strike' => array(), 'strong' => array(), 'sub' => array(), 'sup' => array(), 'u' => array(), 'ul' => array(),
-				);
-	}
-	
-	add_action('wp_print_scripts', 'jwl_comment_tinymce_print_scripts');
-	add_action('wp_head', 'jwl_comment_tinymce_inline');
-	
-	function jwl_comment_tinymce_print_scripts() 
-	{
-		wp_register_script('jwl_comment_tinymce_js', plugin_dir_url( __FILE__ ) . 'js/jwl_comment_tinymce.js', array('jquery'));
-		wp_enqueue_script('jwl_comment_tinymce_js');
-	}
-			
-	function jwl_comment_tinymce_inline()
-	{
-	?>
-	<script tipe="text/javascript">
-	(function(a){a(document).ready(function(){a("#comment,#topic_text,#reply_text,#message_content,#bbp_topic_content,#bbp_reply_content,.wpcf7-textarea").wysiwyg({controls:{bold:{visible:!0},italic:{visible:!0},underline:{visible:!0},strikeThrough:{visible:!0},justifyLeft:{visible:!1},justifyCenter:{visible:!0},justifyRight:{visible:!1},justifyFull:{visible:!0},createLink:{visible:!0},insertImage:{visible:!0},indent:{visible:!0},outdent:{visible:!0},subscript:{visible:!0},superscript:{visible:!0},undo:{visible:!0},redo:{visible:!1},paragraph:{visible:!1},code:{visible:!0},highlight:{visible:!0}, h1:{visible:!1},h2:{visible:!1},h3:{visible:!0},insertOrderedList:{visible:!0},insertUnorderedList:{visible:!0},insertHorizontalRule:{visible:!1},cut:{visible:!1},copy:{visible:!1},paste:{visible:!1},html:{visible:!0},removeFormat:{visible:!0},increaseFontSize:{visible:!0},decreaseFontSize:{visible:!0}}})})})(jQuery);
-	</script>
-	<?php
-			
-		echo '<link rel="stylesheet" type="text/css" href="'.plugin_dir_url( __FILE__ ).'css/jwl_comment_tinymce.css" />';
-	}
-}
 
 global $pagenow;
 if ( 'plugins.php' === $pagenow )
@@ -1028,40 +1004,5 @@ function jwl_update_message_cb( $plugin_data, $r )
 	
     return print $output;
 }
-
-// Functions for hiding the toggle button for rows in the tinymce content editor
-// First show the button, and move to right
-function jwl_show_toggle_button_posts() {
-	?><style type="text/css"> #content_toggle_toolbar_btn {margin-left: auto !important; margin-right: auto !important;} #content_toggle_toolbar {width:100% !important;}</style>
-	<style type="text/css"> #excerpt_toggle_toolbar_btn {margin-left: auto !important; margin-right: auto !important;} #excerpt_toggle_toolbar {width:100% !important;}</style><?php
-}
-add_action( 'admin_head-post.php', 'jwl_show_toggle_button_posts');
-add_action( 'admin_head-post-new.php', 'jwl_show_toggle_button_posts');
-function jwl_show_toggle_button_settings_page() {
-	?><style type="text/css"> #content-id_toggle_toolbar_btn {margin-left: auto !important; margin-right: auto !important;} #content-id_toggle_toolbar {width:100% !important;}</style>
-	<style type="text/css"> #clevernesstododescription_toggle_toolbar_btn {margin-left: auto !important; margin-right: auto !important;} #clevernesstododescription_toggle_toolbar {width:100% !important;}</style><?php
-}
-add_action( 'admin_head', 'jwl_show_toggle_button_settings_page');
-
-// Then, hide button if selected
-function jwl_toggle2_posts() {
-	$options_toggle2 = get_option('jwl_options_group3');
-	$jwl_toggle2 = isset($options_toggle2['jwl_toggle_field_id']); 
-	if ($jwl_toggle2 == "1") {
-		?><style type="text/css"> #excerpt_toggle_toolbar_btn {display: none !important;}</style>
-		<style type="text/css"> #content_toggle_toolbar_btn {display: none !important;}</style><?php
-	}
-}
-add_action( 'admin_head-post.php', 'jwl_toggle2_posts');
-add_action( 'admin_head-post-new.php', 'jwl_toggle2_posts');
-function jwl_toggle2_settings_page() {
-	$options_toggle2 = get_option('jwl_options_group3');
-	$jwl_toggle2 = isset($options_toggle2['jwl_toggle_field_id']); 
-	if ($jwl_toggle2 == "1") {
-		?><style type="text/css"> #content-id_toggle_toolbar_btn {display: none !important;}</style>
-		<style type="text/css"> #clevernesstododescription_toggle_toolbar_btn {display: none !important;}</style><?php
-	}
-}
-add_action( 'admin_head', 'jwl_toggle2_settings_page');
 
 ?>

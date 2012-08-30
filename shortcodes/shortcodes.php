@@ -4,8 +4,8 @@ $file = dirname(__FILE__);
 $file = substr($file, 0, stripos($file, "wp-content") );
 // Added for multisite
 require( $file . "/wp-load.php");
-require( $file . "/wp-admin/admin.php");
-require( $file . "/wp-admin/includes/admin.php");
+//require( $file . "/wp-admin/admin.php");
+//require( $file . "/wp-admin/includes/admin.php");
 // Now we can use Wordpress
 global $shortcode_tags;
 ?>

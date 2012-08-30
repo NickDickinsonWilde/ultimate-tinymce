@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.5
-Stable tag: 3.0
+Stable tag: 3.1
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -144,6 +144,30 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 3.1 =
+* 08-30-2012
+
+= New Features =
+* 
+
+= Tweaks =
+* Re-wrote code for how the editor stylesheet is loaded into the tinymce.  This will help with the editor "breaking" when attempting to add two separate stylesheets to the content editor.
+* Added RTL language support for column shortcode usage.
+
+= Bug Fixes =
+* Fixed bug with "signoff" shortcode not displaying properly.
+* Fixed bug with warning regarding "includes/style.php".
+* Fixed bug when plugins list styling is de-activated.. but still showing custom links in info bar.
+* Fixed bug in shortcode popup window throwing notice.
+
+= Deleted Options =
+* Removed "Toggle Toolbars" option. (Issues when using multiple editor instances)
+* Removed tinymce comment editor.  (Loses focus when replying to comment)
+
+= Notes =
+* Added notice for Pro version signup, and an Affiliate Program link (dismissable).
+
 
 = 3.0 =
 * 08-09-2012

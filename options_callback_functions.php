@@ -844,20 +844,12 @@
 	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/cursor.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="margin-left:15px;"><em><?php _e('Restore scrollbar position after saving post/page content.','jwl-ultimate-tinymce'); ?></em></span><?php 
  }
  
- function jwl_toggle_callback_function() {
-	 $options = get_option('jwl_options_group3');
- 	echo '<input name="jwl_options_group3[jwl_toggle_field_id]" id="toggle" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_toggle_field_id']), false ) . ' /> ';
-	?><span style="margin-left:15px;"><em><?php _e('Removes tab at top of content editor to show/hide all rows.','jwl-ultimate-tinymce'); ?></em></span><?php
-	// NEW FEATURE
-	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-bottom:-3px;margin-left:10px;" title="New Feature" /><?php
- }
- 
  function jwl_signoff_callback_function() {
 	 $options = get_option('jwl_options_group3');
  	if (isset($options['jwl_signoff_field_id'])) {
-	wp_editor( $options["jwl_signoff_field_id"], 'signoff-id', array( 'textarea_name' => 'jwl_options_group[jwl_signoff_field_id]', 'media_buttons' => false ) );
+	wp_editor( $options["jwl_signoff_field_id"], 'signoff-id', array( 'textarea_name' => 'jwl_options_group3[jwl_signoff_field_id]', 'media_buttons' => false ) );
 	} else {
-	wp_editor( 'Setup your signoff text here...', 'signoff-id', array( 'textarea_name' => 'jwl_options_group[jwl_signoff_field_id]', 'media_buttons' => false ) );
+	wp_editor( 'Setup your signoff text here...', 'signoff-id', array( 'textarea_name' => 'jwl_options_group3[jwl_signoff_field_id]', 'media_buttons' => false ) );
 	}
 	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/signoff.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
 	_e('<br />Insert the above code using the <b>[signoff]</b> shortcode within your post.','jwl-ultimate-tinymce');
@@ -877,11 +869,6 @@ function jwl_hide_html_tab_callback_function() {
 	?><span style="margin-left:15px;"><em><?php _e('Removes the HTML tab from the content editor, rendering it unusuable','jwl-ultimate-tinymce'); ?></em></span><?php
 	// NEW FEATURE
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-bottom:-3px;margin-left:10px;" title="New Feature" /><?php
-}
-function jwl_tinymce_comment_callback_function() {
-	 $options = get_option('jwl_options_group4');
-	echo '<input name="jwl_options_group4[jwl_tinymce_comment]" id="tinymce_comment" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_comment']), false ) . ' /> ';
-	?><span style="margin-left:15px;"><em><?php _e('Adds a lightweight custom version of tinymce to the comment field.','jwl-ultimate-tinymce'); ?></em></span><span style="margin-left:15px;" class="popup" id="text1" data-image="#img1"><strong><?php _e('(Hover HERE to Preview!)','jwl-ultimate-tinymce'); ?></strong></span><div class="img" style="display: none" id="img1"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/comment_preview.png" /></div><?php
 }
 function jwl_dashboard_widget_callback_function() {
 	 $options = get_option('jwl_options_group4');
