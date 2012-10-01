@@ -1,19 +1,19 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 3.1
+ * @version 3.2
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 3.1
+Version: 3.2
 Author URI: http://joshlobe.com
 
 */
 
-/*  Copyright 2012  Josh Lobe  (email : joshlobe@joshlobe.com)
+/*  Copyright 2011  Josh Lobe  (email : joshlobe@joshlobe.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -116,7 +116,7 @@ if ($jwl_qr_code == "1") {
 			
 			$options2 = get_option('jwl_options_group4');
 	
-			$content .= '<div style="border:1px solid #ddd;margin-top:30px;"><div style="height:18px;border:1px solid #ddd;padding:5px;background:#'.$options2['jwl_qr_code_bg'].';color:#'.$options2['jwl_qr_code_text'].';" id="qr_header">';
+			$content .= '<div class="jwl_qr_code" style="border:1px solid #ddd;margin-top:30px;"><div style="height:18px;border:1px solid #ddd;padding:5px;background:#'.$options2['jwl_qr_code_bg'].';color:#'.$options2['jwl_qr_code_text'].';" id="qr_header">';
 			$content .= '<span style="font-weight:bold;font-size:18px;margin-left:10px;">QR Code - Take this post Mobile!</span>';
 			$content .= '</div><div id="qr_main" style="padding:10px;background:#'.$options2['jwl_qr_code_bg_main'].';color:#'.$options2['jwl_qr_code_text'].';">';
 			$content .= '<div style="float:left;margin-right:20px;width:20%;"><script type="text/javascript">var uri=window.location.href;document.write("<img src=\'http://api.qrserver.com/v1/create-qr-code/?data="+encodeURI(uri)+"&size=75x75\'/>");</script></div>';
@@ -138,7 +138,7 @@ if ($jwl_qr_code_pages == "1") {
 			
 			$options3 = get_option('jwl_options_group4');
 	
-			$content .= '<div style="border:1px solid #ddd;margin-top:30px;"><div style="height:18px;border:1px solid #ddd;padding:5px;background:#'.$options3['jwl_qr_code_bg'].';color:#'.$options3['jwl_qr_code_text'].';" id="qr_header">';
+			$content .= '<div class="jwl_qr_code" style="border:1px solid #ddd;margin-top:30px;"><div style="height:18px;border:1px solid #ddd;padding:5px;background:#'.$options3['jwl_qr_code_bg'].';color:#'.$options3['jwl_qr_code_text'].';" id="qr_header">';
 			$content .= '<span style="font-weight:bold;font-size:18px;margin-left:10px;">QR Code - Take this post Mobile!</span>';
 			$content .= '</div><div id="qr_main" style="padding:10px;background:#'.$options3['jwl_qr_code_bg_main'].';color:#'.$options3['jwl_qr_code_text'].';">';
 			$content .= '<div style="float:left;margin-right:20px;width:20%;"><script type="text/javascript">var uri=window.location.href;document.write("<img src=\'http://api.qrserver.com/v1/create-qr-code/?data="+encodeURI(uri)+"&size=75x75\'/>");</script></div>';

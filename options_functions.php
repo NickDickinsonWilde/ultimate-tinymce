@@ -264,6 +264,19 @@ if ($jwl_equation_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_a
 if ($jwl_equation_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_equation"); }
 }
 
+function tinymce_add_button_encode($buttons) { 
+$options = get_option('jwl_options_group1');
+$jwl_encode = isset($options['jwl_encode_field_id']); 
+if ($jwl_encode == "1") $buttons[] = 'encode,decode'; return $buttons; } 
+$options2 = get_option('jwl_options_group1');
+if (isset($options2['jwl_encode_dropdown']['row'])) {
+$jwl_encode_dropdown2 = $options2['jwl_encode_dropdown']['row'];
+if ($jwl_encode_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_encode"); } 
+if ($jwl_encode_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_encode"); } 
+if ($jwl_encode_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_encode"); }
+if ($jwl_encode_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_encode"); }
+}
+
 // Functions for Row 4
 function tinymce_add_button_styleselect($buttons) { 
 $options = get_option('jwl_options_group2');
@@ -625,6 +638,7 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['loremipsum'] = plugin_dir_url(__FILE__) . 'loremipsum/editor_plugin.js';
 		$jwl_plugin_array['w3cvalidate'] = plugin_dir_url(__FILE__) . 'w3cvalidate/editor_plugin.js';
 		$jwl_plugin_array['tagwrap'] = plugin_dir_url(__FILE__) . 'tagwrap/editor_plugin_src.js';
+		$jwl_plugin_array['encode'] = plugin_dir_url(__FILE__) . 'encode/editor_plugin_src.js';
 		
 		// Test plugin array
 		//$jwl_plugin_array['tagwrap'] = plugin_dir_url(__FILE__) . 'tagwrap/editor_plugin_src.js';

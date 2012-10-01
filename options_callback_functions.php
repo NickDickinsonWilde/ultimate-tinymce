@@ -341,6 +341,22 @@
 			echo "</select>";
  }
  
+ function jwl_encode_callback_function() {
+	 $options = get_option('jwl_options_group1');
+ 	echo '<input name="jwl_options_group1[jwl_encode_field_id]" id="encode" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_encode_field_id']), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/encode.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:66px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/encode.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+			if (isset($options['jwl_encode_dropdown'])) {
+			$options_encode = $options['jwl_encode_dropdown'];
+			}
+			$items_encode = array("Row 1", "Row 2", "Row 3", "Row 4");
+			echo "<select class='actionList' id='row' style='width:80px;margin-left:27px;' name='jwl_options_group1[jwl_encode_dropdown][row]'>";
+			foreach($items_encode as $item_encode) {
+				$selected_encode = ($options_encode['row']==$item_encode) ? 'selected="selected"' : '';
+				echo "<option value='$item_encode' $selected_encode>$item_encode</option>";
+			}
+			echo "</select>";
+ }
+ 
 // Begin Callback functions for each individual setting registered in code above.
 // Callback Functions for Row 4 Buttons
  
