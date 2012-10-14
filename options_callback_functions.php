@@ -7,6 +7,9 @@
  function jwl_setting_section_callback_function2() {
  	_e('<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong><u>Description</u></strong><span style="margin-left:200px;"><strong><u>Enable</u></strong></span><span style="margin-left:20px;"><strong><u>Image</u></strong></span><span style="margin-left:35px;"><strong><u>Help</u></strong></span><span style="margin-left:20px;"><strong><u>Row Selection</u></strong></span></p>','jwl-ultimate-tinymce');
  }
+ function jwl_setting_section_callback_function8() {
+ 	_e('Over-ride the settings for the content editor (tinymce).<br /><br />Consider this a "last resort".  If nothing else works at making the content editor replicate the front end of the website... these settings will certainly do the trick.<br /><br />','jwl-ultimate-tinymce');
+ }
  function jwl_setting_section_callback_function9() {
  	_e('These options will support other plugins\' buttons, if installed.','jwl-ultimate-tinymce');
  }
@@ -750,6 +753,42 @@
 			?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-bottom:-3px;margin-left:10px;" title="New Feature" /><?php
  }
  
+ function jwl_clker_callback_function() {
+	 $options = get_option('jwl_options_group2');
+ 	echo '<input name="jwl_options_group2[jwl_clker_field_id]" id="clker" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_clker_field_id']), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/clker.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:66px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/clker.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+			if (isset($options['jwl_clker_dropdown'])) {
+			$options_clker = $options['jwl_clker_dropdown'];
+			}	
+			$items_clker = array("Row 1", "Row 2", "Row 3", "Row 4");
+			echo "<select class='actionList2' id='row' style='width:80px;margin-left:27px;' name='jwl_options_group2[jwl_clker_dropdown][row]'>";
+			foreach($items_clker as $item_clker) {
+				$selected_clker = ($options_clker['row']==$item_clker) ? 'selected="selected"' : '';
+				echo "<option value='$item_clker' $selected_clker>$item_clker</option>";
+			}
+			echo "</select>";
+			// NEW FEATURE
+			?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-bottom:-3px;margin-left:10px;" title="New Feature" /><?php
+ }
+ 
+ function jwl_acheck_callback_function() {
+	 $options = get_option('jwl_options_group2');
+ 	echo '<input name="jwl_options_group2[jwl_acheck_field_id]" id="acheck" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_acheck_field_id']), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/acheck.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:66px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/acheck.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+			if (isset($options['jwl_acheck_dropdown'])) {
+			$options_acheck = $options['jwl_acheck_dropdown'];
+			}	
+			$items_acheck = array("Row 1", "Row 2", "Row 3", "Row 4");
+			echo "<select class='actionList2' id='row' style='width:80px;margin-left:27px;' name='jwl_options_group2[jwl_acheck_dropdown][row]'>";
+			foreach($items_acheck as $item_acheck) {
+				$selected_acheck = ($options_acheck['row']==$item_acheck) ? 'selected="selected"' : '';
+				echo "<option value='$item_acheck' $selected_acheck>$item_acheck</option>";
+			}
+			echo "</select>";
+			// NEW FEATURE
+			?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-bottom:-3px;margin-left:10px;" title="New Feature" /><?php
+ }
+ 
 // Callback Functions for Other Plugin Buttons
 
  function jwl_wp_photo_album_callback_function() {
@@ -833,19 +872,19 @@
  function jwl_columns_callback_function() {
 	 $options = get_option('jwl_options_group3');
  	echo '<input name="jwl_options_group3[jwl_columns_field_id]" id="columns" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_columns_field_id']), false ) . ' /> ';
-	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/columns.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="padding-left:10px;"><?php _e('Ex. <b>[one_half]</b>This is the left column.<b>[/one_half]</b> <b>[one_half_last]</b>This is the right column.<b>[/one_half_last]</b>','jwl-ultimate-tinymce');
+	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/columns.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="padding-left:10px;"><?php _e('Use to create magazine-style columns.','jwl-ultimate-tinymce'); ?></span><?php
  }
  
  function jwl_defaults_callback_function() {
 	 $options = get_option('jwl_options_group3');
  	echo '<input name="jwl_options_group3[jwl_defaults_field_id]" id="defaults" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_defaults_field_id']), false ) . ' /> ';
-	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>advlink/advlink.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/advlink.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>advlink/advlink.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/advlink.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="padding-left:10px;"><?php _e('Adds the Advanced Link button to editor.','jwl-ultimate-tinymce'); ?></span><?php
  }
  
  function jwl_div_callback_function() {
 	 $options = get_option('jwl_options_group3');
  	echo '<input name="jwl_options_group3[jwl_div_field_id]" id="div" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_div_field_id']), false ) . ' /> ';
-	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/div_clear.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:10px;"><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/divclear.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/div_clear.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:10px;"><span style="margin-left:5px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/divclear.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><span style="padding-left:10px;"><?php _e('Adds the Clear Div Buttons.','jwl-ultimate-tinymce'); ?></span><?php 
  }
  
  function jwl_autop_callback_function() {
@@ -861,17 +900,19 @@
  }
  
  function jwl_signoff_callback_function() {
-	 $options = get_option('jwl_options_group3');
- 	if (isset($options['jwl_signoff_field_id'])) {
-	wp_editor( $options["jwl_signoff_field_id"], 'signoff-id', array( 'textarea_name' => 'jwl_options_group3[jwl_signoff_field_id]', 'media_buttons' => false ) );
-	} else {
-	wp_editor( 'Setup your signoff text here...', 'signoff-id', array( 'textarea_name' => 'jwl_options_group3[jwl_signoff_field_id]', 'media_buttons' => false ) );
-	}
+	_e('Use the editor below to create content which can be inserted into a post/page using the <b>[signoff]</b> shortcode.','jwl-ultimate-tinymce');
 	?><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/signoff.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
-	_e('<br />Insert the above code using the <b>[signoff]</b> shortcode within your post.','jwl-ultimate-tinymce');
  } 
  
 // Functions for Admin Panel Options
+function jwl_tinymce_add_stylesheet_callback_function() {
+	 $options = get_option('jwl_options_group4');
+	echo '<input name="jwl_options_group4[jwl_tinymce_add_stylesheet]" id="jwl_tinymce_add_stylesheet" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_add_stylesheet']), false ) . ' /> ';
+	?><span style="margin-left:15px;"><em><?php _e('If availble in your theme, loads the editor-style.css file.','jwl-ultimate-tinymce'); ?></em></span><?php
+	// NEW FEATURE
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-bottom:-3px;margin-left:10px;" title="New Feature" />
+	<span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/editor_style.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+}
 function jwl_tinymce_excerpt_callback_function() {
 	 $options = get_option('jwl_options_group4');
 	echo '<input name="jwl_options_group4[jwl_tinymce_excerpt]" id="jwl_tinymce_excerpt" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_excerpt']), false ) . ' /> ';
@@ -958,6 +999,67 @@ function jwl_qr_code_content_callback_function() {
 	} else {
 	wp_editor( 'Use this unique QR (Quick Response) code with your smart device. The code will save the url of this webpage to the device for mobile sharing and storage.', 'content-id', array( 'textarea_name' => 'jwl_options_group4[jwl_qr_code_content]', 'media_buttons' => false, 'tinymce' => array( 'theme_advanced_buttons1' => 'formatselect,forecolor,|,bold,italic,underline,|,bullist,numlist,blockquote,|,justifyleft,justifycenter,justifyright,justifyfull,|,link,unlink,|,spellchecker,wp_adv', 'theme_advanced_buttons3' => '', 'theme_advanced_buttons4' => '' ) ) );
 	}
+}
+
+// Callback functions for the Tinymce Content Editor Over-rides
+function jwl_tinymce_modifications_callback_function() {
+	 $options = get_option('jwl_options_group8');
+ 	echo '<input name="jwl_options_group8[jwl_tinymce_modifications]" id="tinymce_modifications" type="checkbox" value="1" class="eight" ' . checked( 1, isset($options['jwl_tinymce_modifications']), false ) . ' /> ';
+	?><span style="margin-left:15px;"><em><?php _e('Enable','jwl-ultimate-tinymce'); ?></em></span>
+    <span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/tinymce_modify.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+}
+
+function jwl_tinymce_background_color_callback_function() {
+	$options2 = get_option('jwl_options_group8');
+	if (empty($options2['jwl_tinymce_background_color_hex'])) {
+		echo '<input name="jwl_options_group8[jwl_tinymce_background_color_hex]" value="#FFFFFF" id="tinymce_background_color_hex" type="text" />';
+	?><span style="margin-left:15px;"><em><?php _e('Enter Hex Number (ex. #FFFFFF)','jwl-ultimate-tinymce'); ?></em></span><?php 
+	} else {
+		echo '<input name="jwl_options_group8[jwl_tinymce_background_color_hex]" value="'.$options2['jwl_tinymce_background_color_hex'].'" id="tinymce_background_color_hex" type="text" />';
+	?><span style="margin-left:15px;"><em><?php _e('Enter Hex Number (ex. #FFFFFF)','jwl-ultimate-tinymce'); ?></em></span><?php 
+	}
+}
+
+function jwl_tinymce_font_color_callback_function() {
+	$options2 = get_option('jwl_options_group8');
+	if (empty($options2['jwl_tinymce_font_color_hex'])) {
+		echo '<input name="jwl_options_group8[jwl_tinymce_font_color_hex]" value="#000000" id="tinymce_font_color_hex" type="text" />';
+	?><span style="margin-left:15px;"><em><?php _e('Enter Hex Number (ex. #000000)','jwl-ultimate-tinymce'); ?></em></span><?php 
+	} else {
+		echo '<input name="jwl_options_group8[jwl_tinymce_font_color_hex]" value="'.$options2['jwl_tinymce_font_color_hex'].'" id="tinymce_font_color_hex" type="text" />';
+	?><span style="margin-left:15px;"><em><?php _e('Enter Hex Number (ex. #000000)','jwl-ultimate-tinymce'); ?></em></span><?php 
+	}
+}
+
+function jwl_tinymce_fontsize_callback_function() {
+	$options2 = get_option('jwl_options_group8');
+	if (empty($options2['jwl_tinymce_fontsize'])) {
+		echo '<input name="jwl_options_group8[jwl_tinymce_fontsize]" value="13px" id="tinymce_fontsize" type="text" />';
+	?><span style="margin-left:15px;"><em><?php _e('Enter Font Size (ex. 12px, 14pt, 1.2em)','jwl-ultimate-tinymce'); ?></em></span><?php 
+	} else {
+		echo '<input name="jwl_options_group8[jwl_tinymce_fontsize]" value="'.$options2['jwl_tinymce_fontsize'].'" id="tinymce_fontsize" type="text" />';
+	?><span style="margin-left:15px;"><em><?php _e('Enter Font Size (ex. 12px, 14pt, 1.2em)','jwl-ultimate-tinymce'); ?></em></span><?php 
+	}
+}
+
+function jwl_tinymce_font_callback_function() {
+	?><span style="color:#F00;"><em><?php _e('Available Soon in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></em></span><?php
+}
+
+function jwl_tinymce_lineheight_callback_function() {
+	?><span style="color:#F00;"><em><?php _e('Available Soon in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></em></span><?php
+}
+
+function jwl_tinymce_direction_callback_function() {
+	?><span style="color:#F00;"><em><?php _e('Available Soon in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></em></span><?php
+}
+
+function jwl_tinymce_padding_callback_function() {
+	?><span style="color:#F00;"><em><?php _e('Available Soon in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></em></span><?php
+}
+
+function jwl_tinymce_margin_callback_function() {
+	?><span style="color:#F00;"><em><?php _e('Available Soon in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 
 ?>

@@ -590,6 +590,32 @@ if ($jwl_w3cvalidate_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymc
 if ($jwl_w3cvalidate_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_w3cvalidate"); }
 }
 
+function tinymce_add_button_clker($buttons) { 
+$options = get_option('jwl_options_group2');
+$jwl_clker = isset($options['jwl_clker_field_id']); 
+if ($jwl_clker == "1") $buttons[] = 'clker'; return $buttons; } 
+$options2 = get_option('jwl_options_group2');
+if (isset($options2['jwl_clker_dropdown']['row'])) {
+$jwl_clker_dropdown2 = $options2['jwl_clker_dropdown']['row'];
+if ($jwl_clker_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_clker"); } 
+if ($jwl_clker_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_clker"); } 
+if ($jwl_clker_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_clker"); }
+if ($jwl_clker_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_clker"); }
+}
+
+function tinymce_add_button_acheck($buttons) { 
+$options = get_option('jwl_options_group2');
+$jwl_acheck = isset($options['jwl_acheck_field_id']); 
+if ($jwl_acheck == "1") $buttons[] = 'acheck'; return $buttons; } 
+$options2 = get_option('jwl_options_group2');
+if (isset($options2['jwl_acheck_dropdown']['row'])) {
+$jwl_acheck_dropdown2 = $options2['jwl_acheck_dropdown']['row'];
+if ($jwl_acheck_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_acheck"); } 
+if ($jwl_acheck_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_acheck"); } 
+if ($jwl_acheck_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_acheck"); }
+if ($jwl_acheck_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_acheck"); }
+}
+
 // Functions for Other Plugin Buttons
 function tinymce_add_button_wp_photo_album($buttons) { 
 $options = get_option('jwl_options_group9');
@@ -605,7 +631,7 @@ if ($jwl_wp_photo_album_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tin
 }
 
 // Test button
-//function tinymce_add_test_button($buttons) {  $buttons[] = 'tagwrap';  return $buttons;  }
+//function tinymce_add_test_button($buttons) {  $buttons[] = 'google_translations';  return $buttons;  }
 //add_filter("mce_buttons", "tinymce_add_test_button");
 
 // Add the plugin array for extra features
@@ -639,9 +665,11 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['w3cvalidate'] = plugin_dir_url(__FILE__) . 'w3cvalidate/editor_plugin.js';
 		$jwl_plugin_array['tagwrap'] = plugin_dir_url(__FILE__) . 'tagwrap/editor_plugin_src.js';
 		$jwl_plugin_array['encode'] = plugin_dir_url(__FILE__) . 'encode/editor_plugin_src.js';
+		$jwl_plugin_array['clker'] = plugin_dir_url(__FILE__) . 'clker/editor_plugin.js';
+		$jwl_plugin_array['acheck'] = plugin_dir_url(__FILE__) . 'acheck/editor_plugin.js';
 		
 		// Test plugin array
-		//$jwl_plugin_array['tagwrap'] = plugin_dir_url(__FILE__) . 'tagwrap/editor_plugin_src.js';
+		//$jwl_plugin_array['google_translations'] = plugin_dir_url(__FILE__) . 'google_translations/editor_plugin.js';
 		   
 		return $jwl_plugin_array;
 }
@@ -990,5 +1018,62 @@ if ($jwl_tinymce_excerpt == "1") {
 		wp_editor($post_tinymce_excerpt,$id,$settings);
 	}
 }
+
+// Functions to load stylesheet from front-end of website into ultimate tinymce content editor.
+$options10 = get_option('jwl_options_group4');
+$jwl_style = isset($options10['jwl_tinymce_add_stylesheet']);
+
+if ($jwl_style == "1") {
+	
+	function jwl_add_stylesheet($jwl_style_init) {
+		
+		$style_uri = get_stylesheet_directory_uri().'/editor-style.css';
+		
+		if (empty($jwl_style_init['content_css'])) {
+			$jwl_style_init['content_css'] = $style_uri;
+		} else {
+			$jwl_style_init['content_css'] = ','.$style_uri;
+		}
+		
+		return $jwl_style_init;
+	}
+	add_filter('tiny_mce_before_init', 'jwl_add_stylesheet');
+}
+
+// Functions for tinymce overrides
+$option_tmce_overrides = get_option('jwl_options_group8');
+if (isset($option_tmce_overrides['jwl_tinymce_modifications'])) {
+	function jwl_modify_tmce ($jwl_tmce_modifications) {
+		
+		$my_var = WP_PLUGIN_DIR."/ultimate-tinymce/css/mce_modify.css";
+		
+		$jwl_mce_background_color = get_option('jwl_options_group8');
+		$jwl_mce_background_color2 = $jwl_mce_background_color['jwl_tinymce_background_color_hex'];
+		
+		$jwl_mce_font_color = get_option('jwl_options_group8');
+		$jwl_mce_font_color2 = $jwl_mce_font_color['jwl_tinymce_font_color_hex'];
+		
+		$jwl_mce_fontsize = get_option('jwl_options_group8');
+		$jwl_mce_fontsize2 = $jwl_mce_fontsize['jwl_tinymce_fontsize'];
+
+		$p=".mceContentBody {background-color:".$jwl_mce_background_color2." !important; color:".$jwl_mce_font_color2." !important;}\np {font-size:".$jwl_mce_fontsize2." !important;}\n";
+		$a = fopen($my_var, 'w');
+		fwrite($a, $p);
+		fclose($a);
+		chmod($my_var, 0644);
+		
+		$style_uri = plugin_dir_url(__FILE__) . 'css/mce_modify.css';
+		
+		if (empty($jwl_tmce_modifications['content_css'])) {
+			$jwl_tmce_modifications['content_css'] = $style_uri;
+		} else {
+			$jwl_tmce_modifications['content_css'] .= ','.$style_uri;
+		}
+		
+		return $jwl_tmce_modifications;
+	}
+	add_filter('tiny_mce_before_init', 'jwl_modify_tmce');
+}
+
 
 ?>

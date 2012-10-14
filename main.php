@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 3.2
+ * @version 3.3
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 3.2
+Version: 3.3
 Author URI: http://joshlobe.com
 
 */
@@ -282,6 +282,7 @@ class jwl_metabox_admin {
 			add_meta_box('jwl_metabox9', __('Other Plugins\' Buttons','jwl-ultimate-tinymce'), array(&$this, 'jwl_buttons_group_9'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox4', __('Miscellaneous Features','jwl-ultimate-tinymce'), array(&$this, 'jwl_buttons_group_3'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox5', __('Admin Options','jwl-ultimate-tinymce'), array(&$this, 'jwl_buttons_group_4'), $this->pagehook, 'normal', 'core');
+			add_meta_box('jwl_metabox8', __('Content Editor (Tinymce) Over-rides','jwl-ultimate-tinymce'), array(&$this, 'jwl_buttons_group_8'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox6', __('Developer Recommendations','jwl-ultimate-tinymce'), array(&$this, 'jwl_buttons_group_5'), $this->pagehook, 'normal', 'core');
 			//add_meta_box('jwl_metabox7', __('Drag and Drop Test'), array(&$this, 'jwl_buttons_group_7'), $this->pagehook, 'normal', 'core');
 		}
@@ -559,7 +560,7 @@ class jwl_metabox_admin {
 		    /* Check that the user hasn't already clicked to ignore themefuse */
 	        if ( ! get_user_meta($user_id, 'jwl_ignore_notice_themefuse') ) {
 				?>
-            	<div style="height:160px;width:99%;margin-bottom:10px;margin-top:0px;" class="main_help_wrapper">
+            	<div style="height:180px;width:99%;margin-bottom:10px;margin-top:0px;" class="main_help_wrapper">
                 	<div style="float:left;width:30%;">
                     <a target="_blank" href="http://themefuse.com/wp-themes-shop/?plugin=ultimate-tiny-mce">
                     <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/themefuse.png" width="100%" />
@@ -746,6 +747,16 @@ $('.popup').mouseout(function() { $($(this).data("image")).css('display', 'none'
 				update_option('jwl_options_group2', $group2_testing3);
 			}
 		}
+		function jwl_buttons_group_8($data) { // Miscellaneous Options and Features
+			sort($data);
+			?><form action="options.php" method="post" name="jwl_main_options8"><?php
+			do_settings_sections('jwl_options_group8');
+			settings_fields('jwl_options_group8');
+			?>
+			<center><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;margin-top:40px;" value="<?php _e('Update Tinymce Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
+            </form>
+			<?php
+		}
 		function jwl_buttons_group_9($data) { // Other Plugins Buttons
 			sort($data);
 			?><form action="options.php" method="post" name="jwl_main_options9"><?php
@@ -769,6 +780,14 @@ $('.popup').mouseout(function() { $($(this).data("image")).css('display', 'none'
 			?><form action="options.php" method="post" name="jwl_main_options3"><?php
 			do_settings_sections('jwl_options_group3');
 			settings_fields('jwl_options_group3');
+			
+			$options = get_option('jwl_options_group3');
+			if (isset($options['jwl_signoff_field_id'])) {
+			wp_editor( $options["jwl_signoff_field_id"], 'signoff-id', array( 'textarea_name' => 'jwl_options_group3[jwl_signoff_field_id]', 'media_buttons' => false ) );
+			} else {
+			wp_editor( 'Setup your signoff text here...', 'signoff-id', array( 'textarea_name' => 'jwl_options_group3[jwl_signoff_field_id]', 'media_buttons' => false ) );
+			}
+			
 			?>
 			<center><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;margin-top:40px;" value="<?php _e('Update Miscellaneous Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
             </form>

@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.5
-Stable tag: 3.2
+Stable tag: 3.3
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -145,6 +145,22 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 3.3 =
+* 10-14-2012
+
+= New Metabox Panel =
+* Added a new options panel for over-riding tinymce settings (Content Editor Tinymce Over-Rides).  This will allow you to choose a default background color, font color, etc. to use in the content editor.  Please read the included help file before using these options.
+* These options do nothing to the front-end of the website... they only modify the CSS used in the tinymce content editor.
+
+= New Features =
+* Added addon for checking web accessibility of html page.
+* Added addon for using Clker's open-source, free clip-art galleries.
+
+= Tweaks =
+* Fixed tinymce box used for shortcodes "shifting" content to the left of the metabox.
+* Fixed spacing of some admin boxes on certain screen resolutions.
+
 
 = 3.2 =
 * 10-01-2012
