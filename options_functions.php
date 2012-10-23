@@ -277,6 +277,45 @@ if ($jwl_encode_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add
 if ($jwl_encode_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_encode"); }
 }
 
+function tinymce_add_button_directionality($buttons) { 
+$options = get_option('jwl_options_group1');
+$jwl_directionality = isset($options['jwl_directionality_field_id']); 
+if ($jwl_directionality == "1") $buttons[] = 'ltr,rtl'; return $buttons; } 
+$options2 = get_option('jwl_options_group1');
+if (isset($options2['jwl_directionality_dropdown']['row'])) {
+$jwl_directionality_dropdown2 = $options2['jwl_directionality_dropdown']['row'];
+if ($jwl_directionality_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_directionality"); } 
+if ($jwl_directionality_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_directionality"); } 
+if ($jwl_directionality_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_directionality"); }
+if ($jwl_directionality_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_directionality"); }
+}
+
+function tinymce_add_button_ezimage($buttons) { 
+$options = get_option('jwl_options_group1');
+$jwl_ezimage = isset($options['jwl_ezimage_field_id']); 
+if ($jwl_ezimage == "1") $buttons[] = 'ezimage'; return $buttons; } 
+$options2 = get_option('jwl_options_group1');
+if (isset($options2['jwl_ezimage_dropdown']['row'])) {
+$jwl_ezimage_dropdown2 = $options2['jwl_ezimage_dropdown']['row'];
+if ($jwl_ezimage_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_ezimage"); } 
+if ($jwl_ezimage_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_ezimage"); } 
+if ($jwl_ezimage_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_ezimage"); }
+if ($jwl_ezimage_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_ezimage"); }
+}
+
+function tinymce_add_button_images($buttons) { 
+$options = get_option('jwl_options_group1');
+$jwl_images = isset($options['jwl_images_field_id']); 
+if ($jwl_images == "1") $buttons[] = 'images'; return $buttons; } 
+$options2 = get_option('jwl_options_group1');
+if (isset($options2['jwl_images_dropdown']['row'])) {
+$jwl_images_dropdown2 = $options2['jwl_images_dropdown']['row'];
+if ($jwl_images_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_images"); } 
+if ($jwl_images_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_images"); } 
+if ($jwl_images_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_images"); }
+if ($jwl_images_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_images"); }
+}
+
 // Functions for Row 4
 function tinymce_add_button_styleselect($buttons) { 
 $options = get_option('jwl_options_group2');
@@ -631,7 +670,7 @@ if ($jwl_wp_photo_album_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tin
 }
 
 // Test button
-//function tinymce_add_test_button($buttons) {  $buttons[] = 'google_translations';  return $buttons;  }
+//function tinymce_add_test_button($buttons) {  $buttons[] = 'images';  return $buttons;  }
 //add_filter("mce_buttons", "tinymce_add_test_button");
 
 // Add the plugin array for extra features
@@ -667,9 +706,12 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['encode'] = plugin_dir_url(__FILE__) . 'encode/editor_plugin_src.js';
 		$jwl_plugin_array['clker'] = plugin_dir_url(__FILE__) . 'clker/editor_plugin.js';
 		$jwl_plugin_array['acheck'] = plugin_dir_url(__FILE__) . 'acheck/editor_plugin.js';
+		$jwl_plugin_array['directionality'] = plugin_dir_url(__FILE__) . 'directionality/editor_plugin.js';
+		$jwl_plugin_array['ezimage'] = plugin_dir_url(__FILE__) . 'ezimage/editor_plugin.js';
+		$jwl_plugin_array['images'] = plugin_dir_url(__FILE__) . 'images/editor_plugin.js';  // Image Manager
 		
 		// Test plugin array
-		//$jwl_plugin_array['google_translations'] = plugin_dir_url(__FILE__) . 'google_translations/editor_plugin.js';
+		//$jwl_plugin_array['images'] = plugin_dir_url(__FILE__) . 'images/editor_plugin.js';
 		   
 		return $jwl_plugin_array;
 }
@@ -1074,6 +1116,16 @@ if (isset($option_tmce_overrides['jwl_tinymce_modifications'])) {
 	}
 	add_filter('tiny_mce_before_init', 'jwl_modify_tmce');
 }
+
+// Function to make directory for iBrowser files
+$target1 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce';
+$target2 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr';
+$target3 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr/images';
+$target4 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr/files';
+wp_mkdir_p( $target1 );
+wp_mkdir_p( $target2 );
+wp_mkdir_p( $target3 );
+wp_mkdir_p( $target4 );
 
 
 ?>

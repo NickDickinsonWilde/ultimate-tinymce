@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 3.3
+ * @version 3.4
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 3.3
+Version: 3.4
 Author URI: http://joshlobe.com
 
 */
@@ -798,6 +798,7 @@ $('.popup').mouseout(function() { $($(this).data("image")).css('display', 'none'
 			?><form action="options.php" method="post" name="jwl_main_options4"><?php
 			do_settings_sections('jwl_options_group4');
 			settings_fields('jwl_options_group4');
+			
 			?>
 			<center><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Admin Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
 			</form>

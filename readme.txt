@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.5
-Stable tag: 3.3
+Stable tag: 3.4
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -145,6 +145,19 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 3.4 =
+* 10-23-2012
+
+= New Features =
+* Added sub-plugin which allows selectable text directions in the content editor.
+* Added new plugin for additional image manipulation (EZ Image Button).
+* Added new plugin for managing an entirely new image system (Advanced Image Manager).  This plugin will allow users to create unlimited directories and sub-directories for storing images, and inserting them quickly into the tinymce editor.  Please read the included help file for more information.
+
+= Tweaks =
+* Updated Japanese language file.
+* Re-worded the options under "Miscellaneous Settings".
+
 
 = 3.3 =
 * 10-14-2012
