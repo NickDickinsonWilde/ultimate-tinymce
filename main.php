@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 3.4
+ * @version 3.5
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 3.4
+Version: 3.5
 Author URI: http://joshlobe.com
 
 */
@@ -83,17 +83,6 @@ function jwl_execphp_donate_link($links, $file) {
 	} 
 	return $links; 
 } add_filter('plugin_row_meta', 'jwl_execphp_donate_link', 10, 2);
-
-// Function added to permanently dismiss themefuse box
-add_action('admin_init', 'jwl_nag_ignore_themefuse');
-function jwl_nag_ignore_themefuse() {
-	global $current_user;
-	$user_id = $current_user->ID;
-	/* If user clicks to ignore the themefuse, add that to their user meta */
-	if ( isset($_GET['jwl_nag_ignore_themefuse']) && '0' == $_GET['jwl_nag_ignore_themefuse'] ) {
-		add_user_meta($user_id, 'jwl_ignore_notice_themefuse', 'true', true);
-	}
-}
 
 // Check WP Version and generate update notice if necessary
 if ( ! isset($GLOBALS['wp_version']) || version_compare($GLOBALS['wp_version'], '3.3.1', '<') ) { // if less than ...
@@ -178,12 +167,14 @@ class jwl_metabox_admin {
 		}
 		
 		//for WordPress 2.8 we have to tell, that we support 2 columns !
+		
 		function jwl_on_screen_layout_columns($columns, $screen) {
 			if ($screen == $this->pagehook) {
-				$columns[$this->pagehook] = 2;
+				$columns[$this->pagehook] = 0;
 			}
 			return $columns;
 		}
+		
 		
 		//extend the admin menu
 		function jwl_on_admin_menu() {
@@ -200,8 +191,6 @@ class jwl_metabox_admin {
 		
 		// Register (and Enqueue) our styles only for admin settings page
 		function jwl_admin_register_head_styles() {
-    		wp_register_style('dragdrop-css', plugins_url('css/style.css', __FILE__), array(), '1.0.0', 'all'); // Used for future drag and drop interface
-    		wp_enqueue_style('dragdrop-css');
     		wp_register_style('admin-panel-css', plugins_url('css/admin_panel.css', __FILE__), array(), '1.0.0', 'all');  // Used for all css for admin panel presentation
     		wp_enqueue_style('admin-panel-css');
 			echo "<link href='http://fonts.googleapis.com/css?family=Unlock' rel='stylesheet' type='text/css'>"; // Added for title font
@@ -212,25 +201,6 @@ class jwl_metabox_admin {
 			echo "<script language='JavaScript' type='text/javascript' src='$url2'></script>\n";  // Added for popup help javascript
 			$url3 = plugin_dir_url( __FILE__ ) . 'js/jscolor/jscolor.js'; // Added for color picker
 			echo "<script language='JavaScript' type='text/javascript' src='$url3'></script>\n"; // added for color picker
-			
-			// Scripts for drag and drop feature (yes, they are all necessary)
-			wp_enqueue_script( 'jquery-ui' );
-			wp_enqueue_script( 'jquery-ui-core' );
-			wp_enqueue_script( 'jquery-ui-widget' );
-			wp_enqueue_script( 'jquery-ui-mouse' );
-			wp_enqueue_script( 'jquery-ui-sortable' );
-			wp_enqueue_script( 'jquery-ui-draggable' );
-			wp_enqueue_script( 'jquery-ui-droppable' );
-			wp_enqueue_script( 'jquery-ui-accordion' );
-			wp_enqueue_script( 'jwl-drag-drop', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/jwl-drag-drop.js', array( 'jquery', 'jquery-ui-core' ) );
-			
-			?>
-            <script type="text/javascript">
-			//<![CDATA[
-				var jwl_plugin_url = '<?php echo trailingslashit( plugin_dir_url( __FILE__ ) ); ?>';
-			//]]>
-			</script>
-            <?php
 			
 		}
 		// Creates the help tab at the top right of the admin settings page
@@ -270,12 +240,6 @@ class jwl_metabox_admin {
 		
 			//add metaboxes now, all metaboxes registered during load page can be switched off/on at "Screen Options" automatically, nothing special to do therefore
 			// Can use 'normal', 'side', or 'additional' when defining metabox positions
-			add_meta_box('postbox_resources', __('Additional Resources','jwl-ultimate-tinymce'), array(&$this, 'jwl_postbox_resources'), $this->pagehook, 'side', 'core');
-			add_meta_box('postbox_firefox', __('TinyMCE + Firefox = Best Experience','jwl-ultimate-tinymce'), array(&$this, 'jwl_postbox_firefox'), $this->pagehook, 'side', 'core');
-			add_meta_box('postbox_vote', __('Please VOTE and click WORKS.','jwl-ultimate-tinymce'), array(&$this, 'jwl_postbox_vote'), $this->pagehook, 'side', 'core');
-			add_meta_box('postbox_blog', __('Bloggers!!','jwl-ultimate-tinymce'), array(&$this, 'jwl_postbox_blog'), $this->pagehook, 'side', 'core');
-			add_meta_box('postbox_feedback', __('Feedback','jwl-ultimate-tinymce'), array(&$this, 'jwl_postbox_feedback'), $this->pagehook, 'side', 'core');
-			add_meta_box('postbox_poll', __('Plugin Poll','jwl-ultimate-tinymce'), array(&$this, 'jwl_postbox_poll'), $this->pagehook, 'side', 'core');
 			
 			add_meta_box('jwl_metabox1', __('Buttons Group 1','jwl-ultimate-tinymce'), array(&$this, 'jwl_buttons_group_1'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox2', __('Buttons Group 2','jwl-ultimate-tinymce'), array(&$this, 'jwl_buttons_group_2'), $this->pagehook, 'normal', 'core');
@@ -283,14 +247,12 @@ class jwl_metabox_admin {
 			add_meta_box('jwl_metabox4', __('Miscellaneous Features','jwl-ultimate-tinymce'), array(&$this, 'jwl_buttons_group_3'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox5', __('Admin Options','jwl-ultimate-tinymce'), array(&$this, 'jwl_buttons_group_4'), $this->pagehook, 'normal', 'core');
 			add_meta_box('jwl_metabox8', __('Content Editor (Tinymce) Over-rides','jwl-ultimate-tinymce'), array(&$this, 'jwl_buttons_group_8'), $this->pagehook, 'normal', 'core');
-			add_meta_box('jwl_metabox6', __('Developer Recommendations','jwl-ultimate-tinymce'), array(&$this, 'jwl_buttons_group_5'), $this->pagehook, 'normal', 'core');
-			//add_meta_box('jwl_metabox7', __('Drag and Drop Test'), array(&$this, 'jwl_buttons_group_7'), $this->pagehook, 'normal', 'core');
 		}
 		
 		//executed to show the plugins complete admin page
 		function jwl_options_page() {
 			//we need the global screen column value to beable to have a sidebar in WordPress 2.8
-			global $screen_layout_columns;
+			//global $screen_layout_columns;
 			//add a 3rd content box now for demonstration purpose, boxes added at start of page rendering can't be switched on/off, 
 			//may be needed to ensure that a special box is always available
 			//add_meta_box('postbox_addons', 'Plugin Addons', array(&$this, 'postbox_addons'), $this->pagehook, 'side', 'core');
@@ -501,14 +463,11 @@ class jwl_metabox_admin {
         	<div class="main_help_wrapper">
             <span class="content_title">
 			<?php _e('Getting Started:','jwl-ultimate-tinymce'); ?></span><br /><br />
-            	<div class="content_wrapper_tips">
+            	<div class="content_wrapper_tips" style="width:50%;">
                 <span class="content_wrapper_title">
                 <?php _e('Setting up the Admin Settings Page','jwl-ultimate-tinymce'); ?>
                 </span><br />
-                    <div style="">
-                    <br /><br />
                  		<iframe width="420" height="315" src="http://www.youtube.com/embed/wymClsVjkFY" frameborder="0" allowfullscreen></iframe>
-                	</div>
                 </div>
             </div>
         </div>
@@ -547,9 +506,54 @@ class jwl_metabox_admin {
         </div>  
     </div>  
           	
-    <div id="poststuff" class="metabox-holder<?php echo 2 == $screen_layout_columns ? ' has-right-sidebar' : ''; ?>">
+    <!-- <div id="poststuff" class="metabox-holder<?php //echo 2 == $screen_layout_columns ? ' has-right-sidebar' : ''; ?>"> -->
+    <div id="poststuff" class="metabox-holder has-right-sidebar">
         <div id="side-info-column" class="inner-sidebar">                        
-            <?php do_meta_boxes($this->pagehook, 'side', $data); ?>
+            <?php //do_meta_boxes($this->pagehook, 'side', $data); ?>
+            <div class="jwl_support_sidebar">
+            	<h3><?php _e('Need Support?', 'jwl-ultimate-tinymce'); ?></h3>
+                <p><a target="_blank" href="http://forum.joshlobe.com/member.php?action=register&referrer=1"><?php _e('Dedicated Support Forum', 'jwl-ultimate-tinymce'); ?></a></p>
+                <p><a target="_blank" href="http://www.plugins.joshlobe.com/contact/"><?php _e('Contact Me', 'jwl-ultimate-tinymce'); ?></a></p>
+            </div>
+            <div class="jwl_follow_sidebar">
+            	<h3><?php _e('Like to Follow?', 'jwl-ultimate-tinymce'); ?></h3>
+                <p><a target="_blank" href="http://www.facebook.com/joshlobe"><?php _e('Facebook', 'jwl-ultimate-tinymce'); ?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>css/img/facebook_sidebar.png" style="margin-bottom:-13px;margin-left:5px;width:30px;height:30px;" /></a></p>
+                <p><a target="_blank" href="http://twitter.com/#!/joshlobe"><?php _e('Twitter', 'jwl-ultimate-tinymce'); ?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>css/img/twitter_sidebar.png" style="margin-bottom:-13px;margin-left:23px;" /></a></p>
+                <p><a target="_blank" href="http://www.youtube.com/user/kygirlhighlands"><?php _e('YouTube', 'jwl-ultimate-tinymce'); ?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>css/img/youtube_sidebar.png" style="margin-bottom:-13px;margin-left:10px;" /></a></p>
+            </div>
+            <div class="jwl_rate_sidebar">
+            	<h3><?php _e('New Rating System!', 'jwl-ultimate-tinymce'); ?></h3>
+                <p><?php _e('<a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/ultimate-tinymce"><strong>Ultimate Tinymce Ratings Page</strong></a><br /><br />Wordpress has implemented a new plugin ratings system.  Comments are now required to "justify" a rating.<br /><br />Please visit the link above and leave a rating and a comment to help others in the future.', 'jwl-ultimate-tinymce'); ?></p>
+            </div>
+            <div class="jwl_signup_sidebar">
+            	<h3><?php _e('Signup', 'jwl-ultimate-tinymce'); ?></h3>
+                <form method="post" action="http://ymlp.com/subscribe.php?id=gjwmeubgmgb" target="signup_popup" onsubmit="window.open( 'http://ymlp.com/subscribe.php?id=gjwmeubgmgb','signup_popup','scrollbars=yes,width=600,height=450'); return true;">
+                	<?php $jwl_admin_email = get_option('admin_email'); $jwl_blog_title = get_bloginfo('name'); ?>
+                    <br /><br />
+                    <table cellpadding="5" cellspacing="0" align="center" border="0">
+                    <tbody>
+                    <tr>
+                    <td colspan="2"><span style="font-size:14px;font-weight:bold;"><?php _e('Subscribe to the Ultimate Tinymce Newsletter!', 'jwl-ultimate-tinymce'); ?></span></td>
+                    </tr>
+                    <tr>
+                    <td valign="top"><span style="font-family: &quot;verdana&quot;, &quot;geneva&quot;; font-size: 10pt;"><?php _e('Name:', 'jwl-ultimate-tinymce'); ?></span></td>
+                    <td valign="top"><input value="<?php echo $jwl_blog_title; ?>" size="20" name="YMP1" type="text" /></td>
+                    </tr>
+                    <tr>
+                    <td valign="top"><span style="font-family: &quot;verdana&quot;, &quot;geneva&quot;; font-size: 10pt;"><?php _e('Email:', 'jwl-ultimate-tinymce'); ?></span></td>
+                    <td valign="top"><input value="<?php echo $jwl_admin_email; ?>" size="20" name="YMP0" type="text" /></td>
+                    </tr>
+                    <tr>
+                    <td colspan="2"><input checked="checked" value="subscribe" name="action" type="radio" /> <span style="font-family: &quot;verdana&quot;, &quot;geneva&quot;; font-size: 10pt;"><?php _e('Subscribe', 'jwl-ultimate-tinymce'); ?></span><input style="margin-left:20px;" value="unsubscribe" name="action" type="radio" /> <span style="font-family: &quot;verdana&quot;, &quot;geneva&quot;; font-size: 10pt;"><?php _e('Unsubscribe', 'jwl-ultimate-tinymce'); ?></span></td>
+                    </tr>
+                    <tr>
+                    <td colspan="2"><input class="button-primary" value="Submit" type="submit" />&nbsp;</td>
+                    </tr>
+                    </tbody>
+                    </table>
+                </form>
+                <p><?php _e('Receive news about new features, links to tutorials and videos, and other "first-response" emails regarding this plugin.', 'jwl-ultimate-tinymce'); ?></p>
+            </div>
         </div>
         <div id="post-body" class="has-sidebar">
             <div id="post-body-content" class="has-sidebar-content">
@@ -557,30 +561,19 @@ class jwl_metabox_admin {
             <?php
             global $current_user ;
 		    $user_id = $current_user->ID;
-		    /* Check that the user hasn't already clicked to ignore themefuse */
-	        if ( ! get_user_meta($user_id, 'jwl_ignore_notice_themefuse') ) {
-				?>
-            	<div style="height:180px;width:99%;margin-bottom:10px;margin-top:0px;" class="main_help_wrapper">
-                	<div style="float:left;width:30%;">
-                    <a target="_blank" href="http://themefuse.com/wp-themes-shop/?plugin=ultimate-tiny-mce">
-                    <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/themefuse.png" width="100%" />
-                    </a>
-                    </div>
-                    <div style="float:left;width:65%;padding-left:20px;">
-                    <span style="font-size:16px;font-weight:bold;">
-                    <?php _e('Still using a basic default Wordpress Theme?  Why not upgrade to a premium theme?','jwl-ultimate-tinymce');?>
-                    </span><br /><br /><br />
-					<a target="_blank" href="http://themefuse.com/wp-themes-shop/?plugin=ultimate-tiny-mce"><?php _e('Themefuse','jwl-ultimate-tinymce'); ?></a>
-					<?php _e(', a Premium WordPress themes shop, focuses on original out of the box design and ease of use for every type of user.','jwl-ultimate-tinymce');?><br /><br /><?php _e('ThemeFuse aims at providing their customers with themes that can make every website stand out from the crowd, and also offers dedicated support around the clock.','jwl-ultimate-tinymce'); ?><br />
-                    <?php printf(__('<span style="float:right;"><a href="admin.php?page=ultimate-tinymce%1$s">Dismiss Permanently</a></span>'), '&jwl_nag_ignore_themefuse=0'); ?>
-                	</div>
-                </div> 
-                <div style="clear:both;"></div>
-            <?php } ?>
-                
-                
-                <?php do_meta_boxes($this->pagehook, 'normal', $data); ?>
-                <?php //do_meta_boxes($this->pagehook, 'additional', $data); ?>
+			
+			?><strong><?php _e('Quick Navigation:', 'jwl-ultimate-tinymce'); ?></strong><?php
+			?><br />
+            <a href="#buttons1"><?php _e('Buttons Group 1', 'jwl-ultimate-tinymce'); ?></a> | 
+            <a href="#buttons2"><?php _e('Buttons Group 2', 'jwl-ultimate-tinymce'); ?></a> | 
+            <a href="#buttonsother"><?php _e('Other Buttons', 'jwl-ultimate-tinymce'); ?></a> | 
+            <a href="#misc"><?php _e('Misc. Features', 'jwl-ultimate-tinymce'); ?></a> | 
+            <a href="#adminopts"><?php _e('Admin Options', 'jwl-ultimate-tinymce'); ?></a> | 
+            <a href="#override"><?php _e('Editor Over-rides', 'jwl-ultimate-tinymce'); ?></a><br /><br />
+			<?php
+                do_meta_boxes($this->pagehook, 'normal', $data);
+                //do_meta_boxes($this->pagehook, 'additional', $data); 
+			?>
             </div>
         </div>
         <br class="clear"/>			
@@ -676,7 +669,7 @@ $('.popup').mouseout(function() { $($(this).data("image")).css('display', 'none'
 		// Below you will find for each registered metabox the callback method, that produces the content inside the boxes
 		function jwl_buttons_group_1($data) { // Buttons Group One
 			sort($data);
-			?><form action="options.php" method="post" name="jwl_main_options1"><?php
+			?><a name="buttons1"> </a><form action="options.php" method="post" name="jwl_main_options1"><?php
 			do_settings_sections('jwl_options_group1');
 			settings_fields('jwl_options_group1'); ?>
             
@@ -710,7 +703,7 @@ $('.popup').mouseout(function() { $($(this).data("image")).css('display', 'none'
 		
 		function jwl_buttons_group_2($data) { // Buttons Group Two
 			sort($data);
-			?><form action="options.php" method="post" name="jwl_main_options2"><?php
+			?><a name="buttons2"> </a><form action="options.php" method="post" name="jwl_main_options2"><?php
 			do_settings_sections('jwl_options_group2');
 			settings_fields('jwl_options_group2'); ?>
             <span style="margin-left:15px;"><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;margin-top:40px;" value="<?php _e('Update Buttons Group Two Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></span>
@@ -747,9 +740,9 @@ $('.popup').mouseout(function() { $($(this).data("image")).css('display', 'none'
 				update_option('jwl_options_group2', $group2_testing3);
 			}
 		}
-		function jwl_buttons_group_8($data) { // Miscellaneous Options and Features
+		function jwl_buttons_group_8($data) { // Content Editor Over-rides
 			sort($data);
-			?><form action="options.php" method="post" name="jwl_main_options8"><?php
+			?><a name="override"> </a><form action="options.php" method="post" name="jwl_main_options8"><?php
 			do_settings_sections('jwl_options_group8');
 			settings_fields('jwl_options_group8');
 			?>
@@ -759,7 +752,7 @@ $('.popup').mouseout(function() { $($(this).data("image")).css('display', 'none'
 		}
 		function jwl_buttons_group_9($data) { // Other Plugins Buttons
 			sort($data);
-			?><form action="options.php" method="post" name="jwl_main_options9"><?php
+			?><a name="buttonsother"> </a><form action="options.php" method="post" name="jwl_main_options9"><?php
 			do_settings_sections('jwl_options_group9');
 			settings_fields('jwl_options_group9'); ?>
             <div class="bottom_options_content" style="margin-top:30px;padding:10px;background-color:#E6EFEF;border:1px solid #000;border-radius:5px;width:300px;float:left;">
@@ -777,7 +770,7 @@ $('.popup').mouseout(function() { $($(this).data("image")).css('display', 'none'
 		}
 		function jwl_buttons_group_3($data) { // Miscellaneous Options and Features
 			sort($data);
-			?><form action="options.php" method="post" name="jwl_main_options3"><?php
+			?><a name="misc"> </a><form action="options.php" method="post" name="jwl_main_options3"><?php
 			do_settings_sections('jwl_options_group3');
 			settings_fields('jwl_options_group3');
 			
@@ -795,190 +788,26 @@ $('.popup').mouseout(function() { $($(this).data("image")).css('display', 'none'
 		}
 		function jwl_buttons_group_4($data) { // Admin Options
 			sort($data);
-			?><form action="options.php" method="post" name="jwl_main_options4"><?php
+			?><a name="adminopts"> </a><form action="options.php" method="post" name="jwl_main_options4"><?php
 			do_settings_sections('jwl_options_group4');
 			settings_fields('jwl_options_group4');
+			
+			
+			echo '<div class="jwl_hide">';
+			$options = get_option('jwl_options_group4');
+			if (isset($options['jwl_qr_code_content'])) {
+				wp_editor( $options["jwl_qr_code_content"], 'content-id', array( 'textarea_name' => 'jwl_options_group4[jwl_qr_code_content]', 'media_buttons' => false, 'tinymce' => array( 'theme_advanced_buttons1' => 'formatselect,forecolor,|,bold,italic,underline,|,bullist,numlist,blockquote,|,justifyleft,justifycenter,justifyright,justifyfull,|,link,unlink,|,spellchecker,wp_adv', 'theme_advanced_buttons3' => '', 'theme_advanced_buttons4' => '' ) ) );
+				} else {
+				wp_editor( 'Use this unique QR (Quick Response) code with your smart device. The code will save the url of this webpage to the device for mobile sharing and storage.', 'content-id', array( 'textarea_name' => 'jwl_options_group4[jwl_qr_code_content]', 'media_buttons' => false, 'tinymce' => array( 'theme_advanced_buttons1' => 'formatselect,forecolor,|,bold,italic,underline,|,bullist,numlist,blockquote,|,justifyleft,justifycenter,justifyright,justifyfull,|,link,unlink,|,spellchecker,wp_adv', 'theme_advanced_buttons3' => '', 'theme_advanced_buttons4' => '' ) ) );
+			}
+			echo '</div>';
 			
 			?>
 			<center><input class="button-primary" type="submit" name="Save" style="padding-left:40px;padding-right:40px;" value="<?php _e('Update Admin Options','jwl-ultimate-tinymce'); ?>" id="submitbutton" /></center>
 			</form>
 			<?php
 		}
-		function jwl_buttons_group_5($data) { // Developer Recommendations
-			sort($data);
-			//do_settings_sections('ultimate-tinymce5');
-			//settings_fields('jwl_options_group');
-			?><br /><br /><div class="main_help_wrapper" style="width:23%;padding:10px;text-align:justify;float:left;">
-            <center><a target="_blank" href="http://wordpress.org/extend/plugins/tinymce-templates/"><img class="image_ads" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/templates.png" width="100%" /></a></center><br /><?php
-			_e('TinyMCE Templates: A fantastic plugin designed to provide templates for commonly created posts/pages.','jwl-ultimate-tinymce');?><br /><br /><?php _e('For example, if you always design post/page content following a similar format (margins, paddings, etc.), this plugin will allow you to define a template for insertion into the post/page; which can then be modified to specific needs.','jwl-ultimate-tinymce');
-			?></div>
-            <div class="main_help_wrapper" style="width:23%;padding:10px;text-align:justify;float:left;margin-left:1%;">
-            <center><a target="_blank" href="http://wordpress.org/extend/plugins/black-studio-tinymce-widget/"><img class="image_ads" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/tinymce_widget.png" width="100%" /></a></center><br /><?php
-			_e('Black Studio Tinymce Widget: This plugin will replicate the Ultimate Tinymce editor, and make it available for widget content editing.','jwl-ultimate-tinymce');?><br /><br /><?php _e(' ','jwl-ultimate-tinymce');
-			?></div>
-			<div class="main_help_wrapper" style="width:23%;padding:10px;text-align:justify;float:left;margin-left:1%;">
-            <center><a target="_blank" href="http://joshlobe.com/"><img class="image_ads" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/affil_template.png" width="100%" /></a></center><br /><?php
-			_e('Coming Soon...','jwl-ultimate-tinymce');?><br /><br /><?php _e(' ','jwl-ultimate-tinymce');
-			?></div>
-            <div style="clear:both;"></div>
-			<?php
-		}
 		
-		
-		/*
-		function jwl_buttons_group_7($data) {
-			sort($data);
-			do_settings_sections('jwl_options_group7');
-			settings_fields('jwl_options_group7');
-			
-			?>
-			<div class="wrapper">
-                <div id="header">
-                    <h1>Ultimate TinyMCE Awesome Drag and Drop Feature!</h1>
-                </div>
-                
-                <div id="container">
-                <p class="instructions">Drag and drop the icons you wish to display in the Visual Editor. You can place them in the first or second row, but you may not insert the same icon twice.</p>
-                    <p class="icon-title"><span class="blue">1st</span> Row:</p>
-                    <div id="row1" class="row">
-                        <ol class="drop-container" id="row1_icons">
-                            <li class="place-holder">Drag the editor icons here!</li>
-                        </ol>
-                    </div>
-                    <p class="icon-title"><span class="blue">2nd</span> Row:</p>
-                    <div id="row2" class="row">
-                        <ol class="drop-container" id="row2_icons">
-                            <li class="place-holder">Drag the editor icons here!</li>
-                        </ol>
-                    </div>
-                    <p class="icon-title"><span class="blue">3rd</span> Row:</p>
-                    <div id="row3" class="row">
-                        <ol class="drop-container" id="row3_icons">
-                            <li class="place-holder">Drag the editor icons here!</li>
-                        </ol>
-                    </div>
-                    <p class="icon-title"><span class="blue">4th</span> Row:</p>
-                    <div id="row4" class="row">
-                        <ol class="drop-container" id="row4_icons">
-                            <li class="place-holder">Drag the editor icons here!</li>
-                        </ol>
-                    </div>
-        
-                    <p class="icon-title"><span class="orange">Tiny-MCE</span> Icons:</p>
-                    <div id="icons">      
-                        <ol class="drop-container" id="container_icons">
-                        
-                            <?php $icons = glob( WP_CONTENT_DIR . '/plugins/ultimate-tinymce/icons-new/*.png' );
-                            foreach ( $icons as $icon ) {
-                                $title = str_replace( '.png', '', basename( $icon ) );
-								$icon2 = plugin_dir_url( __FILE__ ) . 'icons-new/' . basename($icon);
-                                echo "<li class='draggable'><img title='$title' id='" . 'icon_' . $title . "' src=\"$icon2\" alt='' /></li>\n";
-                            }
-                            ?>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-			<?php
-		}
-		*/
-		
-		function jwl_postbox_resources($data) {
-			sort($data);
-			?>
-			<img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/support.png" style="margin-bottom: -8px;" />
-			<a href="http://forum.joshlobe.com/member.php?action=register&referrer=1" target="_blank"><?php _e('Get help from the Support Forum.','jwl-ultimate-tinymce'); ?></a><br /><br />
-			<img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/screencast.png" style="margin-bottom: -8px;" />
-			<a href="http://www.youtube.com/watch?v=fM3CUo9MxMc" target="_blank"><?php _e('Screencast part one','jwl-ultimate-tinymce'); ?></a><br /><br />
-			<img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/screencast.png" style="margin-bottom: -8px;" />
-			<a href="http://www.youtube.com/watch?v=5raIBxGP17g" target="_blank"><?php _e('Screencast part two','jwl-ultimate-tinymce'); ?></a><br /><br />
-			<img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/help.png" style="margin-bottom: -8px;" />
-			<a href="http://www.joshlobe.com/2011/10/ultimate-tinymce/" target="_blank"><?php _e('Get help from my personal blog.','jwl-ultimate-tinymce'); ?></a><br /><br />
-			<img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/thread.png" style="margin-bottom: -8px;" />
-			<a href="http://wordpress.org/tags/ultimate-tinymce?forum_id=10#postform" target="_blank"><?php _e('Post a thread in the Wordpress Forums.','jwl-ultimate-tinymce'); ?></a><br /><br />
-			<img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/email.png" style="margin-bottom: -8px;" />
-			<a href="http://www.joshlobe.com/contact-me/" target="_blank"><?php _e('Email me directly using my contact form.','jwl-ultimate-tinymce'); ?></a><br /><br />
-			<img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/rss.png" style="margin-bottom: -8px;" />
-			<a href="http://www.joshlobe.com/feed/" target="_blank"><?php _e('Subscribe to my RSS Feed.','jwl-ultimate-tinymce'); ?></a><br /><br />
-			<img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/follow.png" style="margin-bottom: -8px;" />
-			<?php _e('Follow me on ','jwl-ultimate-tinymce'); ?><a target="_blank" href="http://www.facebook.com/joshlobe"><?php _e('Facebook','jwl-ultimate-tinymce'); ?></a>    <?php _e(' and ','jwl-ultimate-tinymce'); ?><a target="_blank" href="http://twitter.com/#!/joshlobe"><?php _e('Twitter','jwl-ultimate-tinymce'); ?></a>.<br /> <?php
-		}
-		function jwl_postbox_firefox($data) {
-			sort($data);
-			_e('In all honesty, the tinymce editor works best with the Mozilla Firefox browser.  If you are not a Firefox user, you might want to consider giving it a try when creating your content.  You can download the free browser by clicking the image below.','jwl-ultimate-tinymce'); ?>
-			<br /><br /><center><a target="_blank" href="http://affiliates.mozilla.org/link/banner/6906"><img src="http://affiliates.mozilla.org/media/uploads/banners/download-small-blue-EN.png" alt="Download: Fast, Fun, Awesome" /></a></center>
-			<?php
-		}
-		function jwl_postbox_vote($data) {
-			sort($data);
-			?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/vote.png" style="margin-bottom: -8px;" /> <a href="http://wordpress.org/extend/plugins/ultimate-tinymce/" target="_blank"><?php _e('Click Here to Vote and click "Works"...','jwl-ultimate-tinymce'); ?></a><br /><br /><?php _e('Voting helps my plugin get more exposure and higher rankings on the searches.<br /><br />Clicking "Works" on the Wordpress plugin download page shows others that Ultimate TinyMCE is stable, and encourages their download.','jwl-ultimate-tinymce'); ?><br /><br /><?php _e('Please help spread this wonderful plugin by showing your support.  Thank you!','jwl-ultimate-tinymce');
-		}
-		function jwl_postbox_blog($data) {
-		($data);
-			sort($data);
-			_e('Like this plugin?  Blog about it on your website, link to my plugin page on my website <a target="_blank" href="http://www.plugins.joshlobe.com/">HERE</a>, and I will add your website link here.','jwl-ultimate-tinymce'); _e('<br /><br /><strong>Special Thanks to these bloggers:</strong><br /><ul><li><a href="http://www.buzzing-t.nl/" target="_blank">Buzzing-t.nl</a></li><li><a href="http://onewhole.eu/" target="_blank">Onewhole.eu</a></li><li><a href="http://www.vanytastisch.ch/" target="_blank">Vanytastisch.ch</a></li><li><a href="http://animereviews.co" target="_blank">Animereviews.co</a></li><li><a href="http://blogigs.com/how-to-make-a-attractive-blog-post/" target="_blank">Blogigs</a></li><li><a href="http://www.untetheredincome.com/articles/wordpress/best-wordpress-plugins-2012/" target="_blank">Untethered Income</a></li><li><a href="http://www.bowierocks.com" target="_blank">BowieRocks</a></li></ul>', 'jwl-ultimate-tinymce');
-		}
-		function jwl_postbox_feedback($data) {
-			sort($data);
-			_e('Please take a moment to complete the short feedback form below.  Your input is greatly appreciated.  All input fields are optional.','jwl-ultimate-tinymce'); ?><br /><br />
-					<div style="border:1px solid #999999;padding:5px;"><!-- Begin Freedback Form -->
-		<!-- DO NOT EDIT YOUR FORM HERE, PLEASE LOG IN AND EDIT AT FREEDBACK.COM -->
-		<form enctype="multipart/form-data" method="post" action="http://www.freedback.com/mail.php" accept-charset="UTF-8">
-		<div>
-			<input type="hidden" name="acctid" id="acctid" value="8a44jw4rc6tihuqh" />
-			<input type="hidden" name="formid" id="formid" value="1035543" />
-		</div>
-		<table cellspacing="2" cellpadding="2" border="0">
-			<tr><td valign="top"><strong>Name: (Optional)</strong></td></tr>
-			<tr><td valign="top"><input type="text" name="name" id="name" size="40" value="" /></td></tr>
-			<tr><td valign="top"><strong>Email Address: (Optional)</strong></td></tr>
-			<tr><td valign="top"><input type="text" name="email" id="email" size="40" value="" /></td></tr>
-			<tr><td valign="top"><strong>Would you recommend this plugin to a friend?</strong></td></tr>
-			<tr><td valign="top">
-					<select name="field-45f3fdce1a0bc05" id="field-45f3fdce1a0bc05">
-						<option value=""></option><option value="Most Definitely">Most Definitely</option><option value="Probably">Probably</option><option value="Maybe">Maybe</option><option value="Probably Not">Probably Not</option><option value="Definitely Not??">Definitely Not</option>
-					</select>
-			</td></tr>
-			<tr><td valign="top"><strong>How would you rate this plugin?</strong></td></tr>
-			<tr><td valign="top">
-					<select name="field-d8c8cf7b3175e69" id="field-d8c8cf7b3175e69">
-						<option value=""></option><option value="5 Stars">5 Stars</option><option value="4 Stars">4 Stars</option><option value="3 Stars">3 Stars</option><option value="2 Stars">2 Stars</option><option value="1 Star">1 Star</option><option value="0 Stars">0 Stars</option>
-					</select>
-			</td></tr>
-			<tr><td valign="top"><strong>Do you find the new &quot;Help&quot; popups useful?</strong></td></tr>
-			<tr><td valign="top">
-					<select name="field-dbfb7a0c6afa91c" id="field-dbfb7a0c6afa91c">
-						<option value=""></option><option value="Absolutely">Absolutely</option><option value="A Little">A Little</option><option value="Not Really">Not Really</option>
-					</select>
-			</td></tr>
-			<tr><td valign="top"><strong>Have you rated this plugin and clicked &quot;Works&quot; on the <a target="_blank" href="http://wordpress.org/extend/plugins/ultimate-tinymce/">wordpress plugin download page</a>?</strong></td></tr>
-			<tr><td valign="top">
-					<select name="field-05f800de9d39cb5" id="field-05f800de9d39cb5">
-						<option value=""></option><option value="I Already have.">I Already have.</option><option value="Doing it now.">Doing it now.</option><option value="No Way.">No Way.</option><option value="What&#39;s That?">What&#39;s That?</option>
-					</select>
-			</td></tr>
-			<tr><td valign="top"><strong>Have you looked at any of these?  (Check all that apply)</strong></td></tr>
-			<tr><td valign="top">
-					<input type="checkbox" name="field-2a733a58a89d340[]" id="field-2a733a58a89d340_0" value="Support Forum" /> Support Forum<br/>
-					<input type="checkbox" name="field-2a733a58a89d340[]" id="field-2a733a58a89d340_1" value="Microsoft Word Help Document" /> Microsoft Word Help Document<br/>
-					<input type="checkbox" name="field-2a733a58a89d340[]" id="field-2a733a58a89d340_2" value="&quot;Help&quot; Popups" /> &quot;Help&quot; Popups<br/>
-			</td></tr>
-			<tr><td valign="top"><strong>Please feel free to leave any additional feedback here...</strong></td></tr>
-			<tr><td valign="top"><center><textarea name="field-b0cb8c2a6a616ee" id="field-b0cb8c2a6a616ee" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" rows="6" cols="35">Type your feedback here...</textarea></center></td></tr>
-			<tr><td colspan="2" align="center"><input type="submit" value=" Submit Form " /></td></tr>
-		</table>
-		</form>
-		<br><center><font face="Arial, Helvetica" size="1"><b>Put a <a href="http://www.freedback.com">website form</a> like this on your site.</b></font><br /><br /><strong>Please click the "Continue" text on the next page after submission to return to this page.</strong></center></div> <?php
-		}
-		function jwl_postbox_poll($data) {
-			sort($data);
-			_e('New Plugin Features...','jwl-ultimate-tinymce'); ?><br /><br /><?php _e('There are a few features I have been wanting to implement; but have found they are going to require more work than I originally anticipated.<br /><br />In the meantime, I\'d like to take a poll of which features you consider to be of a higher priority.  Please vote on your favorite requested feature.  You can vote once per day.<br /><br />','jwl-ultimate-tinymce'); ?>
-					
-					<!-- // Begin Pollhost.com Poll Code // -->
-		<div style="border:1px solid black;">
-		<form method=post action=http://poll.pollhost.com/vote.cgi><table border=0 width=100% bgcolor=#EEEEEE cellspacing=0 cellpadding=2><tr><td colspan=2><font face="Verdana" size=-1 color="#000000"><b>Which feature would you like to see?</b></font></td></tr><tr><td width=5><input type=radio name=answer value=1></td><td><font face="Verdana" size=-1 color="#000000">Better Tables Control and Usage</font></td></tr><tr><td width=5><input type=radio name=answer value=2></td><td><font face="Verdana" size=-1 color="#000000">Better Cross-Browser Compatibility</font></td></tr><tr><td width=5><input type=radio name=answer value=3></td><td><font face="Verdana" size=-1 color="#000000">More examples in the Help Popups</font></td></tr><tr><td width=5><input type=radio name=answer value=4></td><td><font face="Verdana" size=-1 color="#000000">A Shortcodes Manager</font></td></tr><tr><td width=5><input type=radio name=answer value=5></td><td><font face="Verdana" size=-1 color="#000000">A Custom Styles Manager</font></td></tr><tr><td colspan=2><input type=hidden name=config value="am9zaDQwMQkxMzI2NjkxMDQ5CUVFRUVFRQkwMDAwMDAJVmVyZGFuYQlBc3NvcnRlZA"><center><input type=submit value=Vote>&nbsp;&nbsp;<input type=submit name=view value=View></center></td></tr><tr><td bgcolor=#FFFFFF colspan=2 align=right><font face="Verdana" size=-2 color="#000000"><a href=http://www.pollhost.com/><font color=#000099>Free polls from Pollhost.com</font></a></font></td></tr></table></form>
-		</div> <?php
-		}
 }
 $my_jwl_metabox_admin = new jwl_metabox_admin();
 
@@ -1024,5 +853,21 @@ function jwl_update_message_cb( $plugin_data, $r )
 	
     return print $output;
 }
+
+// Function to make directory for Image Manager files
+function jwl_create_imgmgr_direct() {
+	
+	$current_user = get_current_user_id();
+	
+	$target1 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce';
+	$target2 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr';
+	$target3 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr/'.$current_user.'/images';
+	$target4 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr/'.$current_user.'/files';
+	wp_mkdir_p( $target1 );
+	wp_mkdir_p( $target2 );
+	wp_mkdir_p( $target3 );
+	wp_mkdir_p( $target4 );
+}
+add_action('plugins_loaded','jwl_create_imgmgr_direct');
 
 ?>

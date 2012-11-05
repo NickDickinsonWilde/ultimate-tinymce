@@ -18,11 +18,8 @@ function ultimate_tinymce_load_defaults() {
 		$options['jwl_advhr_field_id'] = '1';
 		$options['jwl_visualaid_field_id'] = '1';
 		$options['jwl_anchor_field_id'] = '1';
-		$options['jwl_sub_field_id'] = '1';
-		$options['jwl_sup_field_id'] = '1';
 		$options['jwl_search_field_id'] = '1';
 		$options['jwl_replace_field_id'] = '1';
-		$options['jwl_datetime_field_id'] = '1';
 		$options['jwl_nonbreaking_field_id'] = '1';
 		$options['jwl_mailto_field_id'] = '1';
 		$options['jwl_layers_field_id'] = '1';
@@ -39,16 +36,17 @@ function ultimate_tinymce_load_defaults() {
 		$options['jwl_advhr_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
 		$options['jwl_visualaid_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
 		$options['jwl_anchor_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
-		$options['jwl_sub_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
-		$options['jwl_sup_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
 		$options['jwl_search_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
 		$options['jwl_replace_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
-		$options['jwl_datetime_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
 		$options['jwl_nonbreaking_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
 		$options['jwl_mailto_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
 		$options['jwl_layers_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
 		$options['jwl_span_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
 		$options['jwl_equation_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
+		$options['jwl_encode_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
+		$options['jwl_directionality_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
+		$options['jwl_ezimage_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
+		$options['jwl_images_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 3";}');
 		
 	$options2 = get_option('jwl_options_group2');
 		$options2['jwl_styleselect_field_id'] = '1';
@@ -57,10 +55,6 @@ function ultimate_tinymce_load_defaults() {
 		$options2['jwl_image_field_id'] = '1';
 		$options2['jwl_preview_field_id'] = '1';
 		$options2['jwl_cite_field_id'] = '1';
-		$options2['jwl_abbr_field_id'] = '1';
-		$options2['jwl_acronym_field_id'] = '1';
-		$options2['jwl_del_field_id'] = '1';
-		$options2['jwl_ins_field_id'] = '1';
 		$options2['jwl_attribs_field_id'] = '1';
 		$options2['jwl_styleprops_field_id'] = '1';
 		$options2['jwl_code_field_id'] = '1';
@@ -83,10 +77,6 @@ function ultimate_tinymce_load_defaults() {
 		$options2['jwl_image_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		$options2['jwl_preview_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		$options2['jwl_cite_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options2['jwl_abbr_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options2['jwl_acronym_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options2['jwl_del_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
-		$options2['jwl_ins_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		$options2['jwl_attribs_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		$options2['jwl_styleprops_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		$options2['jwl_code_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
@@ -101,6 +91,8 @@ function ultimate_tinymce_load_defaults() {
 		$options2['jwl_shortcodes_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		$options2['jwl_loremipsum_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		$options2['jwl_w3cvalidate_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_clker_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
+		$options2['jwl_acheck_dropdown'] = unserialize('a:1:{s:3:"row";s:5:"Row 4";}');
 		
 	$options9 = get_option('jwl_options_group9');
 		$options9['jwl_wp_photo_album_field_id'] = '1';
@@ -108,15 +100,6 @@ function ultimate_tinymce_load_defaults() {
 		
 	$options3 = get_option('jwl_options_group3');
 		$options3['jwl_tinycolor_css_field_id'] = unserialize('a:1:{s:9:"tinycolor";s:7:"Default";}');
-		$options3['jwl_tinymce_nextpage_field_id'] = '1';
-		$options3['jwl_postid_field_id'] = '1';
-		$options3['jwl_shortcode_field_id'] = '1';
-		$options3['jwl_php_widget_field_id'] = '1';
-		$options3['jwl_linebreak_field_id'] = '1';
-		$options3['jwl_columns_field_id'] = '1';
-		$options3['jwl_defaults_field_id'] = '1';
-		$options3['jwl_div_field_id'] = '1';
-		$options3['jwl_cursor_field_id'] = '1';
 		$options3['jwl_signoff_field_id'] = 'This is a signoff example.';
 		
 	$options4 = get_option('jwl_options_group4');

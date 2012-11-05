@@ -19,9 +19,6 @@
  function jwl_setting_section_callback_function4() {
  	_e(' ','jwl-ultimate-tinymce');
  }
- function jwl_setting_section_callback_function5() {
- 	_e('Below are a few of my recommendations for themes and plugins.  These have been tested by me personally, and have grabbed my attention.','jwl-ultimate-tinymce');
- }
  
  // Begin callback functions	 
  function jwl_fontselect_callback_function() {
@@ -1031,14 +1028,13 @@ function jwl_qr_code_bg_main_callback_function() {
 }
 
 function jwl_qr_code_content_callback_function() {
-	 $options = get_option('jwl_options_group4');
-	echo '<div class="jwl_hide">';
-	echo 'Choose QR Content Text:<br />';	
+	// See added wp_editor in main.php file to control the qr code content
+	echo '<span class="jwl_hide">';
+	$options = get_option('jwl_options_group4');
 	if (isset($options['jwl_qr_code_content'])) {
-	wp_editor( $options["jwl_qr_code_content"], 'content-id', array( 'textarea_name' => 'jwl_options_group4[jwl_qr_code_content]', 'media_buttons' => false, 'tinymce' => array( 'theme_advanced_buttons1' => 'formatselect,forecolor,|,bold,italic,underline,|,bullist,numlist,blockquote,|,justifyleft,justifycenter,justifyright,justifyfull,|,link,unlink,|,spellchecker,wp_adv', 'theme_advanced_buttons3' => '', 'theme_advanced_buttons4' => '' ) ) );
-	} else {
-	wp_editor( 'Use this unique QR (Quick Response) code with your smart device. The code will save the url of this webpage to the device for mobile sharing and storage.', 'content-id', array( 'textarea_name' => 'jwl_options_group4[jwl_qr_code_content]', 'media_buttons' => false, 'tinymce' => array( 'theme_advanced_buttons1' => 'formatselect,forecolor,|,bold,italic,underline,|,bullist,numlist,blockquote,|,justifyleft,justifycenter,justifyright,justifyfull,|,link,unlink,|,spellchecker,wp_adv', 'theme_advanced_buttons3' => '', 'theme_advanced_buttons4' => '' ) ) );
+		echo 'Choose QR Content Text:<br />';
 	}
+	echo '</span>';
 }
 
 // Callback functions for the Tinymce Content Editor Over-rides

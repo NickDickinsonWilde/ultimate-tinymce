@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.5
-Stable tag: 3.4
+Stable tag: 3.5
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -145,6 +145,34 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 3.5 =
+* 11-04-2012
+
+= Bug Fixes =
+* Fixed bug with wpautop not being disabled inside the content editor.
+* Fixed bug on "save editor scrollbar position".  This now works properly.
+* Worked on bugs in new Image Manager.  Fixed "function split()" error... and "jpeg not supported" error.
+
+= Tweaks =
+* Fixed admin notice so that it only appears on plugin settings page.
+* Removed some extraneous lines of code and a few un-needed files.
+* Fixed QR code editor (in admin panel) "pushing" alignment when option is enabled.
+* Moved files around inside plugin folder to help with organization.  All plugin addons are now stored in the.. are you ready.. "addons" folder.
+* Added "quick nav" links for quickly "jumping" to different metaboxes.
+
+* Completely re-coded main admin settings page sidebar.
+* Added notice to rate plugin (sidebar) using WP's new rating system.
+* Added a subscription button (sidebar) to receive plugin updates, news, and tutorials.
+
+* Re-coded Image Manager addon so that each user will have their own storage space.  This is configured automatically, depending on the users unique ID.  NOTE: If you have already uploaded images.. then they will not appear when you update.  So, if you don't know how to get them back, please contact me and I'll provide step-by-step instructions on how to get back your images.
+
+= Removed =
+* Developer recommendations section.  The plugin admin panel is getting too big and it was taking up space.  I will probably add a "tabbed" section in a future update.
+* Themefuse banner and link.
+
+= NOTES =
+* The image manager may require some adjustments depending on individual server configurations.  If this feature is not working for you, please visit my support forum where users are reporting various fixes.
 
 = 3.4 =
 * 10-23-2012

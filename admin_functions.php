@@ -8,9 +8,11 @@ function jwl_admin_notice_pro() {
 		/* Check that the user hasn't already clicked to ignore the message */
 	if ( ! get_user_meta($user_id, 'jwl_ignore_notice_pro') ) {
 		if ( current_user_can( 'manage_options' ) ) {
-			echo '<div class="updated"><p>';
-			printf(__('<span style="color:green;">Thank you for choosing Ultimate Tinymce.</span><br />Interested in checking out the features of the PRO version?  <a target="_blank" href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/">Click Here</a> to view the product page, or <a target="_blank" href="http://www.plugins.joshlobe.com/newsletter/">Sign Up</a> to be notified of updates and feature enhancements.<br />You may even <a target="_blank" href="http://plugins.joshlobe.com/wp-content/plugins/wp-affiliate-platform/affiliates/">Become an Affiliate</a> and earn revenue from referrals.<span style="float:right;"><a href="admin.php?page=ultimate-tinymce%1$s">Hide Notice</a></span>'), '&jwl_nag_ignore_pro=0');
-			echo "</p></div>";
+			if (jwl_is_my_plugin_screen()) {
+				echo '<div class="updated" style="background-color:#FFFFE0 !important; border:1px solid #E6DB55 !important;"><p>';
+				printf(__('<span style="font-weight: bold; color:#00BF0C !important;">Thank you for choosing Ultimate Tinymce.</span><br /><br />Interested in checking out the features of the <a target="_blank" href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/">PRO Version</a>?<span style="margin-left:20px;">Or... <a target="_blank" href="http://plugins.joshlobe.com/wp-content/plugins/wp-affiliate-platform/affiliates/">Become an Affiliate</a> and earn revenue from referrals.</span><br /><br /><a href="admin.php?page=ultimate-tinymce%1$s">Hide this Message</a>'), '&jwl_nag_ignore_pro=0');
+				echo "</p></div>";
+			}
 		}
 	}
 }
@@ -22,6 +24,14 @@ function jwl_nag_ignore_pro() {
 		if ( isset($_GET['jwl_nag_ignore_pro']) && '0' == $_GET['jwl_nag_ignore_pro'] ) {
 			 add_user_meta($user_id, 'jwl_ignore_notice_pro', 'true', true);
 	}
+}
+function jwl_is_my_plugin_screen() {  
+    $screen = get_current_screen();  
+    if (is_object($screen) && $screen->id == 'settings_page_ultimate-tinymce') {  
+        return true;  
+    } else {  
+        return false;  
+    }  
 }
 
 // Change our default Tinymce configuration values

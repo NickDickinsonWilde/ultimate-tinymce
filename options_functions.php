@@ -675,43 +675,43 @@ if ($jwl_wp_photo_album_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tin
 
 // Add the plugin array for extra features
 function jwl_mce_external_plugins( $jwl_plugin_array ) {
-		$jwl_plugin_array['table'] = plugin_dir_url( __FILE__ ) . 'table/editor_plugin.js';
-		$jwl_plugin_array['emotions'] = plugin_dir_url(__FILE__) . 'emotions/editor_plugin.js';
-		$jwl_plugin_array['advlist'] = plugin_dir_url(__FILE__) . 'advlist/editor_plugin.js';
-		$jwl_plugin_array['advimage'] = plugin_dir_url(__FILE__) . 'advimage/editor_plugin.js';
-		$jwl_plugin_array['searchreplace'] = plugin_dir_url(__FILE__) . 'searchreplace/editor_plugin.js';
-		$jwl_plugin_array['preview'] = plugin_dir_url(__FILE__) . 'preview/editor_plugin.js';
-		$jwl_plugin_array['xhtmlxtras'] = plugin_dir_url(__FILE__) . 'xhtmlxtras/editor_plugin.js';
-		$jwl_plugin_array['style'] = plugin_dir_url(__FILE__) . 'style/editor_plugin.js';
-		$jwl_plugin_array['media'] = plugin_dir_url(__FILE__) . 'media/editor_plugin.js';
-		$jwl_plugin_array['advhr'] = plugin_dir_url(__FILE__) . 'advhr/editor_plugin.js';
-		$jwl_plugin_array['clear'] = plugin_dir_url( __FILE__ ) . 'clear/editor_plugin.js';
-		$jwl_plugin_array['tableDropdown'] = plugin_dir_url( __FILE__ ) . 'tableDropdown/editor_plugin.js';
-		$jwl_plugin_array['codemagic'] = plugin_dir_url( __FILE__ ) . 'codemagic/editor_plugin.js';
-		$jwl_plugin_array['youtube'] = plugin_dir_url( __FILE__ ) . 'youtube/editor_plugin.js';
-		$jwl_plugin_array['imgmap'] = plugin_dir_url( __FILE__ ) . 'imgmap/editor_plugin.js';
-		$jwl_plugin_array['visualchars'] = plugin_dir_url( __FILE__ ) . 'visualchars/editor_plugin.js';
-		$jwl_plugin_array['print'] = plugin_dir_url( __FILE__ ) . 'print/editor_plugin.js';
-		$jwl_plugin_array['insertdatetime'] = plugin_dir_url( __FILE__ ) . 'insertdatetime/editor_plugin.js';
-		$jwl_plugin_array['nonbreaking'] = plugin_dir_url( __FILE__ ) . 'nonbreaking/editor_plugin.js';
-		$jwl_plugin_array['mailto'] = plugin_dir_url( __FILE__ ) . 'mailto/editor_plugin_src.js';
-		$jwl_plugin_array['layer'] = plugin_dir_url( __FILE__ ) . 'layer/editor_plugin_src.js';
-		$jwl_plugin_array['jwlspan']  =  plugin_dir_url( __FILE__ ) . 'jwl_span/jwl_span.js';
-		$jwl_plugin_array['youtubeIframe']  =  plugin_dir_url( __FILE__ ) . 'youtubeIframe/editor_plugin.js';	
-		$jwl_plugin_array['equation']  =  plugin_dir_url( __FILE__ ) . 'equation/editor_plugin.js';
-		$jwl_plugin_array['shortcodes'] = plugin_dir_url(__FILE__) . 'shortcodes/editor_plugin_src.js';
-		$jwl_plugin_array['loremipsum'] = plugin_dir_url(__FILE__) . 'loremipsum/editor_plugin.js';
-		$jwl_plugin_array['w3cvalidate'] = plugin_dir_url(__FILE__) . 'w3cvalidate/editor_plugin.js';
-		$jwl_plugin_array['tagwrap'] = plugin_dir_url(__FILE__) . 'tagwrap/editor_plugin_src.js';
-		$jwl_plugin_array['encode'] = plugin_dir_url(__FILE__) . 'encode/editor_plugin_src.js';
-		$jwl_plugin_array['clker'] = plugin_dir_url(__FILE__) . 'clker/editor_plugin.js';
-		$jwl_plugin_array['acheck'] = plugin_dir_url(__FILE__) . 'acheck/editor_plugin.js';
-		$jwl_plugin_array['directionality'] = plugin_dir_url(__FILE__) . 'directionality/editor_plugin.js';
-		$jwl_plugin_array['ezimage'] = plugin_dir_url(__FILE__) . 'ezimage/editor_plugin.js';
-		$jwl_plugin_array['images'] = plugin_dir_url(__FILE__) . 'images/editor_plugin.js';  // Image Manager
+		$jwl_plugin_array['table'] = plugin_dir_url( __FILE__ ) . 'addons/table/editor_plugin.js';
+		$jwl_plugin_array['emotions'] = plugin_dir_url(__FILE__) . 'addons/emotions/editor_plugin.js';
+		$jwl_plugin_array['advlist'] = plugin_dir_url(__FILE__) . 'addons/advlist/editor_plugin.js';
+		$jwl_plugin_array['advimage'] = plugin_dir_url(__FILE__) . 'addons/advimage/editor_plugin.js';
+		$jwl_plugin_array['searchreplace'] = plugin_dir_url(__FILE__) . 'addons/searchreplace/editor_plugin.js';
+		$jwl_plugin_array['preview'] = plugin_dir_url(__FILE__) . 'addons/preview/editor_plugin.js';
+		$jwl_plugin_array['xhtmlxtras'] = plugin_dir_url(__FILE__) . 'addons/xhtmlxtras/editor_plugin.js';
+		$jwl_plugin_array['style'] = plugin_dir_url(__FILE__) . 'addons/style/editor_plugin.js';
+		$jwl_plugin_array['media'] = plugin_dir_url(__FILE__) . 'addons/media/editor_plugin.js';
+		$jwl_plugin_array['advhr'] = plugin_dir_url(__FILE__) . 'addons/advhr/editor_plugin.js';
+		$jwl_plugin_array['clear'] = plugin_dir_url( __FILE__ ) . 'addons/clear/editor_plugin.js';
+		$jwl_plugin_array['tableDropdown'] = plugin_dir_url( __FILE__ ) . 'addons/tableDropdown/editor_plugin.js';
+		$jwl_plugin_array['codemagic'] = plugin_dir_url( __FILE__ ) . 'addons/codemagic/editor_plugin.js';
+		$jwl_plugin_array['youtube'] = plugin_dir_url( __FILE__ ) . 'addons/youtube/editor_plugin.js';
+		$jwl_plugin_array['imgmap'] = plugin_dir_url( __FILE__ ) . 'addons/imgmap/editor_plugin.js';
+		$jwl_plugin_array['visualchars'] = plugin_dir_url( __FILE__ ) . 'addons/visualchars/editor_plugin.js';
+		$jwl_plugin_array['print'] = plugin_dir_url( __FILE__ ) . 'addons/print/editor_plugin.js';
+		$jwl_plugin_array['insertdatetime'] = plugin_dir_url( __FILE__ ) . 'addons/insertdatetime/editor_plugin.js';
+		$jwl_plugin_array['nonbreaking'] = plugin_dir_url( __FILE__ ) . 'addons/nonbreaking/editor_plugin.js';
+		$jwl_plugin_array['mailto'] = plugin_dir_url( __FILE__ ) . 'addons/mailto/editor_plugin_src.js';
+		$jwl_plugin_array['layer'] = plugin_dir_url( __FILE__ ) . 'addons/layer/editor_plugin_src.js';
+		$jwl_plugin_array['jwlspan']  =  plugin_dir_url( __FILE__ ) . 'addons/jwl_span/jwl_span.js';
+		$jwl_plugin_array['youtubeIframe']  =  plugin_dir_url( __FILE__ ) . 'addons/youtubeIframe/editor_plugin.js';	
+		$jwl_plugin_array['equation']  =  plugin_dir_url( __FILE__ ) . 'addons/equation/editor_plugin.js';
+		$jwl_plugin_array['shortcodes'] = plugin_dir_url(__FILE__) . 'addons/shortcodes/editor_plugin_src.js';
+		$jwl_plugin_array['loremipsum'] = plugin_dir_url(__FILE__) . 'addons/loremipsum/editor_plugin.js';
+		$jwl_plugin_array['w3cvalidate'] = plugin_dir_url(__FILE__) . 'addons/w3cvalidate/editor_plugin.js';
+		$jwl_plugin_array['tagwrap'] = plugin_dir_url(__FILE__) . 'addons/tagwrap/editor_plugin_src.js';
+		$jwl_plugin_array['encode'] = plugin_dir_url(__FILE__) . 'addons/encode/editor_plugin_src.js';
+		$jwl_plugin_array['clker'] = plugin_dir_url(__FILE__) . 'addons/clker/editor_plugin.js';
+		$jwl_plugin_array['acheck'] = plugin_dir_url(__FILE__) . 'addons/acheck/editor_plugin.js';
+		$jwl_plugin_array['directionality'] = plugin_dir_url(__FILE__) . 'addons/directionality/editor_plugin.js';
+		$jwl_plugin_array['ezimage'] = plugin_dir_url(__FILE__) . 'addons/ezimage/editor_plugin.js';
+		$jwl_plugin_array['images'] = plugin_dir_url(__FILE__) . 'addons/images/editor_plugin.js';  // Image Manager
 		
 		// Test plugin array
-		//$jwl_plugin_array['images'] = plugin_dir_url(__FILE__) . 'images/editor_plugin.js';
+		//$jwl_plugin_array['images'] = plugin_dir_url(__FILE__) . 'addons/images/editor_plugin.js';
 		   
 		return $jwl_plugin_array;
 }
@@ -896,6 +896,14 @@ add_filter('mce_buttons', 'tinymce_add_button_div');
 $jwl_autop = isset($options4['jwl_autop_field_id']);
 if ($jwl_autop == "1"){
 	remove_filter ('the_content', 'wpautop');
+	remove_filter ('the_content', 'wptexturize');
+	
+	function jwl_remove_wpautop_tinymce($remove_Tiny) {
+		$remove_Tiny['wpautop'] = false;
+		
+		return $remove_Tiny;
+	}
+	add_filter('tiny_mce_before_init','jwl_remove_wpautop_tinymce');
 }
 
 // User option for adding a signoff shortcode for tinymce visual editor (Goes with custom message box below)
@@ -972,11 +980,9 @@ if ($jwl_columns == "1"){
 // Class and Functions for Cursor Position in Editor
 $jwl_cursor = isset($options4['jwl_cursor_field_id']);
 if ($jwl_cursor == "1") {
-	
 	global $pagenow;
-	if ($pagenow != "widgets.php") {
-		global $pagenow;
-		if (($pagenow != "admin.php") && (isset($_GET['page']) == 'cleverness-to-do-list')) {
+	// Make sure we only add to posts, pages, or custom post types
+	if( strstr($_SERVER['REQUEST_URI'], 'wp-admin/post-new.php') || strstr($_SERVER['REQUEST_URI'], 'wp-admin/post.php') ) {
 		
 			final class Preserve_Editor_Scroll_Position {
 			
@@ -1026,11 +1032,10 @@ if ($jwl_cursor == "1") {
 				} );
 			};
 			</script>
-				<?php
+			<?php
 			}
 			}
 			add_action( 'admin_init', array( 'Preserve_Editor_Scroll_Position', 'init' ) );
-		}
 	}
 }
 
@@ -1116,16 +1121,6 @@ if (isset($option_tmce_overrides['jwl_tinymce_modifications'])) {
 	}
 	add_filter('tiny_mce_before_init', 'jwl_modify_tmce');
 }
-
-// Function to make directory for iBrowser files
-$target1 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce';
-$target2 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr';
-$target3 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr/images';
-$target4 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr/files';
-wp_mkdir_p( $target1 );
-wp_mkdir_p( $target2 );
-wp_mkdir_p( $target3 );
-wp_mkdir_p( $target4 );
 
 
 ?>

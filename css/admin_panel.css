@@ -62,6 +62,122 @@
     font-size: 32px;  
 }  
 
+/*** Added 11-3-12 by Josh Lobe to re-vamp admin panel ***/
+div.updated {
+	background-color:#D6F9D8 !important;
+	border:1px solid #060 !important;
+}
+
+.jwl_support_sidebar {
+	background-color:#CCFFCC;
+	border:1px solid #006600;
+	padding:10px;
+	border-radius: 5px 20px 5px 20px;
+	margin-bottom:20px;
+}
+.jwl_support_sidebar h3 {
+	padding-left:10px !important;
+	font-family:'Unlock',cursive !important;
+	border:1px solid #006400 !important;
+	background-color:#008000 !important;
+	border-radius:4px !important;
+	box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	-o-box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	-webkit-box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	-moz-box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	color:white !important;
+	text-shadow:1px 1px 1px black !important;
+}
+.jwl_support_sidebar:hover h3{
+	text-shadow: 0 0 5px #A5F1FF, 0 0 10px #A5F1FF, 
+			0 0 20px #A5F1FF, 0 0 30px #A5F1FF, 
+			0 0 40px #A5F1FF !important;
+}
+.jwl_support_sidebar p a {
+	margin-left: 20px !important;
+}
+.jwl_follow_sidebar {
+	background-color:#CCFFCC;
+	border:1px solid #006600;
+	padding:10px;
+	border-radius: 5px 20px 5px 20px;
+	margin-bottom: 20px;
+}
+.jwl_follow_sidebar h3 {
+	padding-left:10px !important;
+	font-family:'Unlock',cursive !important;
+	border:1px solid #006400 !important;
+	background-color:#008000 !important;
+	border-radius:4px !important;
+	box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	-o-box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	-webkit-box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	-moz-box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	color:white !important;
+	text-shadow:1px 1px 1px black !important;
+}
+.jwl_follow_sidebar:hover h3{
+	text-shadow: 0 0 5px #A5F1FF, 0 0 10px #A5F1FF, 
+			0 0 20px #A5F1FF, 0 0 30px #A5F1FF, 
+			0 0 40px #A5F1FF !important;
+}
+.jwl_follow_sidebar p a {
+	margin-left: 20px !important;
+}
+.jwl_rate_sidebar {
+	background-color:#CCFFCC;
+	border:1px solid #006600;
+	padding:10px;
+	border-radius: 5px 20px 5px 20px;
+	margin-bottom: 20px;
+}
+.jwl_rate_sidebar h3 {
+	padding-left:10px !important;
+	font-family:'Unlock',cursive !important;
+	border:1px solid #006400 !important;
+	background-color:#008000 !important;
+	border-radius:4px !important;
+	box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	-o-box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	-webkit-box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	-moz-box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	color:white !important;
+	text-shadow:1px 1px 1px black !important;
+}
+.jwl_rate_sidebar:hover h3{
+	text-shadow: 0 0 5px #A5F1FF, 0 0 10px #A5F1FF, 
+			0 0 20px #A5F1FF, 0 0 30px #A5F1FF, 
+			0 0 40px #A5F1FF !important;
+}
+.jwl_rate_sidebar p a {
+	margin-left: 20px !important;
+}
+.jwl_signup_sidebar {
+	background-color:#CCFFCC;
+	border:1px solid #006600;
+	padding:10px;
+	border-radius: 5px 20px 5px 20px;
+	margin-bottom: 20px;
+}
+.jwl_signup_sidebar h3 {
+	padding-left:10px !important;
+	font-family:'Unlock',cursive !important;
+	border:1px solid #006400 !important;
+	background-color:#008000 !important;
+	border-radius:4px !important;
+	box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	-o-box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	-webkit-box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	-moz-box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	color:white !important;
+	text-shadow:1px 1px 1px black !important;
+}
+.jwl_signup_sidebar:hover h3{
+	text-shadow: 0 0 5px #A5F1FF, 0 0 10px #A5F1FF, 
+			0 0 20px #A5F1FF, 0 0 30px #A5F1FF, 
+			0 0 40px #A5F1FF !important;
+}
+
 /******* /CONTENT *******/  
 /******* NEWS *******/  
 .content.news h1{  
