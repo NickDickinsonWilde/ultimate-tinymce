@@ -390,25 +390,6 @@
 			// NEW FEATURE
 			?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-bottom:-3px;margin-left:10px;" title="New Feature" /><?php
  }
- 
- function jwl_images_callback_function() {
-	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_images_field_id]" id="images" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_images_field_id']), false ) . ' /> ';
-	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/images.gif" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:66px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/images.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
-			if (isset($options['jwl_images_dropdown'])) {
-			$options_images = $options['jwl_images_dropdown'];
-			}
-			$items_images = array("Row 1", "Row 2", "Row 3", "Row 4");
-			echo "<select class='actionList' id='row' style='width:80px;margin-left:27px;' name='jwl_options_group1[jwl_images_dropdown][row]'>";
-			foreach($items_images as $item_images) {
-				$selected_images = ($options_images['row']==$item_images) ? 'selected="selected"' : '';
-				echo "<option value='$item_images' $selected_images>$item_images</option>";
-			}
-			echo "</select>";
-			// NEW FEATURE
-			?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-bottom:-3px;margin-left:10px;" title="New Feature" /><?php
- }
- 
  function jwl_moxie_imgmgr_callback_function() {
 	 ?><em><a target="_blank" style="color:#FF0000;" href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/" onmouseover="this.style.color = '#008000'" onmouseout="this.style.color = '#FF0000'"><?php _e('Available Soon in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></a></em><?php
  }

@@ -93,13 +93,15 @@
 
 function delayedLoad() {
 	//alert(tinymce.isWebKit);
+	// Changed by Josh Lobe to make work in the webkits.  Old init follows: tinyMCEPopup.onInit.add(init);
 	if (tinymce.isIE || tinymce.isWebKit) {
-		tinyMCEPopup.onInit.add(init);
+	tinyMCEPopup.onInit.add(init());
 	}
 	else {
-		tinyMCEPopup.onInit.add(init());
+	tinyMCEPopup.onInit.add(init());
 	}
 }
+
 
 </script>
 

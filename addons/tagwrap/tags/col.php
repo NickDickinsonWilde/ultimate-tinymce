@@ -1,6 +1,6 @@
 <head>
 <title>{#tagwrap_dlg.titleCol}</title>
-<script type="text/javascript" src="../../tinymce/tiny_mce_popup.js"></script>
+<script type="text/javascript" src="../../../tinymce/tiny_mce_popup.js"></script>
 <script type="text/javascript" src="js/dialog.js"></script>
 <link rel="stylesheet" type="text/css" href="css/tagwrap.css" />
 </head>

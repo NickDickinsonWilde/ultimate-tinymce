@@ -23,9 +23,9 @@ This option will enable (if available) the current active themes editor-style.cs
 Enabling this option will load the themes editor_style.css file.  There are a few notes to be aware of:<br />
 <ul>
 <li>
-Note 1: The file MUST be named exactly <strong>editor_style.css</strong>.
+Note 1: The file MUST be named exactly <strong>editor-style.css</strong>.
 </li><li>
-Note 2: If a child theme is active, the <strong>editor_style.css</strong> file MUST be located somewhere in the child theme.
+Note 2: If a child theme is active, the <strong>editor-style.css</strong> file MUST be located somewhere in the child theme.
 </li><li>
 Note 3: This option ONLY affects the tinymce content editor.  It makes NO changes whatsoever to the styles on the front end of the website.
 </li><li>

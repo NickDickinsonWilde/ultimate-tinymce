@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 3.5
+ * @version 3.6
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 3.5
+Version: 3.6
 Author URI: http://joshlobe.com
 
 */
@@ -853,21 +853,5 @@ function jwl_update_message_cb( $plugin_data, $r )
 	
     return print $output;
 }
-
-// Function to make directory for Image Manager files
-function jwl_create_imgmgr_direct() {
-	
-	$current_user = get_current_user_id();
-	
-	$target1 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce';
-	$target2 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr';
-	$target3 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr/'.$current_user.'/images';
-	$target4 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr/'.$current_user.'/files';
-	wp_mkdir_p( $target1 );
-	wp_mkdir_p( $target2 );
-	wp_mkdir_p( $target3 );
-	wp_mkdir_p( $target4 );
-}
-add_action('plugins_loaded','jwl_create_imgmgr_direct');
 
 ?>

@@ -303,19 +303,6 @@ if ($jwl_ezimage_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_ad
 if ($jwl_ezimage_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_ezimage"); }
 }
 
-function tinymce_add_button_images($buttons) { 
-$options = get_option('jwl_options_group1');
-$jwl_images = isset($options['jwl_images_field_id']); 
-if ($jwl_images == "1") $buttons[] = 'images'; return $buttons; } 
-$options2 = get_option('jwl_options_group1');
-if (isset($options2['jwl_images_dropdown']['row'])) {
-$jwl_images_dropdown2 = $options2['jwl_images_dropdown']['row'];
-if ($jwl_images_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_images"); } 
-if ($jwl_images_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_images"); } 
-if ($jwl_images_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_images"); }
-if ($jwl_images_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_images"); }
-}
-
 // Functions for Row 4
 function tinymce_add_button_styleselect($buttons) { 
 $options = get_option('jwl_options_group2');
@@ -708,7 +695,6 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['acheck'] = plugin_dir_url(__FILE__) . 'addons/acheck/editor_plugin.js';
 		$jwl_plugin_array['directionality'] = plugin_dir_url(__FILE__) . 'addons/directionality/editor_plugin.js';
 		$jwl_plugin_array['ezimage'] = plugin_dir_url(__FILE__) . 'addons/ezimage/editor_plugin.js';
-		$jwl_plugin_array['images'] = plugin_dir_url(__FILE__) . 'addons/images/editor_plugin.js';  // Image Manager
 		
 		// Test plugin array
 		//$jwl_plugin_array['images'] = plugin_dir_url(__FILE__) . 'addons/images/editor_plugin.js';
