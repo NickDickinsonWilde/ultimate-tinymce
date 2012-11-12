@@ -151,7 +151,7 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 
 = IMPORTANT =
 * I had to remove the Image Manager.  There is an exploit in the file swfulpoad.swf which can cause a security issue.  I was contacted by WordPress and asked to remove this security issue.  So, I am working on a new version which does not use the file.  I do apologize.. but some things are beyond my control.
-* You may read more about the threat, <a href="http://seclists.org/fulldisclosure/2012/Nov/51>HERE</a>.
+* You may read more about the threat, <a href="http://seclists.org/fulldisclosure/2012/Nov/51">HERE</a>.
 
 = Bug Fixes =
 * Fixed Image Map feature to properly load image in webkit browsers.
