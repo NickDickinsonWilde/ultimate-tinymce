@@ -391,7 +391,7 @@
 			?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/new.png" style="margin-bottom:-3px;margin-left:10px;" title="New Feature" /><?php
  }
  function jwl_moxie_imgmgr_callback_function() {
-	 ?><em><a target="_blank" style="color:#FF0000;" href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/" onmouseover="this.style.color = '#008000'" onmouseout="this.style.color = '#FF0000'"><?php _e('Available Soon in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></a></em><?php
+	 ?><em><a target="_blank" style="color:#FF0000;" href="http://ultimatetinymcepro.com" onmouseover="this.style.color = '#008000'" onmouseout="this.style.color = '#FF0000'"><?php _e('Available Soon in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></a></em><?php
  }
  
 // Begin Callback functions for each individual setting registered in code above.
@@ -841,8 +841,8 @@
  // Function and Settings for Tinymce editor color changes
  
  function jwl_tinycolor_css_callback_function() {
-	 $options = get_option('jwl_options_group3');
-	$options2 = isset($options['jwl_tinycolor_css_field_id']);
+	$options = get_option('jwl_options_group3');
+	$options2 = $options['jwl_tinycolor_css_field_id'];
 	$items = array("Default", "Pink", "Green", "Dark&Green", "Dark&Pink", "Rainbow", "Steel");
 	echo "<select id='tinycolor' name='jwl_options_group3[jwl_tinycolor_css_field_id][tinycolor]'>";
 	foreach($items as $item) {
@@ -988,7 +988,11 @@ function jwl_qr_code_text_callback_function() {
 	 $options = get_option('jwl_options_group4');
 	echo '<div class="jwl_hide">';
 	echo 'Choose QR Text Color:<br />';
-	echo '<input type="text" id="jwl_qr_code_text" class="color" name="jwl_options_group4[jwl_qr_code_text]" value="' . $options['jwl_qr_code_text'] . '" />';
+	if (isset($options['jwl_qr_code_text'])) {
+		echo '<input type="text" id="jwl_qr_code_text" class="color" name="jwl_options_group4[jwl_qr_code_text]" value="' . $options['jwl_qr_code_text'] . '" />';
+	} else {
+		echo '<input type="text" id="jwl_qr_code_text" class="color" name="jwl_options_group4[jwl_qr_code_text]" value="000000" />';
+	}
 	echo '</div';
 }
 
@@ -1013,7 +1017,7 @@ function jwl_qr_code_content_callback_function() {
 	echo '<span class="jwl_hide">';
 	$options = get_option('jwl_options_group4');
 	if (isset($options['jwl_qr_code_content'])) {
-		echo 'Choose QR Content Text:<br />';
+		echo 'Write QR Content Text:<br />';
 	}
 	echo '</span>';
 }
@@ -1060,23 +1064,23 @@ function jwl_tinymce_fontsize_callback_function() {
 }
 
 function jwl_tinymce_font_callback_function() {
-	?><a target="_blank" style="color:#FF0000;" href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/" onmouseover="this.style.color = '#008000'" onmouseout="this.style.color = '#FF0000'"><em><?php _e('Available Soon in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></em></a><?php
+	?><a target="_blank" style="color:#FF0000;" href="http://ultimatetinymcepro.com" onmouseover="this.style.color = '#008000'" onmouseout="this.style.color = '#FF0000'"><em><?php _e('Available in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></em></a><?php
 }
 
 function jwl_tinymce_lineheight_callback_function() {
-	?><a target="_blank" style="color:#FF0000;" href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/" onmouseover="this.style.color = '#008000'" onmouseout="this.style.color = '#FF0000'"><em><?php _e('Available Soon in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></em></a><?php
+	?><a target="_blank" style="color:#FF0000;" href="http://ultimatetinymcepro.com" onmouseover="this.style.color = '#008000'" onmouseout="this.style.color = '#FF0000'"><em><?php _e('Available in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></em></a><?php
 }
 
 function jwl_tinymce_direction_callback_function() {
-	?><a target="_blank" style="color:#FF0000;" href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/" onmouseover="this.style.color = '#008000'" onmouseout="this.style.color = '#FF0000'"><em><?php _e('Available Soon in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></em></a><?php
+	?><a target="_blank" style="color:#FF0000;" href="http://ultimatetinymcepro.com" onmouseover="this.style.color = '#008000'" onmouseout="this.style.color = '#FF0000'"><em><?php _e('Available in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></em></a><?php
 }
 
 function jwl_tinymce_padding_callback_function() {
-	?><a target="_blank" style="color:#FF0000;" href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/" onmouseover="this.style.color = '#008000'" onmouseout="this.style.color = '#FF0000'"><em><?php _e('Available Soon in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></em></a><?php
+	?><a target="_blank" style="color:#FF0000;" href="http://ultimatetinymcepro.com" onmouseover="this.style.color = '#008000'" onmouseout="this.style.color = '#FF0000'"><em><?php _e('Available in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></em></a><?php
 }
 
 function jwl_tinymce_margin_callback_function() {
-	?><a target="_blank" style="color:#FF0000;" href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/" onmouseover="this.style.color = '#008000'" onmouseout="this.style.color = '#FF0000'"><em><?php _e('Available Soon in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></em></a><?php
+	?><a target="_blank" style="color:#FF0000;" href="http://ultimatetinymcepro.com" onmouseover="this.style.color = '#008000'" onmouseout="this.style.color = '#FF0000'"><em><?php _e('Available in Ultimate Tinymce PRO Version','jwl-ultimate-tinymce'); ?></em></a><?php
 }
 
 ?>

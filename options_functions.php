@@ -643,22 +643,29 @@ if ($jwl_acheck_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add
 }
 
 // Functions for Other Plugin Buttons
-function tinymce_add_button_wp_photo_album($buttons) { 
-$options = get_option('jwl_options_group9');
-$jwl_wp_photo_album = isset($options['jwl_wp_photo_album_field_id']); 
-if ($jwl_wp_photo_album == "1") $buttons[] = 'mygallery_button'; return $buttons; } 
-$options2 = get_option('jwl_options_group9');
-if (isset($options2['jwl_wp_photo_album_dropdown']['row'])) {
-$jwl_wp_photo_album_dropdown2 = $options2['jwl_wp_photo_album_dropdown']['row'];
-if ($jwl_wp_photo_album_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_wp_photo_album"); } 
-if ($jwl_wp_photo_album_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_wp_photo_album"); } 
-if ($jwl_wp_photo_album_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_wp_photo_album"); }
-if ($jwl_wp_photo_album_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_wp_photo_album"); }
+// Function used to check if a plugin is active or not.
+function jwl_is_plugin_active( $plugin ) {
+    return in_array( $plugin, (array) get_option( 'active_plugins', array() ) );
+}
+
+if (jwl_is_plugin_active('wp-photo-album-plus/wppa.php')) {
+	function tinymce_add_button_wp_photo_album($buttons) { 
+	$options = get_option('jwl_options_group9');
+	$jwl_wp_photo_album = isset($options['jwl_wp_photo_album_field_id']); 
+	if ($jwl_wp_photo_album == "1") $buttons[] = 'mygallery_button'; return $buttons; } 
+	$options2 = get_option('jwl_options_group9');
+	if (isset($options2['jwl_wp_photo_album_dropdown']['row'])) {
+	$jwl_wp_photo_album_dropdown2 = $options2['jwl_wp_photo_album_dropdown']['row'];
+	if ($jwl_wp_photo_album_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_wp_photo_album"); } 
+	if ($jwl_wp_photo_album_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_wp_photo_album"); } 
+	if ($jwl_wp_photo_album_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_wp_photo_album"); }
+	if ($jwl_wp_photo_album_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_wp_photo_album"); }
+	}
 }
 
 // Test button
-//function tinymce_add_test_button($buttons) {  $buttons[] = 'images';  return $buttons;  }
-//add_filter("mce_buttons", "tinymce_add_test_button");
+//function tinymce_add_test_button($buttons) {  $buttons[] = 'advedit';  return $buttons;  }
+//add_filter("mce_buttons_3", "tinymce_add_test_button");
 
 // Add the plugin array for extra features
 function jwl_mce_external_plugins( $jwl_plugin_array ) {
@@ -697,7 +704,7 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['ezimage'] = plugin_dir_url(__FILE__) . 'addons/ezimage/editor_plugin.js';
 		
 		// Test plugin array
-		//$jwl_plugin_array['images'] = plugin_dir_url(__FILE__) . 'addons/images/editor_plugin.js';
+		//$jwl_plugin_array['advedit'] = plugin_dir_url(__FILE__) . 'addons/advedit/editor_plugin.js';
 		   
 		return $jwl_plugin_array;
 }
@@ -873,7 +880,7 @@ function tinymce_add_button_div($buttons) {
 $options = get_option('jwl_options_group3');
 $jwl_div = isset($options['jwl_div_field_id']);
 if ($jwl_div == "1")
-array_push($buttons, "separator", "clearleft","clearright","clearboth","advlink");
+array_push($buttons, "separator", "clearleft","clearright","clearboth");
    return $buttons;
 }
 add_filter('mce_buttons', 'tinymce_add_button_div');
@@ -1108,5 +1115,27 @@ if (isset($option_tmce_overrides['jwl_tinymce_modifications'])) {
 	add_filter('tiny_mce_before_init', 'jwl_modify_tmce');
 }
 
+// Function to make directory for Image Manager files
+
+function jwl_create_imgmgr_direct() {
+	
+	$current_user = get_current_user_id();
+	
+	$target1 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce';
+	$target2 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr';
+	$target3 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr/'.$current_user.'/images';
+	$target4 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr/'.$current_user.'/files';
+	
+	
+	$target5 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/advimg';
+	
+	wp_mkdir_p( $target1 );
+	wp_mkdir_p( $target2 );
+	wp_mkdir_p( $target3 );
+	wp_mkdir_p( $target4 );
+	
+	wp_mkdir_p( $target5 );
+}
+add_action('plugins_loaded','jwl_create_imgmgr_direct');
 
 ?>

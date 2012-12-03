@@ -4,13 +4,13 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.5
-Stable tag: 3.6
+Stable tag: 3.7
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
 == Description ==
 
-<a href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/">GO PRO!!</a>  Be sure to check out <a href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/">Ultimate Tinymce PRO</a>.  Offering more advanced features, additional formatting options, and an easier admin interface; <a href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/">Ultimate Tinymce PRO</a> is the final solution for the ultimate WordPress visual editor.
+<a href="http://www.plugins.joshlobe.com/">GO PRO!!</a>  Be sure to check out <a href="http://www.plugins.joshlobe.com/">Ultimate Tinymce PRO</a>.  Offering more advanced features, additional formatting options, and an easier admin interface; <a href="http://ultimatetinymcepro.com">Ultimate Tinymce PRO</a> is the final solution for the ultimate WordPress visual editor.
 
 Are you a visual person?  Do the letter combinations "HTML" and "CSS" send you running for the hills; but you still want to create beautiful blogs like the pros?  Then this is the plugin for you!
 
@@ -74,7 +74,8 @@ If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "W
 <strong>Translations:</strong><br />
 Translating a plugin takes a lot of time, effort, and patience.  Especially with a plugin like Ultimate TinyMCE where there is a large admin panel options page with lots of text.  I really appreciate the hard work from these contributors.<br />
 <ul>
-<li>Portuguese: Valdir Trombini</li>
+<li>Russian:    Svetlana                - <a href="http://yashopper.info">http://yashopper.info</a></li>
+<li>Irish:      Vikas                   - <a href="http://www.wiznicworld.com">http://www.wiznicworld.com</a></li>
 <li>French:     Quentin                 - <a href="www.tradpress.fr">www.tradpress.fr</a></li>
 <li>Czech:      Pavel Bilek     	- <a href="http://chcistranky.eu/zdarma/">Chcistranky.eu</a></li>
 <li>Hindi:      Outshine SOlutions      - <a href="http://outshinesolutions.com/">Outshine Solutions</a></li>
@@ -84,6 +85,7 @@ Translating a plugin takes a lot of time, effort, and patience.  Especially with
 <li>Japanese:   Redcocker       	- <a href="http://www.near-mint.com/blog/">http://www.near-mint.com/blog/</a></li>
 <li>Dutch:      keesiemeijer    	- <a href="http://codex.wordpress.org/User:Keesiemeijer">http://codex.wordpress.org/User:Keesiemeijer</a></li>
 <li>Finnish:    markku</li>
+<li>Portuguese: Valdir Trombini</li>
 </ul>
 
 
@@ -145,6 +147,27 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 3.7 =
+* 12-03-2012
+
+= New Features =
+* Added "scroll to top of page" arrow on bottom left of admin settings page.  Click to be taken back to top of page.
+
+= Bug Fixes =
+* Fixed bug with admin colors option not saving.
+* Fixed error with "change_mce_css.xxx" console warning when a color has not been selected for the admin colors.
+
+= Tweaks =
+* Fixed default QR Content text color from white.. to black (white on white was hard to see ;).
+* Updated links to Ultimate Tinymce PRO.
+* Consolidated a few of the CSS files into one, to enhance page loading times.
+* Consolidated ALL of the javascript functions into a single file.. and loaded it from outside the main plugin file.
+* Removed the 'set screen columns' from the "Screen Options" tab, since it's no longer needed.
+
+= Language Updates =
+* Updated "Russian" language file.  Thanks <a href="http://yashopper.info">Svetlana</a>!!
+* Updated "Irish" language file.  Thanks <a href="http://www.wiznicworld.com">Vikas</a>!!
 
 = 3.6 =
 * 11-11-2012
@@ -252,12 +275,12 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * 08-09-2012
 
 = New Features =
-* <a href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/">Ultimate Tinymce PRO</a> is now available.  Get it today for an introductory price!
+* <a href="http://ultimatetinymcepro.com">Ultimate Tinymce PRO</a> is now available.  Get it today for an introductory price!
 
 = Tweaks =
 * Reduced QR Code image from 100x100px to 75x75px.  This reduces screen "real-estate", while still allowing smart devices to recognize the code.
 * Changed "Signoff" textbox to an Ultimate Tinymce textbox.
-* Added link and info box for <a href="http://www.plugins.joshlobe.com/ultimate-tinymce-pro/">Ultimate Tinymce PRO</a>.
+* Added link and info box for <a href="http://ultimatetinymcepro.com">Ultimate Tinymce PRO</a>.
 
 = Bug Fixes =
 * Fixed warning message if plugin is installed in a subdirectory.

@@ -177,6 +177,34 @@ div.updated {
 			0 0 20px #A5F1FF, 0 0 30px #A5F1FF, 
 			0 0 40px #A5F1FF !important;
 }
+.jwl_pro_sidebar {
+	background-color:#CCFFCC;
+	border:1px solid #006600;
+	padding:10px;
+	border-radius: 5px 20px 5px 20px;
+	margin-bottom: 20px;
+}
+.jwl_pro_sidebar h3 {
+	padding-left:10px !important;
+	font-family:'Unlock',cursive !important;
+	border:1px solid #006400 !important;
+	background-color:#008000 !important;
+	border-radius:4px !important;
+	box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	-o-box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	-webkit-box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	-moz-box-shadow:inset 1px 6px 12px #7CFC00, inset -1px -10px 5px #006400, 1px 2px 1px black !important;
+	color:white !important;
+	text-shadow:1px 1px 1px black !important;
+}
+.jwl_pro_sidebar:hover h3{
+	text-shadow: 0 0 5px #A5F1FF, 0 0 10px #A5F1FF, 
+			0 0 20px #A5F1FF, 0 0 30px #A5F1FF, 
+			0 0 40px #A5F1FF !important;
+}
+.jwl_pro_sidebar p a {
+	margin-left: 20px !important;
+}
 
 /******* /CONTENT *******/  
 /******* NEWS *******/  
@@ -400,4 +428,43 @@ box-shadow: 0 0 5px 5px #888;
     margin: 0;
     padding: 0;
     clear:both;
+}
+
+/* Used for "scroll to top" javascript */
+.scrollToTop{
+	width:100px;
+	height:130px;
+	padding:10px;
+	text-align:center;
+	background: whiteSmoke;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	position:fixed;
+	bottom:75px;
+	left:5px;
+	display:none;
+	background: url('img/arrow_up.png') no-repeat 0px 20px;
+	
+	opacity: 0.5;
+	/* Firefox */
+	-moz-transition-property: opacity;
+	-moz-transition-duration: .25s;
+	-moz-transition-delay: 0;
+	/* WebKit */
+	-webkit-transition-property: opacity;
+	-webkit-transition-duration: .25s;
+	-webkit-transition-delay: 0;
+	/* Opera */
+	-o-transition-property: opacity;
+	-o-transition-duration: .25s;
+	-o-transition-delay: 0;
+	/* Standard */
+	transition-property: opacity;
+	transition-duration: .25s;
+	transition-delay: 0;
+}
+.scrollToTop:hover{
+	text-decoration:none;
+	opacity: 1;
 }
