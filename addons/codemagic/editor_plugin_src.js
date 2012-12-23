@@ -16,7 +16,7 @@
             // Register commands
 			ed.addCommand('mceCodeMagic', function() {
                 ed.windowManager.open({
-                    file : url + '/codemagic.htm',
+                    file : url + '/codemagic.php',
                     width : 1200,
                     height : 600,
                     inline : 1,

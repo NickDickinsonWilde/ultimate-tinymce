@@ -18,7 +18,7 @@
 			// Register the command so that it can be invoked by using tinyMCE.activeEditor.execCommand('mceezimage');
 			ed.addCommand('mceezimage', function() {
 				ed.windowManager.open({
-					file : url + '/ezimage.htm',
+					file : url + '/ezimage.php',
 					width : 460 + parseInt(ed.getLang('ezimage.delta_width', 0)),
 					height : 450 + parseInt(ed.getLang('ezimage.delta_height', 0)),
 					inline : 1

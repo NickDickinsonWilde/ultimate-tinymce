@@ -22,7 +22,7 @@
 			// Register the command so that it can be invoked by using tinyMCE.activeEditor.execCommand('mceExample');
 			ed.addCommand('w3cvalidate', function() {
 				ed.windowManager.open({
-					file : url + '/w3cvalidate.htm',
+					file : url + '/w3cvalidate.php',
 					width : 320 + parseInt(ed.getLang('w3cvalidate.delta_width', 0)),
 					height : 100 + parseInt(ed.getLang('w3cvalidate.delta_height', 0)),
 					inline : 1

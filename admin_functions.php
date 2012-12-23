@@ -34,14 +34,48 @@ function jwl_is_my_plugin_screen() {
     }  
 }
 
+
+/*
+**********************************
+Testing Text Editor Quicktags
+**********************************
+*/
+// Add buttons to html editor
+add_action('admin_print_footer_scripts','jwl_ult_quicktags');
+function jwl_ult_quicktags() {
+?>
+<script type="text/javascript" charset="utf-8">
+/* Adding Quicktag buttons to the editor Wordpress ver. 3.3 and above
+* - Button HTML ID (required)
+* - Button display, value="" attribute (required)
+* - Opening Tag (required)
+* - Closing Tag (required)
+* - Access key, accesskey="" attribute for the button (optional)
+* - Title, title="" attribute (optional)
+* - Priority/position on bar, 1-9 = first, 11-19 = second, 21-29 = third, etc. (optional)
+*/
+QTags.addButton( 'jwl_paragraph', 'p', '<p class="none">', '</p>', 'p', 'Insert paragraph tags', '1' );
+QTags.addButton( 'jwl_linebreak', 'br','<br class="none" />\n', '', 'br', 'Insert a linebreak', '2' );
+</script>
+<?php
+}
+// Here we will remove the above tags if the user opts to do so
+
+$options_remove_pbr_quicktags = get_option('jwl_options_group3');
+$jwl_pbr_quicktags = isset($options_remove_pbr_quicktags['jwl_remove_pbr_field_id']);
+if($jwl_pbr_quicktags == '1') {
+	remove_action('admin_print_footer_scripts','jwl_ult_quicktags');
+}
+
+
 // Change our default Tinymce configuration values
 function jwl_change_mce_options($initArray) {
-	$initArray['popup_css'] = plugin_dir_url( __FILE__ ) . 'css/popup.css';
+	//$initArray['popup_css'] = plugin_dir_url( __FILE__ ) . 'css/popup.css';
 	$initArray['theme_advanced_font_sizes'] = '6px=6px,8px=8px,10px=10px,12px=12px,14px=14px,16px=16px,18px=18px,20px=20px,22px=22px,24px=24px,28px=28px,32px=32px,36px=36px,40px=40px,44px=44px,48px=48px,52px=52px,62px=62px,72px=72px';
 	$initArray['plugin_insertdate_dateFormat'] = '%B %d, %Y';  // added for inserttimedate proper format
 	$initArray['plugin_insertdate_timeFormat'] = '%I:%M:%S %p';  // added for inserttimedate proper format
-	$initArray['nonbreaking_force_tab'] = true; // Enable tab key inserting three character blank spaces
-	$initArray['wordpress_adv_hidden'] = false; // Always enable kitchen sink upon page refesh
+	//$initArray['nonbreaking_force_tab'] = true; // Enable tab key inserting three character blank spaces
+	//$initArray['wordpress_adv_hidden'] = false; // Always enable kitchen sink upon page refesh
 	    $options = get_option('jwl_options_group4');
 		$jwl_content_css = isset($options['jwl_content_css']);
 		if ($jwl_content_css == "1") {
@@ -174,6 +208,8 @@ function register_options_button_group_one() {
 	add_settings_field('jwl_encode_field_id', __('Insert Encode/Decode Buttons','jwl-ultimate-tinymce'), 'jwl_encode_callback_function', 'jwl_options_group1', 'jwl_setting_section1'); 
 	add_settings_field('jwl_directionality_field_id', __('Insert Text Direction Buttons','jwl-ultimate-tinymce'), 'jwl_directionality_callback_function', 'jwl_options_group1', 'jwl_setting_section1'); 
 	add_settings_field('jwl_ezimage_field_id', __('EZ Image Button','jwl-ultimate-tinymce'), 'jwl_ezimage_callback_function', 'jwl_options_group1', 'jwl_setting_section1'); 
+	add_settings_field('jwl_ptags_field_id', __('Paragraph Tags Button','jwl-ultimate-tinymce'), 'jwl_ptags_callback_function', 'jwl_options_group1', 'jwl_setting_section1'); 
+	add_settings_field('jwl_mcelinebreak_field_id', __('Line Break Button','jwl-ultimate-tinymce'), 'jwl_mcelinebreak_callback_function', 'jwl_options_group1', 'jwl_setting_section1'); 
 	add_settings_field('jwl_moxie_imgmgr_field_id', __('TinyMCE Moxiecode Image Manager','jwl-ultimate-tinymce'), 'jwl_moxie_imgmgr_callback_function', 'jwl_options_group1', 'jwl_setting_section1');
 	
 	register_setting('jwl_options_group1','jwl_options_group1');
@@ -241,7 +277,8 @@ function register_options_misc_features() {
 	add_settings_field('jwl_columns_field_id', __('Enable Columns Shortcodes','jwl-ultimate-tinymce'), 'jwl_columns_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); 
 	add_settings_field('jwl_defaults_field_id', __('Enable Advanced Insert/Edit Link Button','jwl-ultimate-tinymce'), 'jwl_defaults_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); 
 	add_settings_field('jwl_div_field_id', __('Enable "Div Clear" Buttons','jwl-ultimate-tinymce'), 'jwl_div_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); 
-	add_settings_field('jwl_autop_field_id', __('Remove <b>p</b> and <b>br</b> tags','jwl-ultimate-tinymce'), 'jwl_autop_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); 
+	add_settings_field('jwl_autop_field_id', __('Disable wpautop','jwl-ultimate-tinymce'), 'jwl_autop_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); 
+	add_settings_field('jwl_remove_pbr_field_id', __('Remove <b>p</b> and <b>br</b> quicktags','jwl-ultimate-tinymce'), 'jwl_remove_pbr_callback_function', 'jwl_options_group3', 'jwl_setting_section3');
 	add_settings_field('jwl_cursor_field_id', __('Save scrollbar position in editor','jwl-ultimate-tinymce'), 'jwl_cursor_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); 
 	add_settings_field('jwl_signoff_field_id', __('Add a Signoff Shortcode','jwl-ultimate-tinymce'), 'jwl_signoff_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); 
 	

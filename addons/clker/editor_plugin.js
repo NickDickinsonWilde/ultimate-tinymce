@@ -22,7 +22,7 @@
 	// Register the command so that it can be invoked by using tinyMCE.activeEditor.execCommand('mceExample');
 	ed.addCommand('mceclker', function() {
 	    ed.windowManager.open({
-	      file : url + '/dialog.htm',
+	      file : url + '/dialog.php',
 		  width : 700 + parseInt(ed.getLang('clker.delta_width', 0)),
 		  height : 450 + parseInt(ed.getLang('clker.delta_height', 0)),
 		  inline : 1

@@ -183,7 +183,7 @@
 				}
 
 				ed.windowManager.open({
-					file : url + '/media.htm',
+					file : url + '/media.php',
 					width : 430 + parseInt(ed.getLang('media.delta_width', 0)),
 					height : 500 + parseInt(ed.getLang('media.delta_height', 0)),
 					inline : 1

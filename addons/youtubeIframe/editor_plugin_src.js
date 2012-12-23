@@ -26,7 +26,7 @@
             ed.addCommand('mceYoutubeIframe', function () {
                 
                 ed.windowManager.open({
-                    file: url + '/index.html',
+                    file: url + '/index.php',
                     width: 650,
                     height: 350,
                     inline: 1

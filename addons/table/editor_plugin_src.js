@@ -1289,7 +1289,7 @@
 
 					if (!ed.dom.select('td.mceSelected,th.mceSelected').length) {
 						winMan.open({
-							url : url + '/merge_cells.htm',
+							url : url + '/merge_cells.php',
 							width : 240 + parseInt(ed.getLang('table.merge_cells_delta_width', 0)),
 							height : 110 + parseInt(ed.getLang('table.merge_cells_delta_height', 0)),
 							inline : 1
@@ -1364,7 +1364,7 @@
 			each({
 				mceInsertTable : function(val) {
 					winMan.open({
-						url : url + '/table.htm',
+						url : url + '/table.php',
 						width : 400 + parseInt(ed.getLang('table.table_delta_width', 0)),
 						height : 320 + parseInt(ed.getLang('table.table_delta_height', 0)),
 						inline : 1
@@ -1376,7 +1376,7 @@
 
 				mceTableRowProps : function() {
 					winMan.open({
-						url : url + '/row.htm',
+						url : url + '/row.php',
 						width : 400 + parseInt(ed.getLang('table.rowprops_delta_width', 0)),
 						height : 295 + parseInt(ed.getLang('table.rowprops_delta_height', 0)),
 						inline : 1
@@ -1387,7 +1387,7 @@
 
 				mceTableCellProps : function() {
 					winMan.open({
-						url : url + '/cell.htm',
+						url : url + '/cell.php',
 						width : 400 + parseInt(ed.getLang('table.cellprops_delta_width', 0)),
 						height : 295 + parseInt(ed.getLang('table.cellprops_delta_height', 0)),
 						inline : 1

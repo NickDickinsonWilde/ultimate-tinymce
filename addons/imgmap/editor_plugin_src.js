@@ -14,7 +14,7 @@
 					return;
 
 				ed.windowManager.open({
-					file : url + '/popup.html',
+					file : url + '/popup.php',
 					width : 700,
 					height : 560,
 					inline : 1

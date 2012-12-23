@@ -303,6 +303,36 @@ if ($jwl_ezimage_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_ad
 if ($jwl_ezimage_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_ezimage"); }
 }
 
+function tinymce_add_button_ptags($buttons) { 
+$options = get_option('jwl_options_group1');
+$jwl_ptags = isset($options['jwl_ptags_field_id']); 
+if ($jwl_ptags == "1") $buttons[] = 'ptags'; return $buttons; } 
+$options2 = get_option('jwl_options_group1');
+if (isset($options2['jwl_ptags_dropdown']['row'])) {
+$jwl_ptags_dropdown2 = $options2['jwl_ptags_dropdown']['row'];
+if ($jwl_ptags_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_ptags"); } 
+if ($jwl_ptags_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_ptags"); } 
+if ($jwl_ptags_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_ptags"); }
+if ($jwl_ptags_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_ptags"); }
+}
+
+function tinymce_add_button_linebreak($buttons) { 
+$options = get_option('jwl_options_group1');
+$jwl_linebreak = isset($options['jwl_mcelinebreak_field_id']); 
+if ($jwl_linebreak == "1") $buttons[] = 'linebreak'; return $buttons; } 
+$options2 = get_option('jwl_options_group1');
+if (isset($options2['jwl_mcelinebreak_dropdown']['row'])) {
+$jwl_linebreak_dropdown2 = $options2['jwl_mcelinebreak_dropdown']['row'];
+if ($jwl_linebreak_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_linebreak"); } 
+if ($jwl_linebreak_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_linebreak"); } 
+if ($jwl_linebreak_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_linebreak"); }
+if ($jwl_linebreak_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_linebreak"); }
+}
+
+// ***********************
+//
+//
+//
 // Functions for Row 4
 function tinymce_add_button_styleselect($buttons) { 
 $options = get_option('jwl_options_group2');
@@ -642,6 +672,9 @@ if ($jwl_acheck_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add
 if ($jwl_acheck_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_acheck"); }
 }
 
+// ******************************************************
+//
+//
 // Functions for Other Plugin Buttons
 // Function used to check if a plugin is active or not.
 function jwl_is_plugin_active( $plugin ) {
@@ -702,6 +735,8 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['acheck'] = plugin_dir_url(__FILE__) . 'addons/acheck/editor_plugin.js';
 		$jwl_plugin_array['directionality'] = plugin_dir_url(__FILE__) . 'addons/directionality/editor_plugin.js';
 		$jwl_plugin_array['ezimage'] = plugin_dir_url(__FILE__) . 'addons/ezimage/editor_plugin.js';
+		$jwl_plugin_array['ptags'] = plugin_dir_url(__FILE__) . 'addons/ptags/editor_plugin.js';
+		$jwl_plugin_array['linebreak'] = plugin_dir_url(__FILE__) . 'addons/linebreak/editor_plugin.js';
 		
 		// Test plugin array
 		//$jwl_plugin_array['advedit'] = plugin_dir_url(__FILE__) . 'addons/advedit/editor_plugin.js';

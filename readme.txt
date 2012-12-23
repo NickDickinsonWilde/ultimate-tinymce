@@ -2,9 +2,9 @@
 Contributors: josh401, Marventus
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
-Requires at least: 3.5
+Requires at least: 3.3.1
 Tested up to: 3.5 Beta 2
-Stable tag: 3.8
+Stable tag: 3.9
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -147,6 +147,23 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 3.9 =
+* 12-23-2012
+
+= New Features =
+* Are you ready for this???
+* Added two new addons.  One for working with paragraph tags... and one to insert linebreaks.
+* Oh... it gets BETTER!!
+* These new p and br tags will NOT... I repeat... will NOT be stripped out by the editor.
+* They will be preserved both when saving a post... and when switching between "visual" and "text" editors.
+
+= Tweaks =
+* Updated Japanese language translation.  Thanks Takuro Hishikawa!
+* Added some code for BBPress compatibility (unsets "teeny" mode in bbpress).
+
+* Adjusted tinymce file to use WP's version.  This means, there will no longer be incompatibility should WP choose to change the file again.
+* Because of the item above; all addon files had to be changed from .html to .php.  VERY labor intensive.. so please report any errors.
 
 = 3.8 =
 * 12-12-12

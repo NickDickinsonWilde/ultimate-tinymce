@@ -29,7 +29,7 @@
 			// Register the command so that it can be invoked by using tinyMCE.activeEditor.execCommand('mceYouTube');
 			ed.addCommand('mceYouTube', function() {
 				ed.windowManager.open({
-					file : url + '/youtube.htm',
+					file : url + '/youtube.php',
 					width : 400 + parseInt(ed.getLang('youtube.delta_width', 0)),
 					height : 400 + parseInt(ed.getLang('youtube.delta_height', 0)),
 					inline : 1

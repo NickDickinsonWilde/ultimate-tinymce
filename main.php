@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 3.8
+ * @version 3.9
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 3.8
+Version: 3.9
 Author URI: http://joshlobe.com
 
 */
@@ -35,6 +35,21 @@ include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/options_functions.php';
 include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/options_callback_functions.php';
 include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/admin_functions.php';
 include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/includes/import_export.php';
+
+
+//
+//
+// Let's fix the BBPress issue with tinymce set to "teeny"
+/*
+******************************************************
+Used for BBPress.  Editor breaks in BBPress otherwise.
+******************************************************
+*/
+function jwl_ult_bbpress_mceallow( $args = array() ) {
+    $args['teeny'] = false;
+    return $args;
+}
+add_filter( 'bbp_after_get_the_content_parse_args', 'jwl_ult_bbpress_mceallow' );
 
 
 // Let's check for options which throw errors if not set... If they are not set, let's set them!
