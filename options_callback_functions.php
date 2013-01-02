@@ -1017,8 +1017,13 @@ function jwl_pluginslist_callback_function() {
 }
 function jwl_tinymce_refresh_callback_function() {
 	 $options = get_option('jwl_options_group4');
-	echo '<input name="jwl_options_group[jwl_tinymce_refresh]" id="tinymcerefresh" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_refresh']), false ) . ' /> ';
+	echo '<input name="jwl_options_group4[jwl_tinymce_refresh]" id="tinymcerefresh" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_refresh']), false ) . ' /> ';
 	?><span style="margin-left:15px;"><em><?php _e('Disables the force caching of tinymce on page reload.','jwl-ultimate-tinymce'); ?></em></span><?php
+}
+function jwl_tinymce_kitchen_callback_function() {
+	 $options = get_option('jwl_options_group4');
+	echo '<input name="jwl_options_group4[jwl_tinymce_kitchen]" id="tinymcekitchen" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_kitchen']), false ) . ' /> ';
+	?><span style="margin-left:15px;"><em><?php _e('Disables the force open state of "kitchen sink" button.','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 
 function jwl_qr_code_callback_function() {

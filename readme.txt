@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.5 Beta 2
-Stable tag: 3.9
+Stable tag: 4.0.1
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -147,6 +147,13 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 4.0.1 =
+* 01-02-13
+
+= Tweaks =
+* Re-activated the forced opening of the kitchen sink button.  This button's original functionality is to expand/collapse row 2 of the visual editor.  Now, the kitchen sink will always be forced to it's open state.  There is an option to disable this feature, and restore original WP kitchen sink button functionality.
+* Changed version numbering system.
 
 = 3.9 =
 * 12-23-2012

@@ -75,7 +75,14 @@ function jwl_change_mce_options($initArray) {
 	$initArray['plugin_insertdate_dateFormat'] = '%B %d, %Y';  // added for inserttimedate proper format
 	$initArray['plugin_insertdate_timeFormat'] = '%I:%M:%S %p';  // added for inserttimedate proper format
 	//$initArray['nonbreaking_force_tab'] = true; // Enable tab key inserting three character blank spaces
-	//$initArray['wordpress_adv_hidden'] = false; // Always enable kitchen sink upon page refesh
+	$initArray['wordpress_adv_hidden'] = false; // Always enable kitchen sink upon page refesh
+	
+		$options_kitchen_sink = get_option('jwl_options_group4');
+		$jwl_kitchen = isset($options_kitchen_sink['jwl_tinymce_kitchen']);
+		if ($jwl_kitchen == '1') {
+			$initArray['wordpress_adv_hidden'] = true; // If user enabled option of hiding kitchen sink
+		}
+		
 	    $options = get_option('jwl_options_group4');
 		$jwl_content_css = isset($options['jwl_content_css']);
 		if ($jwl_content_css == "1") {
@@ -299,6 +306,7 @@ function register_options_admin() {
 	add_settings_field('jwl_content_css', __('Enable content.css file','jwl-ultimate-tinymce'), 'jwl_content_css_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
 	add_settings_field('jwl_pluginslist_css', __('Disable plugins list css styling','jwl-ultimate-tinymce'), 'jwl_pluginslist_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
 	add_settings_field('jwl_tinymce_refresh', __('Disable "force" refresh of tinymce','jwl-ultimate-tinymce'), 'jwl_tinymce_refresh_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
+	add_settings_field('jwl_tinymce_kitchen', __('Disable "force" open kitchen sink','jwl-ultimate-tinymce'), 'jwl_tinymce_kitchen_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
 	add_settings_field('jwl_qr_code', __('Enable QR (Quick Response) code on posts','jwl-ultimate-tinymce'), 'jwl_qr_code_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
 	add_settings_field('jwl_qr_code_pages', __('Enable QR (Quick Response) code on pages','jwl-ultimate-tinymce'), 'jwl_qr_code_pages_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
 	add_settings_field('jwl_qr_code_text', __(' ','jwl-ultimate-tinymce'), 'jwl_qr_code_text_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 

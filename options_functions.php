@@ -696,6 +696,34 @@ if (jwl_is_plugin_active('wp-photo-album-plus/wppa.php')) {
 	}
 }
 
+
+
+// ******************************************************
+//
+//
+// Functions for FullScreen Buttons
+/*
+if ( !function_exists('jwl_fullscreen_buttons') )
+{
+	function jwl_fullscreen_buttons($buttons)
+	{
+	// add a separator
+	//$buttons[] = 'separator';
+	// format: title, onclick, show in both editors
+	$buttons['shortcodes'] = array(
+	// Title of the button
+	'title' => __('Shortcodes'),
+	// Command to execute
+	'onclick' => "tinyMCE.execCommand('mceShortcodes');",
+	// Show on visual AND html mode
+	'both' => false
+	);
+	return $buttons;
+	}
+	add_filter( 'wp_fullscreen_buttons', 'jwl_fullscreen_buttons' );
+}
+*/
+
 // Test button
 //function tinymce_add_test_button($buttons) {  $buttons[] = 'advedit';  return $buttons;  }
 //add_filter("mce_buttons_3", "tinymce_add_test_button");
@@ -739,7 +767,7 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['linebreak'] = plugin_dir_url(__FILE__) . 'addons/linebreak/editor_plugin.js';
 		
 		// Test plugin array
-		//$jwl_plugin_array['advedit'] = plugin_dir_url(__FILE__) . 'addons/advedit/editor_plugin.js';
+		//$jwl_plugin_array['jqueryinlinepopups'] = plugin_dir_url(__FILE__) . 'addons/jqueryinlinepopups/editor_plugin.js';
 		   
 		return $jwl_plugin_array;
 }
