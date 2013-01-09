@@ -41,23 +41,27 @@ Testing Text Editor Quicktags
 **********************************
 */
 // Add buttons to html editor
+
 add_action('admin_print_footer_scripts','jwl_ult_quicktags');
 function jwl_ult_quicktags() {
-?>
-<script type="text/javascript" charset="utf-8">
-/* Adding Quicktag buttons to the editor Wordpress ver. 3.3 and above
-* - Button HTML ID (required)
-* - Button display, value="" attribute (required)
-* - Opening Tag (required)
-* - Closing Tag (required)
-* - Access key, accesskey="" attribute for the button (optional)
-* - Title, title="" attribute (optional)
-* - Priority/position on bar, 1-9 = first, 11-19 = second, 21-29 = third, etc. (optional)
-*/
-QTags.addButton( 'jwl_paragraph', 'p', '<p class="none">', '</p>', 'p', 'Insert paragraph tags', '1' );
-QTags.addButton( 'jwl_linebreak', 'br','<br class="none" />\n', '', 'br', 'Insert a linebreak', '2' );
-</script>
-<?php
+//wp_enqueue_script( 'quicktags' );
+	?>
+	<script type="text/javascript" charset="utf-8">
+	/* Adding Quicktag buttons to the editor Wordpress ver. 3.3 and above
+	* - Button HTML ID (required)
+	* - Button display, value="" attribute (required)
+	* - Opening Tag (required)
+	* - Closing Tag (required)
+	* - Access key, accesskey="" attribute for the button (optional)
+	* - Title, title="" attribute (optional)
+	* - Priority/position on bar, 1-9 = first, 11-19 = second, 21-29 = third, etc. (optional)
+	*/
+	if ( typeof (QTags) != 'undefined' ) {
+		QTags.addButton( 'jwl_paragraph', 'p', '<p class="none">', '</p>', 'p', 'Insert paragraph tags', '1' );
+		QTags.addButton( 'jwl_linebreak', 'br','<br class="none" />\n', '', 'br', 'Insert a linebreak', '2' );
+	}
+	</script>
+	<?php
 }
 // Here we will remove the above tags if the user opts to do so
 
