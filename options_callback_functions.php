@@ -853,6 +853,54 @@
 			echo "</select>";
  }
  
+ function jwl_advlink_callback_function() {
+	 $options = get_option('jwl_options_group2');
+ 	echo '<input name="jwl_options_group2[jwl_advlink_field_id]" id="advlink" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_advlink_field_id']), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/advlink.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:66px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/advlink.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+			if (isset($options['jwl_advlink_dropdown'])) {
+			$options_advlink = $options['jwl_advlink_dropdown'];
+			}	
+			$items_advlink = array("Row 1", "Row 2", "Row 3", "Row 4");
+			echo "<select class='actionList2' id='row' style='width:80px;margin-left:27px;' name='jwl_options_group2[jwl_advlink_dropdown][row]'>";
+			foreach($items_advlink as $item_advlink) {
+				$selected_advlink = ($options_advlink['row']==$item_advlink) ? 'selected="selected"' : '';
+				echo "<option value='$item_advlink' $selected_advlink>$item_advlink</option>";
+			}
+			echo "</select>";
+ }
+ 
+ function jwl_div_callback_function() {
+	 $options = get_option('jwl_options_group2');
+ 	echo '<input name="jwl_options_group2[jwl_div_field_id]" id="div" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_div_field_id']), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/div_clear.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/div.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+			if (isset($options['jwl_div_dropdown'])) {
+			$options_div = $options['jwl_div_dropdown'];
+			}	
+			$items_div = array("Row 1", "Row 2", "Row 3", "Row 4");
+			echo "<select class='actionList2' id='row' style='width:80px;margin-left:27px;' name='jwl_options_group2[jwl_div_dropdown][row]'>";
+			foreach($items_div as $item_div) {
+				$selected_div = ($options_div['row']==$item_div) ? 'selected="selected"' : '';
+				echo "<option value='$item_div' $selected_div>$item_div</option>";
+			}
+			echo "</select>";
+ }
+ 
+ function jwl_nextpage_callback_function() {
+	 $options = get_option('jwl_options_group2');
+ 	echo '<input name="jwl_options_group2[jwl_nextpage_field_id]" id="nextpage" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_nextpage_field_id']), false ) . ' /> ';
+	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/page_break.png" style="margin-left:10px;margin-bottom:-5px;" /><span style="margin-left:66px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/nextpage.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
+			if (isset($options['jwl_nextpage_dropdown'])) {
+			$options_nextpage = $options['jwl_nextpage_dropdown'];
+			}	
+			$items_nextpage = array("Row 1", "Row 2", "Row 3", "Row 4");
+			echo "<select class='actionList2' id='row' style='width:80px;margin-left:27px;' name='jwl_options_group2[jwl_nextpage_dropdown][row]'>";
+			foreach($items_nextpage as $item_nextpage) {
+				$selected_nextpage = ($options_nextpage['row']==$item_nextpage) ? 'selected="selected"' : '';
+				echo "<option value='$item_nextpage' $selected_nextpage>$item_nextpage</option>";
+			}
+			echo "</select>";
+ }
+ 
 // Callback Functions for Other Plugin Buttons
 
  function jwl_wp_photo_album_callback_function() {
@@ -948,11 +996,13 @@
 	?><span style="margin-left:15px;"><em><?php _e('Adds the Advanced Link button to editor.','jwl-ultimate-tinymce'); ?></em></span><span style="margin-left:5px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>advlink/advlink.png" style="margin-left:10px;margin-bottom:-5px;" /></span><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/advlink.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
  }
  
+ /*
  function jwl_div_callback_function() {
 	 $options = get_option('jwl_options_group3');
  	echo '<input name="jwl_options_group3[jwl_div_field_id]" id="div" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_div_field_id']), false ) . ' /> ';
 	?><span style="margin-left:15px;"><em><?php _e('Adds the Clear Div Buttons.','jwl-ultimate-tinymce'); ?></em></span><span style="margin-left:5px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/div_clear.png" style="margin-left:10px;margin-bottom:-5px;" /></span><span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/divclear.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php 
  }
+ */
  
  function jwl_autop_callback_function() {
 	 $options = get_option('jwl_options_group3');

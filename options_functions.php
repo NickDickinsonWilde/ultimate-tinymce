@@ -672,6 +672,45 @@ if ($jwl_acheck_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add
 if ($jwl_acheck_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_acheck"); }
 }
 
+function tinymce_add_button_advlink($buttons) { 
+$options = get_option('jwl_options_group2');
+$jwl_advlink = isset($options['jwl_advlink_field_id']); 
+if ($jwl_advlink == "1") $buttons[] = 'advlink'; return $buttons; } 
+$options2 = get_option('jwl_options_group2');
+if (isset($options2['jwl_advlink_dropdown']['row'])) {
+$jwl_advlink_dropdown2 = $options2['jwl_advlink_dropdown']['row'];
+if ($jwl_advlink_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_advlink"); } 
+if ($jwl_advlink_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_advlink"); } 
+if ($jwl_advlink_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_advlink"); }
+if ($jwl_advlink_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_advlink"); }
+}
+
+function tinymce_add_button_div($buttons) { 
+$options = get_option('jwl_options_group2');
+$jwl_div = isset($options['jwl_div_field_id']); 
+if ($jwl_div == "1") $buttons[] = 'clearleft,clearright,clearboth'; return $buttons; } 
+$options2 = get_option('jwl_options_group2');
+if (isset($options2['jwl_div_dropdown']['row'])) {
+$jwl_div_dropdown2 = $options2['jwl_div_dropdown']['row'];
+if ($jwl_div_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_div"); } 
+if ($jwl_div_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_div"); } 
+if ($jwl_div_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_div"); }
+if ($jwl_div_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_div"); }
+}
+
+function tinymce_add_button_nextpage($buttons) { 
+$options = get_option('jwl_options_group2');
+$jwl_nextpage = isset($options['jwl_nextpage_field_id']); 
+if ($jwl_nextpage == "1") $buttons[] = 'wp_page'; return $buttons; } 
+$options2 = get_option('jwl_options_group2');
+if (isset($options2['jwl_nextpage_dropdown']['row'])) {
+$jwl_nextpage_dropdown2 = $options2['jwl_nextpage_dropdown']['row'];
+if ($jwl_nextpage_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_nextpage"); } 
+if ($jwl_nextpage_dropdown2 == 'Row 2') { add_filter("mce_buttons_2", "tinymce_add_button_nextpage"); } 
+if ($jwl_nextpage_dropdown2 == 'Row 3') { add_filter("mce_buttons_3", "tinymce_add_button_nextpage"); }
+if ($jwl_nextpage_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_button_nextpage"); }
+}
+
 // ******************************************************
 //
 //
@@ -765,6 +804,7 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['ezimage'] = plugin_dir_url(__FILE__) . 'addons/ezimage/editor_plugin.js';
 		$jwl_plugin_array['ptags'] = plugin_dir_url(__FILE__) . 'addons/ptags/editor_plugin.js';
 		$jwl_plugin_array['linebreak'] = plugin_dir_url(__FILE__) . 'addons/linebreak/editor_plugin.js';
+		$jwl_plugin_array['advlink'] = plugin_dir_url(__FILE__) . 'addons/advlink/editor_plugin.js';
 		
 		// Test plugin array
 		//$jwl_plugin_array['jqueryinlinepopups'] = plugin_dir_url(__FILE__) . 'addons/jqueryinlinepopups/editor_plugin.js';
@@ -802,6 +842,7 @@ if ($jwl_tinymce_refresh == "1"){
 $options4 = get_option('jwl_options_group3');
 
 // Function for NextPage Feature
+/*
 $jwl_tinymce_nextpage = isset($options4['jwl_tinymce_nextpage_field_id']);
 if ($jwl_tinymce_nextpage == "1"){
     add_filter('mce_buttons','jwl_nextpage_button');
@@ -815,6 +856,7 @@ if ($jwl_tinymce_nextpage == "1"){
     return $mce_buttons;
     }
 }
+*/
 
 // Function to show post/page id in admin column area
 $jwl_postid = isset($options4['jwl_postid_field_id']);
@@ -909,6 +951,7 @@ if ($jwl_linebreak == "1"){
 }
 
 // Add button and array for advanced insert/edit link button.
+/*
 $jwl_defaults = isset($options4['jwl_defaults_field_id']);
 if ($jwl_defaults == "1") {
 	
@@ -937,8 +980,10 @@ if ($jwl_defaults == "1") {
 	}
 	add_filter('mce_buttons','jwl_advlink_button');
 }
+*/
 
 // User option for adding the clear div buttons in the visual editor
+/*
 function tinymce_add_button_div($buttons) {
 $options = get_option('jwl_options_group3');
 $jwl_div = isset($options['jwl_div_field_id']);
@@ -947,6 +992,7 @@ array_push($buttons, "separator", "clearleft","clearright","clearboth");
    return $buttons;
 }
 add_filter('mce_buttons', 'tinymce_add_button_div');
+*/
 
 // Function to remove wpautop
 $jwl_autop = isset($options4['jwl_autop_field_id']);
@@ -1179,7 +1225,7 @@ if (isset($option_tmce_overrides['jwl_tinymce_modifications'])) {
 }
 
 // Function to make directory for Image Manager files
-
+/*
 function jwl_create_imgmgr_direct() {
 	
 	$current_user = get_current_user_id();
@@ -1200,5 +1246,6 @@ function jwl_create_imgmgr_direct() {
 	wp_mkdir_p( $target5 );
 }
 add_action('plugins_loaded','jwl_create_imgmgr_direct');
+*/
 
 ?>
