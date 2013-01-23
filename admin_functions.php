@@ -311,7 +311,7 @@ function register_options_admin() {
 	add_settings_field('jwl_dashboard_widget', __('Enable dashboard widget','jwl-ultimate-tinymce'), 'jwl_dashboard_widget_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
 	add_settings_field('jwl_admin_bar_link', __('Enable admin bar link','jwl-ultimate-tinymce'), 'jwl_admin_bar_link_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
 	add_settings_field('jwl_content_css', __('Enable content.css file','jwl-ultimate-tinymce'), 'jwl_content_css_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
-	add_settings_field('jwl_pluginslist_css', __('Disable plugins list css styling','jwl-ultimate-tinymce'), 'jwl_pluginslist_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
+	add_settings_field('jwl_disable_styles', __('Disable all plugin "beautifications"','jwl-ultimate-tinymce'), 'jwl_disable_styles_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
 	add_settings_field('jwl_tinymce_refresh', __('Disable "force" refresh of tinymce','jwl-ultimate-tinymce'), 'jwl_tinymce_refresh_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
 	add_settings_field('jwl_tinymce_kitchen', __('Disable "force" open kitchen sink','jwl-ultimate-tinymce'), 'jwl_tinymce_kitchen_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
 	add_settings_field('jwl_qr_code', __('Enable QR (Quick Response) code on posts','jwl-ultimate-tinymce'), 'jwl_qr_code_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 

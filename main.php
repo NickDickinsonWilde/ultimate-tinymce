@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 4.0.4
+ * @version 4.0.5
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 4.0.4
+Version: 4.0.5
 Author URI: http://joshlobe.com
 
 */
@@ -85,8 +85,9 @@ function jwl_admin_style() {
 	}
 }
 add_action('admin_print_styles', 'jwl_admin_style');
+// Remove the styles if option is selected
 $options = get_option('jwl_options_group4');
-$jwl_pluginslist = isset($options['jwl_pluginslist_css']);
+$jwl_pluginslist = isset($options['jwl_disable_styles']);
 if ($jwl_pluginslist == "1"){
 	remove_action('admin_print_styles', 'jwl_admin_style');
 }
@@ -108,6 +109,12 @@ function jwl_execphp_donate_link($links, $file) {
 	} 
 	return $links; 
 } add_filter('plugin_row_meta', 'jwl_execphp_donate_link', 10, 2);
+// Remove Donate Links if option is selected
+$options_remove_donate = get_option('jwl_options_group4');
+$jwl_remove_donate = isset($options_remove_donate['jwl_disable_styles']);
+if ($jwl_remove_donate == "1"){
+	remove_filter('plugin_row_meta', 'jwl_execphp_donate_link', 10, 2);
+}
 
 // Check WP Version and generate update notice if necessary
 if ( ! isset($GLOBALS['wp_version']) || version_compare($GLOBALS['wp_version'], '3.3.1', '<') ) { // if less than ...
@@ -283,14 +290,25 @@ class jwl_metabox_admin {
             
 <div id="ultimate-tinymce-general" class="wrap">
 
-	<?php //screen_icon('options-general'); ?>
-    <span style="margin-top:10px;">
-    	<img src="<?php echo plugins_url('img/settings.png', __FILE__ ) ?>" title="Ultimate Tinymce Settings Page" style="margin-top:10px;margin-bottom:-10px;"/>
-        <span style="margin-left:20px;color:#FAC46D;font-size:32px;font-family:'Unlock', cursive;"><?php _e('Ultimate Tinymce ','jwl-ultimate-tinymce'); ?>
-        </span>
-        <span style="color:#5F95EF;font-size:22px;font-family:'Unlock', cursive;"><?php _e('Admin Settings Page','jwl-ultimate-tinymce'); ?>
-        </span>
-    </span>
+	<?php
+	// This will remove the title section if the user selects the plugin disable styling option
+	$options_remove_title = get_option('jwl_options_group4');
+	$jwl_remove_title = isset($options_remove_title['jwl_disable_styles']);
+	if ($jwl_remove_title == "1"){ 
+		screen_icon('options-general');
+		?><h2><?php _e('Ultimate Tinymce Admin Settings Page','jwl-ultimate-tinymce'); ?></h2><?php
+	} else {
+		?>
+		<span style="margin-top:10px;">
+			<img src="<?php echo plugins_url('img/settings.png', __FILE__ ) ?>" title="Ultimate Tinymce Settings Page" style="margin-top:10px;margin-bottom:-10px;"/>
+			<span style="margin-left:20px;color:#FAC46D;font-size:32px;font-family:'Unlock', cursive;"><?php _e('Ultimate Tinymce ','jwl-ultimate-tinymce'); ?>
+			</span>
+			<span style="color:#5F95EF;font-size:22px;font-family:'Unlock', cursive;"><?php _e('Admin Settings Page','jwl-ultimate-tinymce'); ?>
+			</span>
+		</span>
+    <?php
+	}
+	?>
     
     <form action="admin-post.php" method="post">
     <?php wp_nonce_field('ultimate-tinymce-general'); ?>
@@ -298,7 +316,15 @@ class jwl_metabox_admin {
     <?php wp_nonce_field('meta-box-order', 'meta-box-order-nonce', false ); ?>
     <input type="hidden" name="action" value="save_ultimate-tinymce_general" />
     </form>
-                          
+    
+    
+    <?php
+	// This will remove all of the main tabbed section content if the user selects the plugin disable styling option
+	$options_remove_main_tabs = get_option('jwl_options_group4');
+	$jwl_remove_main_tabs = isset($options_remove_main_tabs['jwl_disable_styles']);
+	if ($jwl_remove_main_tabs != "1"){ // Closing bracket is directly after closing #container div
+	?>
+	                 
     <div id="container"> 
      
         <ul class="menu">  
@@ -624,12 +650,24 @@ class jwl_metabox_admin {
     </div> <!-- End Div #container -->
     
     
-    
-          	
+    <?php
+	// Closes the styling conditional if the user enables the option to remove plugin author styling
+	}
+	?>
+        
+        
     
     <div id="poststuff" class="metabox-holder has-right-sidebar">
     
-        <div id="side-info-column" class="inner-sidebar">                        
+        <div id="side-info-column" class="inner-sidebar">  
+        
+        
+        <?php
+		// This will remove all the sidebar content if the user enables the option to remove plugin styling
+		$options_remove_sidebar = get_option('jwl_options_group4');
+		$jwl_remove_sidebar = isset($options_remove_sidebar['jwl_disable_styles']);
+		if ($jwl_remove_sidebar != "1"){ // Closing bracket is just before closing #side-info-column div
+		?>                      
             
             <div class="jwl_support_sidebar">
             	<h3><?php _e('Need Support?', 'jwl-ultimate-tinymce'); ?></h3>
@@ -685,7 +723,13 @@ class jwl_metabox_admin {
                 <p><a target="_blank" href="http://ultimatetinymcepro.com"><?php _e('Ultimate Tinymce PRO', 'jwl-ultimate-tinymce'); ?></a></p>
             </div> <!-- End Div .jwl_pro_sidebar -->
             
+        <?php
+		// Closes the styling conditional if the user enables the option to remove plugin author styling
+		}
+		?>
+            
         </div> <!-- End Div #side-info-column -->
+        
         
         
         <div id="post-body" class="has-sidebar">
@@ -696,24 +740,44 @@ class jwl_metabox_admin {
             global $current_user ;
 		    $user_id = $current_user->ID;
 			
-			?><strong><?php _e('Quick Navigation:', 'jwl-ultimate-tinymce'); ?></strong><?php
-			?><br />
-            <a href="#buttons1"><?php _e('Buttons Group 1', 'jwl-ultimate-tinymce'); ?></a> | 
-            <a href="#buttons2"><?php _e('Buttons Group 2', 'jwl-ultimate-tinymce'); ?></a> | 
-            <a href="#buttonsother"><?php _e('Other Buttons', 'jwl-ultimate-tinymce'); ?></a> | 
-            <a href="#misc"><?php _e('Misc. Features', 'jwl-ultimate-tinymce'); ?></a> | 
-            <a href="#adminopts"><?php _e('Admin Options', 'jwl-ultimate-tinymce'); ?></a> | 
-            <a href="#override"><?php _e('Editor Over-rides', 'jwl-ultimate-tinymce'); ?></a><br /><br />
+
+			// This will remove all the sidebar content if the user enables the option to remove plugin styling
+			$options_remove_quicknav = get_option('jwl_options_group4');
+			$jwl_remove_quicknav = isset($options_remove_quicknav['jwl_disable_styles']);
+			if ($jwl_remove_quicknav != "1"){
+			
+				?><strong><?php _e('Quick Navigation:', 'jwl-ultimate-tinymce'); ?></strong><?php
+				?><br />
+				<a href="#buttons1"><?php _e('Buttons Group 1', 'jwl-ultimate-tinymce'); ?></a> | 
+				<a href="#buttons2"><?php _e('Buttons Group 2', 'jwl-ultimate-tinymce'); ?></a> | 
+				<a href="#buttonsother"><?php _e('Other Buttons', 'jwl-ultimate-tinymce'); ?></a> | 
+				<a href="#misc"><?php _e('Misc. Features', 'jwl-ultimate-tinymce'); ?></a> | 
+				<a href="#adminopts"><?php _e('Admin Options', 'jwl-ultimate-tinymce'); ?></a> | 
+				<a href="#override"><?php _e('Editor Over-rides', 'jwl-ultimate-tinymce'); ?></a><br /><br />
 			<?php
-                do_meta_boxes($this->pagehook, 'normal', $data);
-                //do_meta_boxes($this->pagehook, 'additional', $data); 
+			}
+			
+			do_meta_boxes($this->pagehook, 'normal', $data);
+			//do_meta_boxes($this->pagehook, 'additional', $data); 
+			
 			?>
             </div> <!-- End Div #post-body-content -->
         </div> <!-- End Div #post-body -->
         <br class="clear"/>		
         
-   </div> <!-- End Div #poststuff -->	
-   <a href="#" class="scrollToTop"><?php _e('Scroll To Top', 'jwl-ultimate-tinymce'); ?></a>
+   </div> <!-- End Div #poststuff -->
+   
+    <?php
+    // This will remove 'scroll to top' if the user enables the option to remove plugin styling
+	$options_remove_scroll = get_option('jwl_options_group4');
+	$jwl_remove_scroll = isset($options_remove_scroll['jwl_disable_styles']);
+	if ($jwl_remove_scroll != "1"){
+		?>
+   		<a href="#" class="scrollToTop"><?php _e('Scroll To Top', 'jwl-ultimate-tinymce'); ?></a>
+        <?php
+	}
+	?>
+        
 
 </div> <!-- End Div #ultimate-tinymce-general -->
 

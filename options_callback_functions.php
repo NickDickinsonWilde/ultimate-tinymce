@@ -1060,10 +1060,10 @@ function jwl_content_css_callback_function() {
 	?><span style="margin-left:15px;"><em><?php _e('Click help icon for detailed information.','jwl-ultimate-tinymce'); ?></em></span>
 	<span style="margin-left:10px;"><a href="javascript:popcontact('<?php echo plugin_dir_url( __FILE__ ) ?>js/popup-help/content_css.php')"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/popup-help.png" style="margin-bottom:-5px;" title="Click for Help" /></a></span><?php
 }
-function jwl_pluginslist_callback_function() {
+function jwl_disable_styles_callback_function() {
 	 $options = get_option('jwl_options_group4');
-	echo '<input name="jwl_options_group4[jwl_pluginslist_css]" id="pluginslistcss" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_pluginslist_css']), false ) . ' /> ';
-	?><span style="margin-left:15px;"><em><?php _e('Disables the css styling on the admin plugins listing page.','jwl-ultimate-tinymce'); ?></em></span><?php
+	echo '<input name="jwl_options_group4[jwl_disable_styles]" id="disable_styles" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_disable_styles']), false ) . ' /> ';
+	?><span style="margin-left:15px;"><em><?php _e('Removes all author plugin admin styling','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 function jwl_tinymce_refresh_callback_function() {
 	 $options = get_option('jwl_options_group4');
