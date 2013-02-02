@@ -3,6 +3,9 @@
 <head>
 	<title>{#advhr.advhr_desc}</title>
     <?php
+	
+	include ('../jwl_call_wp_load.php');
+	/*
 	$file = dirname(__FILE__);
 	$file = substr($file, 0, stripos($file, "wp-content") );
 	require( $file . "/wp-load.php");
@@ -10,6 +13,7 @@
 	echo '<script type="text/javascript" src="'.$url.'js/tinymce/tiny_mce_popup.js'.'"></script>';
 	echo '<script type="text/javascript" src="'.$url.'js/tinymce/utils/mctabs.js'.'"></script>';
 	echo '<script type="text/javascript" src="'.$url.'js/tinymce/utils/form_utils.js'.'"></script>';
+	*/
 	?>
     <!--
 	<script type="text/javascript" src="../../tinymce/tiny_mce_popup.js"></script>

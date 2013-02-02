@@ -764,7 +764,7 @@ if ( !function_exists('jwl_fullscreen_buttons') )
 */
 
 // Test button
-//function tinymce_add_test_button($buttons) {  $buttons[] = 'advedit';  return $buttons;  }
+//function tinymce_add_test_button($buttons) {  $buttons[] = 'codehighlight';  return $buttons;  }
 //add_filter("mce_buttons_3", "tinymce_add_test_button");
 
 // Add the plugin array for extra features
@@ -807,7 +807,7 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['advlink'] = plugin_dir_url(__FILE__) . 'addons/advlink/editor_plugin.js';
 		
 		// Test plugin array
-		//$jwl_plugin_array['jqueryinlinepopups'] = plugin_dir_url(__FILE__) . 'addons/jqueryinlinepopups/editor_plugin.js';
+		//$jwl_plugin_array['codehighlight'] = plugin_dir_url(__FILE__) . 'addons/codehighlight/editor_plugin.js';
 		   
 		return $jwl_plugin_array;
 }
