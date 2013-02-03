@@ -1,11 +1,6 @@
 <?php
-// Hook into Wordpress so we can use all the custom functions and global variables
-$file = dirname(__FILE__);
-$file = substr($file, 0, stripos($file, "wp-content") );
-// Added for multisite
-require( $file . "/wp-load.php");
-//require( $file . "/wp-admin/admin.php");
-//require( $file . "/wp-admin/includes/admin.php");
+
+include ('../jwl_call_wp_load.php');
 // Now we can use Wordpress
 global $shortcode_tags;
 ?>

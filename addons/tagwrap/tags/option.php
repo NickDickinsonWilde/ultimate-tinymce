@@ -1,6 +1,10 @@
+<?php ob_start(); ?>
 <head>
 <title>{#tagwrap_dlg.titleOption}</title>
-<script type="text/javascript" src="../../../tinymce/tiny_mce_popup.js"></script>
+<?php
+	include ('../../jwl_call_wp_load.php');
+?>
+<!-- <script type="text/javascript" src="../../../tinymce/tiny_mce_popup.js"></script> -->
 <script type="text/javascript" src="js/dialog.js"></script>
 <link rel="stylesheet" type="text/css" href="css/tagwrap.css" />
 </head>

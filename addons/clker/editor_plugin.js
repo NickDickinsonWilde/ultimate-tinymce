@@ -34,7 +34,7 @@
 
 	// Register clker button
 	ed.addButton('clker', {
-	  title : 'clker.desc',
+	  title : 'Clker ClipArt Gallery',
 	      cmd : 'mceclker',
 	      image : url + '/img/clker.gif'
 	      });

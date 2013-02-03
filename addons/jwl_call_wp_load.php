@@ -1,5 +1,5 @@
 <?php
-/*
+
 	$file = dirname(__FILE__);
 	$file = substr($file, 0, stripos($file, "wp-content") );
 	require( $file . "/wp-load.php");
@@ -9,10 +9,11 @@
 	echo '<script type="text/javascript" src="'.$url.'js/tinymce/utils/form_utils.js'.'"></script>';
 	echo '<script type="text/javascript" src="'.$url.'js/tinymce/utils/validate.js'.'"></script>';
 	echo '<script type="text/javascript" src="'.$url.'js/tinymce/utils/editable_selects.js'.'"></script>';
-*/
+
 
 
 // Get root path or url
+/*
 function jwl_get_root_lite($mode, $break) {
    if ($mode === "url") {
       $out = 'http';
@@ -37,5 +38,6 @@ $urls = array('tiny_mce_popup', 'utils/mctabs', 'utils/form_utils', 'utils/valid
 foreach ( $urls as $url ) {
 	echo htmlspecialchars('<script type="text/javascript" src="'.$basedir.$url.'.js'.'"></script><br/>');
 }
+*/
 
 ?>

@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php ob_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF8" />
@@ -6,11 +6,7 @@
         <link rel="stylesheet" href="css/style.css" type="text/css" ></link>
         <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
         <?php
-		$file = dirname(__FILE__);
-		$file = substr($file, 0, stripos($file, "wp-content") );
-		require( $file . "/wp-load.php");
-		$url = includes_url();
-		echo '<script type="text/javascript" src="'.$url.'js/tinymce/tiny_mce_popup.js'.'"></script>';
+		include ('../jwl_call_wp_load.php');
 		?>
         <!--
         <script type="text/javascript" src="../../tinymce/tiny_mce_popup.js"></script>

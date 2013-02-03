@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php ob_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml"> <!-- Transitional to be compliant to W3C specs in spite of <a>:target attribute -->
 
 <!-- Easy Image plugin 1.0 (c) FFh Lab / Eric Lequien for TinyMCE 3.x+ (c) Moxiecode Systems AB -->
@@ -7,13 +7,7 @@
 	<meta http-equiv="Content-Type" content="text/html" />
 	<title>{#ezimage_dlg.title}</title>
     <?php
-	$file = dirname(__FILE__);
-	$file = substr($file, 0, stripos($file, "wp-content") );
-	require( $file . "/wp-load.php");
-	$url = includes_url();
-	echo '<script type="text/javascript" src="'.$url.'js/tinymce/tiny_mce_popup.js'.'"></script>';
-	echo '<script type="text/javascript" src="'.$url.'js/tinymce/utils/mctabs.js'.'"></script>';
-	echo '<script type="text/javascript" src="'.$url.'js/tinymce/utils/form_utils.js'.'"></script>';
+	include ('../jwl_call_wp_load.php');
 	?>
     <!--
 	<script type="text/javascript" src="../../tinymce/tiny_mce_popup.js"></script>

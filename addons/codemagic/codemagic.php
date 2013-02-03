@@ -1,12 +1,9 @@
+<?php ob_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>{#codemagic_dlg.code_title}</title>
     <?php
-	$file = dirname(__FILE__);
-	$file = substr($file, 0, stripos($file, "wp-content") );
-	require( $file . "/wp-load.php");
-	$url = includes_url();
-	echo '<script type="text/javascript" src="'.$url.'js/tinymce/tiny_mce_popup.js'.'"></script>';
+	include ('../jwl_call_wp_load.php');
 	?>
     <!--
 	<script type="text/javascript" src="../../tinymce/tiny_mce_popup.js"></script>
