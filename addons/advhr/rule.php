@@ -1,9 +1,8 @@
-<?php ob_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>{#advhr.advhr_desc}</title>
     <?php
-	include ('../jwl_call_wp_load.php');
+	include ('../../includes/tinymce_addon_scripts.php');
 	?>
     <!--
 	<script type="text/javascript" src="../../tinymce/tiny_mce_popup.js"></script>
@@ -14,10 +13,10 @@
 	<link href="css/advhr.css" rel="stylesheet" type="text/css" />
 </head>
 <body role="application">
-<form onsubmit="AdvHRDialog.update();return false;" action="#">
+<form onSubmit="AdvHRDialog.update();return false;" action="#">
 	<div class="tabs">
 		<ul>
-			<li id="general_tab" class="current" aria-controls="general_panel"><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');" onmousedown="return false;">{#advhr.advhr_desc}</a></span></li>
+			<li id="general_tab" class="current" aria-controls="general_panel"><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');" onMouseDown="return false;">{#advhr.advhr_desc}</a></span></li>
 		</ul>
 	</div>
 
@@ -56,7 +55,7 @@
 
 	<div class="mceActionPanel">
 		<input type="submit" id="insert" name="insert" value="{#insert}" />
-		<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+		<input type="button" id="cancel" name="cancel" value="{#cancel}" onClick="tinyMCEPopup.close();" />
 	</div>
 </form>
 </body>

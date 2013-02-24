@@ -307,7 +307,7 @@ function register_options_admin() {
 	// Register Settings for Admin Options
 	add_settings_field('jwl_tinymce_add_stylesheet', __('Load editor-style.css file','jwl-ultimate-tinymce'), 'jwl_tinymce_add_stylesheet_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
 	add_settings_field('jwl_tinymce_excerpt', __('Enable Ultimate Tinymce Excerpt Area','jwl-ultimate-tinymce'), 'jwl_tinymce_excerpt_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
-	add_settings_field('jwl_hide_html_tab', __('Disable content editor HTML tab','jwl-ultimate-tinymce'), 'jwl_hide_html_tab_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
+	add_settings_field('jwl_hide_html_tab', __('Disable content editor TEXT tab','jwl-ultimate-tinymce'), 'jwl_hide_html_tab_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
 	add_settings_field('jwl_dashboard_widget', __('Enable dashboard widget','jwl-ultimate-tinymce'), 'jwl_dashboard_widget_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
 	add_settings_field('jwl_admin_bar_link', __('Enable admin bar link','jwl-ultimate-tinymce'), 'jwl_admin_bar_link_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
 	add_settings_field('jwl_content_css', __('Enable content.css file','jwl-ultimate-tinymce'), 'jwl_content_css_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 

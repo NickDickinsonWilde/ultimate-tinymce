@@ -1,15 +1,14 @@
-<?php ob_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>{#ptags_dlg.titleP}</title>
-<?php
-		include ('../jwl_call_wp_load.php');
-?>
-<!--
-<script type="text/javascript" src="../../tinymce/tiny_mce_popup.js"></script>
--->
-<script type="text/javascript" src="js/dialog.js"></script>
-<link rel="stylesheet" type="text/css" href="css/tagwrap.css" />
+    <title>{#ptags_dlg.titleP}</title>
+    <?php
+    include ('../../includes/tinymce_addon_scripts.php');
+    ?>
+    <!--
+    <script type="text/javascript" src="../../tinymce/tiny_mce_popup.js"></script>
+    -->
+    <script type="text/javascript" src="js/dialog.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/tagwrap.css" />
 </head>
 
 <body>

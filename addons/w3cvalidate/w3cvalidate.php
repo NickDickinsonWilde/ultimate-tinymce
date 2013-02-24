@@ -1,9 +1,8 @@
-<?php ob_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>{#w3cvalidate_dlg.title}</title>
     <?php
-	include ('../jwl_call_wp_load.php');
+	include ('../../includes/tinymce_addon_scripts.php');
 	?>
     <!--
 	<script charset="utf8" type="text/javascript" src="../../tinymce/tiny_mce_popup.js"></script>
@@ -12,7 +11,7 @@
 	<link rel="stylesheet" href="css/w3cvalidate.css"/>
 </head>
 <body>
-	<form method="post" enctype="multipart/form-data" onsubmit="W3C.go();return false;" action="http://validator.w3.org/check">
+	<form method="post" enctype="multipart/form-data" onSubmit="W3C.go();return false;" action="http://validator.w3.org/check">
 		<p>
 			<input type="hidden" name="fragment" id="fragment" value=""/>
 			<input type="hidden" name="charset" id="charset" value="(detect automatically)"/>
@@ -35,7 +34,7 @@
 		
 		<table border="0" cellpadding="0" cellspacing="0">
 			<tr>
-				<td><input type="checkbox" name="w3cproptoggle" id="w3cproptoggle" onmouseup="W3C.toggle(this, 'w3cproperties')"/></td>
+				<td><input type="checkbox" name="w3cproptoggle" id="w3cproptoggle" onMouseUp="W3C.toggle(this, 'w3cproperties')"/></td>
 				<td>Address:&nbsp;</td>
 				<td><div id="w3cproperties"><input type="text" name="w3caddress" id="w3caddress" value=""/></div></td>
 			</tr>
@@ -47,7 +46,7 @@
 			</div>
 	
 			<div style="float: right">
-				<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+				<input type="button" id="cancel" name="cancel" value="{#cancel}" onClick="tinyMCEPopup.close();" />
 			</div>
 		</div>
 	</form>

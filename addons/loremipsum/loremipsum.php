@@ -1,10 +1,9 @@
-<?php ob_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>{#loremipsum.desc}</title>
     <?php
-		include ('../jwl_call_wp_load.php');
+		include ('../../includes/tinymce_addon_scripts.php');
 
 	?>
     <!--
@@ -15,7 +14,7 @@
 </head>
 <body>
 
-<form onsubmit="LoremIpsumDialog.insert();return false;" action="#">
+<form onSubmit="LoremIpsumDialog.insert();return false;" action="#">
 	<div>
 		<div id="general_panel" class="panel current">
 			<table border="0" cellpadding="4" cellspacing="0">
@@ -52,7 +51,7 @@
 		</div>
 
 		<div style="float: right">
-			<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+			<input type="button" id="cancel" name="cancel" value="{#cancel}" onClick="tinyMCEPopup.close();" />
 		</div>
 	</div>
 </form>

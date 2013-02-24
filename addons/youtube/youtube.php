@@ -1,9 +1,8 @@
-<?php ob_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title>{#youtube_dlg.title}</title>
   <?php
-	include ('../jwl_call_wp_load.php');
+	include ('../../includes/tinymce_addon_scripts.php');
 	?>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <!--
@@ -19,7 +18,7 @@
 <div class="yinstr">
 	<p>{#youtube_dlg.instr}</p>
 </div>
-<form onsubmit="YouTubeDialog.insert();return false;" action="#">
+<form onSubmit="YouTubeDialog.insert();return false;" action="#">
  <div class="mceActionPanel">
  <table>
  <tr>
@@ -91,8 +90,8 @@
   </div>
   <div class="mceActionPanel">
     <div style="float:left;padding-top:5px">
-      <input type="button" id="insert" name="insert" value="{#insert}" onclick="YouTubeDialog.insert();" />&nbsp;
-      <input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+      <input type="button" id="insert" name="insert" value="{#insert}" onClick="YouTubeDialog.insert();" />&nbsp;
+      <input type="button" id="cancel" name="cancel" value="{#cancel}" onClick="tinyMCEPopup.close();" />
     </div>
   </div>
 </form>

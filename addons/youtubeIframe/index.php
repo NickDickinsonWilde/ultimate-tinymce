@@ -1,4 +1,3 @@
-<?php ob_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF8" />
@@ -6,7 +5,7 @@
         <link rel="stylesheet" href="css/style.css" type="text/css" ></link>
         <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
         <?php
-		include ('../jwl_call_wp_load.php');
+		include ('../../includes/tinymce_addon_scripts.php');
 		?>
         <!--
         <script type="text/javascript" src="../../tinymce/tiny_mce_popup.js"></script>
@@ -15,7 +14,7 @@
     </head>
     <body>
 
-        <form onsubmit="YoutubeDialog.insert();return false;" action="#">
+        <form onSubmit="YoutubeDialog.insert();return false;" action="#">
             <p>
                 <label for="youtubeURL">{#youtube_dlg.url_field} <br/>{#youtube_dlg.url_example1}: http://www.youtube.com/watch?v=gNOJWXjrNIE <br/>{#youtube_dlg.url_example1}: http://www.youtube.com/watch?v=<b>gNOJWXjrNIE</b> </label>
                 <input id="youtubeURL" name="youtubeURL" type="text" class="text" style="width:100%" />
@@ -82,8 +81,8 @@
             <input type="radio" value="embeded" name="yType" /> {#youtube_dlg.embed}
             <div class="clear"></div>
             <div class="mceActionPanel">
-                <input type="button" id="insert" name="insert" value="{#insert}" onclick="YoutubeDialog.insert();" />
-                <input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+                <input type="button" id="insert" name="insert" value="{#insert}" onClick="YoutubeDialog.insert();" />
+                <input type="button" id="cancel" name="cancel" value="{#cancel}" onClick="tinyMCEPopup.close();" />
             </div>
         </form>
 

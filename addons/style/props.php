@@ -1,9 +1,8 @@
-<?php ob_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>{#style_dlg.title}</title>
     <?php
-	include ('../jwl_call_wp_load.php');
+	include ('../../includes/tinymce_addon_scripts.php');
 	?>
     <!--
 	<script type="text/javascript" src="../../tinymce/tiny_mce_popup.js"></script>
@@ -17,7 +16,7 @@
 
 <body id="styleprops" style="display: none" role="application" aria-labelledby="app_title">
 <span id="app_title" style="display:none">{#style_dlg.title}</span>
-<form onsubmit="updateAction();return false;" action="#">
+<form onSubmit="updateAction();return false;" action="#">
 <div class="tabs">
 	<ul>
 		<li id="text_tab" class="current" aria-controls="text_panel"><span><a href="javascript:mcTabs.displayTab('text_tab','text_panel');" onMouseDown="return false;">{#style_dlg.text_tab}</a></span></li>

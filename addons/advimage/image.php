@@ -1,9 +1,8 @@
-<?php ob_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>{#advimage_dlg.dialog_title}</title>
     <?php
-	include ('../jwl_call_wp_load.php');
+	include ('../../includes/tinymce_addon_scripts.php');
 	?>
     <!--
 	<script type="text/javascript" src="../../tinymce/tiny_mce_popup.js"></script>
@@ -17,12 +16,12 @@
 </head>
 <body id="advimage" style="display: none" role="application" aria-labelledby="app_title">
 	<span id="app_title" style="display:none">{#advimage_dlg.dialog_title}</span>
-	<form onsubmit="ImageDialog.insert();return false;" action="#"> 
+	<form onSubmit="ImageDialog.insert();return false;" action="#"> 
 		<div class="tabs">
 			<ul>
-				<li id="general_tab" class="current" aria-controls="general_panel"><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');" onmousedown="return false;">{#advimage_dlg.tab_general}</a></span></li>
-				<li id="appearance_tab" aria-controls="appearance_panel"><span><a href="javascript:mcTabs.displayTab('appearance_tab','appearance_panel');" onmousedown="return false;">{#advimage_dlg.tab_appearance}</a></span></li>
-				<li id="advanced_tab" aria-controls="advanced_panel"><span><a href="javascript:mcTabs.displayTab('advanced_tab','advanced_panel');" onmousedown="return false;">{#advimage_dlg.tab_advanced}</a></span></li>
+				<li id="general_tab" class="current" aria-controls="general_panel"><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');" onMouseDown="return false;">{#advimage_dlg.tab_general}</a></span></li>
+				<li id="appearance_tab" aria-controls="appearance_panel"><span><a href="javascript:mcTabs.displayTab('appearance_tab','appearance_panel');" onMouseDown="return false;">{#advimage_dlg.tab_appearance}</a></span></li>
+				<li id="advanced_tab" aria-controls="advanced_panel"><span><a href="javascript:mcTabs.displayTab('advanced_tab','advanced_panel');" onMouseDown="return false;">{#advimage_dlg.tab_advanced}</a></span></li>
 			</ul>
 		</div>
 
@@ -36,14 +35,14 @@
 								<td class="column1"><label id="srclabel" for="src">{#advimage_dlg.src}</label></td>
 								<td colspan="2"><table role="presentation" border="0" cellspacing="0" cellpadding="0">
 									<tr> 
-										<td><input name="src" type="text" id="src" value="" class="mceFocus" onchange="ImageDialog.showPreviewImage(this.value);" aria-required="true" /></td> 
+										<td><input name="src" type="text" id="src" value="" class="mceFocus" onChange="ImageDialog.showPreviewImage(this.value);" aria-required="true" /></td> 
 										<td id="srcbrowsercontainer">&nbsp;</td>
 									</tr>
 								</table></td>
 							</tr>
 							<tr>
 								<td><label for="src_list">{#advimage_dlg.image_list}</label></td>
-								<td><select id="src_list" name="src_list" onchange="document.getElementById('src').value=this.options[this.selectedIndex].value;document.getElementById('alt').value=this.options[this.selectedIndex].text;document.getElementById('title').value=this.options[this.selectedIndex].text;ImageDialog.showPreviewImage(this.options[this.selectedIndex].value);"><option value=""></option></select></td>
+								<td><select id="src_list" name="src_list" onChange="document.getElementById('src').value=this.options[this.selectedIndex].value;document.getElementById('alt').value=this.options[this.selectedIndex].text;document.getElementById('title').value=this.options[this.selectedIndex].text;ImageDialog.showPreviewImage(this.options[this.selectedIndex].value);"><option value=""></option></select></td>
 							</tr>
 							<tr> 
 								<td class="column1"><label id="altlabel" for="alt">{#advimage_dlg.alt}</label></td> 
@@ -69,7 +68,7 @@
 					<table role="presentation" border="0" cellpadding="4" cellspacing="0">
 						<tr> 
 							<td class="column1"><label id="alignlabel" for="align">{#advimage_dlg.align}</label></td> 
-							<td><select id="align" name="align" onchange="ImageDialog.updateStyle('align');ImageDialog.changeAppearance();"> 
+							<td><select id="align" name="align" onChange="ImageDialog.updateStyle('align');ImageDialog.changeAppearance();"> 
 									<option value="">{#not_set}</option> 
 									<option value="baseline">{#advimage_dlg.align_baseline}</option>
 									<option value="top">{#advimage_dlg.align_top}</option>
@@ -96,9 +95,9 @@
 							<td class="column1"><label id="widthlabel" for="width">{#advimage_dlg.dimensions}</label></td>
 							<td class="nowrap">
 								<span style="display:none" id="width_voiceLabel">{#advimage_dlg.width}</span>
-								<input name="width" type="text" id="width" value="" size="5" maxlength="5" class="size" onchange="ImageDialog.changeHeight();" aria-labelledby="width_voiceLabel" /> x 
+								<input name="width" type="text" id="width" value="" size="5" maxlength="5" class="size" onChange="ImageDialog.changeHeight();" aria-labelledby="width_voiceLabel" /> x 
 								<span style="display:none" id="height_voiceLabel">{#advimage_dlg.height}</span>
-								<input name="height" type="text" id="height" value="" size="5" maxlength="5" class="size" onchange="ImageDialog.changeWidth();" aria-labelledby="height_voiceLabel" /> px
+								<input name="height" type="text" id="height" value="" size="5" maxlength="5" class="size" onChange="ImageDialog.changeWidth();" aria-labelledby="height_voiceLabel" /> px
 							</td>
 						</tr>
 
@@ -114,18 +113,18 @@
 
 						<tr>
 							<td class="column1"><label id="vspacelabel" for="vspace">{#advimage_dlg.vspace}</label></td> 
-							<td><input name="vspace" type="text" id="vspace" value="" size="3" maxlength="3" class="number" onchange="ImageDialog.updateStyle('vspace');ImageDialog.changeAppearance();" onblur="ImageDialog.updateStyle('vspace');ImageDialog.changeAppearance();" />
+							<td><input name="vspace" type="text" id="vspace" value="" size="3" maxlength="3" class="number" onChange="ImageDialog.updateStyle('vspace');ImageDialog.changeAppearance();" onBlur="ImageDialog.updateStyle('vspace');ImageDialog.changeAppearance();" />
 							</td>
 						</tr>
 
 						<tr> 
 							<td class="column1"><label id="hspacelabel" for="hspace">{#advimage_dlg.hspace}</label></td> 
-							<td><input name="hspace" type="text" id="hspace" value="" size="3" maxlength="3" class="number" onchange="ImageDialog.updateStyle('hspace');ImageDialog.changeAppearance();" onblur="ImageDialog.updateStyle('hspace');ImageDialog.changeAppearance();" /></td> 
+							<td><input name="hspace" type="text" id="hspace" value="" size="3" maxlength="3" class="number" onChange="ImageDialog.updateStyle('hspace');ImageDialog.changeAppearance();" onBlur="ImageDialog.updateStyle('hspace');ImageDialog.changeAppearance();" /></td> 
 						</tr>
 
 						<tr>
 							<td class="column1"><label id="borderlabel" for="border">{#advimage_dlg.border}</label></td> 
-							<td><input id="border" name="border" type="text" value="" size="3" maxlength="3" class="number" onchange="ImageDialog.updateStyle('border');ImageDialog.changeAppearance();" onblur="ImageDialog.updateStyle('border');ImageDialog.changeAppearance();" /></td> 
+							<td><input id="border" name="border" type="text" value="" size="3" maxlength="3" class="number" onChange="ImageDialog.updateStyle('border');ImageDialog.changeAppearance();" onBlur="ImageDialog.updateStyle('border');ImageDialog.changeAppearance();" /></td> 
 						</tr>
 
 						<tr>
@@ -135,7 +134,7 @@
 
 						<tr>
 							<td class="column1"><label id="stylelabel" for="style">{#advimage_dlg.style}</label></td> 
-							<td colspan="2"><input id="style" name="style" type="text" value="" onchange="ImageDialog.changeAppearance();" /></td> 
+							<td colspan="2"><input id="style" name="style" type="text" value="" onChange="ImageDialog.changeAppearance();" /></td> 
 						</tr>
 
 						<!-- <tr>
@@ -150,7 +149,7 @@
 				<fieldset>
 					<legend>{#advimage_dlg.swap_image}</legend>
 
-					<input type="checkbox" id="onmousemovecheck" name="onmousemovecheck" class="checkbox" onclick="ImageDialog.setSwapImage(this.checked);" aria-controls="onmouseoversrc onmouseoutsrc" />
+					<input type="checkbox" id="onmousemovecheck" name="onmousemovecheck" class="checkbox" onClick="ImageDialog.setSwapImage(this.checked);" aria-controls="onmouseoversrc onmouseoutsrc" />
 					<label id="onmousemovechecklabel" for="onmousemovecheck">{#advimage_dlg.alt_image}</label>
 
 					<table role="presentation" border="0" cellpadding="4" cellspacing="0" width="100%">
@@ -165,7 +164,7 @@
 							</tr>
 							<tr>
 								<td><label for="over_list">{#advimage_dlg.image_list}</label></td>
-								<td><select id="over_list" name="over_list" onchange="document.getElementById('onmouseoversrc').value=this.options[this.selectedIndex].value;"><option value=""></option></select></td>
+								<td><select id="over_list" name="over_list" onChange="document.getElementById('onmouseoversrc').value=this.options[this.selectedIndex].value;"><option value=""></option></select></td>
 							</tr>
 							<tr> 
 								<td class="column1"><label id="onmouseoutsrclabel" for="onmouseoutsrc">{#advimage_dlg.mouseout}</label></td> 
@@ -178,7 +177,7 @@
 							</tr>
 							<tr>
 								<td><label for="out_list">{#advimage_dlg.image_list}</label></td>
-								<td><select id="out_list" name="out_list" onchange="document.getElementById('onmouseoutsrc').value=this.options[this.selectedIndex].value;"><option value=""></option></select></td>
+								<td><select id="out_list" name="out_list" onChange="document.getElementById('onmouseoutsrc').value=this.options[this.selectedIndex].value;"><option value=""></option></select></td>
 							</tr>
 					</table>
 				</fieldset>
@@ -195,7 +194,7 @@
 						<tr>
 							<td class="column1"><label id="dirlabel" for="dir">{#advimage_dlg.langdir}</label></td> 
 							<td>
-								<select id="dir" name="dir" onchange="ImageDialog.changeAppearance();"> 
+								<select id="dir" name="dir" onChange="ImageDialog.changeAppearance();"> 
 										<option value="">{#not_set}</option> 
 										<option value="ltr">{#advimage_dlg.ltr}</option> 
 										<option value="rtl">{#advimage_dlg.rtl}</option> 
@@ -233,7 +232,7 @@
 
 		<div class="mceActionPanel">
 			<input type="submit" id="insert" name="insert" value="{#insert}" />
-			<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+			<input type="button" id="cancel" name="cancel" value="{#cancel}" onClick="tinyMCEPopup.close();" />
 		</div>
 	</form>
 </body> 

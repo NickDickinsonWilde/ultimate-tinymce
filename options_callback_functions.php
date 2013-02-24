@@ -1042,7 +1042,7 @@ function jwl_tinymce_excerpt_callback_function() {
 function jwl_hide_html_tab_callback_function() {
 	 $options = get_option('jwl_options_group4');
 	echo '<input name="jwl_options_group4[jwl_hide_html_tab]" id="hide_html" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_hide_html_tab']), false ) . ' /> ';
-	?><span style="margin-left:15px;"><em><?php _e('Removes the HTML tab from the content editor, rendering it unusuable','jwl-ultimate-tinymce'); ?></em></span><?php
+	?><span style="margin-left:15px;"><em><?php _e('Removes the TEXT tab from the content editor, rendering it unusuable','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 function jwl_dashboard_widget_callback_function() {
 	 $options = get_option('jwl_options_group4');

@@ -1,9 +1,8 @@
-<?php ob_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>{#table_dlg.title}</title>
     <?php
-	include ('../jwl_call_wp_load.php');
+	include ('../../includes/tinymce_addon_scripts.php');
 	?>
     <!--
 	<script type="text/javascript" src="../../tinymce/tiny_mce_popup.js"></script>
@@ -17,11 +16,11 @@
 </head>
 <body id="table" style="display: none" role="application" aria-labelledby="app_title">
 	<span style="display:none;" id="app_title">{#table_dlg.title}</span>
-	<form onsubmit="insertTable();return false;" action="#">
+	<form onSubmit="insertTable();return false;" action="#">
 		<div class="tabs">
 			<ul>
-				<li id="general_tab" aria-controls="general_panel" class="current"><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');" onmousedown="return false;">{#table_dlg.general_tab}</a></span></li>
-				<li id="advanced_tab" aria-controls="advanced_panel"><span><a href="javascript:mcTabs.displayTab('advanced_tab','advanced_panel');" onmousedown="return false;">{#table_dlg.advanced_tab}</a></span></li>
+				<li id="general_tab" aria-controls="general_panel" class="current"><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');" onMouseDown="return false;">{#table_dlg.general_tab}</a></span></li>
+				<li id="advanced_tab" aria-controls="advanced_panel"><span><a href="javascript:mcTabs.displayTab('advanced_tab','advanced_panel');" onMouseDown="return false;">{#table_dlg.advanced_tab}</a></span></li>
 			</ul>
 		</div>
 
@@ -51,13 +50,13 @@
 								<option value="right">{#table_dlg.align_right}</option>
 							</select></td>
 							<td><label id="borderlabel" for="border">{#table_dlg.border}</label></td>
-							<td><input id="border" name="border" type="text" value="" size="3" maxlength="5" onchange="changedBorder();" class="size" /></td>
+							<td><input id="border" name="border" type="text" value="" size="3" maxlength="5" onChange="changedBorder();" class="size" /></td>
 						</tr>
 						<tr id="width_row">
 							<td><label id="widthlabel" for="width">{#table_dlg.width}</label></td>
-							<td><input name="width" type="text" id="width" value="" size="7" maxlength="7" onchange="changedSize();" class="size" /></td>
+							<td><input name="width" type="text" id="width" value="" size="7" maxlength="7" onChange="changedSize();" class="size" /></td>
 							<td><label id="heightlabel" for="height">{#table_dlg.height}</label></td>
-							<td><input name="height" type="text" id="height" value="" size="7" maxlength="7" onchange="changedSize();" class="size" /></td>
+							<td><input name="height" type="text" id="height" value="" size="7" maxlength="7" onChange="changedSize();" class="size" /></td>
 						</tr>
 						<tr id="styleSelectRow" >
 							<td><label id="classlabel" for="class">{#class_name}</label></td>
@@ -91,7 +90,7 @@
 
 						<tr>
 							<td><label for="style">{#table_dlg.style}</label></td>
-							<td><input type="text" id="style" name="style" value="" class="advfield" onchange="changedStyle();" /></td>
+							<td><input type="text" id="style" name="style" value="" class="advfield" onChange="changedStyle();" /></td>
 						</tr>
 
 						<tr>
@@ -106,7 +105,7 @@
 							<td>
 								<table role="presentation" aria-labelledby="backgroundimage_label" border="0" cellpadding="0" cellspacing="0">
 									<tr>
-										<td><input id="backgroundimage" name="backgroundimage" type="text" value="" class="advfield" onchange="changedBackgroundImage();" /></td>
+										<td><input id="backgroundimage" name="backgroundimage" type="text" value="" class="advfield" onChange="changedBackgroundImage();" /></td>
 										<td id="backgroundimagebrowsercontainer">&nbsp;</td>
 									</tr>
 								</table>
@@ -161,7 +160,7 @@
 							<td>
 								<table role="presentation" border="0" cellpadding="0" cellspacing="0">
 									<tr>
-										<td><input id="bordercolor" name="bordercolor" type="text" value="" size="9" onchange="updateColor('bordercolor_pick','bordercolor');changedColor();" /></td>
+										<td><input id="bordercolor" name="bordercolor" type="text" value="" size="9" onChange="updateColor('bordercolor_pick','bordercolor');changedColor();" /></td>
 										<td id="bordercolor_pickcontainer">&nbsp;</td>
 									</tr>
 								</table>
@@ -173,7 +172,7 @@
 							<td>
 								<table role="presentation" border="0" cellpadding="0" cellspacing="0">
 									<tr>
-										<td><input id="bgcolor" name="bgcolor" type="text" value="" size="9" onchange="updateColor('bgcolor_pick','bgcolor');changedColor();" /></td>
+										<td><input id="bgcolor" name="bgcolor" type="text" value="" size="9" onChange="updateColor('bgcolor_pick','bgcolor');changedColor();" /></td>
 										<td id="bgcolor_pickcontainer">&nbsp;</td>
 									</tr>
 								</table>
@@ -186,7 +185,7 @@
 
 		<div class="mceActionPanel">
 			<input type="submit" id="insert" name="insert" value="{#insert}" />
-			<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+			<input type="button" id="cancel" name="cancel" value="{#cancel}" onClick="tinyMCEPopup.close();" />
 		</div>
 	</form>
 </body>

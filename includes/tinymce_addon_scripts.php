@@ -1,15 +1,16 @@
 <?php
-
+	
 	$file = dirname(__FILE__);
-	$file = substr($file, 0, stripos($file, "wp-content") );
-	require( $file . "/wp-load.php");
+	$file = substr($file, 0, stripos($file, "ultimate-tinymce") );
+	require( $file . "../../wp-blog-header.php");
+	
+
 	$url = includes_url();
 	echo '<script type="text/javascript" src="'.$url.'js/tinymce/tiny_mce_popup.js'.'"></script>';
 	echo '<script type="text/javascript" src="'.$url.'js/tinymce/utils/mctabs.js'.'"></script>';
 	echo '<script type="text/javascript" src="'.$url.'js/tinymce/utils/form_utils.js'.'"></script>';
 	echo '<script type="text/javascript" src="'.$url.'js/tinymce/utils/validate.js'.'"></script>';
 	echo '<script type="text/javascript" src="'.$url.'js/tinymce/utils/editable_selects.js'.'"></script>';
-
 
 
 // Get root path or url
@@ -36,7 +37,7 @@ function jwl_get_root_lite($mode, $break) {
 $basedir = jwl_get_root_lite( "url", "wp-content")."wp-includes/js/tinymce/";
 $urls = array('tiny_mce_popup', 'utils/mctabs', 'utils/form_utils', 'utils/validate', 'utils/editable_selects');
 foreach ( $urls as $url ) {
-	echo htmlspecialchars('<script type="text/javascript" src="'.$basedir.$url.'.js'.'"></script><br/>');
+	echo '<script type="text/javascript" src="'.$basedir.$url.'.js'.'"></script><br/>';
 }
 */
 

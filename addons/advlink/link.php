@@ -1,9 +1,8 @@
-<?php ob_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>{#advlink_dlg.title}</title>
     <?php
-	include ('../jwl_call_wp_load.php');
+	include ('../../includes/tinymce_addon_scripts.php');
 	?>
     <!--
 	<script type="text/javascript" src="../../tinymce/tiny_mce_popup.js"></script>
@@ -15,15 +14,15 @@
 	<script type="text/javascript" src="js/advlink.js"></script>
 	<link href="css/advlink.css" rel="stylesheet" type="text/css" />
 </head>
-<body id="advlink" style="display: none" role="application" onload="javascript:mcTabs.displayTab('general_tab','general_panel', true);" aria-labelledby="app_label">
+<body id="advlink" style="display: none" role="application" onLoad="javascript:mcTabs.displayTab('general_tab','general_panel', true);" aria-labelledby="app_label">
 	<span class="mceVoiceLabel" id="app_label" style="display:none;">{#advlink_dlg.title}</span>
-	<form onsubmit="insertAction();return false;" action="#">
+	<form onSubmit="insertAction();return false;" action="#">
 		<div class="tabs" role="presentation">
 			<ul>
-				<li id="general_tab" class="current" aria-controls="general_panel" ><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');" onmousedown="return false;">{#advlink_dlg.general_tab}</a></span></li>
-				<li id="popup_tab" aria-controls="popup_panel" ><span><a href="javascript:mcTabs.displayTab('popup_tab','popup_panel');" onmousedown="return false;">{#advlink_dlg.popup_tab}</a></span></li>
-				<li id="events_tab" aria-controls="events_panel"><span><a href="javascript:mcTabs.displayTab('events_tab','events_panel');" onmousedown="return false;">{#advlink_dlg.events_tab}</a></span></li>
-				<li id="advanced_tab" aria-controls="advanced_panel"><span><a href="javascript:mcTabs.displayTab('advanced_tab','advanced_panel');" onmousedown="return false;">{#advlink_dlg.advanced_tab}</a></span></li>
+				<li id="general_tab" class="current" aria-controls="general_panel" ><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');" onMouseDown="return false;">{#advlink_dlg.general_tab}</a></span></li>
+				<li id="popup_tab" aria-controls="popup_panel" ><span><a href="javascript:mcTabs.displayTab('popup_tab','popup_panel');" onMouseDown="return false;">{#advlink_dlg.popup_tab}</a></span></li>
+				<li id="events_tab" aria-controls="events_panel"><span><a href="javascript:mcTabs.displayTab('events_tab','events_panel');" onMouseDown="return false;">{#advlink_dlg.events_tab}</a></span></li>
+				<li id="advanced_tab" aria-controls="advanced_panel"><span><a href="javascript:mcTabs.displayTab('advanced_tab','advanced_panel');" onMouseDown="return false;">{#advlink_dlg.advanced_tab}</a></span></li>
 			</ul>
 		</div>
 
@@ -37,7 +36,7 @@
 							<td class="nowrap"><label id="hreflabel" for="href">{#advlink_dlg.url}</label></td>
 								<td><table border="0" cellspacing="0" cellpadding="0">
 							<tr>
-								<td><input id="href" name="href" type="text" class="mceFocus" value="" onchange="selectByValue(this.form,'linklisthref',this.value);" aria-required="true" /></td>
+								<td><input id="href" name="href" type="text" class="mceFocus" value="" onChange="selectByValue(this.form,'linklisthref',this.value);" aria-required="true" /></td>
 								<td id="hrefbrowsercontainer">&nbsp;</td>
 							</tr>
 							</table></td>
@@ -61,7 +60,7 @@
 						<tr>
 							<td><label id="classlabel" for="classlist">{#class_name}</label></td>
 							<td>
-								 <select id="classlist" name="classlist" onchange="changeClass();">
+								 <select id="classlist" name="classlist" onChange="changeClass();">
 									<option value="" selected="selected">{#not_set}</option>
 								 </select>
 							</td>
@@ -74,7 +73,7 @@
 				<fieldset>
 					<legend>{#advlink_dlg.popup_props}</legend>
 
-					<input type="checkbox" id="ispopup" name="ispopup" class="radio" onclick="setPopupControlsDisabled(!this.checked);buildOnClick();" />
+					<input type="checkbox" id="ispopup" name="ispopup" class="radio" onClick="setPopupControlsDisabled(!this.checked);buildOnClick();" />
 					<label id="ispopuplabel" for="ispopup">{#advlink_dlg.popup}</label>
 
 					<table border="0" cellpadding="0" cellspacing="4" role="presentation" >
@@ -83,7 +82,7 @@
 							<td>
 								<table border="0" cellspacing="0" cellpadding="0">
 									<tr>
-										<td><input type="text" name="popupurl" id="popupurl" value="" onchange="buildOnClick();" /></td>
+										<td><input type="text" name="popupurl" id="popupurl" value="" onChange="buildOnClick();" /></td>
 										<td id="popupurlbrowsercontainer">&nbsp;</td>
 									</tr>
 								</table>
@@ -91,24 +90,24 @@
 						</tr>
 						<tr>
 							<td class="nowrap"><label for="popupname">{#advlink_dlg.popup_name}</label>&nbsp;</td>
-							<td><input type="text" name="popupname" id="popupname" value="" onchange="buildOnClick();" /></td>
+							<td><input type="text" name="popupname" id="popupname" value="" onChange="buildOnClick();" /></td>
 						</tr>
 						<tr role="group" aria-labelledby="popup_size_label">
 							<td class="nowrap"><label id="popup_size_label">{#advlink_dlg.popup_size}</label>&nbsp;</td>
 							<td class="nowrap">
 								<span style="display:none" id="width_voiceLabel">{#advlink_dlg.width}</span>
-								<input type="text" id="popupwidth" name="popupwidth" value="" onchange="buildOnClick();" aria-labelledby="width_voiceLabel" /> x
+								<input type="text" id="popupwidth" name="popupwidth" value="" onChange="buildOnClick();" aria-labelledby="width_voiceLabel" /> x
 								<span style="display:none" id="height_voiceLabel">{#advlink_dlg.height}</span>
-								<input type="text" id="popupheight" name="popupheight" value="" onchange="buildOnClick();" aria-labelledby="height_voiceLabel" /> px
+								<input type="text" id="popupheight" name="popupheight" value="" onChange="buildOnClick();" aria-labelledby="height_voiceLabel" /> px
 							</td>
 						</tr>
 						<tr role="group" aria-labelledby="popup_position_label center_hint">
 							<td class="nowrap" id="labelleft"><label id="popup_position_label">{#advlink_dlg.popup_position}</label>&nbsp;</td>
 							<td class="nowrap">
 								<span style="display:none" id="x_voiceLabel">X</span>
-								<input type="text" id="popupleft" name="popupleft" value="" onchange="buildOnClick();" aria-labelledby="x_voiceLabel" /> /                                
+								<input type="text" id="popupleft" name="popupleft" value="" onChange="buildOnClick();" aria-labelledby="x_voiceLabel" /> /                                
 								<span style="display:none" id="y_voiceLabel">Y</span>
-								<input type="text" id="popuptop" name="popuptop" value="" onchange="buildOnClick();" aria-labelledby="y_voiceLabel" /> <span id="center_hint">(c /c = center)</span>
+								<input type="text" id="popuptop" name="popuptop" value="" onChange="buildOnClick();" aria-labelledby="y_voiceLabel" /> <span id="center_hint">(c /c = center)</span>
 							</td>
 						</tr>
 					</table>
@@ -118,27 +117,27 @@
 
 						<table border="0" cellpadding="0" cellspacing="4" role="presentation" >
 							<tr>
-								<td><input type="checkbox" id="popuplocation" name="popuplocation" class="checkbox" onchange="buildOnClick();" /></td>
+								<td><input type="checkbox" id="popuplocation" name="popuplocation" class="checkbox" onChange="buildOnClick();" /></td>
 								<td class="nowrap"><label id="popuplocationlabel" for="popuplocation">{#advlink_dlg.popup_location}</label></td>
-								<td><input type="checkbox" id="popupscrollbars" name="popupscrollbars" class="checkbox" onchange="buildOnClick();" /></td>
+								<td><input type="checkbox" id="popupscrollbars" name="popupscrollbars" class="checkbox" onChange="buildOnClick();" /></td>
 								<td class="nowrap"><label id="popupscrollbarslabel" for="popupscrollbars">{#advlink_dlg.popup_scrollbars}</label></td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" id="popupmenubar" name="popupmenubar" class="checkbox" onchange="buildOnClick();" /></td>
+								<td><input type="checkbox" id="popupmenubar" name="popupmenubar" class="checkbox" onChange="buildOnClick();" /></td>
 								<td class="nowrap"><label id="popupmenubarlabel" for="popupmenubar">{#advlink_dlg.popup_menubar}</label></td>
-								<td><input type="checkbox" id="popupresizable" name="popupresizable" class="checkbox" onchange="buildOnClick();" /></td>
+								<td><input type="checkbox" id="popupresizable" name="popupresizable" class="checkbox" onChange="buildOnClick();" /></td>
 								<td class="nowrap"><label id="popupresizablelabel" for="popupresizable">{#advlink_dlg.popup_resizable}</label></td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" id="popuptoolbar" name="popuptoolbar" class="checkbox" onchange="buildOnClick();" /></td>
+								<td><input type="checkbox" id="popuptoolbar" name="popuptoolbar" class="checkbox" onChange="buildOnClick();" /></td>
 								<td class="nowrap"><label id="popuptoolbarlabel" for="popuptoolbar">{#advlink_dlg.popup_toolbar}</label></td>
-								<td><input type="checkbox" id="popupdependent" name="popupdependent" class="checkbox" onchange="buildOnClick();" /></td>
+								<td><input type="checkbox" id="popupdependent" name="popupdependent" class="checkbox" onChange="buildOnClick();" /></td>
 								<td class="nowrap"><label id="popupdependentlabel" for="popupdependent">{#advlink_dlg.popup_dependent}</label></td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" id="popupstatus" name="popupstatus" class="checkbox" onchange="buildOnClick();" /></td>
+								<td><input type="checkbox" id="popupstatus" name="popupstatus" class="checkbox" onChange="buildOnClick();" /></td>
 								<td class="nowrap"><label id="popupstatuslabel" for="popupstatus">{#advlink_dlg.popup_statusbar}</label></td>
-								<td><input type="checkbox" id="popupreturn" name="popupreturn" class="checkbox" onchange="buildOnClick();" checked="checked" /></td>
+								<td><input type="checkbox" id="popupreturn" name="popupreturn" class="checkbox" onChange="buildOnClick();" checked="checked" /></td>
 								<td class="nowrap"><label id="popupreturnlabel" for="popupreturn">{#advlink_dlg.popup_return}</label></td>
 							</tr>
 						</table>
@@ -163,12 +162,12 @@
 
 						<tr>
 							<td><label id="classeslabel" for="classes">{#advlink_dlg.classes}</label></td>
-							<td><input type="text" id="classes" name="classes" value="" onchange="selectByValue(this.form,'classlist',this.value,true);" /></td>
+							<td><input type="text" id="classes" name="classes" value="" onChange="selectByValue(this.form,'classlist',this.value,true);" /></td>
 						</tr>
 
 						<tr>
 							<td><label id="targetlabel" for="target">{#advlink_dlg.target_name}</label></td>
-							<td><input type="text" id="target" name="target" value="" onchange="selectByValue(this.form,'targetlist',this.value,true);" /></td>
+							<td><input type="text" id="target" name="target" value="" onChange="selectByValue(this.form,'targetlist',this.value,true);" /></td>
 						</tr>
 
 						<tr>
@@ -337,7 +336,7 @@
 
 		<div class="mceActionPanel">
 			<input type="submit" id="insert" name="insert" value="{#insert}" />
-			<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+			<input type="button" id="cancel" name="cancel" value="{#cancel}" onClick="tinyMCEPopup.close();" />
 		</div>
 	</form>
 </body>

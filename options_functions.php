@@ -815,7 +815,7 @@ add_filter( 'mce_external_plugins', 'jwl_mce_external_plugins' );
 
 // Function to hide the HTML tab from the content editor.
 global $pagenow;
-if ($pagenow=='post.php' || ($pagenow == "admin.php" && (isset($_GET['page'])) == 'cleverness-to-do-list') || ($pagenow == "options-general.php" && (isset($_GET['page'])) == 'ultimate-tinymce')) {
+if ($pagenow == 'post.php' || $pagenow == 'post-new.php' || ($pagenow == "admin.php" && (isset($_GET['page'])) == 'cleverness-to-do-list') || ($pagenow == "options-general.php" && (isset($_GET['page'])) == 'ultimate-tinymce')) {
 	$options_html = get_option('jwl_options_group4');
 	$jwl_html = isset($options_html['jwl_hide_html_tab']); 
 	if ($jwl_html == "1") {

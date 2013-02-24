@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 4.0.7
+ * @version 4.0.8
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 4.0.7
+Version: 4.0.8
 Author URI: http://joshlobe.com
 
 */
@@ -29,13 +29,12 @@ Author URI: http://joshlobe.com
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/includes/defaults.php';
-include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/includes/uninstall.php';
+include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/admin_functions.php';
 include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/options_functions.php';
 include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/options_callback_functions.php';
-include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/admin_functions.php';
+include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/includes/defaults.php';
+include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/includes/uninstall.php';
 include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/includes/import_export.php';
-
 
 //
 //

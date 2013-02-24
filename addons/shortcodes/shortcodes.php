@@ -1,12 +1,13 @@
 <?php
-
-include ('../jwl_call_wp_load.php');
+include ('../../includes/tinymce_addon_scripts.php');
 // Now we can use Wordpress
 global $shortcode_tags;
 ?>
 <head>
 <title>{#shortcodes_dlg.title}</title>
+<!--
 <script type="text/javascript" src="../../tinymce/tiny_mce_popup.js"></script>
+-->
 <script type="text/javascript" src="js/dialog.js"></script>
 </head>
 

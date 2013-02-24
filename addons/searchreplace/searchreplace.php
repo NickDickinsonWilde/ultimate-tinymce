@@ -1,9 +1,8 @@
-<?php ob_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>{#searchreplace_dlg.replace_title}</title>
     <?php
-		include ('../jwl_call_wp_load.php');
+		include ('../../includes/tinymce_addon_scripts.php');
 	?>
     <!--
 	<script type="text/javascript" src="../../tinymce/tiny_mce_popup.js"></script>
@@ -15,11 +14,11 @@
 </head>
 <body style="display:none;" role="application" aria-labelledby="app_title">
 <span id="app_title" style="display:none">{#searchreplace_dlg.replace_title}</span>
-<form onsubmit="SearchReplaceDialog.searchNext('none');return false;" action="#">
+<form onSubmit="SearchReplaceDialog.searchNext('none');return false;" action="#">
 	<div class="tabs">
 		<ul>
-			<li id="search_tab" aria-controls="search_panel"><span><a href="javascript:SearchReplaceDialog.switchMode('search');" onmousedown="return false;">{#searchreplace.search_desc}</a></span></li>
-			<li id="replace_tab" aria-controls="replace_panel"><span><a href="javascript:SearchReplaceDialog.switchMode('replace');" onmousedown="return false;">{#searchreplace_dlg.replace}</a></span></li>
+			<li id="search_tab" aria-controls="search_panel"><span><a href="javascript:SearchReplaceDialog.switchMode('search');" onMouseDown="return false;">{#searchreplace.search_desc}</a></span></li>
+			<li id="replace_tab" aria-controls="replace_panel"><span><a href="javascript:SearchReplaceDialog.switchMode('replace');" onMouseDown="return false;">{#searchreplace_dlg.replace}</a></span></li>
 		</ul>
 	</div>
 
@@ -96,9 +95,9 @@
 
 	<div class="mceActionPanel">
 		<input type="submit" id="insert" name="insert" value="{#searchreplace_dlg.findnext}" />
-		<input type="button" class="button" id="replaceBtn" name="replaceBtn" value="{#searchreplace_dlg.replace}" onclick="SearchReplaceDialog.searchNext('current');" />
-		<input type="button" class="button" id="replaceAllBtn" name="replaceAllBtn" value="{#searchreplace_dlg.replaceall}" onclick="SearchReplaceDialog.searchNext('all');" />
-		<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+		<input type="button" class="button" id="replaceBtn" name="replaceBtn" value="{#searchreplace_dlg.replace}" onClick="SearchReplaceDialog.searchNext('current');" />
+		<input type="button" class="button" id="replaceAllBtn" name="replaceAllBtn" value="{#searchreplace_dlg.replaceall}" onClick="SearchReplaceDialog.searchNext('all');" />
+		<input type="button" id="cancel" name="cancel" value="{#cancel}" onClick="tinyMCEPopup.close();" />
 	</div>
 </form>
 </body>

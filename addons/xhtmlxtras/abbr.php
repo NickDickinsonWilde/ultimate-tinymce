@@ -1,9 +1,8 @@
-<?php ob_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>{#xhtmlxtras_dlg.title_abbr_element}</title>
     <?php
-	include ('../jwl_call_wp_load.php');
+	include ('../../includes/tinymce_addon_scripts.php');
 	?>
     <!--
 	<script type="text/javascript" src="../../tinymce/tiny_mce_popup.js"></script>
@@ -17,10 +16,10 @@
 </head>
 <body style="display: none" role="application" aria-labelledby="app_title">
 <span style="display:none;" id="app_title">{#xhtmlxtras_dlg.title_abbr_element}</span>
-<form onsubmit="insertAbbr();return false;" action="#">
+<form onSubmit="insertAbbr();return false;" action="#">
 	<div class="tabs">
 		<ul>
-			<li id="general_tab" class="current" aria-controls="general_panel"><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');" onmousedown="return false;">{#xhtmlxtras_dlg.general_tab}</a></span></li>
+			<li id="general_tab" class="current" aria-controls="general_panel"><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');" onMouseDown="return false;">{#xhtmlxtras_dlg.general_tab}</a></span></li>
 			<!-- <li id="events_tab"><span><a href="javascript:mcTabs.displayTab('events_tab','events_panel');" onmousedown="return false;">{#xhtmlxtras_dlg.events_tab}</a></span></li> -->
 		</ul>
 	</div>
@@ -139,8 +138,8 @@
 	</div>
 	<div class="mceActionPanel">
 		<input type="submit" id="insert" name="insert" value="{#update}" />
-		<input type="button" id="remove" name="remove" class="button" value="{#xhtmlxtras_dlg.remove}" onclick="removeAbbr();" style="display: none;" />
-		<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+		<input type="button" id="remove" name="remove" class="button" value="{#xhtmlxtras_dlg.remove}" onClick="removeAbbr();" style="display: none;" />
+		<input type="button" id="cancel" name="cancel" value="{#cancel}" onClick="tinyMCEPopup.close();" />
 	</div>
 </form>
 </body>
