@@ -2,7 +2,7 @@
 	
 	$file = dirname(__FILE__);
 	$file = substr($file, 0, stripos($file, "ultimate-tinymce") );
-	require( $file . "../../wp-blog-header.php");
+	require( $file . "../../wp-load.php");
 	
 
 	$url = includes_url();

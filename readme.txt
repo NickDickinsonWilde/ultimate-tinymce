@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.3.1
 Tested up to: 3.6
-Stable tag: 4.0.8
+Stable tag: 4.0.9
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -148,6 +148,12 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 
 == Changelog ==
 
+= 4.0.9 =
+* 03-01-2013
+
+= Bug Fixes =
+* Fixed additional "headers already sent" warnings.
+
 = 4.0.8 =
 * 02-24-2013
 
@@ -159,7 +165,7 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * 02-03-2013
 
 = Bug Fixes =
-* Fixed "Session Start" Errors. Also fixed "Headers already sent" errors. Seriously, this time. 
+* Fixed additional "Session Start" Errors.
 
 = 4.0.6 =
 * 02-02-2013

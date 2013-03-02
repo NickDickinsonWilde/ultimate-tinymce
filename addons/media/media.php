@@ -1,5 +1,7 @@
+<?php ob_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 	<title>{#media_dlg.title}</title>
     <?php
 		include ('../../includes/tinymce_addon_scripts.php');

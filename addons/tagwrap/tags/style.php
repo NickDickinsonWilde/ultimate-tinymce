@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <head>
 <title>{#tagwrap_dlg.titleStyle}</title>
 <?php

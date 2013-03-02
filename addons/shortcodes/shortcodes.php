@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <?php
 include ('../../includes/tinymce_addon_scripts.php');
 // Now we can use Wordpress

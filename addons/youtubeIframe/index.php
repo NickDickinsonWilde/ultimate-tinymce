@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF8" />
