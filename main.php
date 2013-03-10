@@ -8,7 +8,7 @@ Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 4.0.9
+Version: 4.1
 Author URI: http://joshlobe.com
 
 */
