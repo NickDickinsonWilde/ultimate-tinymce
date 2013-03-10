@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 4.0.9
+ * @version 4.1
  */
 /*
 Plugin Name: Ultimate TinyMCE
@@ -143,8 +143,12 @@ if ($jwl_qr_code == "1") {
 			$content .= '<div style="float:left;width:75%;">'.$options2['jwl_qr_code_content'].'</div>';
 			$content .= '<div style="clear:both;"></div>';
 			$content .= '</div></div>';
+			
+			return wpautop($content);
 		}
-		return wpautop($content);
+		else {
+			return $content;
+		}
 	}
 	add_filter('the_content', 'jwl_qr_code');
 }
@@ -165,8 +169,12 @@ if ($jwl_qr_code_pages == "1") {
 			$content .= '<div style="float:left;width:75%;">'.$options3['jwl_qr_code_content'].'</div>';
 			$content .= '<div style="clear:both;"></div>';
 			$content .= '</div></div>';
+			
+			return wpautop($content);
 		}
-		return $content;
+		else {
+			return $content;
+		}
 	}
 	add_filter('the_content', 'jwl_qr_code_pages');
 }

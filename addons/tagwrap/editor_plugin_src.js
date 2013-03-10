@@ -7,7 +7,7 @@
                         
                         ed.addCommand('mceTagwrap', function() {
                                 ed.windowManager.open({
-                                        file : url + '/tagwrap.php',
+                                        file : url + '/tagwrap.htm',
                                         width : 920 + ed.getLang('tagwrap.delta_width', 0),
                                         height : 740 + ed.getLang('tagwrap.delta_height', 0),
                                         inline : 1

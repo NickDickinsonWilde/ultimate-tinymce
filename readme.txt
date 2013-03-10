@@ -2,9 +2,9 @@
 Contributors: josh401, Marventus
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
-Requires at least: 3.3.1
+Requires at least: 3.5.1
 Tested up to: 3.6
-Stable tag: 4.0.9
+Stable tag: 4.1
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -147,6 +147,14 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 4.1 =
+*03-10-2013
+
+= Bug Fixes =
+* Fixed bug with QR Content functionality.
+* Fixed "insert/embed media" button not working properly.
+* Adjusted all addon .php files back to .htm files.  I originally did this to increase the backwards compatibility.  However, I have found it creates more issues than advantages.  I have decided it is much better to remain updated and secure, than to attempt supporting backwards compatibility.  Please read the WP plugin download page to see compatibility.
 
 = 4.0.9 =
 * 03-01-2013

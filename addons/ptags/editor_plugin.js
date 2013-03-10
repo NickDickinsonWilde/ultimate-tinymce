@@ -16,7 +16,7 @@
             ed.addCommand('jwlPtagsButton', function(){
 				
 				ed.windowManager.open({
-					file : url + '/ptags.php',
+					file : url + '/ptags.htm',
 					width : 400,
 					height : 300,
 					inline : 1
