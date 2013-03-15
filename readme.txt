@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.5.1
 Tested up to: 3.6
-Stable tag: 4.1
+Stable tag: 4.2
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -114,13 +114,7 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 
 == Screenshots ==
 
-1. <strong>Just a small sample of what can be done with this plugin.</strong>
-2. <strong>The front end view of the last screenshot.</strong>
-3. <strong>Easily insert YouTube videos with just the link url.</strong>
-4. <strong>Image Mapping is a fun way to make images more interactive.</strong>
-5. <strong>Over 50 different animated moods to add to your blog.</strong>
-6. <strong>Syntax Highlighter will bring your code to life (supports PHP, JS, CSS, and others).  Also includes numbered lines.</strong>
-7. <strong>Admin settings page.</strong>
+Rather than "bloat" the plugin with screenshots. Please check out tons of screenshots and descriptions on the <a href="http://utmce.joshlobe.com/button-definitions/">Ultimate Tinymce Official Website</a>.
 
 == Upgrade Notice ==
 * Upgrade notice.
@@ -148,8 +142,18 @@ Please use my <a href="http://forum.joshlobe.com/member.php?action=register&refe
 
 == Changelog ==
 
+= 4.2 =
+* 03-14-2013
+
+= Tweaks =
+* I opted to remove the pop-up help files from the plugin. They have been moved to the <a href="http://utmce.joshlobe.com/button-definitions/">Ultimate Tinymce Official Website</a>. This has reduced the plugins file size by half.
+
+* The "Scroll to Top" javascript arrow on the admin settings page has been removed, as it was interfering with some installations where the left menu extended down off the bottom of the page.
+
+
+
 = 4.1 =
-*03-10-2013
+* 03-10-2013
 
 = Bug Fixes =
 * Fixed bug with QR Content functionality.

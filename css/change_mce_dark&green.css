@@ -89,3 +89,14 @@
 	background: linear-gradient(top,  #e6fee2 0%,#d9fdd3 100%) !important;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6fee2', endColorstr='#d9fdd3',GradientType=0 ) !important;
 }
+
+/* Separator */
+.wp_themeSkin .mceSeparator {
+	display: block !important;
+	width: 10px !important;
+}
+
+/* Opacity for inactive icons */
+.wp_themeSkin .mceButtonDisabled .mceIcon { 
+opacity: 0.4 !important;
+}

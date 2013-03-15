@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 4.1
+ * @version 4.2
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 4.1
+Version: 4.2
 Author URI: http://joshlobe.com
 
 */
@@ -227,9 +227,6 @@ class jwl_metabox_admin {
 		function jwl_admin_register_head_scripts() {			
 			wp_register_script('jwl-color-picker', plugin_dir_url( __FILE__ ) . 'js/jscolor/jscolor.js', array(), '1.0.0', 'all' );  // Javascript color picker
 			wp_enqueue_script('jwl-color-picker');
-			
-			wp_register_script('jwl-popup-help', plugin_dir_url( __FILE__ ) . 'js/pop-up.js', array(), '1.0.0', 'all' ); // Popup help windows
-			wp_enqueue_script('jwl-popup-help');
 			
 			wp_register_script('jwl-admin-panel-js', plugin_dir_url( __FILE__ ) . 'js/admin_panel.js', array(), '1.0.0', 'all' ); // All admin panel javascript
 			wp_enqueue_script('jwl-admin-panel-js');
@@ -618,7 +615,7 @@ class jwl_metabox_admin {
             <span class="content_title"><?php _e('Tips and Tricks for the Admin Panel', 'jwl-ultimate-tinymce'); ?></span><br /><br />
             
             	<div class="content_wrapper_tips">
-            	<?php _e('<span class="content_wrapper_title">Screen Options:</span><ul class="help_tab_list_image"><li>Click the "Screen Options" tab in the upper-right corner to enable further customization.</li><li>Set the Screen Columns to "2" for best results.</li><li>Decide which Meta-Boxes to show or hide.</li><li>Selections are saved in the database.</li></ul>','jwl-ultimate-tinymce'); ?>
+            	<?php _e('<span class="content_wrapper_title">Screen Options:</span><ul class="help_tab_list_image"><li>Click the "Screen Options" tab in the upper-right corner to enable further customization.</li><li>Decide which Meta-Boxes to show or hide.</li><li>Selections are saved in the database.</li></ul>','jwl-ultimate-tinymce'); ?>
                 </div> <!-- End Div .content_wrapper_tips -->
                 
                 <div class="content_wrapper_tips">
@@ -680,6 +677,8 @@ class jwl_metabox_admin {
             	<h3><?php _e('Need Support?', 'jwl-ultimate-tinymce'); ?></h3>
                 <p><a target="_blank" href="http://forum.joshlobe.com/member.php?action=register&referrer=1"><?php _e('Dedicated Support Forum', 'jwl-ultimate-tinymce'); ?></a></p>
                 <p><a target="_blank" href="http://www.plugins.joshlobe.com/contact/"><?php _e('Contact Me', 'jwl-ultimate-tinymce'); ?></a></p>
+                <p><a target="_blank" href="http://utmce.joshlobe.com/button-definitions/"><?php _e('Button Definitions', 'jwl-ultimate-tinymce'); ?></a></p>
+                <p><a target="_blank" href="http://utmce.joshlobe.com/other-plugin-features/"><?php _e('Other Plugin Features', 'jwl-ultimate-tinymce'); ?></a></p>
             </div> <!-- End Div .jwl_support_sidebar -->
             
             <div class="jwl_follow_sidebar">
@@ -772,19 +771,7 @@ class jwl_metabox_admin {
         </div> <!-- End Div #post-body -->
         <br class="clear"/>		
         
-   </div> <!-- End Div #poststuff -->
-   
-    <?php
-    // This will remove 'scroll to top' if the user enables the option to remove plugin styling
-	$options_remove_scroll = get_option('jwl_options_group4');
-	$jwl_remove_scroll = isset($options_remove_scroll['jwl_disable_styles']);
-	if ($jwl_remove_scroll != "1"){
-		?>
-   		<a href="#" class="scrollToTop"><?php _e('Scroll To Top', 'jwl-ultimate-tinymce'); ?></a>
-        <?php
-	}
-	?>
-        
+   </div> <!-- End Div #poststuff -->    
 
 </div> <!-- End Div #ultimate-tinymce-general -->
 
