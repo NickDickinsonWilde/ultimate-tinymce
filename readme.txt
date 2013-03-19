@@ -10,8 +10,6 @@ Description: Beef up your visual tinymce editor with a plethora of advanced opti
 
 == Description ==
 
-<a href="http://www.plugins.joshlobe.com/">GO PRO!!</a>  Be sure to check out <a href="http://www.plugins.joshlobe.com/">Ultimate Tinymce PRO</a>.  Offering more advanced features, additional formatting options, and an easier admin interface; <a href="http://ultimatetinymcepro.com">Ultimate Tinymce PRO</a> is the final solution for the ultimate WordPress visual editor.
-
 Are you a visual person?  Do the letter combinations "HTML" and "CSS" send you running for the hills; but you still want to create beautiful blogs like the pros?  Then this is the plugin for you!
 
 [youtube http://www.youtube.com/watch?v=01reHnBCAIA]
