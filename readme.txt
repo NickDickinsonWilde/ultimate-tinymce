@@ -5,6 +5,7 @@ Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style,
 Requires at least: 3.5.1
 Tested up to: 3.6
 Stable tag: 4.2
+License: GPLv2
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 
@@ -14,7 +15,7 @@ Are you a visual person?  Do the letter combinations "HTML" and "CSS" send you r
 
 [youtube http://www.youtube.com/watch?v=01reHnBCAIA]
 
-<strong>Ultimate TinyMCE</strong> will add over 30 new buttons to the default visual tinymce editor, giving you the power to visually create your pages and posts. No need for mucking about in HTML and CSS.
+<strong>Ultimate TinyMCE</strong> will add over 40 new buttons to the default visual tinymce editor, giving you the power to visually create your pages and posts. No need for mucking about in HTML and CSS.
 
 <strong>How will Ultimate TinyMCE Help You?</strong>
 <ul>
@@ -31,21 +32,6 @@ Are you a visual person?  Do the letter combinations "HTML" and "CSS" send you r
 
 <blockquote>I spent all last night playing with your Tinymce plugin. What a joy! Boy, have I been doing things the hard way! I loved your tooltips for the different settings. Not only were they informative, but fun! You seemed like a real person; not a manual of difficult to understand techie language! Bravo for an awesome plugin! I will certainly share it with others! I only regret having worked so long without it!</blockquote>
 
-<strong>Premium Ultimate Tinymce Addons:</strong><br />
-<ul>
-<li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-classes-and-ids/">Ultimate Tinymce Classes and IDs</a> - Add selectable classes and id's to any element in the visual editor via dropdown boxes.  Changes are seen real-time within the visual editor.</li>
-<li><a href="http://www.plugins.joshlobe.com/predefined-custom-styles/">Predefined Custom Styles</a> - A collection of over 80 of my custom styles, ready to be added to the styles dropdown selector.  Simply activate the plugin; and you are done.</li>
-<li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/">Ultimate Google Webfonts Addon</a> - Easily add any combination of Google Webfonts to your website without compromising page loading time.  Just copy your code from Google and paste it into this plugin.  The chosen fonts will appear in the dropdown list (rendered properly), your content area, and the front end of the website.</li>
-<li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-advanced-configuration/">Ultimate Tinymce Advanced Configuration</a> - Take total control over the Wordpress tinymce editor.  This plugin will allow you to tweak every known setting for the tinymce editor.</li>
-<li><a href="http://www.plugins.joshlobe.com/ultimate-tinymce-custom-styles/">Ultimate Custom Styles Addon</a> - Create custom styles for use in the styles dropdown box; which are rendered in both the editor and the front-end of the website.  Just like my predefined styles plugin, but this one allows you to create your own custom styles.</li>
-</ul>
-
-<strong>Free Ultimate TInymce Addons:</strong><br />
-<ul>
-<li><a href="http://wordpress.org/extend/plugins/custom-welcome-messages/">Custom Welcome Messages</a> - Create custom login and logout pages.  Change the default wordpress login image, title, and link.</li>
-<li><a href="http://wordpress.org/extend/plugins/moods-addon-for-ultimate-tinymce/">Ultimate Moods Addon</a> - Add over 50 animated mood smilies to your content.</li>
-</ul>
-
 <strong>Still reading??  How about some of these cool features?!</strong>
 <ul>
 <li>Disable the wpautop function which inserts all those <strong>p</strong> and <strong>br</strong> tags.</li>
@@ -56,17 +42,12 @@ Are you a visual person?  Do the letter combinations "HTML" and "CSS" send you r
 <li>This plugin is very stable and works extremely well on the current version of wordpress and across multiple themes (both free and paid); and with other plugins.</li>
 </ul>
 
-If you like this plugin, <strong>Please Leave A Rating</strong>.  Also, click "Works" (over to the right) if you are satisfied with the plugin.
-
-<strong>Donations:</strong>
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS">The smallest donations will be gratefully accepted if you wish to click here</a>.  Countless late-night hours have been poured into the development of this plugin; which requires a large surplus of Big Red and M&M's.  Please consider donating if you are extremely pleased with this plugin and will continue using it on your site.
-
 <strong>Additional Plugin Resources:</strong><br />
 <ul>
+<li><a href="http://forum.joshlobe.com/forumdisplay.php?fid=44">Ultimate Tinymce - WordPress Content Editor Video Tutorial Series - Authored by Josh Lobe</a></li>
 <li><a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">Support Forum</a></li>
 <li><a href="http://www.joshlobe.com/2011/10/ultimate-tinymce/">Ultimate TinyMCE Plugin HomePage</a></li>
 <li>Follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> to be notified of new video tutorials.</li>
-<li>Visit the <a href="http://www.plugins.joshlobe.com/">Ultimate Tinymce Premium Addons</a> page.</li>
 </ul>
 
 <strong>Translations:</strong><br />
