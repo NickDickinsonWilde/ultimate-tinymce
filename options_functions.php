@@ -764,7 +764,7 @@ if ( !function_exists('jwl_fullscreen_buttons') )
 */
 
 // Test button
-//function tinymce_add_test_button($buttons) {  $buttons[] = 'codehighlight';  return $buttons;  }
+//function tinymce_add_test_button($buttons) {  $buttons[] = 'ccl';  return $buttons;  }
 //add_filter("mce_buttons_3", "tinymce_add_test_button");
 
 // Add the plugin array for extra features
@@ -807,7 +807,7 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['advlink'] = plugin_dir_url(__FILE__) . 'addons/advlink/editor_plugin.js';
 		
 		// Test plugin array
-		//$jwl_plugin_array['codehighlight'] = plugin_dir_url(__FILE__) . 'addons/codehighlight/editor_plugin.js';
+		//$jwl_plugin_array['ccl'] = plugin_dir_url(__FILE__) . 'addons/ccl/editor_plugin_src.js';
 		   
 		return $jwl_plugin_array;
 }
@@ -1022,49 +1022,49 @@ add_shortcode('signoff', 'jwl_sign_off_text');
 $jwl_columns = isset($options4['jwl_columns_field_id']);
 if ($jwl_columns == "1"){
 	
-	function jwl_one_third( $atts, $content = null ) { return '<div class="one_third">' . do_shortcode($content) . '</div>'; }
+	function jwl_one_third( $atts, $content = null ) { return '<div class="jwl_one_third">' . do_shortcode($content) . '</div>'; }
 	add_shortcode('one_third', 'jwl_one_third');
-	function jwl_one_third_last( $atts, $content = null ) { return '<div class="one_third last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	function jwl_one_third_last( $atts, $content = null ) { return '<div class="jwl_one_third last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
 	add_shortcode('one_third_last', 'jwl_one_third_last');
-	function jwl_two_third( $atts, $content = null ) { return '<div class="two_third">' . do_shortcode($content) . '</div>'; }
+	function jwl_two_third( $atts, $content = null ) { return '<div class="jwl_two_third">' . do_shortcode($content) . '</div>'; }
 	add_shortcode('two_third', 'jwl_two_third');
-	function jwl_two_third_last( $atts, $content = null ) { return '<div class="two_third last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	function jwl_two_third_last( $atts, $content = null ) { return '<div class="jwl_two_third last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
 	add_shortcode('two_third_last', 'jwl_two_third_last');
-	function jwl_one_half( $atts, $content = null ) { return '<div class="one_half">' . do_shortcode($content) . '</div>'; }
+	function jwl_one_half( $atts, $content = null ) { return '<div class="jwl_one_half">' . do_shortcode($content) . '</div>'; }
 	add_shortcode('one_half', 'jwl_one_half');
-	function jwl_one_half_last( $atts, $content = null ) { return '<div class="one_half last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	function jwl_one_half_last( $atts, $content = null ) { return '<div class="jwl_one_half last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
 	add_shortcode('one_half_last', 'jwl_one_half_last');
-	function jwl_one_fourth( $atts, $content = null ) { return '<div class="one_fourth">' . do_shortcode($content) . '</div>'; }
+	function jwl_one_fourth( $atts, $content = null ) { return '<div class="jwl_one_fourth">' . do_shortcode($content) . '</div>'; }
 	add_shortcode('one_fourth', 'jwl_one_fourth');
-	function jwl_one_fourth_last( $atts, $content = null ) { return '<div class="one_fourth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	function jwl_one_fourth_last( $atts, $content = null ) { return '<div class="jwl_one_fourth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
 	add_shortcode('one_fourth_last', 'jwl_one_fourth_last');
-	function jwl_three_fourth( $atts, $content = null ) { return '<div class="three_fourth">' . do_shortcode($content) . '</div>'; }
+	function jwl_three_fourth( $atts, $content = null ) { return '<div class="jwl_three_fourth">' . do_shortcode($content) . '</div>'; }
 	add_shortcode('three_fourth', 'jwl_three_fourth');
-	function jwl_three_fourth_last( $atts, $content = null ) { return '<div class="three_fourth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	function jwl_three_fourth_last( $atts, $content = null ) { return '<div class="jwl_three_fourth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
 	add_shortcode('three_fourth_last', 'jwl_three_fourth_last');
-	function jwl_one_fifth( $atts, $content = null ) { return '<div class="one_fifth">' . do_shortcode($content) . '</div>'; }
+	function jwl_one_fifth( $atts, $content = null ) { return '<div class="jwl_one_fifth">' . do_shortcode($content) . '</div>'; }
 	add_shortcode('one_fifth', 'jwl_one_fifth');
-	function jwl_one_fifth_last( $atts, $content = null ) { return '<div class="one_fifth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	function jwl_one_fifth_last( $atts, $content = null ) { return '<div class="jwl_one_fifth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
 	add_shortcode('one_fifth_last', 'jwl_one_fifth_last');
-	function jwl_two_fifth( $atts, $content = null ) { return '<div class="two_fifth">' . do_shortcode($content) . '</div>'; }
+	function jwl_two_fifth( $atts, $content = null ) { return '<div class="jwl_two_fifth">' . do_shortcode($content) . '</div>'; }
 	add_shortcode('two_fifth', 'jwl_two_fifth');
-	function jwl_two_fifth_last( $atts, $content = null ) { return '<div class="two_fifth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	function jwl_two_fifth_last( $atts, $content = null ) { return '<div class="jwl_two_fifth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
 	add_shortcode('two_fifth_last', 'jwl_two_fifth_last');
-	function jwl_three_fifth( $atts, $content = null ) { return '<div class="three_fifth">' . do_shortcode($content) . '</div>'; }
+	function jwl_three_fifth( $atts, $content = null ) { return '<div class="jwl_three_fifth">' . do_shortcode($content) . '</div>'; }
 	add_shortcode('three_fifth', 'jwl_three_fifth');
-	function jwl_three_fifth_last( $atts, $content = null ) { return '<div class="three_fifth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	function jwl_three_fifth_last( $atts, $content = null ) { return '<div class="jwl_three_fifth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
 	add_shortcode('three_fifth_last', 'jwl_three_fifth_last');
-	function jwl_four_fifth( $atts, $content = null ) { return '<div class="four_fifth">' . do_shortcode($content) . '</div>'; }
+	function jwl_four_fifth( $atts, $content = null ) { return '<div class="jwl_four_fifth">' . do_shortcode($content) . '</div>'; }
 	add_shortcode('four_fifth', 'jwl_four_fifth');
-	function jwl_four_fifth_last( $atts, $content = null ) { return '<div class="four_fifth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	function jwl_four_fifth_last( $atts, $content = null ) { return '<div class="jwl_four_fifth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
 	add_shortcode('four_fifth_last', 'jwl_four_fifth_last');
-	function jwl_one_sixth( $atts, $content = null ) { return '<div class="one_sixth">' . do_shortcode($content) . '</div>'; }
+	function jwl_one_sixth( $atts, $content = null ) { return '<div class="jwl_one_sixth">' . do_shortcode($content) . '</div>'; }
 	add_shortcode('one_sixth', 'jwl_one_sixth');
-	function jwl_one_sixth_last( $atts, $content = null ) { return '<div class="one_sixth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	function jwl_one_sixth_last( $atts, $content = null ) { return '<div class="jwl_one_sixth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
 	add_shortcode('one_sixth_last', 'jwl_one_sixth_last');
-	function jwl_five_sixth( $atts, $content = null ) { return '<div class="five_sixth">' . do_shortcode($content) . '</div>'; }
+	function jwl_five_sixth( $atts, $content = null ) { return '<div class="jwl_five_sixth">' . do_shortcode($content) . '</div>'; }
 	add_shortcode('five_sixth', 'jwl_five_sixth');
-	function jwl_five_sixth_last( $atts, $content = null ) { return '<div class="five_sixth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
+	function jwl_five_sixth_last( $atts, $content = null ) { return '<div class="jwl_five_sixth last">' . do_shortcode($content) . '</div><div class="clearboth"></div>'; }
 	add_shortcode('five_sixth_last', 'jwl_five_sixth_last');
 
 	function jwl_column_stylesheet() {

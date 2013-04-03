@@ -96,6 +96,8 @@ function jwl_change_mce_options($initArray) {
 				$initArray['content_css'] .= ',' . plugin_dir_url( __FILE__ ) . 'css/content.css'; // Change default editor font and styles
 			}
 		}
+		
+	$initArray['Archiv_settings_file'] = '/home/josh401/public_html/testsite/wp-content/plugins/ultimate-tinymce/addons/Archiv/config.php';
 	
 	return $initArray;
 }

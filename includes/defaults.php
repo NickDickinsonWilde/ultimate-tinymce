@@ -132,7 +132,7 @@ function jwl_ultimate_tinymce_load_defaults() {
     </div>
     <div style="display:block;float:left;width:40%;">
     <center><br /><br />
-	<input name="load_defaults_confirm" type="checkbox" value="1" /> <?php _e('<b>Please confirm before proceeding</b><br /><br />','jwl-ultimate-tinymce'); ?>
+	<input name="load_defaults_confirm" id="load_defaults_confirm" type="checkbox" value="1" /><label for="load_defaults_confirm"><p></p></label> <?php _e('<b>Please confirm before proceeding</b><br /><br />','jwl-ultimate-tinymce'); ?>
 	<input class="button-primary" name="load_defaults" type="submit" value="<?php _e('Load Defaults','jwl-ultimate-tinymce'); ?>" />
 	</form>
     </center>

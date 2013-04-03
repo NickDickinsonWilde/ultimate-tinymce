@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 4.2
+ * @version 4.3
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 4.2
+Version: 4.3
 Author URI: http://joshlobe.com
 
 */
@@ -49,6 +49,11 @@ function jwl_ult_bbpress_mceallow( $args = array() ) {
     return $args;
 }
 add_filter( 'bbp_after_get_the_content_parse_args', 'jwl_ult_bbpress_mceallow' );
+
+function jwl_rocket_button() {
+	include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/includes/jwl_rocket.php';
+}
+add_action('wp_footer', 'jwl_rocket_button');
 
 
 // Let's check for options which throw errors if not set... If they are not set, let's set them!
@@ -990,5 +995,28 @@ function jwl_update_message_cb( /* $plugin_data, $r */ )
 	
     return print $output;
 }
+
+
+
+// Make Directories for TinyBrowser
+function jwl_create_tinybrowser_directories() {
+	
+	$current_user = get_current_user_id();
+	
+	//$target1 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr/'.$current_user.'/uploaded';
+	$target2 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr/'.$current_user.'/images';
+	$target3 = WP_CONTENT_DIR.'/uploads/ultimate-tinymce/imgmgr/'.$current_user.'/files';
+	
+	//if(!is_dir($target1)){
+		//wp_mkdir_p( $target1 );
+	//}
+	if(!is_dir($target2)){
+		wp_mkdir_p( $target2 );
+	}
+	if(!is_dir($target3)){
+		wp_mkdir_p( $target3 );
+	}
+}
+add_action('plugins_loaded','jwl_create_tinybrowser_directories');
 
 ?>

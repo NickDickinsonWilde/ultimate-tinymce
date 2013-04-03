@@ -36,7 +36,7 @@ function jwl_ultimate_tinymce_form_uninstall() {
     }
 	_e('<ul class="help_tab_list_image"><li>The options for this plugin are not removed upon deactivation to ensure that no data is lost unintentionally.</li><li>If you wish to remove all plugin information from your database be sure to run this uninstall utility first.</li><li>This is a great way to "reset" the plugin, in case you experience problems with the editor.</li><li>This option is NOT reversible. Ultimate Tinymce plugin settings will need to be re-configured if deleted.</li></ul>','jwl-ultimate-tinymce'); ?>
     <center><br /><br />
-	<input name="uninstall_confirm" type="checkbox" value="1" /> <strong><?php _e('Please confirm before proceeding<br /><br />','jwl-ultimate-tinymce'); ?></strong>
+	<input name="uninstall_confirm" id="uninstall_confirm" type="checkbox" value="1" /><label for="uninstall_confirm"><p></p></label> <strong><?php _e('Please confirm before proceeding<br /><br />','jwl-ultimate-tinymce'); ?></strong>
 	<input class="button-primary" name="uninstall" type="submit" value="<?php _e('Uninstall','jwl-ultimate-tinymce'); ?>" />
 	</form>
     </center>

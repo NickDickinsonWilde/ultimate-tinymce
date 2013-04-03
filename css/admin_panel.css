@@ -468,3 +468,22 @@ box-shadow: 0 0 5px 5px #888;
 	text-decoration:none;
 	opacity: 1;
 }
+
+
+/* Used for Fancy Checkboxes */
+input[type="checkbox"] {
+    display:none;
+}
+input[type="checkbox"] + label p {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    background:url('../img/check_radio_sheet.png') left top no-repeat;
+    cursor:pointer;
+}
+input[type="checkbox"]:checked + label p {
+    background:url('../img/check_radio_sheet.png') -19px top no-repeat;
+}
+/* End Fancy Checkboxes */
