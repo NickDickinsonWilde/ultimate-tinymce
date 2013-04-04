@@ -23,7 +23,7 @@
  // Begin callback functions	 
  function jwl_fontselect_callback_function() {
 	 $options = get_option('jwl_options_group1');
-    echo '<input name="jwl_options_group1[jwl_fontselect_field_id]" id="fontselect" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_fontselect_field_id']), false ) . ' /> '; ?><label for="fontselect"><p></p></label><?php
+    echo '<input name="jwl_options_group1[jwl_fontselect_field_id]" id="fontselect" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_fontselect_field_id']), false ) . ' /> '; ?><label for="fontselect"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/fontselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_fontselect_dropdown'])) {
 			$options_fontselect = $options['jwl_fontselect_dropdown'];
@@ -39,7 +39,7 @@
  
  function jwl_fontsizeselect_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_fontsizeselect_field_id]" id="fontsize" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_fontsizeselect_field_id']), false ) . ' /> '; ?><label for="fontsize"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_fontsizeselect_field_id]" id="fontsize" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_fontsizeselect_field_id']), false ) . ' /> '; ?><label for="fontsize"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/fontsizeselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_fontsizeselect_dropdown'])) {
 			$options_fontsizeselect = $options['jwl_fontsizeselect_dropdown'];
@@ -55,7 +55,7 @@
  
  function jwl_cut_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_cut_field_id]" id="cut" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_cut_field_id']), false ) . ' /> '; ?><label for="cut"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_cut_field_id]" id="cut" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_cut_field_id']), false ) . ' /> '; ?><label for="cut"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/cut.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_cut_dropdown'])) {
 			$options_cut = $options['jwl_cut_dropdown'];
@@ -71,7 +71,7 @@
  
  function jwl_copy_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_copy_field_id]" id="copy" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_copy_field_id']), false ) . ' /> '; ?><label for="copy"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_copy_field_id]" id="copy" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_copy_field_id']), false ) . ' /> '; ?><label for="copy"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/copy.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_copy_dropdown'])) {
 			$options_copy = $options['jwl_copy_dropdown'];
@@ -87,7 +87,7 @@
  
  function jwl_paste_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_paste_field_id]" id="paste" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_paste_field_id']), false ) . ' /> '; ?><label for="paste"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_paste_field_id]" id="paste" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_paste_field_id']), false ) . ' /> '; ?><label for="paste"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/paste.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_paste_dropdown'])) {
 			$options_paste = $options['jwl_paste_dropdown'];
@@ -103,7 +103,7 @@
  
  function jwl_backcolorpicker_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_backcolorpicker_field_id]" id="backcolorpicker" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_backcolorpicker_field_id']), false ) . ' /> '; ?><label for="backcolorpicker"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_backcolorpicker_field_id]" id="backcolorpicker" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_backcolorpicker_field_id']), false ) . ' /> '; ?><label for="backcolorpicker"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/backcolorpicker.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_backcolorpicker_dropdown'])) {
 			$options_backcolorpicker = $options['jwl_backcolorpicker_dropdown'];
@@ -119,7 +119,7 @@
  
  function jwl_forecolorpicker_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_forecolorpicker_field_id]" id="forecolorpicker" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_forecolorpicker_field_id']), false ) . ' /> '; ?><label for="forecolorpicker"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_forecolorpicker_field_id]" id="forecolorpicker" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_forecolorpicker_field_id']), false ) . ' /> '; ?><label for="forecolorpicker"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/forecolorpicker.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_forecolorpicker_dropdown'])) {
 			$options_forecolorpicker = $options['jwl_forecolorpicker_dropdown'];
@@ -135,7 +135,7 @@
  
  function jwl_advhr_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_advhr_field_id]" id="hr" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_advhr_field_id']), false ) . ' /> '; ?><label for="hr"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_advhr_field_id]" id="hr" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_advhr_field_id']), false ) . ' /> '; ?><label for="hr"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/hr.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_advhr_dropdown'])) {
 			$options_advhr = $options['jwl_advhr_dropdown'];
@@ -151,7 +151,7 @@
  
  function jwl_visualaid_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_visualaid_field_id]" id="visualaid" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_visualaid_field_id']), false ) . ' /> '; ?><label for="visualaid"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_visualaid_field_id]" id="visualaid" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_visualaid_field_id']), false ) . ' /> '; ?><label for="visualaid"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/visualaid.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_visualaid_dropdown'])) {
 			$options_visualaid = $options['jwl_visualaid_dropdown'];
@@ -167,7 +167,7 @@
  
  function jwl_anchor_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_anchor_field_id]" id="anchor" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_anchor_field_id']), false ) . ' /> '; ?><label for="anchor"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_anchor_field_id]" id="anchor" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_anchor_field_id']), false ) . ' /> '; ?><label for="anchor"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/anchor.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_anchor_dropdown'])) {
 			$options_anchor = $options['jwl_anchor_dropdown'];
@@ -183,7 +183,7 @@
  
  function jwl_sub_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_sub_field_id]" id="sub" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_sub_field_id']), false ) . ' /> '; ?><label for="sub"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_sub_field_id]" id="sub" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_sub_field_id']), false ) . ' /> '; ?><label for="sub"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/sub.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_sub_dropdown'])) {
 			$options_sub = $options['jwl_sub_dropdown'];
@@ -199,7 +199,7 @@
  
  function jwl_sup_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_sup_field_id]" id="sup" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_sup_field_id']), false ) . ' /> '; ?><label for="sup"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_sup_field_id]" id="sup" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_sup_field_id']), false ) . ' /> '; ?><label for="sup"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/sup.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_sup_dropdown'])) {
 			$options_sup = $options['jwl_sup_dropdown'];
@@ -215,7 +215,7 @@
  
  function jwl_search_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_search_field_id]" id="search" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_search_field_id']), false ) . ' /> '; ?><label for="search"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_search_field_id]" id="search" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_search_field_id']), false ) . ' /> '; ?><label for="search"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/search.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_search_dropdown'])) {
 			$options_search = $options['jwl_search_dropdown'];
@@ -231,7 +231,7 @@
  
  function jwl_replace_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_replace_field_id]" id="replace" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_replace_field_id']), false ) . ' /> '; ?><label for="replace"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_replace_field_id]" id="replace" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_replace_field_id']), false ) . ' /> '; ?><label for="replace"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/replace.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_replace_dropdown'])) {
 			$options_replace = $options['jwl_replace_dropdown'];
@@ -247,7 +247,7 @@
   
  function jwl_datetime_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_datetime_field_id]" id="datetime" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_datetime_field_id']), false ) . ' /> '; ?><label for="datetime"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_datetime_field_id]" id="datetime" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_datetime_field_id']), false ) . ' /> '; ?><label for="datetime"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/datetime.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_datetime_dropdown'])) {
 			$options_datetime = $options['jwl_datetime_dropdown'];
@@ -263,7 +263,7 @@
  
  function jwl_nonbreaking_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_nonbreaking_field_id]" id="nonbreaking" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_nonbreaking_field_id']), false ) . ' /> '; ?><label for="nonbreaking"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_nonbreaking_field_id]" id="nonbreaking" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_nonbreaking_field_id']), false ) . ' /> '; ?><label for="nonbreaking"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/nonbreaking.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_nonbreaking_dropdown'])) {
 			$options_nonbreaking = $options['jwl_nonbreaking_dropdown'];
@@ -279,7 +279,7 @@
  
  function jwl_mailto_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_mailto_field_id]" id="mailto" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_mailto_field_id']), false ) . ' /> '; ?><label for="mailto"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_mailto_field_id]" id="mailto" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_mailto_field_id']), false ) . ' /> '; ?><label for="mailto"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/mailto.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_mailto_dropdown'])) {
 			$options_mailto = $options['jwl_mailto_dropdown'];
@@ -295,7 +295,7 @@
  
  function jwl_layers_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_layers_field_id]" id="layers" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_layers_field_id']), false ) . ' /> '; ?><label for="layers"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_layers_field_id]" id="layers" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_layers_field_id']), false ) . ' /> '; ?><label for="layers"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/layers.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_layers_dropdown'])) {
 			$options_layers = $options['jwl_layers_dropdown'];
@@ -311,7 +311,7 @@
  
  function jwl_span_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_span_field_id]" id="span" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_span_field_id']), false ) . ' /> '; ?><label for="span"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_span_field_id]" id="span" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_span_field_id']), false ) . ' /> '; ?><label for="span"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/span.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_span_dropdown'])) {
 			$options_span = $options['jwl_span_dropdown'];
@@ -327,7 +327,7 @@
  
  function jwl_equation_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_equation_field_id]" id="equation" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_equation_field_id']), false ) . ' /> '; ?><label for="equation"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_equation_field_id]" id="equation" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_equation_field_id']), false ) . ' /> '; ?><label for="equation"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/equation.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_equation_dropdown'])) {
 			$options_equation = $options['jwl_equation_dropdown'];
@@ -343,7 +343,7 @@
  
  function jwl_encode_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_encode_field_id]" id="encode" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_encode_field_id']), false ) . ' /> '; ?><label for="encode"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_encode_field_id]" id="encode" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_encode_field_id']), false ) . ' /> '; ?><label for="encode"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/encode.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_encode_dropdown'])) {
 			$options_encode = $options['jwl_encode_dropdown'];
@@ -359,7 +359,7 @@
  
  function jwl_directionality_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_directionality_field_id]" id="directionality" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_directionality_field_id']), false ) . ' /> '; ?><label for="directionality"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_directionality_field_id]" id="directionality" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_directionality_field_id']), false ) . ' /> '; ?><label for="directionality"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/directionality.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_directionality_dropdown'])) {
 			$options_directionality = $options['jwl_directionality_dropdown'];
@@ -375,7 +375,7 @@
  
  function jwl_ezimage_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_ezimage_field_id]" id="ezimage" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_ezimage_field_id']), false ) . ' /> '; ?><label for="ezimage"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_ezimage_field_id]" id="ezimage" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_ezimage_field_id']), false ) . ' /> '; ?><label for="ezimage"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/ezimage.gif" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_ezimage_dropdown'])) {
 			$options_ezimage = $options['jwl_ezimage_dropdown'];
@@ -391,7 +391,7 @@
  
  function jwl_ptags_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_ptags_field_id]" id="ptags" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_ptags_field_id']), false ) . ' /> '; ?><label for="ptags"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_ptags_field_id]" id="ptags" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_ptags_field_id']), false ) . ' /> '; ?><label for="ptags"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/ptags.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_ptags_dropdown'])) {
 			$options_ptags = $options['jwl_ptags_dropdown'];
@@ -407,7 +407,7 @@
  
  function jwl_mcelinebreak_callback_function() {
 	 $options = get_option('jwl_options_group1');
- 	echo '<input name="jwl_options_group1[jwl_mcelinebreak_field_id]" id="mcelinebreak" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_mcelinebreak_field_id']), false ) . ' /> '; ?><label for="mcelinebreak"><p></p></label><?php
+ 	echo '<input name="jwl_options_group1[jwl_mcelinebreak_field_id]" id="mcelinebreak" type="checkbox" value="1" class="one" ' . checked( 1, isset($options['jwl_mcelinebreak_field_id']), false ) . ' /> '; ?><label for="mcelinebreak"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/linebreak.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_mcelinebreak_dropdown'])) {
 			$options_mcelinebreak = $options['jwl_mcelinebreak_dropdown'];
@@ -433,7 +433,7 @@
  
  function jwl_styleselect_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_styleselect_field_id]" id="styleselect" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_styleselect_field_id']), false ) . ' /> '; ?><label for="styleselect"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_styleselect_field_id]" id="styleselect" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_styleselect_field_id']), false ) . ' /> '; ?><label for="styleselect"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/styleselect.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_styleselect_dropdown'])) {
 			$options_styleselect = $options['jwl_styleselect_dropdown'];
@@ -449,7 +449,7 @@
  
  function jwl_tableDropdown_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_tableDropdown_field_id]" id="tableDropdown" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_tableDropdown_field_id']), false ) . ' /> '; ?><label for="tableDropdown"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_tableDropdown_field_id]" id="tableDropdown" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_tableDropdown_field_id']), false ) . ' /> '; ?><label for="tableDropdown"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/tableDropdown.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_tableDropdown_dropdown'])) {
 			$options_tableDropdown = $options['jwl_tableDropdown_dropdown'];
@@ -465,7 +465,7 @@
  
  function jwl_emotions_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_emotions_field_id]" id="emotions" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_emotions_field_id']), false ) . ' /> '; ?><label for="emotions"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_emotions_field_id]" id="emotions" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_emotions_field_id']), false ) . ' /> '; ?><label for="emotions"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/emotions.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_emotions_dropdown'])) {
 			$options_emotions = $options['jwl_emotions_dropdown'];
@@ -481,7 +481,7 @@
  
  function jwl_image_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_image_field_id]" id="image" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_image_field_id']), false ) . ' /> '; ?><label for="image"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_image_field_id]" id="image" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_image_field_id']), false ) . ' /> '; ?><label for="image"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/image.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_image_dropdown'])) {
 			$options_image = $options['jwl_image_dropdown'];
@@ -497,7 +497,7 @@
  
  function jwl_preview_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_preview_field_id]" id="preview" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_preview_field_id']), false ) . ' /> '; ?><label for="preview"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_preview_field_id]" id="preview" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_preview_field_id']), false ) . ' /> '; ?><label for="preview"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/preview.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_preview_dropdown'])) {
 			$options_preview = $options['jwl_preview_dropdown'];
@@ -513,7 +513,7 @@
  
  function jwl_cite_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_cite_field_id]" id="cite" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_cite_field_id']), false ) . ' /> '; ?><label for="cite"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_cite_field_id]" id="cite" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_cite_field_id']), false ) . ' /> '; ?><label for="cite"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/cite.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_cite_dropdown'])) {
 			$options_cite = $options['jwl_cite_dropdown'];
@@ -529,7 +529,7 @@
  
  function jwl_abbr_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_abbr_field_id]" id="abbr" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_abbr_field_id']), false ) . ' /> '; ?><label for="abbr"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_abbr_field_id]" id="abbr" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_abbr_field_id']), false ) . ' /> '; ?><label for="abbr"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/abbr.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_abbr_dropdown'])) {
 			$options_abbr = $options['jwl_abbr_dropdown'];
@@ -545,7 +545,7 @@
  
  function jwl_acronym_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_acronym_field_id]" id="acronym" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_acronym_field_id']), false ) . ' /> '; ?><label for="acronym"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_acronym_field_id]" id="acronym" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_acronym_field_id']), false ) . ' /> '; ?><label for="acronym"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/acronym.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 		if (isset($options['jwl_acronym_dropdown'])) {
 			$options_acronym = $options['jwl_acronym_dropdown'];
@@ -561,7 +561,7 @@
  
  function jwl_del_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_del_field_id]" id="del" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_del_field_id']), false ) . ' /> '; ?><label for="del"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_del_field_id]" id="del" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_del_field_id']), false ) . ' /> '; ?><label for="del"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/del.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_del_dropdown'])) {
 			$options_del = $options['jwl_del_dropdown'];
@@ -577,7 +577,7 @@
  
  function jwl_ins_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_ins_field_id]" id="ins" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_ins_field_id']), false ) . ' /> '; ?><label for="ins"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_ins_field_id]" id="ins" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_ins_field_id']), false ) . ' /> '; ?><label for="ins"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/ins.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_ins_dropdown'])) {
 			$options_ins = $options['jwl_ins_dropdown'];
@@ -593,7 +593,7 @@
  
  function jwl_attribs_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_attribs_field_id]" id="attribs" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_attribs_field_id']), false ) . ' /> '; ?><label for="attribs"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_attribs_field_id]" id="attribs" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_attribs_field_id']), false ) . ' /> '; ?><label for="attribs"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/attribs.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_attribs_dropdown'])) {
 			$options_attribs = $options['jwl_attribs_dropdown'];
@@ -609,7 +609,7 @@
  
  function jwl_styleprops_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_styleprops_field_id]" id="styleprops" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_styleprops_field_id']), false ) . ' /> '; ?><label for="styleprops"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_styleprops_field_id]" id="styleprops" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_styleprops_field_id']), false ) . ' /> '; ?><label for="styleprops"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/styleprops.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_styleprops_dropdown'])) {
 			$options_styleprops = $options['jwl_styleprops_dropdown'];
@@ -625,7 +625,7 @@
  
  function jwl_code_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_code_field_id]" id="code" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_code_field_id']), false ) . ' /> '; ?><label for="code"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_code_field_id]" id="code" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_code_field_id']), false ) . ' /> '; ?><label for="code"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/code.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_code_dropdown'])) {
 			$options_code = $options['jwl_code_dropdown'];
@@ -641,7 +641,7 @@
  
  function jwl_codemagic_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_codemagic_field_id]" id="codemagic" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_codemagic_field_id']), false ) . ' /> '; ?><label for="codemagic"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_codemagic_field_id]" id="codemagic" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_codemagic_field_id']), false ) . ' /> '; ?><label for="codemagic"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/codemagic.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_codemagic_dropdown'])) {
 			$options_codemagic = $options['jwl_codemagic_dropdown'];
@@ -657,7 +657,7 @@
  
  function jwl_html5_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_html5_field_id]" id="html5" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_html5_field_id']), false ) . ' /> '; ?><label for="html5"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_html5_field_id]" id="html5" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_html5_field_id']), false ) . ' /> '; ?><label for="html5"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/html5.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_html5_dropdown'])) {
 			$options_html5 = $options['jwl_html5_dropdown'];
@@ -673,7 +673,7 @@
  
  function jwl_media_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_media_field_id]" id="media" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_media_field_id']), false ) . ' /> '; ?><label for="media"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_media_field_id]" id="media" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_media_field_id']), false ) . ' /> '; ?><label for="media"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/media.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_media_dropdown'])) {
 			$options_media = $options['jwl_media_dropdown'];
@@ -689,7 +689,7 @@
  
  function jwl_youtube_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_youtube_field_id]" id="youtube" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_youtube_field_id']), false ) . ' /> '; ?><label for="youtube"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_youtube_field_id]" id="youtube" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_youtube_field_id']), false ) . ' /> '; ?><label for="youtube"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/youtube.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_youtube_dropdown'])) {
 			$options_youtube = $options['jwl_youtube_dropdown'];
@@ -705,7 +705,7 @@
  
  function jwl_youtubeIframe_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_youtubeIframe_field_id]" id="youtubeIframe" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_youtubeIframe_field_id']), false ) . ' /> '; ?><label for="youtubeIframe"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_youtubeIframe_field_id]" id="youtubeIframe" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_youtubeIframe_field_id']), false ) . ' /> '; ?><label for="youtubeIframe"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/youtubeIframe.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_youtubeIframe_dropdown'])) {
 			$options_youtubeIframe = $options['jwl_youtubeIframe_dropdown'];
@@ -721,7 +721,7 @@
  
  function jwl_imgmap_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_imgmap_field_id]" id="imgmap" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_imgmap_field_id']), false ) . ' /> '; ?><label for="imgmap"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_imgmap_field_id]" id="imgmap" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_imgmap_field_id']), false ) . ' /> '; ?><label for="imgmap"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/imgmap.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_imgmap_dropdown'])) {
 			$options_imgmap = $options['jwl_imgmap_dropdown'];
@@ -737,7 +737,7 @@
  
  function jwl_visualchars_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_visualchars_field_id]" id="visualchars" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_visualchars_field_id']), false ) . ' /> '; ?><label for="visualchars"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_visualchars_field_id]" id="visualchars" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_visualchars_field_id']), false ) . ' /> '; ?><label for="visualchars"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/visualchars.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_visualchars_dropdown'])) {
 			$options_visualchars = $options['jwl_visualchars_dropdown'];
@@ -753,7 +753,7 @@
  
  function jwl_print_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_print_field_id]" id="print" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_print_field_id']), false ) . ' /> '; ?><label for="print"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_print_field_id]" id="print" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_print_field_id']), false ) . ' /> '; ?><label for="print"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/print.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_print_dropdown'])) {
 			$options_print = $options['jwl_print_dropdown'];
@@ -769,7 +769,7 @@
  
  function jwl_shortcodes_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_shortcodes_field_id]" id="shortcodes" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_shortcodes_field_id']), false ) . ' /> '; ?><label for="shortcodes"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_shortcodes_field_id]" id="shortcodes" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_shortcodes_field_id']), false ) . ' /> '; ?><label for="shortcodes"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/shortcodes.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_shortcodes_dropdown'])) {
 			$options_shortcodes = $options['jwl_shortcodes_dropdown'];
@@ -785,7 +785,7 @@
  
  function jwl_loremipsum_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_loremipsum_field_id]" id="loremipsum" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_loremipsum_field_id']), false ) . ' /> '; ?><label for="loremipsum"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_loremipsum_field_id]" id="loremipsum" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_loremipsum_field_id']), false ) . ' /> '; ?><label for="loremipsum"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/loremipsum.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_loremipsum_dropdown'])) {
 			$options_loremipsum = $options['jwl_loremipsum_dropdown'];
@@ -801,7 +801,7 @@
  
  function jwl_w3cvalidate_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_w3cvalidate_field_id]" id="w3cvalidate" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_w3cvalidate_field_id']), false ) . ' /> '; ?><label for="w3cvalidate"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_w3cvalidate_field_id]" id="w3cvalidate" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_w3cvalidate_field_id']), false ) . ' /> '; ?><label for="w3cvalidate"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/w3cvalidate.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_w3cvalidate_dropdown'])) {
 			$options_w3cvalidate = $options['jwl_w3cvalidate_dropdown'];
@@ -817,7 +817,7 @@
  
  function jwl_clker_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_clker_field_id]" id="clker" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_clker_field_id']), false ) . ' /> '; ?><label for="clker"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_clker_field_id]" id="clker" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_clker_field_id']), false ) . ' /> '; ?><label for="clker"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/clker.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_clker_dropdown'])) {
 			$options_clker = $options['jwl_clker_dropdown'];
@@ -833,7 +833,7 @@
  
  function jwl_acheck_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_acheck_field_id]" id="acheck" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_acheck_field_id']), false ) . ' /> '; ?><label for="acheck"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_acheck_field_id]" id="acheck" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_acheck_field_id']), false ) . ' /> '; ?><label for="acheck"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/acheck.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_acheck_dropdown'])) {
 			$options_acheck = $options['jwl_acheck_dropdown'];
@@ -849,7 +849,7 @@
  
  function jwl_advlink_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_advlink_field_id]" id="advlink" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_advlink_field_id']), false ) . ' /> '; ?><label for="advlink"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_advlink_field_id]" id="advlink" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_advlink_field_id']), false ) . ' /> '; ?><label for="advlink"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/advlink.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_advlink_dropdown'])) {
 			$options_advlink = $options['jwl_advlink_dropdown'];
@@ -865,7 +865,7 @@
  
  function jwl_div_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_div_field_id]" id="div" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_div_field_id']), false ) . ' /> '; ?><label for="div"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_div_field_id]" id="div" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_div_field_id']), false ) . ' /> '; ?><label for="div"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/div_clear.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_div_dropdown'])) {
 			$options_div = $options['jwl_div_dropdown'];
@@ -881,7 +881,7 @@
  
  function jwl_nextpage_callback_function() {
 	 $options = get_option('jwl_options_group2');
- 	echo '<input name="jwl_options_group2[jwl_nextpage_field_id]" id="nextpage" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_nextpage_field_id']), false ) . ' /> '; ?><label for="nextpage"><p></p></label><?php
+ 	echo '<input name="jwl_options_group2[jwl_nextpage_field_id]" id="nextpage" type="checkbox" value="1" class="two" ' . checked( 1, isset($options['jwl_nextpage_field_id']), false ) . ' /> '; ?><label for="nextpage"><span></span></label><?php
 	?><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/page_break.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_nextpage_dropdown'])) {
 			$options_nextpage = $options['jwl_nextpage_dropdown'];
@@ -900,7 +900,7 @@
  function jwl_wp_photo_album_callback_function() {
 	 $options = get_option('jwl_options_group9');
 	if (is_plugin_active('wp-photo-album-plus/wppa.php')) {
- 	echo '<input name="jwl_options_group9[jwl_wp_photo_album_field_id]" id="wp_photo_album" type="checkbox" value="1" class="three" ' . checked( 1, isset($options['jwl_wp_photo_album_field_id']), false ) . ' /> '; ?><label for="wp_photo_album"><p></p></label><?php
+ 	echo '<input name="jwl_options_group9[jwl_wp_photo_album_field_id]" id="wp_photo_album" type="checkbox" value="1" class="three" ' . checked( 1, isset($options['jwl_wp_photo_album_field_id']), false ) . ' /> '; ?><label for="wp_photo_album"><span></span></label><?php
 	?><img title="WPPA+ Photo Album" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/wppa.png" style="margin-left:10px;margin-bottom:-5px;" /><?php
 			if (isset($options['jwl_wp_photo_album_dropdown'])) {
 			$options_wp_photo_album = $options['jwl_wp_photo_album_dropdown'];
@@ -950,55 +950,55 @@
  
  function jwl_tinymce_nextpage_callback_function() {
 	 $options = get_option('jwl_options_group3');
- 	echo '<input name="jwl_options_group3[jwl_tinymce_nextpage_field_id]" id="tinymce_nextpage" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_tinymce_nextpage_field_id']), false ) . ' /> '; ?><label for="tinymce_nextpage"><p></p></label><?php
+ 	echo '<input name="jwl_options_group3[jwl_tinymce_nextpage_field_id]" id="tinymce_nextpage" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_tinymce_nextpage_field_id']), false ) . ' /> '; ?><label for="tinymce_nextpage"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Adds a button to "break" posts into multiple pages.','jwl-ultimate-tinymce'); ?></em></span><span style="margin-left:5px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/page_break.png" style="margin-bottom:-5px;" /></span><?php
  }
  
  function jwl_postid_callback_function() {
 	 $options = get_option('jwl_options_group3');
- 	echo '<input name="jwl_options_group3[jwl_postid_field_id]" id="postid" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_postid_field_id']), false ) . ' /> '; ?><label for="postid"><p></p></label><?php
+ 	echo '<input name="jwl_options_group3[jwl_postid_field_id]" id="postid" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_postid_field_id']), false ) . ' /> '; ?><label for="postid"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Adds ID column to post/page admin list.','jwl-ultimate-tinymce'); ?></em></span><?php
  }
  
  function jwl_shortcode_callback_function() {
 	 $options = get_option('jwl_options_group3');
- 	echo '<input name="jwl_options_group3[jwl_shortcode_field_id]" id="shortcode" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_shortcode_field_id']), false ) . ' /> '; ?><label for="shortcode"><p></p></label><?php
+ 	echo '<input name="jwl_options_group3[jwl_shortcode_field_id]" id="shortcode" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_shortcode_field_id']), false ) . ' /> '; ?><label for="shortcode"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Use all shortcodes in widget areas too.','jwl-ultimate-tinymce'); ?></em></span><?php
  }
  
  function jwl_php_widget_callback_function() {
 	 $options = get_option('jwl_options_group3');
- 	echo '<input name="jwl_options_group3[jwl_php_widget_field_id]" id="php_widget" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_php_widget_field_id']), false ) . ' /> '; ?><label for="php_widget"><p></p></label><?php
+ 	echo '<input name="jwl_options_group3[jwl_php_widget_field_id]" id="php_widget" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_php_widget_field_id']), false ) . ' /> '; ?><label for="php_widget"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Adds a widget which can be used to insert PHP code.','jwl-ultimate-tinymce'); ?></em></span><?php
  }
  
  function jwl_linebreak_callback_function() {
 	 $options = get_option('jwl_options_group3');
- 	echo '<input name="jwl_options_group3[jwl_linebreak_field_id]" id="linebreak" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_linebreak_field_id']), false ) . ' /> '; ?><label for="linebreak"><p></p></label><?php
+ 	echo '<input name="jwl_options_group3[jwl_linebreak_field_id]" id="linebreak" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_linebreak_field_id']), false ) . ' /> '; ?><label for="linebreak"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Simply use the <b>[break]</b> shortcode','jwl-ultimate-tinymce'); ?></em></span><?php
  }
  
  function jwl_columns_callback_function() {
 	 $options = get_option('jwl_options_group3');
- 	echo '<input name="jwl_options_group3[jwl_columns_field_id]" id="columns" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_columns_field_id']), false ) . ' /> '; ?><label for="columns"><p></p></label><?php
+ 	echo '<input name="jwl_options_group3[jwl_columns_field_id]" id="columns" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_columns_field_id']), false ) . ' /> '; ?><label for="columns"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Use to create magazine-style columns.','jwl-ultimate-tinymce'); ?></em></span><?php
  }
  
  function jwl_autop_callback_function() {
 	 $options = get_option('jwl_options_group3');
- 	echo '<input name="jwl_options_group3[jwl_autop_field_id]" id="autop" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_autop_field_id']), false ) . ' /> '; ?><label for="autop"><p></p></label><?php
+ 	echo '<input name="jwl_options_group3[jwl_autop_field_id]" id="autop" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_autop_field_id']), false ) . ' /> '; ?><label for="autop"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Disables the WordPress <strong>wpautop()</strong> function.','jwl-ultimate-tinymce'); ?></em></span><?php 
  }
  
  function jwl_remove_pbr_callback_function() {
 	 $options = get_option('jwl_options_group3');
- 	echo '<input name="jwl_options_group3[jwl_remove_pbr_field_id]" id="remove_pbr" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_remove_pbr_field_id']), false ) . ' /> '; ?><label for="remove_pbr"><p></p></label><?php
+ 	echo '<input name="jwl_options_group3[jwl_remove_pbr_field_id]" id="remove_pbr" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_remove_pbr_field_id']), false ) . ' /> '; ?><label for="remove_pbr"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Removes the p and br tags from the text editor.','jwl-ultimate-tinymce'); ?></em></span><?php 
  }
  
  function jwl_cursor_callback_function() {
 	 $options = get_option('jwl_options_group3');
- 	echo '<input name="jwl_options_group3[jwl_cursor_field_id]" id="cursor" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_cursor_field_id']), false ) . ' /> '; ?><label for="cursor"><p></p></label><?php
+ 	echo '<input name="jwl_options_group3[jwl_cursor_field_id]" id="cursor" type="checkbox" value="1" class="four" ' . checked( 1, isset($options['jwl_cursor_field_id']), false ) . ' /> '; ?><label for="cursor"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Restore scrollbar position after saving post/page content.','jwl-ultimate-tinymce'); ?></em><?php 
  }
  
@@ -1009,60 +1009,60 @@
 // Functions for Admin Panel Options
 function jwl_tinymce_add_stylesheet_callback_function() {
 	 $options = get_option('jwl_options_group4');
-	echo '<input name="jwl_options_group4[jwl_tinymce_add_stylesheet]" id="jwl_tinymce_add_stylesheet" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_add_stylesheet']), false ) . ' /> '; ?><label for="jwl_tinymce_add_stylesheet"><p></p></label><?php
+	echo '<input name="jwl_options_group4[jwl_tinymce_add_stylesheet]" id="jwl_tinymce_add_stylesheet" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_add_stylesheet']), false ) . ' /> '; ?><label for="jwl_tinymce_add_stylesheet"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('If availble in your theme, loads the editor-style.css file.','jwl-ultimate-tinymce'); ?></em><?php
 }
 function jwl_tinymce_excerpt_callback_function() {
 	 $options = get_option('jwl_options_group4');
-	echo '<input name="jwl_options_group4[jwl_tinymce_excerpt]" id="jwl_tinymce_excerpt" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_excerpt']), false ) . ' /> '; ?><label for="jwl_tinymce_excerpt"><p></p></label><?php
+	echo '<input name="jwl_options_group4[jwl_tinymce_excerpt]" id="jwl_tinymce_excerpt" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_excerpt']), false ) . ' /> '; ?><label for="jwl_tinymce_excerpt"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Enables Ultimate Tinymce in the excerpt area of Posts.','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 function jwl_hide_html_tab_callback_function() {
 	 $options = get_option('jwl_options_group4');
-	echo '<input name="jwl_options_group4[jwl_hide_html_tab]" id="hide_html" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_hide_html_tab']), false ) . ' /> '; ?><label for="hide_html"><p></p></label><?php
+	echo '<input name="jwl_options_group4[jwl_hide_html_tab]" id="hide_html" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_hide_html_tab']), false ) . ' /> '; ?><label for="hide_html"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Removes the TEXT tab from the content editor, rendering it unusuable','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 function jwl_dashboard_widget_callback_function() {
 	 $options = get_option('jwl_options_group4');
-	echo '<input name="jwl_options_group4[jwl_dashboard_widget]" id="dashboard" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_dashboard_widget']), false ) . ' /> '; ?><label for="dashboard"><p></p></label><?php
+	echo '<input name="jwl_options_group4[jwl_dashboard_widget]" id="dashboard" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_dashboard_widget']), false ) . ' /> '; ?><label for="dashboard"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Adds a dashboard widget with a News Feed from Ultimate Tinymce.','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 function jwl_admin_bar_link_callback_function() {
 	 $options = get_option('jwl_options_group4');
-	echo '<input name="jwl_options_group4[jwl_admin_bar_link]" id="adminbar" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_admin_bar_link']), false ) . ' /> '; ?><label for="adminbar"><p></p></label><?php
+	echo '<input name="jwl_options_group4[jwl_admin_bar_link]" id="adminbar" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_admin_bar_link']), false ) . ' /> '; ?><label for="adminbar"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Adds a link to the admin bar for quick access to the Tinymce Settings Page.','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 function jwl_content_css_callback_function() {
 	 $options = get_option('jwl_options_group4');
-	echo '<input name="jwl_options_group4[jwl_content_css]" id="contentcss" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_content_css']), false ) . ' /> '; ?><label for="contentcss"><p></p></label><?php
+	echo '<input name="jwl_options_group4[jwl_content_css]" id="contentcss" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_content_css']), false ) . ' /> '; ?><label for="contentcss"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Click help icon for detailed information.','jwl-ultimate-tinymce'); ?></em></span>
 	<?php
 }
 function jwl_disable_styles_callback_function() {
 	 $options = get_option('jwl_options_group4');
-	echo '<input name="jwl_options_group4[jwl_disable_styles]" id="disable_styles" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_disable_styles']), false ) . ' /> '; ?><label for="disable_styles"><p></p></label><?php
+	echo '<input name="jwl_options_group4[jwl_disable_styles]" id="disable_styles" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_disable_styles']), false ) . ' /> '; ?><label for="disable_styles"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Removes all author plugin admin styling','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 function jwl_tinymce_refresh_callback_function() {
 	 $options = get_option('jwl_options_group4');
-	echo '<input name="jwl_options_group4[jwl_tinymce_refresh]" id="tinymcerefresh" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_refresh']), false ) . ' /> '; ?><label for="tinymcerefresh"><p></p></label><?php
+	echo '<input name="jwl_options_group4[jwl_tinymce_refresh]" id="tinymcerefresh" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_refresh']), false ) . ' /> '; ?><label for="tinymcerefresh"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Disables the force caching of tinymce on page reload.','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 function jwl_tinymce_kitchen_callback_function() {
 	 $options = get_option('jwl_options_group4');
-	echo '<input name="jwl_options_group4[jwl_tinymce_kitchen]" id="tinymcekitchen" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_kitchen']), false ) . ' /> '; ?><label for="tinymcekitchen"><p></p></label><?php
+	echo '<input name="jwl_options_group4[jwl_tinymce_kitchen]" id="tinymcekitchen" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_kitchen']), false ) . ' /> '; ?><label for="tinymcekitchen"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Disables the force open state of "kitchen sink" button.','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 
 function jwl_qr_code_callback_function() {
 	 $options = get_option('jwl_options_group4');
-	echo '<input name="jwl_options_group4[jwl_qr_code]" id="jwl_qr_code" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_qr_code']), false ) . ' /> '; ?><label for="jwl_qr_code"><p></p></label><?php
+	echo '<input name="jwl_options_group4[jwl_qr_code]" id="jwl_qr_code" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_qr_code']), false ) . ' /> '; ?><label for="jwl_qr_code"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Displays unique qr code at bottom of each post','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 
 function jwl_qr_code_pages_callback_function() {
 	 $options = get_option('jwl_options_group4');
-	echo '<input name="jwl_options_group4[jwl_qr_code_pages]" id="jwl_qr_code_pages" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_qr_code_pages']), false ) . ' /> '; ?><label for="jwl_qr_code_pages"><p></p></label><?php
+	echo '<input name="jwl_options_group4[jwl_qr_code_pages]" id="jwl_qr_code_pages" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_qr_code_pages']), false ) . ' /> '; ?><label for="jwl_qr_code_pages"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Displays unique qr code at bottom of each page','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 
@@ -1107,7 +1107,7 @@ function jwl_qr_code_content_callback_function() {
 // Callback functions for the Tinymce Content Editor Over-rides
 function jwl_tinymce_modifications_callback_function() {
 	 $options = get_option('jwl_options_group8');
- 	echo '<input name="jwl_options_group8[jwl_tinymce_modifications]" id="tinymce_modifications" type="checkbox" value="1" class="eight" ' . checked( 1, isset($options['jwl_tinymce_modifications']), false ) . ' /> '; ?><label for="tinymce_modifications"><p></p></label><?php
+ 	echo '<input name="jwl_options_group8[jwl_tinymce_modifications]" id="tinymce_modifications" type="checkbox" value="1" class="eight" ' . checked( 1, isset($options['jwl_tinymce_modifications']), false ) . ' /> '; ?><label for="tinymce_modifications"><span></span></label><?php
 	?><span style="margin-left:15px;"><em><?php _e('Enable','jwl-ultimate-tinymce'); ?></em></span>
     <?php
 }
