@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.5.1
 Tested up to: 3.6
-Stable tag: 4.3.1
+Stable tag: 4.3.1.1
 License: GPLv2
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
@@ -120,6 +120,12 @@ Rather than "bloat" the plugin with screenshots. Please check out tons of screen
 * Simply too many features to list!!
 
 == Changelog ==
+
+= 4.3.1.1 =
+* 04-04-2013
+
+= Maintenance Release =
+* Forgot a closing symbol in the code which was "blowing out" website spacing; and also generating a warning in the footer area.  This was my mistake.. and I sincerely apologize.
 
 = 4.3.1 =
 * 04-04-2013
