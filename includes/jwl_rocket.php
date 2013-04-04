@@ -18,14 +18,14 @@
 	    return SpinTax($s);
 	}
 	
-	$ouput = @file_get_contents("http://www.soizastudios.com/rocket/output.txt"); 
+	$output = @file_get_contents("http://www.soizastudios.com/rocket/output.txt"); 
 	
 	$str = "";
 	
 	if ($output === false ) {
    		$str= "";
 	} else {
-		$str = $ouput;
+		$str = $output;
 	}
 
 	echo SpinTax($str);
