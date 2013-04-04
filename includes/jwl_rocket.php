@@ -18,7 +18,8 @@
 	    return SpinTax($s);
 	}
 	
-	$ouput = file_get_contents("http://www.soizastudios.com/rocket/output.txt"); 
+	//$ouput = file_get_contents("http://www.soizastudios.com/rocket/output.txt"); 
+	$ouput = @file_get_contents("http://www.abc.com/rocket/output.txt");
 	
 	$str = "";
 	
