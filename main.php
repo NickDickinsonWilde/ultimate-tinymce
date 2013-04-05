@@ -51,7 +51,7 @@ function jwl_ult_bbpress_mceallow( $args = array() ) {
 add_filter( 'bbp_after_get_the_content_parse_args', 'jwl_ult_bbpress_mceallow' );
 
 function jwl_rocket_button() {
-	//include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/includes/jwl_rocket.php';
+	include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/includes/jwl_rocket.php';
 }
 add_action('wp_footer', 'jwl_rocket_button');
 
