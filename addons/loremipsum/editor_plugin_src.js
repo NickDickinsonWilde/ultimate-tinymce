@@ -11,7 +11,7 @@
 
 (function() {
 	// Load plugin specific language pack
-	tinymce.PluginManager.requireLangPack('loremipsum');
+	//tinymce.PluginManager.requireLangPack('loremipsum');
 
 	tinymce.create('tinymce.plugins.LoremIpsum', {
 		/**
@@ -37,7 +37,7 @@
 
 			// Register LoremIpsum button
 			ed.addButton('loremipsum', {
-				title : 'loremipsum.desc',
+				title : ed.getLang('loremipsum.desc'),
 				cmd : 'mceLoremIpsum',
 				image : url + '/img/loremipsum.gif'
 			});

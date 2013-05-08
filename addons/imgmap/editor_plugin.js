@@ -1,7 +1,7 @@
 
 
 (function() {
-	tinymce.PluginManager.requireLangPack('imgmap');
+	//tinymce.PluginManager.requireLangPack('imgmap');
 	
 	tinymce.create('tinymce.plugins.imgmapPlugin', {
 		init : function(ed, url) {
@@ -26,7 +26,7 @@
 			// Register buttons
 			//tinyMCE.getButtonHTML(cn, 'lang_imgmap_desc', '{$pluginurl}/images/tinymce_button.gif', 'mceimgmapPopup');
 			ed.addButton('imgmap', {
-				title : 'imgmap.desc',
+				title : ed.getLang('imgmap.desc'),
 				cmd : 'mceimgmapPopup',
 				image : url + '/images/tinymce_button.gif'
 			});

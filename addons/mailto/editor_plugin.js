@@ -1,6 +1,6 @@
 (function() {
 	// Load plugin specific language pack
-	tinymce.PluginManager.requireLangPack('mailto');
+	//tinymce.PluginManager.requireLangPack('mailto');
 
 	tinymce.create('tinymce.plugins.MailTo', {
 		/**
@@ -14,7 +14,7 @@
 		init : function(ed, url) {
 
 			ed.addButton('mailto', {
-				title : 'mailto.mailto_desc',
+				title : ed.getLang('mailto.mailto_desc'),
 				cmd : 'mceMailTo',
 				image : url + '/images/mailto.gif'
 			});

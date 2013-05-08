@@ -459,7 +459,7 @@
 		}
 	};
 
-	tinyMCEPopup.requireLangPack();
+	//tinyMCEPopup.requireLangPack();
 	tinyMCEPopup.onInit.add(function() {
 		Media.init();
 	});

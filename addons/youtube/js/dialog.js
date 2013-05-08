@@ -1,4 +1,4 @@
-tinyMCEPopup.requireLangPack();
+//tinyMCEPopup.requireLangPack();
 
 var YouTubeDialog = {
 	init : function() {
@@ -42,10 +42,10 @@ var YouTubeDialog = {
 		//SELECT AUTOPLY
 		switch (f.youtubeAutoplay.value){
 	        case '0':
-	        	options += '';
+	        	options += 'autoplay=0';
 	        break;
 	        case '1':
-	        	options += '&amp;autoplay=1';
+	        	options += 'autoplay=1';
             break;
 		}
 		//SELECT Include related videos
@@ -102,12 +102,12 @@ var YouTubeDialog = {
 			//Replace url
 			var youtubeuri = f.youtubeID.value.replace(f.youtubeID.value,"http://www.youtube.com/v/"+YouTubeDialog.videovalue(f.youtubeID.value));
 			//Construct URL
-			var constructUri = youtubeuri+options;
+			var constructUri = youtubeuri+'?'+options;
 		}else if(f.youtubeID.value.match(new RegExp("http://youtu.be/","g"))){
 			//Replace url
 			var youtubeuri = f.youtubeID.value.replace('http://youtu.be/',"http://www.youtube.com/v/");
 			//Construct URL
-			var constructUri = youtubeuri+options;
+			var constructUri = youtubeuri+'?'+options;
 		}
 		//width="'+document.forms[0].youtubeWidth.value+'" height="'+document.forms[0].youtubeHeight.value+'"
 		// Insert the contents from the input into the document

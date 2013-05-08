@@ -44,8 +44,8 @@
 				setDir("rtl");
 			});
 
-			ed.addButton('ltr', {title : 'directionality.ltr_desc', cmd : 'mceDirectionLTR'});
-			ed.addButton('rtl', {title : 'directionality.rtl_desc', cmd : 'mceDirectionRTL'});
+			ed.addButton('ltr', {/*title : 'directionality.ltr_desc',*/title : ed.getLang('directionality.ltr_desc'), cmd : 'mceDirectionLTR'});
+			ed.addButton('rtl', {/*title : 'directionality.rtl_desc',*/title : ed.getLang('directionality.rtl_desc'), cmd : 'mceDirectionRTL'});
 
 			ed.onNodeChange.add(t._nodeChange, t);
 		},

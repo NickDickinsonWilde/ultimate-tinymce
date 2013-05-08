@@ -15,7 +15,7 @@
 				ed.getWin().print();
 			});
 
-			ed.addButton('print', {title : 'print.print_desc', cmd : 'mcePrint'});
+			ed.addButton('print', {title : ed.getLang('print.print_desc'), cmd : 'mcePrint'});
 		},
 
 		getInfo : function() {

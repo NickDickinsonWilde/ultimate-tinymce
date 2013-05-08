@@ -10,7 +10,7 @@
 
 (function () {
     // Load plugin specific language pack
-    tinymce.PluginManager.requireLangPack('youtubeIframe');
+    //tinymce.PluginManager.requireLangPack('youtubeIframe');
    
     tinymce.create('tinymce.plugins.YoutubeIframePlugin', {
         /**
@@ -38,7 +38,7 @@
 
             // Register example button
             ed.addButton('youtubeIframe', {
-                title: 'YouTube (iFrame)',
+                title: ed.getLang('youtube.desc_iframe'),
                 cmd: 'mceYoutubeIframe',
                 image: url + '/img/youtube.png'
             });

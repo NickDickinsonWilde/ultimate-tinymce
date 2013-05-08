@@ -3,7 +3,7 @@
 
 (function() {
 	// Load plugin specific language pack
-	tinymce.PluginManager.requireLangPack('ezimage');
+	//tinymce.PluginManager.requireLangPack('ezimage');
 
 	tinymce.create('tinymce.plugins.ezimagePlugin', {
 		/**
@@ -30,7 +30,7 @@
 
 			// Register ezimage button
 			ed.addButton('ezimage', {
-				title : 'ezimage.desc',
+				title : ed.getLang('ezimage.desc'),
 				cmd : 'mceezimage',
 				image : url + '/img/ezimage.gif'
 			});

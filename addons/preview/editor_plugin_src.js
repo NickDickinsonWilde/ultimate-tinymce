@@ -34,7 +34,7 @@
 				});
 			});
 
-			ed.addButton('preview', {title : 'preview.preview_desc', cmd : 'mcePreview'});
+			ed.addButton('preview', {title : ed.getLang('preview.preview_desc'), cmd : 'mcePreview'});
 		},
 
 		getInfo : function() {

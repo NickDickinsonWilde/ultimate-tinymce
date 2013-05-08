@@ -53,7 +53,8 @@ var popupEqnwin = null;
 			});
 					
 		  ed.addButton('equation', {
-				title: 'Equation Editor',
+				//title: 'Equation Editor',
+				title: ed.getLang('equation.title'),
 				image: url + '/img/equation.gif',
 				cmd: 'equationCommand' });
 			

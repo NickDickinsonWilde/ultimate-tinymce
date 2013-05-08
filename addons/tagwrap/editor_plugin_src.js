@@ -1,5 +1,5 @@
 (function() {
-        tinymce.PluginManager.requireLangPack('tagwrap');
+        //tinymce.PluginManager.requireLangPack('tagwrap');
 
         tinymce.create('tinymce.plugins.TagwrapPlugin', {
                 
@@ -19,7 +19,7 @@
 
                        
                         ed.addButton('tagwrap', {
-                                title : 'tagwrap.desc',
+                                title : ed.getLang('tagwrap.desc'),
                                 cmd : 'mceTagwrap',
                                 image : url + '/img/tagwrap.png'
                         });

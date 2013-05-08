@@ -39,5 +39,5 @@ var AdvHRDialog = {
 	}
 };
 
-tinyMCEPopup.requireLangPack();
+//tinyMCEPopup.requireLangPack();
 tinyMCEPopup.onInit.add(AdvHRDialog.init, AdvHRDialog);

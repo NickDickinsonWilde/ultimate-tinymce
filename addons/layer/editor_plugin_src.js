@@ -39,10 +39,10 @@
 			});
 
 			// Register buttons
-			ed.addButton('moveforward', {title : 'layer.forward_desc', cmd : 'mceMoveForward'});
-			ed.addButton('movebackward', {title : 'layer.backward_desc', cmd : 'mceMoveBackward'});
-			ed.addButton('absolute', {title : 'layer.absolute_desc', cmd : 'mceMakeAbsolute'});
-			ed.addButton('insertlayer', {title : 'layer.insertlayer_desc', cmd : 'mceInsertLayer'});
+			ed.addButton('moveforward', {title : ed.getLang('layer.forward_desc'), cmd : 'mceMoveForward'});
+			ed.addButton('movebackward', {title : ed.getLang('layer.backward_desc'), cmd : 'mceMoveBackward'});
+			ed.addButton('absolute', {title : ed.getLang('layer.absolute_desc'), cmd : 'mceMakeAbsolute'});
+			ed.addButton('insertlayer', {title : ed.getLang('layer.insertlayer_desc'), cmd : 'mceInsertLayer'});
 
 			ed.onInit.add(function() {
 				var dom = ed.dom;

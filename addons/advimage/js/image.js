@@ -2,7 +2,7 @@ var ImageDialog = {
 	preInit : function() {
 		var url;
 
-		tinyMCEPopup.requireLangPack();
+		//tinyMCEPopup.requireLangPack();
 
 		if (url = tinyMCEPopup.getParam("external_image_list_url"))
 			document.write('<script language="javascript" type="text/javascript" src="' + tinyMCEPopup.editor.documentBaseURI.toAbsolute(url) + '"></script>');

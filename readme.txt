@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.5.1
 Tested up to: 3.6
-Stable tag: 4.5
+Stable tag: 4.6
 License: GPLv2
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
@@ -26,55 +26,14 @@ Are you a visual person?  Do the letter combinations "HTML" and "CSS" send you r
 <li>Insert YouTube videos by simply copying and pasting the share url.</li>
 <li>Graphical Image Mapping to make your images more exciting.</li>
 <li>Use shortcodes to insert column breaks.  This is a VERY cool feature.  You can break any content area into up to six separate columns.</li>
-<li>Ultimate Tinymce will add more than 30 new buttons and features to your visual editor.</li>
-<li>Accompanying this plugin is a huge contextual help system, designed to help provide specific information, screenshots, and examples for each feature.</li>
+<li>Ultimate Tinymce will add more than 50 new buttons and features to your visual editor.</li>
 </ul>
 
-<blockquote>I spent all last night playing with your Tinymce plugin. What a joy! Boy, have I been doing things the hard way! I loved your tooltips for the different settings. Not only were they informative, but fun! You seemed like a real person; not a manual of difficult to understand techie language! Bravo for an awesome plugin! I will certainly share it with others! I only regret having worked so long without it!</blockquote>
+<strong>Note:</strong>
+We have decided to discontinue development of Ultimate Tinymce. We wil continue to maintain the plugin, and ensure it remains compatible with future releases of WordPress.
 
-<strong>Still reading??  How about some of these cool features?!</strong>
-<ul>
-<li>Disable the wpautop function which inserts all those <strong>p</strong> and <strong>br</strong> tags.</li>
-<li>Choose from six different custom stylesheets to apply to the tinymce editor window.</li>
-<li>Do you always end your posts with the same text or image?  Use the "signoff" shortcode to add your custom code at any time.</li>
-<li>A very active support forum.</li>
-<li>A huge contextual help system accompanies this plugin.  Each option has it's very own help icon which will open a popup giving specific help messages and screenshots.</li>
-<li>This plugin is very stable and works extremely well on the current version of wordpress and across multiple themes (both free and paid); and with other plugins.</li>
-</ul>
+However, our development efforts will be focused on the PRO version.  All new features will only be added to PRO.  Thank you for understanding.
 
-<strong>Additional Plugin Resources:</strong><br />
-<ul>
-<li><a href="http://forum.joshlobe.com/forumdisplay.php?fid=44">Ultimate Tinymce - WordPress Content Editor Video Tutorial Series - Authored by Josh Lobe</a></li>
-<li><a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">Support Forum</a></li>
-<li><a href="http://www.joshlobe.com/2011/10/ultimate-tinymce/">Ultimate TinyMCE Plugin HomePage</a></li>
-<li>Follow my <a href="http://twitter.com/#!/joshlobe">TWITTER</a> to be notified of new video tutorials.</li>
-</ul>
-
-<strong>Translations:</strong><br />
-Translating a plugin takes a lot of time, effort, and patience.  Especially with a plugin like Ultimate TinyMCE where there is a large admin panel options page with lots of text.  I really appreciate the hard work from these contributors.<br />
-<ul>
-<li>Russian:    Svetlana                - <a href="http://yashopper.info">http://yashopper.info</a></li>
-<li>Irish:      Vikas                   - <a href="http://www.wiznicworld.com">http://www.wiznicworld.com</a></li>
-<li>French:     Quentin                 - <a href="www.tradpress.fr">www.tradpress.fr</a></li>
-<li>Czech:      Pavel Bilek     	- <a href="http://chcistranky.eu/zdarma/">Chcistranky.eu</a></li>
-<li>Hindi:      Outshine SOlutions      - <a href="http://outshinesolutions.com/">Outshine Solutions</a></li>
-<li>Lithuanian: Vincent G.      	- <a href="http://www.host1free.com/">Host1Free.com</a></li>
-<li>Turkish:    Münip Öniz      	- <a href="www.literaturaktuel.com">www.literaturaktuel.com</a></li>
-<li>Italian:    David           	- <a href="http://www.davidpesarin.wordpress.com">http://www.davidpesarin.wordpress.com</a></li>
-<li>Japanese:   Redcocker       	- <a href="http://www.near-mint.com/blog/">http://www.near-mint.com/blog/</a></li>
-<li>Dutch:      keesiemeijer    	- <a href="http://codex.wordpress.org/User:Keesiemeijer">http://codex.wordpress.org/User:Keesiemeijer</a></li>
-<li>Finnish:    markku</li>
-<li>Portuguese: Valdir Trombini</li>
-</ul>
-
-
-<strong>A Very Personal Special Thanks to:</strong><br />
-<ul>
-<li><a href="http://thegeekinvasion.com">Marventus</a> - Who has bailed me out of quite a few coding problems.  Thanks Marventus!</li>
-<li><a href="http://www.khairul-syahir.com/">Syahir Hakim</a> - Developer of the extremely powerful <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a>.</li>
-<li><a href="http://blog.kjodle.net/">Kenneth John Odle</a> - <a href="http://wordpress.org/extend/themes/graphene">Graphene Theme</a> Forum Moderator Comrad.</li>
-<li><a href="http://www.prasannasp.net/">Prasanna SP</a> - Newfound friend from halfway around the globe.</li>
-</ul>
 
 == Installation ==
 
@@ -100,26 +59,34 @@ Rather than "bloat" the plugin with screenshots. Please check out tons of screen
 
 == Features ==
 
-* Retain div tags, iframe tags, embed tags, object tags, and more.
-* Retain P and BR tags, by using a style. (See my support forum for more info).
-* Add PHP widgets, which will allow you to run custom PHP code in your widgets.
-* Signoff feature.  Do you always "sign" your posts with the same thing?  Now create it once, and insert it using a 7-letter shortcode.
-* New animated smilies.  These will be sure to draw some pleasant attention to your blog.
-* Now includes an admin panel to choose which buttons you would like to show in your editor.
-* Complete control over custom CSS styles using drop-down lists.
-* Advanced link and image inserts, including mouseover and mouseout, and even open links in javascript windows... all without writing a single line of code.
-* Adds buttons for cut, copy, and paste.
-* Adds a button to insert horizontal rows.
-* A dropdown list for font-styles.
-* A dropdown list for font-size.
-* Adds colorpickers for font foreground and background colors.
-* Adds anchors, making their usage extremely easy.  (Ever wondered how you click a link and it auto-scrolls you halfway down the page??  Here's how.)
-* Includes a grand total of 48 emoticons... and counting.  See them in both your admin panel AND your pages/posts.
-* Adds a new row for adding tables and manipulating their properties individually.  Add as many tables as you like, and change the properties of each, without affecting your other tables.
-
-* Simply too many features to list!!
+* Simply too many features to list!!  Please visit the <a href="http://utmce.joshlobe.com">Ultimate Tinymce</a> website for a complete list.
 
 == Changelog ==
+
+= 4.6 =
+* 05-08-2013
+
+= New Features =
+* Removed all metaboxes and re-configured using a tabbed section.  This should make "option navigation" a bit easier.
+* Moved Ultimate Tinymce Settings Page to a top level page.  It is no longer found under the "Settings" tab.
+* Added an admin tour using wp-pointers.
+
+= Removed Features =
+* Removed support the developer.
+
+= Updates =
+* Added option for using Ultimate Tinymce excerpts in Pages.
+
+= Updated Addons =
+* Updated the CodeMagic addon.  This fixes much of the white-space issues when moving content between the editor and the CodeMagic window.
+
+= Bug Fixes=
+* Updated all addon language strings into the common Ultimate Tinymce language localization.  This means all the addon text strings can now be translated using the Ultimate Tinymce plugin .po and .mo language files.  Also, it prevents the similar looking "table.table_desc" being displayed instead of the actual text string.  My apologies to Translators... this has added approximately 800 new text strings to the plugin.  But, now it is done correctly ;)
+* Fixed YouTube bug where video options were not working properly (such as related videos, or play in hd).
+* Fixed save buttons not displaying properly in some browsers (removed center html tags; replaced with margins).
+
+= Tweaks =
+* Consolidated "Buttons 1" and "Buttons 2" into a single "Buttons tab.  This will cause all options that were set for "Buttons 2" to be lost.  These will need to be re-configured.  I apologize for the invonvenience... but it had to be done to put the "tabs" together.
 
 = 4.5 =
 * 04-20-2013

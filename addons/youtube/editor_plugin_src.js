@@ -10,7 +10,7 @@
 
 (function() {
 	// Load plugin specific language pack
-	tinymce.PluginManager.requireLangPack('youtube');
+	//tinymce.PluginManager.requireLangPack('youtube');
 
 	tinymce.create('tinymce.plugins.YouTubePlugin', {
 		/**
@@ -41,7 +41,7 @@
 
 			// Register youtube button
 			ed.addButton('youtube', {
-				title : 'youtube.desc',
+				title : ed.getLang('youtube.desc'),
 				cmd : 'mceYouTube',
 				image : url + '/img/youtube.gif'
 			});

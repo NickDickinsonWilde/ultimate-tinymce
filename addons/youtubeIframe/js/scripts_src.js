@@ -1,7 +1,7 @@
 // @name scripts
 // @author Darius Matulionis <darius@matulionis.lt>
 
-tinyMCEPopup.requireLangPack();
+//tinyMCEPopup.requireLangPack();
 
 var YoutubeDialog = {
     init: function () {

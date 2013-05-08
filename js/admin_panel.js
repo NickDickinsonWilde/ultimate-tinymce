@@ -10,7 +10,7 @@ function get_radio_value() {
 		return 'none';
 	  }
 	}
-  }
+};
 
 function jwlDefaults()
 {
@@ -28,37 +28,7 @@ function jwlDefaults()
 		   var beautify2 = 'false';
 	   }
    location.href='admin.php?page=ultimate-tinymce&dontshowpopup=1&defaults='+setting+'&credit='+credit2+'&beautify='+beautify2;
-}
-
-// Used to set the checkboxes for buttons group 1
-jQuery(document).ready( 
-	function($) { 
-		$("#allsts").click(function() { 
-			$(".one").attr("checked", true); 
-		}); 
-		$("#nosts").click(function() { 
-			$(".one").attr("checked", false); 
-		}); 
-		$(".one" ).each( function() { 
-			var isitchecked = this.checked; 
-		}); 
-	}
-);
-
-// Used to set the checkboxes for buttons group 2
-jQuery(document).ready(	
-	function($) { 
-		$("#allsts2").click(function() { 
-			$(".two").attr("checked", true); 
-		}); 
-		$("#nosts2").click(function() { 
-			$(".two").attr("checked", false); 
-		}); 
-		$(".two" ).each( function() { 
-			var isitchecked = this.checked; 
-		});
-	}
-);
+};
 
 // Used to set the checkboxes for buttons for other plugins
 jQuery(document).ready( 
@@ -157,19 +127,25 @@ jQuery(document).ready(
 	}
 );
 
-
-// Used for setting the checkboxes via a master control
+// Used to animate through the settings sections     NOTE:  Need to switch this to the jquery tabs.
 jQuery(document).ready( 
-	function($) {
-		$('select[name="masterBox"]').change(function(){
-			$('.actionList option[value="'+$(this).val()+'"]').attr('selected','selected'); 
-		});
-		$('select[name="masterBox2"]').change(function(){
-			$('.actionList2 option[value="'+$(this).val()+'"]').attr('selected','selected'); 
-		});
-		$('select[name="masterBox3"]').change(function(){
-			$('.actionList3 option[value="'+$(this).val()+'"]').attr('selected','selected'); 
-		});
+	function($){  
+		$(".menu2 > li").click(function(e){ 
+			switch(e.target.id){  
+				case "buttons1_tab": $("#buttons1_tab").addClass("active"); $("#buttons2_tab").removeClass("active"); $("#misc_tab").removeClass("active"); $("#admin_tab").removeClass("active"); $("#editor_tab").removeClass("active"); $("#roles_tab").removeClass("active"); $("div.buttons1_tab").fadeIn(); $("div.buttons2_tab").css("display", "none"); $("div.misc_tab").css("display", "none"); $("div.admin_tab").css("display", "none"); $("div.editor_tab").css("display", "none"); $("div.roles_tab").css("display", "none");
+				break;  
+				case "buttons2_tab": $("#buttons1_tab").removeClass("active"); $("#buttons2_tab").addClass("active"); $("#misc_tab").removeClass("active"); $("#admin_tab").removeClass("active"); $("#editor_tab").removeClass("active"); $("#roles_tab").removeClass("active"); $("div.buttons2_tab").fadeIn(); $("div.buttons1_tab").css("display", "none"); $("div.misc_tab").css("display", "none"); $("div.admin_tab").css("display", "none"); $("div.editor_tab").css("display", "none"); $("div.roles_tab").css("display", "none");
+				break; 
+				case "misc_tab": $("#buttons1_tab").removeClass("active"); $("#buttons2_tab").removeClass("active"); $("#misc_tab").addClass("active"); $("#admin_tab").removeClass("active"); $("#editor_tab").removeClass("active"); $("#roles_tab").removeClass("active"); $("div.misc_tab").fadeIn(); $("div.editor_tab").css("display", "none"); $("div.buttons1_tab").css("display", "none"); $("div.admin_tab").css("display", "none"); $("div.buttons2_tab").css("display", "none");$("div.roles_tab").css("display", "none");
+				break; 
+				case "admin_tab": $("#buttons1_tab").removeClass("active"); $("#buttons2_tab").removeClass("active"); $("#misc_tab").removeClass("active"); $("#admin_tab").addClass("active"); $("#editor_tab").removeClass("active"); $("#roles_tab").removeClass("active"); $("div.admin_tab").fadeIn(); $("div.misc_tab").css("display", "none"); $("div.editor_tab").css("display", "none"); $("div.buttons1_tab").css("display", "none"); $("div.buttons2_tab").css("display", "none"); $("div.roles_tab").css("display", "none");
+				break; 
+				case "editor_tab": $("#buttons1_tab").removeClass("active"); $("#buttons2_tab").removeClass("active"); $("#misc_tab").removeClass("active"); $("#admin_tab").removeClass("active"); $("#editor_tab").addClass("active"); $("#roles_tab").removeClass("active"); $("div.editor_tab").fadeIn(); $("div.misc_tab").css("display", "none"); $("div.admin_tab").css("display", "none"); $("div.buttons1_tab").css("display", "none"); $("div.buttons2_tab").css("display", "none"); $("div.roles_tab").css("display", "none");
+				break; 
+				case "roles_tab": $("#buttons1_tab").removeClass("active"); $("#buttons2_tab").removeClass("active"); $("#misc_tab").removeClass("active"); $("#admin_tab").removeClass("active"); $("#roles_tab").addClass("active"); $("#editor_tab").removeClass("active"); $("div.roles_tab").fadeIn(); $("div.editor_tab").css("display", "none"); $("div.misc_tab").css("display", "none"); $("div.admin_tab").css("display", "none"); $("div.buttons1_tab").css("display", "none"); $("div.buttons2_tab").css("display", "none");
+				break;
+			} return false; 
+		});  
 	}
 );
 

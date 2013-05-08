@@ -335,10 +335,10 @@ if ($jwl_linebreak_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_
 //
 // Functions for Row 4
 function tinymce_add_button_styleselect($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_styleselect = isset($options['jwl_styleselect_field_id']); 
 if ($jwl_styleselect == "1") $buttons[] = 'styleselect'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_styleselect_dropdown']['row'])) {
 $jwl_styleselect_dropdown2 = $options2['jwl_styleselect_dropdown']['row'];
 if ($jwl_styleselect_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_styleselect"); } 
@@ -348,10 +348,10 @@ if ($jwl_styleselect_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymc
 }
 
 function tinymce_add_button_tableDropdown($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_tableDropdown = isset($options['jwl_tableDropdown_field_id']); 
 if ($jwl_tableDropdown == "1") $buttons[] = 'tableDropdown'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_tableDropdown_dropdown']['row'])) {
 $jwl_tableDropdown_dropdown2 = $options2['jwl_tableDropdown_dropdown']['row'];
 if ($jwl_tableDropdown_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_tableDropdown"); } 
@@ -361,10 +361,10 @@ if ($jwl_tableDropdown_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tiny
 }
 
 function tinymce_add_button_emotions($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_emotions = isset($options['jwl_emotions_field_id']); 
 if ($jwl_emotions == "1") $buttons[] = 'emotions'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_emotions_dropdown']['row'])) {
 $jwl_emotions_dropdown2 = $options2['jwl_emotions_dropdown']['row'];
 if ($jwl_emotions_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_emotions"); } 
@@ -374,10 +374,10 @@ if ($jwl_emotions_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_a
 }
 
 function tinymce_add_button_image($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_image = isset($options['jwl_image_field_id']); 
 if ($jwl_image == "1") $buttons[] = 'image'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_image_dropdown']['row'])) {
 $jwl_image_dropdown2 = $options2['jwl_image_dropdown']['row'];
 if ($jwl_image_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_image"); } 
@@ -387,10 +387,10 @@ if ($jwl_image_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_
 }
 
 function tinymce_add_button_preview($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_preview = isset($options['jwl_preview_field_id']); 
 if ($jwl_preview == "1") $buttons[] = 'preview'; return $buttons; }
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_preview_dropdown']['row'])) {
 $jwl_preview_dropdown2 = $options2['jwl_preview_dropdown']['row'];
 if ($jwl_preview_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_preview"); } 
@@ -400,10 +400,10 @@ if ($jwl_preview_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_ad
 }
 
 function tinymce_add_button_cite($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_cite = isset($options['jwl_cite_field_id']); 
 if ($jwl_cite == "1") $buttons[] = 'cite'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_cite_dropdown']['row'])) {
 $jwl_cite_dropdown2 = $options2['jwl_cite_dropdown']['row'];
 if ($jwl_cite_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_cite"); } 
@@ -413,10 +413,10 @@ if ($jwl_cite_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_b
 }
 
 function tinymce_add_button_abbr($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_abbr = isset($options['jwl_abbr_field_id']); 
 if ($jwl_abbr == "1") $buttons[] = 'abbr'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_abbr_dropdown']['row'])) {
 $jwl_abbr_dropdown2 = $options2['jwl_abbr_dropdown']['row'];
 if ($jwl_abbr_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_abbr"); } 
@@ -426,10 +426,10 @@ if ($jwl_abbr_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_b
 }
 
 function tinymce_add_button_acronym($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_acronym = isset($options['jwl_acronym_field_id']); 
 if ($jwl_acronym == "1") $buttons[] = 'acronym'; return $buttons; }
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_acronym_dropdown']['row'])) {
 $jwl_acronym_dropdown2 = $options2['jwl_acronym_dropdown']['row'];
 if ($jwl_acronym_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_acronym"); } 
@@ -439,10 +439,10 @@ if ($jwl_acronym_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_ad
 }
 
 function tinymce_add_button_del($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_del = isset($options['jwl_del_field_id']); 
 if ($jwl_del == "1") $buttons[] = 'del'; return $buttons; }
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_del_dropdown']['row'])) {
 $jwl_del_dropdown2 = $options2['jwl_del_dropdown']['row'];
 if ($jwl_del_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_del"); } 
@@ -452,10 +452,10 @@ if ($jwl_del_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_bu
 }
 
 function tinymce_add_button_ins($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_ins = isset($options['jwl_ins_field_id']); 
 if ($jwl_ins == "1") $buttons[] = 'ins'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_ins_dropdown']['row'])) {
 $jwl_ins_dropdown2 = $options2['jwl_ins_dropdown']['row'];
 if ($jwl_ins_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_ins"); } 
@@ -465,10 +465,10 @@ if ($jwl_ins_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_bu
 }
 
 function tinymce_add_button_attribs($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_attribs = isset($options['jwl_attribs_field_id']); 
 if ($jwl_attribs == "1") $buttons[] = 'attribs'; return $buttons; }
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_attribs_dropdown']['row'])) {
 $jwl_attribs_dropdown2 = $options2['jwl_attribs_dropdown']['row'];
 if ($jwl_attribs_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_attribs"); } 
@@ -478,10 +478,10 @@ if ($jwl_attribs_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_ad
 }
 
 function tinymce_add_button_styleprops($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_styleprops = isset($options['jwl_styleprops_field_id']); 
 if ($jwl_styleprops == "1") $buttons[] = 'styleprops'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_styleprops_dropdown']['row'])) {
 $jwl_styleprops_dropdown2 = $options2['jwl_styleprops_dropdown']['row'];
 if ($jwl_styleprops_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_styleprops"); } 
@@ -491,10 +491,10 @@ if ($jwl_styleprops_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce
 }
 
 function tinymce_add_button_code($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_code = isset($options['jwl_code_field_id']); 
 if ($jwl_code == "1") $buttons[] = 'code'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_code_dropdown']['row'])) {
 $jwl_code_dropdown2 = $options2['jwl_code_dropdown']['row'];
 if ($jwl_code_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_code"); } 
@@ -504,10 +504,10 @@ if ($jwl_code_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_b
 }
 
 function tinymce_add_button_codemagic($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_codemagic = isset($options['jwl_codemagic_field_id']); 
 if ($jwl_codemagic == "1") $buttons[] = 'codemagic'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_codemagic_dropdown']['row'])) {
 $jwl_codemagic_dropdown2 = $options2['jwl_codemagic_dropdown']['row'];
 if ($jwl_codemagic_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_codemagic"); } 
@@ -517,10 +517,10 @@ if ($jwl_codemagic_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_
 }
 
 function tinymce_add_button_html5($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_html5 = isset($options['jwl_html5_field_id']); 
 if ($jwl_html5 == "1") $buttons[] = 'tagwrap'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_html5_dropdown']['row'])) {
 $jwl_html5_dropdown2 = $options2['jwl_html5_dropdown']['row'];
 if ($jwl_html5_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_html5"); } 
@@ -530,10 +530,10 @@ if ($jwl_html5_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_
 }
 
 function tinymce_add_button_media($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_media = isset($options['jwl_media_field_id']); 
 if ($jwl_media == "1") $buttons[] = 'media'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_media_dropdown']['row'])) {
 $jwl_media_dropdown2 = $options2['jwl_media_dropdown']['row'];
 if ($jwl_media_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_media"); } 
@@ -543,10 +543,10 @@ if ($jwl_media_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_
 }
 
 function tinymce_add_button_youtube($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_youtube = isset($options['jwl_youtube_field_id']); 
 if ($jwl_youtube == "1") $buttons[] = 'youtube'; return $buttons; }
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_youtube_dropdown']['row'])) {
 $jwl_youtube_dropdown2 = $options2['jwl_youtube_dropdown']['row'];
 if ($jwl_youtube_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_youtube"); } 
@@ -556,10 +556,10 @@ if ($jwl_youtube_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_ad
 }
 
 function tinymce_add_button_youtubeIframe($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_youtubeIframe = isset($options['jwl_youtubeIframe_field_id']); 
 if ($jwl_youtubeIframe == "1") $buttons[] = 'youtubeIframe'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_youtubeIframe_dropdown']['row'])) {
 $jwl_youtubeIframe_dropdown2 = $options2['jwl_youtubeIframe_dropdown']['row'];
 if ($jwl_youtubeIframe_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_youtubeIframe"); } 
@@ -569,10 +569,10 @@ if ($jwl_youtubeIframe_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tiny
 }
 
 function tinymce_add_button_imgmap($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_imgmap = isset($options['jwl_imgmap_field_id']); 
 if ($jwl_imgmap == "1") $buttons[] = 'imgmap'; return $buttons; }
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_imgmap_dropdown']['row'])) {
 $jwl_imgmap_dropdown2 = $options2['jwl_imgmap_dropdown']['row'];
 if ($jwl_imgmap_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_imgmap"); } 
@@ -582,10 +582,10 @@ if ($jwl_imgmap_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add
 }
 
 function tinymce_add_button_visualchars($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_visualchars = isset($options['jwl_visualchars_field_id']); 
 if ($jwl_visualchars == "1") $buttons[] = 'visualchars'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_visualchars_dropdown']['row'])) {
 $jwl_visualchars_dropdown2 = $options2['jwl_visualchars_dropdown']['row'];
 if ($jwl_visualchars_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_visualchars"); } 
@@ -595,10 +595,10 @@ if ($jwl_visualchars_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymc
 }
 
 function tinymce_add_button_print($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_print = isset($options['jwl_print_field_id']); 
 if ($jwl_print == "1") $buttons[] = 'print'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_print_dropdown']['row'])) {
 $jwl_print_dropdown2 = $options2['jwl_print_dropdown']['row'];
 if ($jwl_print_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_print"); } 
@@ -608,10 +608,10 @@ if ($jwl_print_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_
 }
 
 function tinymce_add_button_shortcodes($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_shortcodes = isset($options['jwl_shortcodes_field_id']); 
 if ($jwl_shortcodes == "1") $buttons[] = 'shortcodes'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_shortcodes_dropdown']['row'])) {
 $jwl_shortcodes_dropdown2 = $options2['jwl_shortcodes_dropdown']['row'];
 if ($jwl_shortcodes_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_shortcodes"); } 
@@ -621,10 +621,10 @@ if ($jwl_shortcodes_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce
 }
 
 function tinymce_add_button_loremipsum($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_loremipsum = isset($options['jwl_loremipsum_field_id']); 
 if ($jwl_loremipsum == "1") $buttons[] = 'loremipsum'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_loremipsum_dropdown']['row'])) {
 $jwl_loremipsum_dropdown2 = $options2['jwl_loremipsum_dropdown']['row'];
 if ($jwl_loremipsum_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_loremipsum"); } 
@@ -634,10 +634,10 @@ if ($jwl_loremipsum_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce
 }
 
 function tinymce_add_button_w3cvalidate($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_w3cvalidate = isset($options['jwl_w3cvalidate_field_id']); 
 if ($jwl_w3cvalidate == "1") $buttons[] = 'w3cvalidate'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_w3cvalidate_dropdown']['row'])) {
 $jwl_w3cvalidate_dropdown2 = $options2['jwl_w3cvalidate_dropdown']['row'];
 if ($jwl_w3cvalidate_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_w3cvalidate"); } 
@@ -647,10 +647,10 @@ if ($jwl_w3cvalidate_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymc
 }
 
 function tinymce_add_button_clker($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_clker = isset($options['jwl_clker_field_id']); 
 if ($jwl_clker == "1") $buttons[] = 'clker'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_clker_dropdown']['row'])) {
 $jwl_clker_dropdown2 = $options2['jwl_clker_dropdown']['row'];
 if ($jwl_clker_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_clker"); } 
@@ -660,10 +660,10 @@ if ($jwl_clker_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_
 }
 
 function tinymce_add_button_acheck($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_acheck = isset($options['jwl_acheck_field_id']); 
 if ($jwl_acheck == "1") $buttons[] = 'acheck'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_acheck_dropdown']['row'])) {
 $jwl_acheck_dropdown2 = $options2['jwl_acheck_dropdown']['row'];
 if ($jwl_acheck_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_acheck"); } 
@@ -673,10 +673,10 @@ if ($jwl_acheck_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add
 }
 
 function tinymce_add_button_advlink($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_advlink = isset($options['jwl_advlink_field_id']); 
 if ($jwl_advlink == "1") $buttons[] = 'advlink'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_advlink_dropdown']['row'])) {
 $jwl_advlink_dropdown2 = $options2['jwl_advlink_dropdown']['row'];
 if ($jwl_advlink_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_advlink"); } 
@@ -686,10 +686,10 @@ if ($jwl_advlink_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_ad
 }
 
 function tinymce_add_button_div($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_div = isset($options['jwl_div_field_id']); 
 if ($jwl_div == "1") $buttons[] = 'clearleft,clearright,clearboth'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_div_dropdown']['row'])) {
 $jwl_div_dropdown2 = $options2['jwl_div_dropdown']['row'];
 if ($jwl_div_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_div"); } 
@@ -699,10 +699,10 @@ if ($jwl_div_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_add_bu
 }
 
 function tinymce_add_button_nextpage($buttons) { 
-$options = get_option('jwl_options_group2');
+$options = get_option('jwl_options_group1');
 $jwl_nextpage = isset($options['jwl_nextpage_field_id']); 
 if ($jwl_nextpage == "1") $buttons[] = 'wp_page'; return $buttons; } 
-$options2 = get_option('jwl_options_group2');
+$options2 = get_option('jwl_options_group1');
 if (isset($options2['jwl_nextpage_dropdown']['row'])) {
 $jwl_nextpage_dropdown2 = $options2['jwl_nextpage_dropdown']['row'];
 if ($jwl_nextpage_dropdown2 == 'Row 1') { add_filter("mce_buttons", "tinymce_add_button_nextpage"); } 
@@ -712,35 +712,8 @@ if ($jwl_nextpage_dropdown2 == 'Row 4') { add_filter("mce_buttons_4", "tinymce_a
 }
 
 
-
-// ******************************************************
-//
-//
-// Functions for FullScreen Buttons
-/*
-if ( !function_exists('jwl_fullscreen_buttons') )
-{
-	function jwl_fullscreen_buttons($buttons)
-	{
-	// add a separator
-	//$buttons[] = 'separator';
-	// format: title, onclick, show in both editors
-	$buttons['shortcodes'] = array(
-	// Title of the button
-	'title' => __('Shortcodes'),
-	// Command to execute
-	'onclick' => "tinyMCE.execCommand('mceShortcodes');",
-	// Show on visual AND html mode
-	'both' => false
-	);
-	return $buttons;
-	}
-	add_filter( 'wp_fullscreen_buttons', 'jwl_fullscreen_buttons' );
-}
-*/
-
 // Test button
-//function tinymce_add_test_button($buttons) {  $buttons[] = 'ccl';  return $buttons;  }
+//function tinymce_add_test_button($buttons) {  $buttons[] = 'soundcloud';  return $buttons;  }
 //add_filter("mce_buttons_3", "tinymce_add_test_button");
 
 // Add the plugin array for extra features
@@ -771,19 +744,16 @@ function jwl_mce_external_plugins( $jwl_plugin_array ) {
 		$jwl_plugin_array['equation']  =  plugin_dir_url( __FILE__ ) . 'addons/equation/editor_plugin.js';
 		$jwl_plugin_array['shortcodes'] = plugin_dir_url(__FILE__) . 'addons/shortcodes/editor_plugin_src.js';
 		$jwl_plugin_array['loremipsum'] = plugin_dir_url(__FILE__) . 'addons/loremipsum/editor_plugin.js';
-		$jwl_plugin_array['w3cvalidate'] = plugin_dir_url(__FILE__) . 'addons/w3cvalidate/editor_plugin.js';
+		$jwl_plugin_array['w3cvalidate'] = plugin_dir_url(__FILE__) . 'addons/w3cvalidate/editor_plugin_src.js';
 		$jwl_plugin_array['tagwrap'] = plugin_dir_url(__FILE__) . 'addons/tagwrap/editor_plugin_src.js';
 		$jwl_plugin_array['encode'] = plugin_dir_url(__FILE__) . 'addons/encode/editor_plugin_src.js';
 		$jwl_plugin_array['clker'] = plugin_dir_url(__FILE__) . 'addons/clker/editor_plugin.js';
 		$jwl_plugin_array['acheck'] = plugin_dir_url(__FILE__) . 'addons/acheck/editor_plugin.js';
 		$jwl_plugin_array['directionality'] = plugin_dir_url(__FILE__) . 'addons/directionality/editor_plugin.js';
-		$jwl_plugin_array['ezimage'] = plugin_dir_url(__FILE__) . 'addons/ezimage/editor_plugin.js';
+		$jwl_plugin_array['ezimage'] = plugin_dir_url(__FILE__) . 'addons/ezimage/editor_plugin_src.js';
 		$jwl_plugin_array['ptags'] = plugin_dir_url(__FILE__) . 'addons/ptags/editor_plugin.js';
 		$jwl_plugin_array['linebreak'] = plugin_dir_url(__FILE__) . 'addons/linebreak/editor_plugin.js';
 		$jwl_plugin_array['advlink'] = plugin_dir_url(__FILE__) . 'addons/advlink/editor_plugin.js';
-		
-		// Test plugin array
-		//$jwl_plugin_array['ccl'] = plugin_dir_url(__FILE__) . 'addons/ccl/editor_plugin_src.js';
 		   
 		return $jwl_plugin_array;
 }
@@ -1066,16 +1036,6 @@ add_shortcode('signoff', 'jwl_sign_off_text');
 
 
 // Functions for Admin Options
-// Function for Developer Credit
-$options_dev_credit = get_option('jwl_options_group4');
-$jwl_dev_credit = isset($options_dev_credit['jwl_dev_credit']);
-if ($jwl_dev_credit == "1") {
-	function jwl_dev_credit() {
-		include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/includes/dev_credit.php';
-	}
-	add_action('wp_footer', 'jwl_dev_credit');
-}
-
 // Functions to load stylesheet from front-end of website into ultimate tinymce content editor.
 $options_style = get_option('jwl_options_group4');
 $jwl_style = isset($options_style['jwl_tinymce_add_stylesheet']);
@@ -1093,7 +1053,40 @@ if ($jwl_style == "1") {
 	add_filter('tiny_mce_before_init', 'jwl_add_stylesheet');
 }
 
-// Functions for adding Ultimate Tinymce to Excerpt Area
+// Functions for adding Ultimate Tinymce to Excerpt Area (Pages)
+$options_excerpt_page = get_option('jwl_options_group4');
+$jwl_tinymce_excerpt_page = isset($options_excerpt_page['jwl_tinymce_excerpt_page']);
+if ($jwl_tinymce_excerpt_page == "1") {
+	
+	function jwl_page_excerpts_init() {
+	  add_post_type_support('page', array('excerpt'));
+	}
+	add_action('init', 'jwl_page_excerpts_init');
+	
+	function jwl_change_excerpt_page() {
+		remove_meta_box('postexcerpt', 'page', 'normal');
+		add_meta_box('postexcerpt', __('Ultimate Tinymce Excerpt'), 'ultimate_tinymce_excerpt_meta_box_page', 'page', 'normal');
+	}
+	add_action( 'admin_init', 'jwl_change_excerpt_page' );
+	
+	function ultimate_tinymce_excerpt_meta_box_page() {
+		global $wpdb,$post;
+		$tinymce_summary_page = $wpdb->get_row("SELECT post_excerpt FROM $wpdb->posts WHERE id = '$post->ID'");
+		$post_tinymce_excerpt_page 	 = $tinymce_summary_page->post_excerpt;
+	
+		$settings = array(
+						'quicktags' 	=> array('buttons' => 'em,strong,link',),
+						'text_area_name'=> 'excerpt',
+						'quicktags' 	=> true,
+						'tinymce' 		=> true,
+						'editor_css'	=> '<style>#wp-excerpt-editor-container .wp-editor-area{height:150px; width:100%;}</style>'
+						);
+		$id = 'excerpt';
+		wp_editor($post_tinymce_excerpt_page,$id,$settings);
+	}
+}
+
+// Functions for adding Ultimate Tinymce to Excerpt Area (Posts)
 $options_excerpt = get_option('jwl_options_group4');
 $jwl_tinymce_excerpt = isset($options_excerpt['jwl_tinymce_excerpt']);
 if ($jwl_tinymce_excerpt == "1") {

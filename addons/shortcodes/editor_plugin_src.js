@@ -1,5 +1,5 @@
 (function() {
-        tinymce.PluginManager.requireLangPack('shortcodes');
+       // tinymce.PluginManager.requireLangPack('shortcodes');
 
         tinymce.create('tinymce.plugins.ShortcodesPlugin', {
                 
@@ -19,7 +19,7 @@
 
                        
                         ed.addButton('shortcodes', {
-                                title : 'shortcodes.desc',
+                                title : ed.getLang('shortcodes.desc'),
                                 cmd : 'mceShortcodes',
                                 image : url + '/img/shortcodes.gif'
                         });

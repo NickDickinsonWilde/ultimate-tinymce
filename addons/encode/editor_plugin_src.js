@@ -942,7 +942,7 @@ var GibberishAES = (function(){
 
 (function() {
 	// Load plugin specific language pack
-	tinymce.PluginManager.requireLangPack('encode');
+	//tinymce.PluginManager.requireLangPack('encode');
 
 	tinymce.create('tinymce.plugins.encodePlugin', {
 		/**
@@ -1003,14 +1003,16 @@ var GibberishAES = (function(){
 			
 			// Register encode button
 			ed.addButton('encode', {
-				title : 'Encrypt This Text',
+				/*title : 'Encrypt This Text',*/
+				title : ed.getLang('encode.encode'),
 				cmd : 'mceencode',
 				image : url + '/img/encode.gif'
 			});
 			
 			// Register encode button
 			ed.addButton('decode', {
-				title : 'Decrypt This Text',
+				/*title : 'Decrypt This Text',*/
+				title : ed.getLang('encode.decode'),
 				cmd : 'mcedecode',
 				image : url + '/img/decode.gif'
 			});

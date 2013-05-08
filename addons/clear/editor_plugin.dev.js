@@ -1,6 +1,6 @@
 (function() {
 	// Load plugin specific language pack
-	tinymce.PluginManager.requireLangPack('clear');
+	//tinymce.PluginManager.requireLangPack('clear');
 
 	tinymce.create('tinymce.plugins.Clear', {
 		/**
@@ -14,17 +14,20 @@
 		init : function(ed, url) {
 
 			ed.addButton('clearleft', {
-				title : 'clear.clearleft_desc',
+				/*title : 'clear.clearleft_desc',*/
+				title : ed.getLang('div.clearleft_desc'),
 				cmd : 'clearLeft',
 				image : url + '/images/clearleft_button.gif'
 			});
 			ed.addButton('clearright', {
-				title : 'clear.clearright_desc',
+				/*title : 'clear.clearright_desc',*/
+				title : ed.getLang('div.clearright_desc'),
 				cmd : 'clearRight',
 				image : url + '/images/clearright_button.gif'
 			});
 			ed.addButton('clearboth', {
-				title : 'clear.clearboth_desc',
+				/*title : 'clear.clearboth_desc',*/
+				title : ed.getLang('div.clearboth_desc'),
 				cmd : 'clearBoth',
 				image : url + '/images/clearboth_button.gif'
 			});

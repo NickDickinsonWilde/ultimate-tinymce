@@ -33,7 +33,8 @@
 
 			// Register buttons
 			ed.addButton('advlink', {
-				title : 'advlink.link_desc',
+				/*title : 'advlink.link_desc',*/
+				title: ed.getLang('advlink.link_desc'),
 				cmd : 'mceAdvLink',
 				image: url + '/img/advlink.png'
 			});

@@ -60,6 +60,81 @@
     height: 48px;  
     padding: 10px 10px 10px 52px;  
     font-size: 32px;  
+} 
+
+
+/* Main settings tabs */
+#container2{ 
+    width: 100%;
+}  
+#container2 ul{  
+    list-style: none;  
+    list-style-position: outside;  
+}  
+#container2 ul.menu2 li{  
+    float: left;  
+    margin-right: 5px;  
+    margin-bottom: -1px;  
+}  
+#container2 ul.menu2 li{  
+    font-weight: 700;  
+    display: block;  
+    padding: 5px 10px 5px 10px;  
+    background: #F4F9FF;  
+    margin-bottom: -1px;  
+    border: 1px solid #d0ccc9;  
+    border-width: 1px 1px 1px 1px;  
+    position: relative;  
+    color: #898989;  
+    cursor: pointer;  
+}  
+#container2 ul.menu2 li.active{  
+    background: #fff;  
+    top: 1px;  
+    border-bottom: 0;  
+    color: #5f95ef;  
+}   
+
+.content.buttons1_tab h1{  
+    background: transparent url(images/news.jpg) no-repeat scroll left top;  
+}  
+.content.buttons1_tab{  
+    display: block;  
+}  
+ 
+.content.buttons2_tab h1{  
+    background: transparent url(images/tuts.jpg) no-repeat scroll left top;  
+}  
+.content.buttons2_tab{  
+    display: none;  
+}  
+
+.content.misc_tab h1{  
+    background: transparent url(images/tuts.jpg) no-repeat scroll left top;  
+}  
+.content.misc_tab{  
+    display: none;  
+}  
+
+.content.admin_tab h1{  
+    background: transparent url(images/tuts.jpg) no-repeat scroll left top;  
+}  
+.content.admin_tab{  
+    display: none;  
+}  
+
+.content.editor_tab h1{  
+    background: transparent url(images/tuts.jpg) no-repeat scroll left top;  
+}  
+.content.editor_tab{  
+    display: none;  
+}  
+ 
+.content.roles_tab h1{  
+    background: transparent url(images/tuts.jpg) no-repeat scroll left top;  
+}  
+.content.roles_tab{  
+    display: none;  
 }  
 
 /*** Added 11-3-12 by Josh Lobe to re-vamp admin panel ***/
@@ -430,61 +505,13 @@ box-shadow: 0 0 5px 5px #888;
     clear:both;
 }
 
-/* Used for "scroll to top" javascript */
-.scrollToTop{
-	width:100px;
-	height:130px;
-	padding:10px;
-	text-align:center;
-	background: whiteSmoke;
-	font-weight: bold;
-	color: #444;
-	text-decoration: none;
-	position:fixed;
-	bottom:75px;
-	left:5px;
-	display:none;
-	background: url('img/arrow_up.png') no-repeat 0px 20px;
-	
-	opacity: 0.5;
-	/* Firefox */
-	-moz-transition-property: opacity;
-	-moz-transition-duration: .25s;
-	-moz-transition-delay: 0;
-	/* WebKit */
-	-webkit-transition-property: opacity;
-	-webkit-transition-duration: .25s;
-	-webkit-transition-delay: 0;
-	/* Opera */
-	-o-transition-property: opacity;
-	-o-transition-duration: .25s;
-	-o-transition-delay: 0;
-	/* Standard */
-	transition-property: opacity;
-	transition-duration: .25s;
-	transition-delay: 0;
-}
-.scrollToTop:hover{
-	text-decoration:none;
-	opacity: 1;
-}
 
-
-/*
-input[type="checkbox"] {
-    display:none;
+/* Used for PRO upgrade icons */
+.jwl_pro_span {
+	background:#E8E6FB; 
+	padding:2px 5px 2px 5px;
+	border-radius: 5px; 
+	font-weight: bold; 
+	font-size: 12px; 
+	border: 1px solid #000000;
 }
-
-input[type="checkbox"] + label p {
-    display:inline-block;
-    width:19px;
-    height:19px;
-    margin:-1px 4px 0 0;
-    vertical-align:middle;
-    background:url('../img/check_radio_sheet.png') left top no-repeat;
-    cursor:pointer;
-}
-input[type="checkbox"]:checked + label span {
-    background:url('../img/check_radio_sheet.png') -19px top no-repeat;
-}
-*/

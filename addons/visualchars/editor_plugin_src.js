@@ -19,7 +19,7 @@
 			ed.addCommand('mceVisualChars', t._toggleVisualChars, t);
 
 			// Register buttons
-			ed.addButton('visualchars', {title : 'visualchars.desc', cmd : 'mceVisualChars'});
+			ed.addButton('visualchars', {title : ed.getLang('visualchars.desc'), cmd : 'mceVisualChars'});
 
 			ed.onBeforeGetContent.add(function(ed, o) {
 				if (t.state && o.format != 'raw' && !o.draft) {

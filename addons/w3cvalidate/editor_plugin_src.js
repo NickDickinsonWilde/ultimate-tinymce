@@ -34,7 +34,7 @@
 
 			// Register example button
 			ed.addButton('w3cvalidate', {
-				title : 'w3cvalidate.desc',
+				title : ed.getLang('w3cvalidate.desc'),
 				cmd : 'w3cvalidate',
 				image : url + '/img/xhtml.gif'
 			});

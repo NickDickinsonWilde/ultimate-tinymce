@@ -8,7 +8,7 @@
  */
 
 (function () {
-    tinymce.PluginManager.requireLangPack('codemagic');
+    //tinymce.PluginManager.requireLangPack('codemagic');
 	tinymce.create('tinymce.plugins.CodeMagic', {
 
 		init: function (ed, url) {
@@ -17,7 +17,7 @@
 			ed.addCommand('mceCodeMagic', function() {
                 ed.windowManager.open({
                     file : url + '/codemagic.htm',
-                    width : 1200,
+                    width : 900,
                     height : 600,
                     inline : 1,
                     maximizable: true
@@ -28,7 +28,7 @@
 
 			// Register buttons
 			ed.addButton('codemagic', {
-				title: 'codemagic.editor_button', 
+				title: ed.getLang('codemagic.editor_button'), 
                 cmd: 'mceCodeMagic', 
                 image: url + '/img/code.png'
 			});

@@ -36,7 +36,7 @@
 			});
 
 			// Register buttons
-			ed.addButton('styleprops', {title : 'style.desc', cmd : 'mceStyleProps'});
+			ed.addButton('styleprops', {title : ed.getLang('style.desc'), cmd : 'mceStyleProps'});
 		},
 
 		getInfo : function() {

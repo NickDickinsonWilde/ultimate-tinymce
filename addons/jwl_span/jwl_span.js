@@ -8,7 +8,7 @@
  */
 (function(){
 
-    tinymce.PluginManager.requireLangPack('jwlspan');
+    //tinymce.PluginManager.requireLangPack('jwlspan');
     
     tinymce.create('tinymce.plugins.jwlspan', {
     
@@ -18,7 +18,7 @@
                 tinyMCE.activeEditor.selection.setContent('<span>' + jwl_sel_content + '</span>');
             });
             ed.addButton('jwlSpan', {
-                title: 'jwlspan.php',
+                title: ed.getLang('jwlspan.title'),
                 image: url + '/span.png',
                 cmd: 'jwlSpanButton'
             });

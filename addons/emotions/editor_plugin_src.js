@@ -24,7 +24,7 @@
 			});
 
 			// Register buttons
-			ed.addButton('emotions', {title : 'emotions.emotions_desc', cmd : 'mceEmotion'});
+			ed.addButton('emotions', {title : ed.getLang('emotions.emotions_desc'), cmd : 'mceEmotion'});
 		},
 
 		getInfo : function() {

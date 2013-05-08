@@ -19,7 +19,7 @@
                 tinyMCE.activeEditor.selection.setContent('<br class="none" />');
             });
             ed.addButton('linebreak', {
-                title: 'linebreak.php',
+                title: ed.getLang('linebreak.title'),
                 image: url + '/linebreak.png',
                 cmd: 'jwlLineBreakButton'
             });

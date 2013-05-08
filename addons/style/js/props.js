@@ -1,4 +1,4 @@
-tinyMCEPopup.requireLangPack();
+//tinyMCEPopup.requireLangPack();
 
 var defaultFonts = "" + 
 	"Arial, Helvetica, sans-serif=Arial, Helvetica, sans-serif;" + 

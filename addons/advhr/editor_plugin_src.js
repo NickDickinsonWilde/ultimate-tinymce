@@ -25,7 +25,8 @@
 
 			// Register buttons
 			ed.addButton('advhr', {
-				title : 'advhr.advhr_desc',
+				/*title : 'advhr.advhr_desc',*/
+				title : ed.getLang('advhr.desc'),
 				cmd : 'mceAdvancedHr'
 			});
 

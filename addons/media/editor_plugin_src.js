@@ -194,7 +194,7 @@
 			});
 
 			// Register buttons
-			ed.addButton('media', {title : 'media.desc', cmd : 'mceMedia'});
+			ed.addButton('media', {title : ed.getLang('media.desc'), cmd : 'mceMedia'});
 
 			// Update media selection status
 			ed.onNodeChange.add(function(ed, cm, node) {

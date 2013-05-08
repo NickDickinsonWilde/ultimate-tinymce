@@ -7,7 +7,7 @@
 
 (function() {
 	// Load plugin specific language pack
-	tinymce.PluginManager.requireLangPack('acheck');
+	//tinymce.PluginManager.requireLangPack('acheck');
 
 	tinymce.create('tinymce.plugins.AcheckPlugin', {
 		/**
@@ -36,7 +36,8 @@
 
 			// Register ACheck button
 			ed.addButton('acheck', {
-				title : 'acheck.desc',
+				//title : 'acheck.desc',
+				title : ed.getLang('acheck.desc'),
 				cmd : 'mceACheck',
 				image : url + '/img/acheck.gif'
 			});
