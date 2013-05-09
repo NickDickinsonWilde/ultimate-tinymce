@@ -80,7 +80,7 @@ Rather than "bloat" the plugin with screenshots. Please check out tons of screen
 = Updated Addons =
 * Updated the CodeMagic addon.  This fixes much of the white-space issues when moving content between the editor and the CodeMagic window.
 
-= Bug Fixes=
+= Bug Fixes =
 * Updated all addon language strings into the common Ultimate Tinymce language localization.  This means all the addon text strings can now be translated using the Ultimate Tinymce plugin .po and .mo language files.  Also, it prevents the similar looking "table.table_desc" being displayed instead of the actual text string.  My apologies to Translators... this has added approximately 800 new text strings to the plugin.  But, now it is done correctly ;)
 * Fixed YouTube bug where video options were not working properly (such as related videos, or play in hd).
 * Fixed save buttons not displaying properly in some browsers (removed center html tags; replaced with margins).
