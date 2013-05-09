@@ -141,14 +141,7 @@ class jwl_metabox_admin {
 		
 		//extend the admin menu
 		function jwl_on_admin_menu() {
-			//add our own option page, you can also add it to different sections or use your own one
-			$options = get_option('jwl_options_group9');
-			$options_editor = isset($options['jwl_editor_role']);
-			if ($options_editor == "1"){
-				$this->pagehook = add_menu_page('Ultimate TinyMCE Plugin Page',  __('Ultimate TinyMCE','jwl-ultimate-tinymce'), 'edit_pages', JWL_ADMIN_PAGE_NAME, array(&$this, 'jwl_options_page'), '', 100);
-			}else{
-				$this->pagehook = add_menu_page('Ultimate TinyMCE Plugin Page',  __('Ultimate TinyMCE','jwl-ultimate-tinymce'), 'manage_options', JWL_ADMIN_PAGE_NAME, array(&$this, 'jwl_options_page'), '', 100);
-			}
+			$this->pagehook = add_menu_page('Ultimate TinyMCE Plugin Page',  __('Ultimate TinyMCE','jwl-ultimate-tinymce'), 'manage_options', JWL_ADMIN_PAGE_NAME, array(&$this, 'jwl_options_page'));
 			
 			//register  callback gets call prior your own page gets rendered
 			
