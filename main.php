@@ -278,7 +278,7 @@ class jwl_metabox_admin {
         <form method="post" name="jwl_restart_tour">
         <input type="submit" class="button-primary" name="jwl_tour_submit" value="<?php _e('Restart Plugin Tour','jwl-ultimate-tinymce'); ?>" />
          <span style="margin-left:20px;">
-         <input type="button" class="button-primary" name="jwl_pro_demo" value="<?php _e('Visit PRO Demo','jwl-ultimate-tinymce'); ?>" onclick="window.open('http://utmce.joshlobe.com/dragdrop/')" />
+         <input type="button" class="button-primary" name="jwl_pro_demo" value="<?php _e('Visit PRO Demo','jwl-ultimate-tinymce'); ?>" onclick="window.open('http://utmce.joshlobe.com/demo/wp-login.php')" />
          </span>
         </form>
     <?php
