@@ -365,7 +365,7 @@ $strings = 'tinyMCE.addI18n({' . _WP_Editors::$mce_locale . ':{
 		search_title:  "' . esc_js( __(  "Find", 'jwl-ultimate-tinymce' ) ) . '",
 		replace_title:  "' . esc_js( __(  "Find/Replace", 'jwl-ultimate-tinymce' ) ) . '",
 		replaceall:  "' . esc_js( __(  "Replace All", 'jwl-ultimate-tinymce' ) ) . '",
-		replace:  "' . esc_js( __(  "Replace", 'jwl-ultimate-tinymce' ) ) . '",
+		replace:  "' . esc_js( __(  "Replace", 'jwl-ultimate-tinymce' ) ) . '"
 	},
 	
 	shortcodes:{
@@ -1119,7 +1119,7 @@ $strings = 'tinyMCE.addI18n({' . _WP_Editors::$mce_locale . ':{
 	
 	youtube:{
 		desc : "' . esc_js( __(  'Insert YouTube video', 'jwl-ultimate-tinymce' ) ) . '",
-		desc_iframe : "' . esc_js( __(  'Insert YouTube video (iFrame)', 'jwl-ultimate-tinymce' ) ) . '",
+		desc_iframe : "' . esc_js( __(  'Insert YouTube video (iFrame)', 'jwl-ultimate-tinymce' ) ) . '"
 	},
 	youtube_dlg:{
 		title : "' . esc_js( __(  "Insert a YouTube Video", 'jwl-ultimate-tinymce' ) ) . '",

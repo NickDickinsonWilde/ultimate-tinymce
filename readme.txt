@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.5.1
 Tested up to: 3.6
-Stable tag: 4.6
+Stable tag: 4.7
 License: GPLv2
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
@@ -63,6 +63,13 @@ Rather than "bloat" the plugin with screenshots. Please check out tons of screen
 
 == Changelog ==
 
+= 4.7 =
+* 05-23-2013
+
+= Bug Fixes =
+* Fixed menu page "knocking out" other pages.
+* Fixed two erroneous commas in "mce_langs.php" file which was causing errors in IE.
+
 = 4.6 =
 * 05-08-2013
 
@@ -80,7 +87,7 @@ Rather than "bloat" the plugin with screenshots. Please check out tons of screen
 = Updated Addons =
 * Updated the CodeMagic addon.  This fixes much of the white-space issues when moving content between the editor and the CodeMagic window.
 
-= Bug Fixes =
+= Bug Fixes=
 * Updated all addon language strings into the common Ultimate Tinymce language localization.  This means all the addon text strings can now be translated using the Ultimate Tinymce plugin .po and .mo language files.  Also, it prevents the similar looking "table.table_desc" being displayed instead of the actual text string.  My apologies to Translators... this has added approximately 800 new text strings to the plugin.  But, now it is done correctly ;)
 * Fixed YouTube bug where video options were not working properly (such as related videos, or play in hd).
 * Fixed save buttons not displaying properly in some browsers (removed center html tags; replaced with margins).

@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 4.6
+ * @version 4.7
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 4.6
+Version: 4.7
 Author URI: http://joshlobe.com
 
 */
@@ -141,7 +141,8 @@ class jwl_metabox_admin {
 		
 		//extend the admin menu
 		function jwl_on_admin_menu() {
-				$this->pagehook = add_menu_page('Ultimate TinyMCE Plugin Page',  __('Ultimate TinyMCE','jwl-ultimate-tinymce'), 'manage_options', JWL_ADMIN_PAGE_NAME, array(&$this, 'jwl_options_page'));
+			//add our own option page, you can also add it to different sections or use your own one
+			$this->pagehook = add_menu_page('Ultimate TinyMCE Plugin Page',  __('Ultimate TinyMCE','jwl-ultimate-tinymce'), 'manage_options', JWL_ADMIN_PAGE_NAME, array(&$this, 'jwl_options_page'));
 			
 			//register  callback gets call prior your own page gets rendered
 			

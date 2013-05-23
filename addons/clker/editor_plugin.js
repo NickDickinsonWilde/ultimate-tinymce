@@ -34,7 +34,7 @@
 
 	// Register clker button
 	ed.addButton('clker', {
-	  /*title : 'Clker ClipArt Gallery',*/
+	  /*title : 'Clker ClipArt Gallery',*/
 	  title: ed.getLang('clker.gallery'),
 	      cmd : 'mceclker',
 	      image : url + '/img/clker.gif'

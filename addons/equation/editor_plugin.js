@@ -39,7 +39,7 @@ var popupEqnwin = null;
 						try
 						{
 							popupEqnwin.EqEditor.load(latex);
-						}
+						}
 						catch(err)
 						{
 							alert(err.message);

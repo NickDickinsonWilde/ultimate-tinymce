@@ -264,7 +264,7 @@
 			return img;
 		},
 
-		/**
+		/**
 		 * Converts the JSON data object to a HTML string.
 		 */
 		dataToHtml : function(data, force_absolute) {

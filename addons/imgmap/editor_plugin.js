@@ -101,7 +101,7 @@ var TinyMCE_imgmapPlugin = {
 		}
 		return false;
 	},
-
+
 	handleNodeChange : function(editor_id, node, undo_index, undo_levels, visual_aid, any_selection) {
 
 		if (node == null)
