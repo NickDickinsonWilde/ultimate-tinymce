@@ -48,7 +48,7 @@ However, our development efforts will be focused on the PRO version.  All new fe
 
 = Support Forum =
 
-Please use my <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">SUPPORT FORUM</a> for expedited help.
+Please use our <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">SUPPORT FORUM</a> for expedited help.
 
 == Screenshots ==
 
