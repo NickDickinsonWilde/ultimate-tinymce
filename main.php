@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 4.8
+ * @version 4.8.1
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 4.8
+Version: 4.8.1
 Author URI: http://joshlobe.com
 
 */
@@ -717,8 +717,8 @@ if (!class_exists ('JWL_UtmcePointers')) {
 			return self::$instance;
 		}
 		
-		const DISPLAY_VERSION = 'v4.6';
-		const VERSION = '46';
+		const DISPLAY_VERSION = 'v4.8.1';
+		const VERSION = '481';
 		
 		function admin_enqueue_scripts () {
 			$dismissed = explode (',', get_user_meta (wp_get_current_user ()->ID, 'dismissed_wp_pointers', true));

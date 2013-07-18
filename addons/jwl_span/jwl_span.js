@@ -26,7 +26,7 @@
 			ed.onNodeChange.add(function(ed, cm, n) {
 				cm.setActive('jwlSpan', n.nodeName == 'SPAN');
 			});
-            ed.addShortcut('alt+ctrl+x', ed.getLang('jwlspan.php'), 'jwlSpanButton');			
+            //ed.addShortcut('alt+ctrl+x', ed.getLang('jwlspan.php'), 'jwlSpanButton');			
         },
         createControl : function(n, cm){
             return null;
