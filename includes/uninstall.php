@@ -24,9 +24,8 @@ function ultimate_tinymce_uninstall() {
 
 function jwl_ultimate_tinymce_form_uninstall() {
 	?>
-    <span class="content_wrapper_title"><?php _e('Uninstall Ultimate Tinymce','jwl-ultimate-tinymce'); ?></span>
-    <form method="post">
-	<input id="plugin" name="plugin" type="hidden" value="ultimate-tinymce/main.php" /> <?php  // The value must match the folder/file of the plugin.
+    <span class="content_wrapper_title"><?php _e('Uninstall Ultimate Tinymce','jwl-ultimate-tinymce'); ?></span><br /><br />
+    <?php
     if ( isset( $_POST['uninstall'] ) && ! isset( $_POST['uninstall_confirm'] ) ) { 
 	?><div id="message" class="error">
   			<p>
@@ -35,12 +34,20 @@ function jwl_ultimate_tinymce_form_uninstall() {
 		</div>
  	  <?php
     }
-	_e('<ul class="help_tab_list_image"><li>The options for this plugin are not removed upon deactivation to ensure that no data is lost unintentionally.</li><li>If you wish to remove all plugin information from your database be sure to run this uninstall utility first.</li><li>This is a great way to "reset" the plugin, in case you experience problems with the editor.</li><li>This option is NOT reversible. Ultimate Tinymce plugin settings will need to be re-configured if deleted.</li></ul>','jwl-ultimate-tinymce'); ?>
-    <center><br /><br />
-	<input name="uninstall_confirm" id="uninstall_confirm" type="checkbox" value="1" /><label for="uninstall_confirm"><p></p></label> <strong><?php _e('Please confirm before proceeding<br /><br />','jwl-ultimate-tinymce'); ?></strong>
-	<input class="button-primary" name="uninstall" type="submit" value="<?php _e('Uninstall','jwl-ultimate-tinymce'); ?>" />
-	</form>
-    </center>
+	?>
+    <div style="width:100%;">
+        <div style="width:60%;float:left;display:block;">
+            <?php _e('The options for this plugin are not removed upon deactivation to ensure that no data is lost unintentionally. If you wish to remove all plugin information from your database be sure to run this uninstall utility first.<br /><br />This is a great way to "reset" the plugin, in case you experience problems with the editor. This option is NOT reversible. Ultimate Tinymce plugin settings will need to be re-configured if deleted.','jwl-ultimate-tinymce'); ?>
+        </div>
+        <div style="width:30%;float:left;display:block;margin-left:40px;">
+            <form method="post">
+            <input id="plugin" name="plugin" type="hidden" value="ultimate-tinymce/main.php" />
+            <input name="uninstall_confirm" id="uninstall_confirm" type="checkbox" value="1" /><label for="uninstall_confirm"></label> <strong><?php _e('Please confirm before proceeding<br /><br />','jwl-ultimate-tinymce'); ?></strong>
+            <input class="button-primary" name="uninstall" type="submit" value="<?php _e('Uninstall','jwl-ultimate-tinymce'); ?>" />
+            </form>
+        </div>
+    </div>
+    <div style="clear:both;"></div>
 <?php
 }
 /* End Uninstalling Database Values */

@@ -72,7 +72,7 @@ add_action( 'init', 'jwl_ultimate_tinymce' );
 // Set languages for all tinymce addons
 function jwl_add_mce_addon_langs( $arr )
 {
-    $arr[] = WP_CONTENT_DIR . '/plugins/ultimate-tinymce/includes/mce_langs.php';
+    $arr['UltimateTinyMCE'] = WP_CONTENT_DIR . '/plugins/ultimate-tinymce/includes/mce_langs.php';
     return $arr;
 }
 add_filter( 'mce_external_languages', 'jwl_add_mce_addon_langs', 10, 1 );
@@ -157,9 +157,9 @@ function register_options_misc_features() {
 	add_settings_section('jwl_setting_section3', '', 'jwl_setting_section_callback_function3', 'jwl_options_group3');
 	
 	// Register Settings for Miscellaneous Features
-	add_settings_field('jwl_tinycolor_css_field_id', __('Change the color of the Editor.','jwl-ultimate-tinymce'), 'jwl_tinycolor_css_callback_function', 'jwl_options_group3', 'jwl_setting_section3');
-	add_settings_field('jwl_postid_field_id', __('Add ID Column to page/post admin list.','jwl-ultimate-tinymce'), 'jwl_postid_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); 
-	add_settings_field('jwl_shortcode_field_id', __('Allow shortcode usage in widget text areas.','jwl-ultimate-tinymce'), 'jwl_shortcode_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); 
+	add_settings_field('jwl_tinycolor_css_field_id', __('Change the color of the Editor','jwl-ultimate-tinymce'), 'jwl_tinycolor_css_callback_function', 'jwl_options_group3', 'jwl_setting_section3');
+	add_settings_field('jwl_postid_field_id', __('Add ID Column to page/post admin list','jwl-ultimate-tinymce'), 'jwl_postid_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); 
+	add_settings_field('jwl_shortcode_field_id', __('Allow shortcode usage in widget text areas','jwl-ultimate-tinymce'), 'jwl_shortcode_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); 
 	add_settings_field('jwl_php_widget_field_id', __('Use PHP Text Widget','jwl-ultimate-tinymce'), 'jwl_php_widget_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); 
 	add_settings_field('jwl_linebreak_field_id', __('Enable Line Break Shortcode','jwl-ultimate-tinymce'), 'jwl_linebreak_callback_function', 'jwl_options_group3', 'jwl_setting_section3'); 
 	add_settings_field('jwl_columns_field_id', __('Enable Columns Shortcodes','jwl-ultimate-tinymce'), 'jwl_columns_callback_function', 'jwl_options_group3', 'jwl_setting_section3');
@@ -179,7 +179,8 @@ function register_options_admin() {
 	// Register Settings for Admin Options
 	add_settings_field('jwl_tinymce_add_stylesheet', __('Load editor-style.css file','jwl-ultimate-tinymce'), 'jwl_tinymce_add_stylesheet_callback_function', 'jwl_options_group4', 'jwl_setting_section4');  
 	add_settings_field('jwl_tinymce_add_widgets', __('Enable Ultimate Tinymce Widget Builder','jwl-ultimate-tinymce'), 'jwl_tinymce_add_widgets_callback_function', 'jwl_options_group4', 'jwl_setting_section4');  
-	add_settings_field('jwl_tinymce_add_context_menu', __('Enable Editor Context Menu','jwl-ultimate-tinymce'), 'jwl_tinymce_add_context_menu_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
+	add_settings_field('jwl_tinymce_add_context_menu', __('Enable Editor Context Menu','jwl-ultimate-tinymce'), 'jwl_tinymce_add_context_menu_callback_function', 'jwl_options_group4', 'jwl_setting_section4');  
+	add_settings_field('jwl_tinymce_custom_users', __('Enable Custom User Settings','jwl-ultimate-tinymce'), 'jwl_tinymce_custom_users_callback_function', 'jwl_options_group4', 'jwl_setting_section4');  
 	add_settings_field('jwl_tinymce_excerpt', __('Enable Ultimate Tinymce Excerpt (Posts)','jwl-ultimate-tinymce'), 'jwl_tinymce_excerpt_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
 	add_settings_field('jwl_tinymce_excerpt_page', __('Enable Ultimate Tinymce Excerpt (Pages)','jwl-ultimate-tinymce'), 'jwl_tinymce_excerpt_page_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 
 	add_settings_field('jwl_hide_html_tab', __('Disable content editor TEXT tab','jwl-ultimate-tinymce'), 'jwl_hide_html_tab_callback_function', 'jwl_options_group4', 'jwl_setting_section4'); 

@@ -982,10 +982,13 @@ function jwl_tinymce_add_stylesheet_callback_function() {
 	?><span style="margin-left:15px;"><em><?php _e('If availble in your theme, loads the editor-style.css file.','jwl-ultimate-tinymce'); ?></em><?php
 }
 function jwl_tinymce_add_widgets_callback_function() {
-	?><span class="jwl_pro_span"><?php _e('PRO','jwl-ultimate-tinymce'); ?></span><?php
+	?><a target="_blank" href="http://ultimatetinymcepro.com/"><span class="jwl_pro_span"><?php _e('PRO','jwl-ultimate-tinymce'); ?></span></a><span class="jwl_pro_text"><em><?php _e('Create custom widgets just like a custom post type.','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 function jwl_tinymce_add_context_menu_callback_function() {
-	 ?><span class="jwl_pro_span"><?php _e('PRO','jwl-ultimate-tinymce'); ?></span><?php
+	 ?><a target="_blank" href="http://ultimatetinymcepro.com/"><span class="jwl_pro_span"><?php _e('PRO','jwl-ultimate-tinymce'); ?></span></a><span class="jwl_pro_text"><em><?php _e('Enables an editor "right-click menu", negating the need for buttons in rows.','jwl-ultimate-tinymce'); ?></em></span><?php
+}
+function jwl_tinymce_custom_users_callback_function() {
+	 ?><a target="_blank" href="http://ultimatetinymcepro.com/"><span class="jwl_pro_span"><?php _e('PRO','jwl-ultimate-tinymce'); ?></span></a><span class="jwl_pro_text"><em><?php _e('Allows each user to store individual custom settings.','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 function jwl_tinymce_excerpt_callback_function() {
 	 $options = get_option('jwl_options_group4');
@@ -1053,7 +1056,7 @@ function jwl_qr_code_text_callback_function() {
 	if (isset($options['jwl_qr_code_text'])) {
 		echo '<input type="text" id="jwl_qr_code_text" class="color" name="jwl_options_group4[jwl_qr_code_text]" value="' . $options['jwl_qr_code_text'] . '" />';
 	} else {
-		echo '<input type="text" id="jwl_qr_code_text" class="color" name="jwl_options_group4[jwl_qr_code_text]" value="000000" />';
+		echo '<input type="text" id="jwl_qr_code_text" class="color" name="jwl_options_group4[jwl_qr_code_text]" value="#000000" />';
 	}
 	echo '</div';
 }
@@ -1062,7 +1065,11 @@ function jwl_qr_code_bg_callback_function() {
 	 $options = get_option('jwl_options_group4');
 	echo '<div class="jwl_hide">';
 	echo 'Choose QR Title Background Color:<br />';
-	echo '<input type="text" class="color" name="jwl_options_group4[jwl_qr_code_bg]" value="' . $options['jwl_qr_code_bg'] . '" />';
+	if( isset( $options['jwl_qr_code_bg'])) {
+		echo '<input type="text" class="color" name="jwl_options_group4[jwl_qr_code_bg]" value="' . $options['jwl_qr_code_bg'] . '" />';
+	} else {
+		echo '<input type="text" class="color" name="jwl_options_group4[jwl_qr_code_bg]" value="#FFFFFF" />';
+	}
 	echo '</div';
 }
 
@@ -1070,7 +1077,11 @@ function jwl_qr_code_bg_main_callback_function() {
 	 $options = get_option('jwl_options_group4');
 	echo '<div class="jwl_hide">';
 	echo 'Choose QR Main Background Color:<br />';
-	echo '<input type="text" class="color" name="jwl_options_group4[jwl_qr_code_bg_main]" value="' . $options['jwl_qr_code_bg_main'] . '" />';
+	if( isset( $options['jwl_qr_code_bg_main'] )) {
+		echo '<input type="text" class="color" name="jwl_options_group4[jwl_qr_code_bg_main]" value="' . $options['jwl_qr_code_bg_main'] . '" />';
+	} else {
+		echo '<input type="text" class="color" name="jwl_options_group4[jwl_qr_code_bg_main]" value="#FFFFFF" />';
+	}
 	echo '</div';
 }
 
@@ -1126,23 +1137,23 @@ function jwl_tinymce_fontsize_callback_function() {
 }
 
 function jwl_tinymce_font_callback_function() {
-	?><span class="jwl_pro_span"><?php _e('PRO','jwl-ultimate-tinymce'); ?></span><?php
+	?><a target="_blank" href="http://ultimatetinymcepro.com/"><span class="jwl_pro_span"><?php _e('PRO','jwl-ultimate-tinymce'); ?></span></a><?php
 }
 
 function jwl_tinymce_lineheight_callback_function() {
-	?><span class="jwl_pro_span"><?php _e('PRO','jwl-ultimate-tinymce'); ?></span><?php
+	?><a target="_blank" href="http://ultimatetinymcepro.com/"><span class="jwl_pro_span"><?php _e('PRO','jwl-ultimate-tinymce'); ?></span></a><?php
 }
 
 function jwl_tinymce_direction_callback_function() {
-	?><span class="jwl_pro_span"><?php _e('PRO','jwl-ultimate-tinymce'); ?></span><?php
+	?><a target="_blank" href="http://ultimatetinymcepro.com/"><span class="jwl_pro_span"><?php _e('PRO','jwl-ultimate-tinymce'); ?></span></a><?php
 }
 
 function jwl_tinymce_padding_callback_function() {
-	?><span class="jwl_pro_span"><?php _e('PRO','jwl-ultimate-tinymce'); ?></span><?php
+	?><a target="_blank" href="http://ultimatetinymcepro.com/"><span class="jwl_pro_span"><?php _e('PRO','jwl-ultimate-tinymce'); ?></span></a><?php
 }
 
 function jwl_tinymce_margin_callback_function() {
-	?><span class="jwl_pro_span"><?php _e('PRO','jwl-ultimate-tinymce'); ?></span><?php
+	?><a target="_blank" href="http://ultimatetinymcepro.com/"><span class="jwl_pro_span"><?php _e('PRO','jwl-ultimate-tinymce'); ?></span></a><?php
 }
 
 ?>

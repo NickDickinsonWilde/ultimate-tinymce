@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.5.1
 Tested up to: 3.6
-Stable tag: 4.7
+Stable tag: 4.8
 License: GPLv2
 
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
@@ -48,7 +48,7 @@ However, our development efforts will be focused on the PRO version.  All new fe
 
 = Support Forum =
 
-Please use our <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">SUPPORT FORUM</a> for expedited help.
+Please use my <a href="http://forum.joshlobe.com/member.php?action=register&referrer=1">SUPPORT FORUM</a> for expedited help.
 
 == Screenshots ==
 
@@ -62,6 +62,18 @@ Rather than "bloat" the plugin with screenshots. Please check out tons of screen
 * Simply too many features to list!!  Please visit the <a href="http://utmce.joshlobe.com">Ultimate Tinymce</a> website for a complete list.
 
 == Changelog ==
+
+= 4.8 =
+* 07-18-2013
+
+= Tweaks =
+* Modified CSS stylesheets to be more spec-oriented.
+* Modified styling used in the plugin settings page.
+
+= Bug Fixes =
+* Fixed bug in "codemagic" addon with text wrapping.
+* Fixed some styling issues.
+* Fixed "Load Defaults" not working for some options.
 
 = 4.7 =
 * 05-23-2013

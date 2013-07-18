@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 4.7
+ * @version 4.8
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 4.7
+Version: 4.8
 Author URI: http://joshlobe.com
 
 */
@@ -268,9 +268,9 @@ class jwl_metabox_admin {
 		?>
 		<span style="margin-top:10px;">
 			<img src="<?php echo plugins_url('img/settings.png', __FILE__ ) ?>" title="Ultimate Tinymce Settings Page" style="margin-top:10px;margin-bottom:-10px;"/>
-			<span style="margin-left:20px;color:#FAC46D;font-size:32px;font-family:'Unlock', cursive;"><?php _e('Ultimate Tinymce ','jwl-ultimate-tinymce'); ?>
+			<span style="margin-left:10px;color:#0E5EBA;font-size:22px;font-family:'Unlock', cursive;"><?php _e('Ultimate Tinymce ','jwl-ultimate-tinymce'); ?>
 			</span>
-			<span style="color:#5F95EF;font-size:22px;font-family:'Unlock', cursive;"><?php _e('Admin Settings Page','jwl-ultimate-tinymce'); ?>
+			<span style="color:#5F95EF;font-size:18px;font-family:'Unlock', cursive;"><?php _e('Admin Settings Page','jwl-ultimate-tinymce'); ?>
 			</span>
 		</span>
         
@@ -304,189 +304,57 @@ class jwl_metabox_admin {
     <div id="container"> 
      
         <ul class="menu">  
-            <li id="news" class="active" style="font-size:16px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/addon.png" style="margin-right:3px;" title="Addons" /><?php _e('Plugin Addons','jwl-ultimate-tinymce'); ?></li>
-            <li id="tutorials" style="font-size:16px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/donate2.png" style="margin-right:3px;" title="Donate" /><?php _e('Donations','jwl-ultimate-tinymce'); ?></li>  
-            <li id="spread" style="font-size:16px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/spread.png" style="margin-right:3px;" title="Spread the Word" /><?php _e('Spread the Word','jwl-ultimate-tinymce'); ?></li>
-            <li id="defaults" style="font-size:16px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/default.png" style="margin-right:3px;" title="Load Defaults" /><?php _e('Default Settings','jwl-ultimate-tinymce'); ?></li>
-            <li id="links" style="font-size:16px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/uninstall.png" style="margin-right:3px;" title="Uninstall" /><?php _e('Uninstall Plugin','jwl-ultimate-tinymce'); ?></li>  
+            <li id="news" class="active" style="font-size:14px;"><?php _e('Plugin Addons','jwl-ultimate-tinymce'); ?></li>
+            <li id="tutorials" style="font-size:14px;"><?php _e('Donations','jwl-ultimate-tinymce'); ?></li>  
+            <li id="spread" style="font-size:14px;"><?php _e('Spread the Word','jwl-ultimate-tinymce'); ?></li>
+            <li id="defaults" style="font-size:14px;"><?php _e('Default Settings','jwl-ultimate-tinymce'); ?></li>
+            <li id="links" style="font-size:14px;"><?php _e('Uninstall Plugin','jwl-ultimate-tinymce'); ?></li>  
         </ul>  
         <span class="clear"></span> 
          
         <div class="content news"> 
-        
             <div class="main_help_wrapper">
-            	<span class="content_title"><?php _e('Plugin Addons:','jwl-ultimate-tinymce'); ?>
-                </span><br /><br />
-                
                 <span style="margin-left:10px;">
-					<?php _e('These addons provide additional features for Ultimate TinyMCE.  Click the title to view the download page.','jwl-ultimate-tinymce'); ?>
+					<?php _e('These addons provide additional features for Ultimate TinyMCE.  Click a button to view more details.','jwl-ultimate-tinymce'); ?>
                 </span><br />
                 
-                
-                
-                <div id="clickme2" class="content_wrapper_addons">
-					<?php _e('<a target="_blank" title="Easily Integrate Google Webfonts into your Website." href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/"><span style="font-family:\'Unlock\', cursive;">Google Webfonts</span></a>','jwl-ultimate-tinymce'); ?> 
-                    <span class="span_hover"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?>
-                    </span>
-                    
-                    <div id="me2" style="display:none;margin-top:10px;"><?php
-                    if (is_plugin_active('ultimate_tinymce_google_webfonts_addon/main.php')) {
-                    _e('<span style="color:green;">Activated</span>','jwl-ultimate-tinymce');
-                    ?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" class="activation_icons" title="This addon has been installed and activated successfully." /> <?php
-                    } else {
-                    _e('<span style="color:red;">Not Activated</span>','jwl-ultimate-tinymce');
-                    ?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" class="activation_icons" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Choose any combination of Google Webfonts, and add them to the font dropdown selector.<br /><br />Fonts are rendered on both the editor screen, and to all front-end viewers.','jwl-ultimate-tinymce'); ?> <br /><br /><center><img style="border:1px solid #666" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/admin_webfonts.png" title="Ultimate Tinymce Google Webfonts" /></center></span> <?php
-                    } 
-					?>
-                    </div> <!-- End Div #me2 -->
-                </div> <!-- End Div #clickme2 -->
-                
-                
-                
-                <div id="clickme3" class="content_wrapper_addons">
-					<?php _e('<a target="_blank" title="Easily add custom styles to your content." href="http://www.plugins.joshlobe.com/ultimate-tinymce-custom-styles/"><span style="font-family:\'Unlock\', cursive;">Custom Styles</span></a>','jwl-ultimate-tinymce'); ?> 
-                    <span class="span_hover"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?>
-                    </span>
-                    
-                    <div id="me3" style="display:none;margin-top:10px;"><?php
-                    if (is_plugin_active('ultimate_tinymce_custom_styles_addon/main.php')) {
-                    _e('<span style="color:green;">Activated</span>','jwl-ultimate-tinymce');
-                    ?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" class="activation_icons" title="This addon has been installed and activated successfully." /> <?php
-                    } else {
-                    _e('<span style="color:red;">Not Activated</span>','jwl-ultimate-tinymce');
-                    ?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" class="activation_icons" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Define unlimited custom styles, and add them to the styleselect dropdown list.<br /><br />Styles are rendered in both the editor screen and the front end of the website.','jwl-ultimate-tinymce'); ?> <br /><br /><center><img style="border:1px solid #666" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/admin_styles.png" title="Ultimate Tinymce Custom Styles" /></center></span> <?php
-                    }
-                    ?>    
-                	</div> <!-- End Div #me3 -->
-                </div> <!-- End Div #clickme3 -->
-                
-                
-                
-                <div id="clickme4" class="content_wrapper_addons">
-				<?php _e('<a target="_blank" title="Add a list of over 80 predefined styles to your editor." href="http://www.plugins.joshlobe.com/predefined-custom-styles/"><span style="font-family:\'Unlock\', cursive;">Pre-Defined Styles</span></a>','jwl-ultimate-tinymce'); ?> 
-                <span class="span_hover"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?>
-                </span>
-                
-                    <div id="me4" style="display:none;margin-top:10px;"><?php
-                    if (is_plugin_active('ultimate_tinymce_predefined_styles/main.php')) {
-                    _e('<span style="color:green;">Activated</span>','jwl-ultimate-tinymce');
-                    ?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" class="activation_icons" title="This addon has been installed and activated successfully." /> <?php
-                    } else {
-                    _e('<span style="color:red;">Not Activated</span>','jwl-ultimate-tinymce');
-                    ?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" class="activation_icons" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('A collection of my custom styles.  No need to create your own.<br /><br />Install this plugin and have instant access to over 80 custom styles (and growing).','jwl-ultimate-tinymce'); ?> </span> <?php
-                    }
-                    ?>    
-                    </div> <!-- End Div #me4 -->
-                </div> <!-- End Div #clickme4 -->
-                
-                
-                
-                <div id="clickme5" class="content_wrapper_addons">
-				<?php _e('<a target="_blank" title="Apply six unique color settings to your admin panel." href="http://www.plugins.joshlobe.com/wp-admin-colors/"><span style="font-family:\'Unlock\', cursive;">WP Admin Colors</span></a>','jwl-ultimate-tinymce'); ?> 
-                <span class="span_hover"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?>
-                </span>
-                
-                    <div id="me5" style="display:none;margin-top:10px;"><?php
-                    if (is_plugin_active('wp-admin-colors/main.php')) {
-                    _e('<span style="color:green;">Activated</span>','jwl-ultimate-tinymce');
-                    ?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" class="activation_icons" title="This addon has been installed and activated successfully." /> <?php
-                    } else {
-                    _e('<span style="color:red;">Not Activated</span>','jwl-ultimate-tinymce');
-                    ?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" class="activation_icons" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Here is a compliment to the color selection for the tinymce editor. This addon will provide a choice of six unique stylesheets to apply to the entire admin panel dashboard.','jwl-ultimate-tinymce'); ?> </span> <?php
-                    }
-                    ?>    
-                    </div> <!-- End Div #me5 -->
-                </div> <!-- End Div #clickme5 -->
-                
-                
-                
-                <br />
-                <div style="clear:both"></div>
-                <br />
-                
-                
-                <div id="clickme" class="content_wrapper_addons" style="margin-top:-10px;">
-				<?php _e('<a target="_blank" title="Take powerful control over the visual tinymce editor." href="http://www.plugins.joshlobe.com/ultimate-tinymce-advanced-configuration/"><span style="font-family:\'Unlock\', cursive;">Advanced Configuration</span></a>','jwl-ultimate-tinymce'); ?> 
-                <span class="span_hover"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?>
-                </span>
-                
-                    <div id="me" style="display:none;margin-top:10px;"><?php
-                    if (is_plugin_active('ultimate-tinymce-advanced-configuration/main.php')) {
-                    _e('<span style="color:green;">Activated</span>','jwl-ultimate-tinymce');
-                    ?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" class="activation_icons" title="This addon has been installed and activated successfully." /> <?php
-                    } else {
-                    _e('<span style="color:red;">Not Activated</span>','jwl-ultimate-tinymce');
-                    ?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" class="activation_icons" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Take advanced control over your visual tinymce editor.  Control settings such as button placement, font sizes, date and time formats, and more.','jwl-ultimate-tinymce'); ?> </span> <?php
-                    }
-                    ?>    
-                    </div> <!-- End Div #me -->
-                </div> <!-- End Div #clickme -->
-                
-                
-                
-                
-                <div id="clickme6" class="content_wrapper_addons" style="margin-top:-10px;">
-				<?php _e('<a target="_blank" title="Take powerful control over the visual tinymce editor." href="http://www.plugins.joshlobe.com/ultimate-tinymce-classes-and-ids/"><span style="font-family:\'Unlock\', cursive;">Classes and IDs</span></a>','jwl-ultimate-tinymce'); ?> 
-                <span class="span_hover"><?php _e('(Toggle)','jwl-ultimate-tinymce'); ?>
-                </span>
-                
-                    <div id="me6" style="display:none;margin-top:10px;"><?php
-                    if (is_plugin_active('ultimate-tinymce-classes-ids/main.php')) {
-                    _e('<span style="color:green;">Activated</span>','jwl-ultimate-tinymce');
-                    ?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/check.png" class="activation_icons" title="This addon has been installed and activated successfully." /> <?php
-                    } else {
-                    _e('<span style="color:red;">Not Activated</span>','jwl-ultimate-tinymce');
-                    ?> <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/warning.png" class="activation_icons" title="This addon has NOT been activated." /><br /><br /><span class="plugin_addons"> <?php _e('Ultimate Tinymce Classes and IDs is a plugin for WordPress TinyMCE which enables the usage of CSS classes and CSS ids on any HTML element within TinyMCE.','jwl-ultimate-tinymce'); ?><br /><br /><?php _e('Together with an external CSS file, Ultimate Tinymce Classes and IDs bridges the (visual) gap between the content entered through TinyMCE and the actual output.','jwl-ultimate-tinymce'); ?> </span> <?php
-                    }
-                    ?>    
-                    </div> <!-- End Div #me6 -->
-                </div> <!-- End Div #clickme6 -->
+                <a target="_blank" href="http://www.plugins.joshlobe.com/ultimate-tinymce-google-webfonts/"><span class="jwl_addon_button"><?php _e('Google Webfonts','jwl-ultimate-tinymce'); ?></span></a>
+                <a target="_blank" href="http://www.plugins.joshlobe.com/ultimate-tinymce-classes-and-ids/"><span class="jwl_addon_button"><?php _e('Classes & ID\'s','jwl-ultimate-tinymce'); ?></span></a>
+                <a target="_blank" href="http://www.plugins.joshlobe.com/ultimate-tinymce-advanced-configuration/"><span class="jwl_addon_button"><?php _e('Advanced Configuration','jwl-ultimate-tinymce'); ?></span></a>
+                <a target="_blank" href="http://www.plugins.joshlobe.com/ultimate-tinymce-custom-styles/"><span class="jwl_addon_button"><?php _e('Custom Styles','jwl-ultimate-tinymce'); ?></span></a>
+                <a target="_blank" href="http://www.plugins.joshlobe.com/predefined-custom-styles/"><span class="jwl_addon_button"><?php _e('Pre-Defined Styles','jwl-ultimate-tinymce'); ?></span></a>
+                <a target="_blank" href="http://www.plugins.joshlobe.com/wp-admin-colors/"><span class="jwl_addon_button"><?php _e('Admin Colors','jwl-ultimate-tinymce'); ?></span></a>
                 
                 <div style="clear:both"></div>
-                    
              </div> <!-- End Div .main_help_wrapper -->
         </div> <!-- End Div .content news -->
         
         
         
         <div class="content tutorials">
-        
         	<div class="main_help_wrapper">
-            <span class="content_title">
-			<?php _e('Donations:','jwl-ultimate-tinymce'); ?></span><br /><br />
-            
             	<div class="content_wrapper_tips">
-                <span class="content_wrapper_title">
-					<?php _e('Support the Developer','jwl-ultimate-tinymce'); ?>
-                </span><br />
-				<?php _e('Developing this awesome plugin took a lot of effort and time; months and months of continuous voluntary unpaid work.','jwl-ultimate-tinymce'); ?>
-                <br /><br />
-                <center>
-                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-                     <input type="hidden" name="cmd" value="_s-xclick">
-                     <input type="hidden" name="hosted_button_id" value="A9E5VNRBMVBCS">
-                     <input type="image" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/donate.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                     <img alt="PayPal - The safer, easier way to pay online!" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                     </form>
-                </center><br />
-                
-                <?php _e('If you like this plugin or if you are using it for commercial websites, please consider a donation to the author to help support future updates and development.','jwl-ultimate-tinymce'); ?>
-                
+                    <span class="content_wrapper_title"><?php _e('Support the Developer','jwl-ultimate-tinymce'); ?></span>
+                    <br /><br />
+                    <?php _e('Developing this awesome plugin took a lot of effort and time; months and months of continuous voluntary unpaid work.','jwl-ultimate-tinymce'); ?>&nbsp;
+                    <?php _e('If you like this plugin or if you are using it for commercial websites, please consider a donation to the author to help support future updates and development.','jwl-ultimate-tinymce'); ?>
             	</div> <!-- End Div .content_wrapper_tips -->
         
                 <div class="content_wrapper_tips">
-                <?php _e('<span class="content_wrapper_title">Main uses of Donations</span><ul class="help_tab_list_image"><li>Web Hosting Fees</li><li>Cable Internet Fees</li><li>Time/Value Reimbursement</li><li>Motivation for Continuous Improvements</li><li>Sunday Father-Daughter Day</li></ul>','jwl-ultimate-tinymce'); ?>
+					<?php _e('<span class="content_wrapper_title">Main uses of Donations</span>','jwl-ultimate-tinymce'); ?>
+                    <br /><br />
+                    <?php _e('Web Hosting Fees | Cable Internet Fees | Time/Value Reimbursement | Motivation for Continuous Improvements | Sunday Father-Daughter Day','jwl-ultimate-tinymce'); ?>
                 </div> <!-- End Div .content_wrapper_tips -->
                 
                 <div class="content_wrapper_tips">
-                <span class="content_wrapper_title"><?php _e('Donate Securely via Paypal','jwl-ultimate-tinymce'); ?></span><br />
-                	<center><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-                     <input type="hidden" name="cmd" value="_s-xclick">
-                     <input type="hidden" name="hosted_button_id" value="A9E5VNRBMVBCS">
-                     <input type="image" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/paypal.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="margin-top:30px;">
-                     <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                     </form>
-                     </center>
+                	<span class="content_wrapper_title"><?php _e('Donate Securely via Paypal','jwl-ultimate-tinymce'); ?></span>
+                	<br /><br />
+                	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="A9E5VNRBMVBCS">
+                    <input type="image" src="<?php echo plugin_dir_url( __FILE__ ) ?>img/donate.png" border="0" name="submit" alt="Thank you for your donation!">
+                    <img alt="Thank you for your donation!" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                    </form>
                 </div> <!-- End Div .content_wrapper_tips -->
         	</div> <!-- End Div .main_help_wrapper -->
         </div> <!-- End Div .content tutorials -->
@@ -494,56 +362,32 @@ class jwl_metabox_admin {
         
         
         <div class="content spread">
-        
         	<div class="main_help_wrapper">
-            <span class="content_title">
-			<?php _e('Spread the Word:','jwl-ultimate-tinymce'); ?></span><br /><br />
-            
             	<div class="content_wrapper_tips">
-                <span class="content_wrapper_title">
-                <?php _e('Blog about this Plugin','jwl-ultimate-tinymce'); ?>
-                </span><br />
-                
-                	<div class="blog_image">
-                    <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/blog.png" />
-                    </div> <!-- End Div .blog_image -->
-                    
-                    <div style="float:left;width:67%;">
-                <?php _e('<ul class="help_tab_list_image"><li>Do you like this plugin, and use it regularly on your site?</li><li>Why not write a brief article recommending it to your readers and other wordpress blogger buddies?</li><li>Include a link to the plugin download page to make it easy for your readers to access.</li></ul>','jwl-ultimate-tinymce'); ?>
-                	</div> <!-- End Div -->
+                    <span class="content_wrapper_title"><?php _e('Blog about this Plugin','jwl-ultimate-tinymce'); ?></span>
+                    <br /><br />
+                    <?php _e('Do you like this plugin, and use it regularly on your site? Why not write a brief article recommending it to your readers and other wordpress blogger buddies? Include a link to the plugin download page to make it easy for your readers to access.','jwl-ultimate-tinymce'); ?>
                 </div> <!-- End Div .content_wrapper_tips -->
                 
                 <div class="content_wrapper_tips">
-                <span class="content_wrapper_title">
-                <?php _e('Vote and Click Works','jwl-ultimate-tinymce'); ?>
-                </span><br />
-                	<div class="vote_image">
-                    <img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/works.png" />
-                    </div> <!-- End Div .vote_image -->
-                    <div style="float:left;width:60%;">
-                <?php _e('Please take a few moments to visit the plugin download page to vote and click "Works".  You must have an account on wordpress to rate and vote. Signing up is quick and easy.<br /><br />Also, each time a new plugin update is available, it resets the "Works" count.  So, please do this each time you update the plugin.<br /><br /><a target="_blank" href="http://wordpress.org/extend/plugins/ultimate-tinymce/">Ultimate Tinymce Wordpress Page</a>','jwl-ultimate-tinymce'); ?>
-                	</div> <!-- End Div -->
+                    <span class="content_wrapper_title"><?php _e('Vote and Click Works','jwl-ultimate-tinymce'); ?></span>
+                    <br /><br />
+                    <?php _e('Please take a few moments to visit the plugin download page to vote and click "Works".  You must have an account on wordpress to rate and vote. Signing up is quick and easy.<br /><a target="_blank" href="http://wordpress.org/extend/plugins/ultimate-tinymce/">Ultimate Tinymce Wordpress Page</a>','jwl-ultimate-tinymce'); ?>
                 </div> <!-- End Div .content_wrapper_tips -->
                 
                 <div class="content_wrapper_tips">
-                <span class="content_wrapper_title">
-                <?php _e('Twitter & Facebook','jwl-ultimate-tinymce'); ?>
-                </span><br />
-                	<div style="float:left;width:100%;margin-top:20px;">
-                    <center>
-                    <a target="_blank" href="https://twitter.com/"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/twitter.png" /></a><br />
-                    <a target="_blank" href="https://www.facebook.com/"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/facebook.png" /></a>
-                    </center>
-                    </div> <!-- End Div -->
+                <span class="content_wrapper_title"><?php _e('Twitter & Facebook','jwl-ultimate-tinymce'); ?></span>
+                <br /><br />
+                <?php _e('Social Networking is a great way to share the awesomeness of Ultimate Tinymce with your friends!','jwl-ultimate-tinymce'); ?>
                 </div> <!-- End Div .content_wrapper_tips -->
             </div> <!-- End Div .main_help_wrapper -->
         </div> <!-- End Div .content spread -->
         
         
         <div class="content defaults"> 
-        	<div class="main_help_wrapper"><span class="content_title"><?php _e('Load developers suggested settings.', 'jwl-ultimate-tinymce'); ?></span><br /><br />
+        	<div class="main_help_wrapper">
                 <div class="content_wrapper_tips" style="width:60%;">
-                <?php jwl_ultimate_tinymce_load_defaults(); ?>
+               	 <?php jwl_ultimate_tinymce_load_defaults(); ?>
                 </div> <!-- End Div .content_wrapper_tips -->
         	</div> <!-- End Div .main_help_wrapper -->
         </div> <!-- End Div .content defaults -->
@@ -552,12 +396,8 @@ class jwl_metabox_admin {
         
         <div class="content links"> 
         	<div class="main_help_wrapper">
-            <span class="content_title"><?php _e('Uninstall Plugin & Delete Database Entries:', 'jwl-ultimate-tinymce'); ?></span><br /><br />
-            	<div class="content_wrapper_tips">
-            	<?php jwl_ultimate_tinymce_form_uninstall(); ?>
-                </div> <!-- End Div .content_wrapper_tips -->
-                <div class="content_wrapper_tips" style="height:318px;">
-                <center><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/uninstall1.png" style="margin-top:120px;" /></center>
+            	<div class="content_wrapper_tips" style="width:60%;">
+            		<?php jwl_ultimate_tinymce_form_uninstall(); ?>
                 </div> <!-- End Div .content_wrapper_tips -->
             </div> <!-- End Div .main_help_wrapper -->
         </div> <!-- End Div .content links -->
@@ -661,10 +501,10 @@ class jwl_metabox_admin {
 			<div id="container2">
      
 				<ul class="menu2">  
-					<li id="buttons1_tab" class="active" style="font-size:16px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/addon.png" style="margin-right:3px;" title="Buttons 1" /><?php _e('Buttons Options','jwl-ultimate-tinymce'); ?></li>
-					<li id="misc_tab" style="font-size:16px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/spread.png" style="margin-right:3px;" title="Miscellaneous Features" /><?php _e('Misc Options','jwl-ultimate-tinymce'); ?></li> 
-					<li id="admin_tab" style="font-size:16px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/started.png" style="margin-right:3px;" title="Admin Options" /><?php _e('Admin Options','jwl-ultimate-tinymce'); ?></li>
-					<li id="editor_tab" style="font-size:16px;"><img src="<?php echo plugin_dir_url( __FILE__ ) ?>img/tips.png" style="margin-right:3px;" title="Editor Overrides" /><?php _e('Over-ride Options','jwl-ultimate-tinymce'); ?></li>
+					<li id="buttons1_tab" class="active" style="font-size:14px;"><?php _e('Buttons Options','jwl-ultimate-tinymce'); ?></li>
+					<li id="misc_tab" style="font-size:14px;"><?php _e('Misc Options','jwl-ultimate-tinymce'); ?></li> 
+					<li id="admin_tab" style="font-size:14px;"><?php _e('Admin Options','jwl-ultimate-tinymce'); ?></li>
+					<li id="editor_tab" style="font-size:14px;"><?php _e('Over-ride Options','jwl-ultimate-tinymce'); ?></li>
 				</ul>  
 				<span class="clear"></span>
                 
