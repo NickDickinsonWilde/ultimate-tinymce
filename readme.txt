@@ -7,7 +7,7 @@ Tested up to: 3.6
 Stable tag: 4.9.1
 License: GPLv2
 
-Description: Beef up your visual tinymce editor with a plethora of advanced options.
+Description: Beef up the WordPress TinyMCE content editor with a plethora of advanced options.
 
 == Description ==
 
