@@ -1036,6 +1036,16 @@ add_shortcode('signoff', 'jwl_sign_off_text');
 
 
 // Functions for Admin Options
+// Function to add dev support link to footer
+$options_dev_support = get_option('jwl_options_group4');
+$jwl_dev_support = isset($options_dev_support['jwl_dev_support']);
+if ($jwl_dev_support == "1") {
+	function your_function() {
+		echo '<p>This website content was created with the help of <a href="http://utmce.joshlobe.com/">Ultimate Tinymce!</a></p>';
+	}
+	add_action('get_footer', 'your_function');
+}
+	
 // Functions to load stylesheet from front-end of website into ultimate tinymce content editor.
 $options_style = get_option('jwl_options_group4');
 $jwl_style = isset($options_style['jwl_tinymce_add_stylesheet']);
@@ -1196,9 +1206,30 @@ if ($jwl_admin_links == '1') {
 		$path = get_option('siteurl');
 		// Links to add, in the form: 'Label' => 'URL'
 		$links = array( 'Settings Page' => '' );
-		$wp_admin_bar->add_menu( array( 'id' => 'utmce', 'title' => 'Ultimate Tinymce', 'href' => false, 'id' => 'jwl_links', 'href' => $path . '/wp-admin/admin.php?page=ultimate-tinymce' ));
+		$loc = get_option('jwl_options_group4');
+			$get_loc = $loc['jwl_menu_location'];
+			
+			switch ($get_loc)
+			 {
+			 case "Main":
+			 $act_loc = 'admin.php?page=ultimate-tinymce';
+			   break;
+			 case "Appearance":
+			 $act_loc = 'themes.php?page=ultimate-tinymce';
+			   break;
+			 case "Tools":
+			 $act_loc = 'tools.php?page=ultimate-tinymce';
+			   break;
+			 case "Settings":
+			 $act_loc = 'options-general.php?page=ultimate-tinymce';
+			   break;
+			 default:
+			 $act_loc = 'admin.php?page=ultimate-tinymce';
+			   break;
+			 } 
+		$wp_admin_bar->add_menu( array( 'id' => 'utmce', 'title' => 'Ultimate Tinymce', 'href' => false, 'id' => 'jwl_links', 'href' => $path . '/wp-admin/'.$act_loc ));
 		/** * Add the submenu links. */
-		foreach ($links as $label => $url) { $wp_admin_bar->add_menu( array( 'id' => 'utmce2', 'title' => $label, 'href' => $path . '/wp-admin/admin.php?page=ultimate-tinymce', 'parent' => 'jwl_links' )); }
+		foreach ($links as $label => $url) { $wp_admin_bar->add_menu( array( 'id' => 'utmce2', 'title' => $label, 'href' => $path . '/wp-admin/'.$act_loc, 'parent' => 'jwl_links' )); }
 	}
 }
 

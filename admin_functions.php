@@ -177,6 +177,8 @@ function register_options_admin() {
 	add_settings_section('jwl_setting_section4', '', 'jwl_setting_section_callback_function4', 'jwl_options_group4');
 	
 	// Register Settings for Admin Options
+	add_settings_field('jwl_dev_support', __('Support the Developer','jwl-ultimate-tinymce'), 'jwl_dev_support_callback_function', 'jwl_options_group4', 'jwl_setting_section4');  
+	add_settings_field('jwl_menu_location', __('Change the Ultimate Tinymce Menu Location','jwl-ultimate-tinymce'), 'jwl_menu_location_callback_function', 'jwl_options_group4', 'jwl_setting_section4');  
 	add_settings_field('jwl_tinymce_add_stylesheet', __('Load editor-style.css file','jwl-ultimate-tinymce'), 'jwl_tinymce_add_stylesheet_callback_function', 'jwl_options_group4', 'jwl_setting_section4');  
 	add_settings_field('jwl_tinymce_add_widgets', __('Enable Ultimate Tinymce Widget Builder','jwl-ultimate-tinymce'), 'jwl_tinymce_add_widgets_callback_function', 'jwl_options_group4', 'jwl_setting_section4');  
 	add_settings_field('jwl_tinymce_add_context_menu', __('Enable Editor Context Menu','jwl-ultimate-tinymce'), 'jwl_tinymce_add_context_menu_callback_function', 'jwl_options_group4', 'jwl_setting_section4');  

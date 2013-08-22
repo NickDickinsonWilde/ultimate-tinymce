@@ -2,19 +2,21 @@
 
  // These are our callback functions for each settings option GROUP described above.
  function jwl_setting_section_callback_function1() {
- 	_e('<p><strong>Get detailed help for each button from the <a target="_blank" href="http://utmce.joshlobe.com/button-definitions/">Ultimate Tinymce Website</a></strong>.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;<strong><u>Description</u></strong><span style="margin-left:200px;"><strong><u>Enable</u></strong></span><span style="margin-left:20px;"><strong><u>Image</u></strong></span><span style="margin-left:50px;"><strong><u>Row Selection</u></strong></span></p>','jwl-ultimate-tinymce');
+ 	_e('<p><strong>Get detailed help for each button from the <a target="_blank" href="http://utmce.joshlobe.com/button-definitions/">Ultimate Tinymce Website</a></strong>.</p><p><strong>Additional information for each option may be found on the <a target="_blank" href="http://docs.joshlobe.com/">Ultimate Tinymce WIKI</a></strong>.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;<strong><u>Description</u></strong><span style="margin-left:200px;"><strong><u>Enable</u></strong></span><span style="margin-left:20px;"><strong><u>Image</u></strong></span><span style="margin-left:50px;"><strong><u>Row Selection</u></strong></span></p>','jwl-ultimate-tinymce');
  }
  function jwl_setting_section_callback_function2() {
- 	_e('<p><strong>Get detailed help for each button from the <a target="_blank" href="http://utmce.joshlobe.com/button-definitions/">Ultimate Tinymce Website</a></strong>.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;<strong><u>Description</u></strong><span style="margin-left:200px;"><strong><u>Enable</u></strong></span><span style="margin-left:20px;"><strong><u>Image</u></strong></span><span style="margin-left:50px;"><strong><u>Row Selection</u></strong></span></p>','jwl-ultimate-tinymce');
+ 	_e('<p><strong>Get detailed help for each button from the <a target="_blank" href="http://utmce.joshlobe.com/button-definitions/">Ultimate Tinymce Website</a></strong>.</p><p><strong>Additional information for each option may be found on the <a target="_blank" href="http://docs.joshlobe.com/">Ultimate Tinymce WIKI</a></strong>.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;<strong><u>Description</u></strong><span style="margin-left:200px;"><strong><u>Enable</u></strong></span><span style="margin-left:20px;"><strong><u>Image</u></strong></span><span style="margin-left:50px;"><strong><u>Row Selection</u></strong></span></p>','jwl-ultimate-tinymce');
  }
  function jwl_setting_section_callback_function8() {
- 	_e('<p><strong>Get detailed help for each feature from the <a target="_blank" href="http://utmce.joshlobe.com/other-plugin-features/">Ultimate Tinymce Website</a></strong>.</p><p>Over-ride the settings for the content editor (tinymce).</p><p>Consider this a "last resort".  If nothing else works at making the content editor replicate the front end of the website... these settings will certainly do the trick.</p><br /><br />','jwl-ultimate-tinymce');
+ 	_e('<p><strong>Get detailed help for each feature from the <a target="_blank" href="http://utmce.joshlobe.com/other-plugin-features/">Ultimate Tinymce Website</a></strong>.</p><p><strong>Additional information for each option may be found on the <a target="_blank" href="http://docs.joshlobe.com/">Ultimate Tinymce WIKI</a></strong>.</p><p>Over-ride the settings for the content editor (tinymce).</p><p>Consider this a "last resort".  If nothing else works at making the content editor replicate the front end of the website... these settings will certainly do the trick.</p><br /><br />','jwl-ultimate-tinymce');
  }
  function jwl_setting_section_callback_function3() {
  	_e('<p><strong>Get detailed help for each feature from the <a target="_blank" href="http://utmce.joshlobe.com/other-plugin-features/">Ultimate Tinymce Website</a></strong>.</p>','jwl-ultimate-tinymce');
+	_e('<p><strong>Additional information for each option may be found on the <a target="_blank" href="http://docs.joshlobe.com/">Ultimate Tinymce WIKI</a></strong>.</p>','jwl-ultimate-tinymce');
  }
  function jwl_setting_section_callback_function4() {
  	_e('<p><strong>Get detailed help for each feature from the <a target="_blank" href="http://utmce.joshlobe.com/other-plugin-features/">Ultimate Tinymce Website</a></strong>.</p>','jwl-ultimate-tinymce');
+	_e('<p><strong>Additional information for each option may be found on the <a target="_blank" href="http://docs.joshlobe.com/">Ultimate Tinymce WIKI</a></strong>.</p>','jwl-ultimate-tinymce');
  }
  
  // Begin callback functions	 
@@ -976,6 +978,26 @@
  } 
  
 // Functions for Admin Panel Options
+function jwl_dev_support_callback_function() {
+	 $options = get_option('jwl_options_group4');
+	echo '<input name="jwl_options_group4[jwl_dev_support]" id="jwl_dev_support" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_dev_support']), false ) . ' /> '; ?><label for="jwl_dev_support"><span></span></label><?php
+	?><span style="margin-left:15px;" class="jwl_pro_text"><em><?php _e('Places an attractive link to my Pro version in footer of website.','jwl-ultimate-tinymce'); ?></em></span><?php
+}
+function jwl_menu_location_callback_function() {
+	$options = get_option('jwl_options_group4');
+    
+	if (isset($options['jwl_menu_location'])) {
+		$options_location = $options['jwl_menu_location'];
+	}
+	$items_location = array("Main", "Appearance", "Tools", "Settings");
+	echo "<select id='jwl_menu_location' style='width:100px;' name='jwl_options_group4[jwl_menu_location]'>";
+	foreach($items_location as $item_location) {
+		$selected_location = ($options_location == $item_location) ? 'selected="selected"' : '';
+		echo "<option value='$item_location' $selected_location>$item_location</option>";
+	}
+	echo "</select>";
+	?><span class="jwl_pro_text" style="margin-left:10px;"><em><?php _e('First save as "Main". Then choose Tools, Settings, or Appearance, and save again.', 'jwl-ultimate-tinymce'); ?></em></span><?php
+ }
 function jwl_tinymce_add_stylesheet_callback_function() {
 	 $options = get_option('jwl_options_group4');
 	echo '<input name="jwl_options_group4[jwl_tinymce_add_stylesheet]" id="jwl_tinymce_add_stylesheet" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_tinymce_add_stylesheet']), false ) . ' /> '; ?><label for="jwl_tinymce_add_stylesheet"><span></span></label><?php
@@ -1040,13 +1062,13 @@ function jwl_tinymce_kitchen_callback_function() {
 function jwl_qr_code_callback_function() {
 	 $options = get_option('jwl_options_group4');
 	echo '<input name="jwl_options_group4[jwl_qr_code]" id="jwl_qr_code" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_qr_code']), false ) . ' /> '; ?><label for="jwl_qr_code"><span></span></label><?php
-	?><span style="margin-left:15px;"><em><?php _e('Displays unique qr code at bottom of each post','jwl-ultimate-tinymce'); ?></em></span><?php
+	?><span style="margin-left:15px;"><em><?php _e('Displays unique qr code at bottom of each post.','jwl-ultimate-tinymce'); ?></em></span><span style="margin-left:10px;" class="jwl_pro_text"><em><?php _e('More options available in PRO','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 
 function jwl_qr_code_pages_callback_function() {
 	 $options = get_option('jwl_options_group4');
 	echo '<input name="jwl_options_group4[jwl_qr_code_pages]" id="jwl_qr_code_pages" type="checkbox" value="1" class="five" ' . checked( 1, isset($options['jwl_qr_code_pages']), false ) . ' /> '; ?><label for="jwl_qr_code_pages"><span></span></label><?php
-	?><span style="margin-left:15px;"><em><?php _e('Displays unique qr code at bottom of each page','jwl-ultimate-tinymce'); ?></em></span><?php
+	?><span style="margin-left:15px;"><em><?php _e('Displays unique qr code at bottom of each page.','jwl-ultimate-tinymce'); ?></em></span><span style="margin-left:10px;" class="jwl_pro_text"><em><?php _e('More options available in PRO','jwl-ultimate-tinymce'); ?></em></span><?php
 }
 
 function jwl_qr_code_text_callback_function() {
