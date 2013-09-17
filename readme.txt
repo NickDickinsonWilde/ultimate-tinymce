@@ -3,8 +3,8 @@ Contributors: josh401, Marventus
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9E5VNRBMVBCS
 Tags: tinymce, editor, buttons, button, add, cut, copy, paste, font, font style, font select, font color, table, tables, visual editor, emoticons, emotions, smilies, smiley, smily, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, moods, animated smilieswidget, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps
 Requires at least: 3.5.1
-Tested up to: 3.6
-Stable tag: 4.9.1
+Tested up to: 3.7
+Stable tag: 5.0
 License: GPLv2
 
 Description: Beef up the WordPress TinyMCE content editor with a plethora of advanced options.
@@ -34,6 +34,8 @@ We have decided to discontinue development of Ultimate Tinymce. We wil continue 
 
 However, our development efforts will be focused on the PRO version.  All new features will only be added to PRO.  Thank you for understanding.
 
+<a href="http://ultimatetinymcepro.com/">Ultimate Tinymce PRO</a>
+
 
 == Installation ==
 
@@ -62,6 +64,14 @@ Rather than "bloat" the plugin with screenshots. Please check out tons of screen
 * Simply too many features to list!!  Please visit the <a href="http://utmce.joshlobe.com">Ultimate Tinymce</a> website for a complete list.
 
 == Changelog ==
+
+= 5.0 =
+* 09-13-2013
+
+= Tweaks =
+* Updated external links.
+* Updated deprecated function.
+* Some code re-write for WP 3.7.
 
 = 4.9.1 =
 * 08-22-2013

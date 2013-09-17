@@ -1037,6 +1037,7 @@ add_shortcode('signoff', 'jwl_sign_off_text');
 
 // Functions for Admin Options
 // Function to add dev support link to footer
+
 $options_dev_support = get_option('jwl_options_group4');
 $jwl_dev_support = isset($options_dev_support['jwl_dev_support']);
 if ($jwl_dev_support == "1") {
@@ -1045,6 +1046,7 @@ if ($jwl_dev_support == "1") {
 	}
 	add_action('get_footer', 'your_function');
 }
+
 	
 // Functions to load stylesheet from front-end of website into ultimate tinymce content editor.
 $options_style = get_option('jwl_options_group4');
