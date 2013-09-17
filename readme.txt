@@ -161,4 +161,4 @@ Rather than "bloat" the plugin with screenshots. Please check out tons of screen
 
 = 4.4 =
 * 04-09-2013
-* Fixed mis-informed option.
+* Fixed misinformed option.
